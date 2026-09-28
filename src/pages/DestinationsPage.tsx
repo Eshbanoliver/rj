@@ -26,7 +26,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
       travelers: 1,
       tourType: 'all',
     });
-    onNavigate('tours');
+    onNavigate('trips');
   };
 
   return (

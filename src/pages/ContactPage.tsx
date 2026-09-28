@@ -110,26 +110,47 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
-                    Phone & Call Desk
+                    Mobile Numbers
                   </span>
                   <div className="mt-1 space-y-0.5 text-sm font-bold text-white">
                     <div>
                       <a
-                        href={`tel:${companyData.phones[0]}`}
+                        href="tel:8094268991"
                         className="hover:text-amber-400 transition-colors"
                       >
-                        {companyData.phones[0]}
+                        8094268991
                       </a>
                     </div>
                     <div>
                       <a
-                        href={`tel:${companyData.phones[1]}`}
+                        href="tel:8890437050"
                         className="hover:text-amber-400 transition-colors"
                       >
-                        {companyData.phones[1]}
+                        8890437050
                       </a>
                     </div>
                   </div>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                    Email Address
+                  </span>
+                  <a
+                    href="mailto:rjourney@gmail.com"
+                    className="text-sm font-bold text-amber-400 hover:underline block mt-1"
+                  >
+                    rjourney@gmail.com
+                  </a>
+                  <span className="text-xs text-slate-400 block mt-0.5">
+                    For itinerary inquiries & custom proposals
+                  </span>
                 </div>
               </div>
 

@@ -65,7 +65,7 @@ export function App() {
 
   const handleSearchSubmit = (query: SearchQuery) => {
     setSearchQuery(query);
-    handleNavigate('tours');
+    handleNavigate('trips');
   };
 
   return (
@@ -127,24 +127,13 @@ export function App() {
           />
         )}
 
-        {currentPage === 'tours' && (
+        {currentPage === 'trips' && (
           <ToursPage
             onNavigate={handleNavigate}
             onSelectTour={handleSelectTour}
             onOpenInquiry={handleOpenInquiry}
             initialQuery={searchQuery}
           />
-        )}
-
-        {currentPage === 'services' && (
-          <>
-            <ServicesSection
-              onNavigate={handleNavigate}
-              onOpenInquiry={handleOpenInquiry}
-              isStandalonePage={true}
-            />
-            <CustomTripCTA onOpenInquiry={handleOpenInquiry} />
-          </>
         )}
 
         {currentPage === 'gallery' && (

@@ -14,10 +14,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
     { label: 'Home', page: 'home' },
     { label: 'About Us', page: 'about' },
     { label: 'Destinations', page: 'destinations' },
-    { label: 'Tour Packages', page: 'tours' },
-    { label: 'Our Services', page: 'services' },
-    { label: 'Travel Gallery', page: 'gallery' },
-    { label: 'Contact Us', page: 'contact' },
+    { label: 'Gallery', page: 'gallery' },
+    { label: 'Upcoming Trips', page: 'trips' },
+    { label: 'Contact', page: 'contact' },
   ];
 
   const destinations = [
@@ -120,19 +119,28 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
                 <div className="space-x-1">
                   <a
-                    href={`tel:${companyData.phones[0]}`}
+                    href="tel:8094268991"
                     className="hover:text-amber-400 transition-colors"
                   >
-                    {companyData.phones[0]}
+                    8094268991
                   </a>
                   <span>/</span>
                   <a
-                    href={`tel:${companyData.phones[1]}`}
+                    href="tel:8890437050"
                     className="hover:text-amber-400 transition-colors"
                   >
-                    {companyData.phones[1]}
+                    8890437050
                   </a>
                 </div>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="text-amber-400 text-sm font-bold">@</span>
+                <a
+                  href={`mailto:${companyData.email}`}
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  {companyData.email}
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Clock className="w-4 h-4 text-amber-400 shrink-0" />

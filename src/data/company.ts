@@ -42,16 +42,16 @@ export const companyData: CompanyInfo = {
   phones: ["+91 80942 68991", "+91 88904 37050"],
   displayPhone: "+91 80942 68991",
   whatsapp: "918094268991",
-  email: "contact@rjourney.com",
+  email: "rjourney@gmail.com",
   address: {
     street: "25",
     colony: "MP Colony",
-    sector: "Sector 13",
+    sector: "Sector-13",
     city: "Udaipur",
     state: "Rajasthan",
     pincode: "313001",
     country: "India",
-    full: "25, MP Colony, Sector 13, Udaipur, Rajasthan 313001"
+    full: "25 MP colony, sector-13, udaipur, rajasthan"
   },
   instagram: "@rjourneysofficial",
   instagramUrl: "https://www.instagram.com/rjourneysofficial",

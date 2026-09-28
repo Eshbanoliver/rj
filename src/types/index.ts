@@ -2,9 +2,8 @@ export type PageType =
   | 'home' 
   | 'about' 
   | 'destinations' 
-  | 'tours' 
-  | 'services' 
   | 'gallery' 
+  | 'trips' 
   | 'contact' 
   | 'terms';
 

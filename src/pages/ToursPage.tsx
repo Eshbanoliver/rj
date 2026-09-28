@@ -85,10 +85,10 @@ export const ToursPage: React.FC<ToursPageProps> = ({
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-amber-400 uppercase mb-3 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-amber-500/30">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Brochure Tour Packages</span>
+            <span>Verified Departures & Batches</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-heading text-white tracking-tight">
-            Tour <span className="text-amber-400">Packages</span>
+            Upcoming <span className="text-amber-400">Trips</span>
           </h1>
           <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
             Weekly departures from Ahmedabad & Udaipur. Transparent fixed pricing, luxury stays, pool parties & Thar desert safaris.

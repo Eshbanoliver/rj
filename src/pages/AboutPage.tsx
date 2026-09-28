@@ -81,10 +81,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenInquiry 
 
             <div className="pt-4 flex items-center gap-4">
               <button
-                onClick={() => onNavigate('tours')}
+                onClick={() => onNavigate('trips')}
                 className="px-6 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-md shadow-amber-500/20 transition-all flex items-center gap-2"
               >
-                <span>View Current Batches</span>
+                <span>View Upcoming Trips & Batches</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

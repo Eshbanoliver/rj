@@ -27,11 +27,10 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navLinks: { label: string; page: PageType }[] = [
     { label: 'Home', page: 'home' },
-    { label: 'About', page: 'about' },
+    { label: 'About Us', page: 'about' },
     { label: 'Destinations', page: 'destinations' },
-    { label: 'Tour Packages', page: 'tours' },
-    { label: 'Services', page: 'services' },
     { label: 'Gallery', page: 'gallery' },
+    { label: 'Upcoming Trips', page: 'trips' },
     { label: 'Contact', page: 'contact' },
   ];
 
@@ -131,7 +130,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Action CTAs */}
           <div className="hidden sm:flex items-center gap-3">
             <button
-              onClick={() => handleLinkClick('tours')}
+              onClick={() => handleLinkClick('trips')}
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 border border-slate-700 hover:border-slate-500 hover:bg-slate-900 transition-colors"
             >
               <Calendar className="w-3.5 h-3.5 text-amber-400" />

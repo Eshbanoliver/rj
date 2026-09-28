@@ -24,7 +24,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
       travelers: Number(travelers),
       tourType: tourType,
     });
-    onNavigate('tours');
+    onNavigate('trips');
   };
 
   return (
@@ -91,10 +91,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
           {/* Call-to-action Buttons */}
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <button
-              onClick={() => onNavigate('tours')}
+              onClick={() => onNavigate('trips')}
               className="px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center gap-2"
             >
-              <span>Explore Tours</span>
+              <span>Explore Upcoming Trips</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 

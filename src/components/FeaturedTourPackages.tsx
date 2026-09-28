@@ -153,10 +153,10 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
         {/* View All Button */}
         <div className="mt-12 text-center">
           <button
-            onClick={() => onNavigate('tours')}
+            onClick={() => onNavigate('trips')}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-all hover:scale-105"
           >
-            <span>Explore All Itineraries & Schedules</span>
+            <span>View All Upcoming Trips & Batches</span>
             <ArrowRight className="w-4 h-4 text-amber-400" />
           </button>
         </div>
