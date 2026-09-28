@@ -108,17 +108,17 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
         </div>
       </div>
 
-      {/* Floating Travel Search / Quick Inquiry Filter Box */}
+      {/* Floating Travel Search / Quick Inquiry Filter Box (Light Theme) */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mb-12 sm:-mb-14 w-full">
-        <div className="bg-slate-900/95 backdrop-blur-xl border border-slate-700/80 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl shadow-black/60">
-          <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-slate-800 mb-4">
+        <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-2xl shadow-slate-900/10 text-slate-800">
+          <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-slate-100 mb-4">
             <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
-              <h2 className="text-sm sm:text-base font-bold text-white tracking-wide uppercase font-heading">
+              <div className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
+              <h2 className="text-sm sm:text-base font-bold text-slate-900 tracking-wide uppercase font-heading">
                 Find Your Journey
               </h2>
             </div>
-            <span className="text-xs text-amber-400 font-medium hidden sm:inline">
+            <span className="text-xs text-amber-600 font-semibold hidden sm:inline">
               Upcoming Batches: Sep & Oct Available
             </span>
           </div>
@@ -126,14 +126,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
           <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
             {/* Departure Hub */}
             <div className="space-y-1">
-              <label className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase flex items-center gap-1.5">
-                <Compass className="w-3.5 h-3.5 text-amber-400" />
+              <label className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase flex items-center gap-1.5">
+                <Compass className="w-3.5 h-3.5 text-amber-500" />
                 Departure From
               </label>
               <select
                 value={selectedDeparture}
                 onChange={(e) => setSelectedDeparture(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-amber-500 transition-colors"
               >
                 <option value="all">Any Departure Hub</option>
                 <option value="Ahmedabad">Ahmedabad (Thu/Fri)</option>
@@ -143,14 +143,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
 
             {/* Destination */}
             <div className="space-y-1">
-              <label className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-amber-400" />
+              <label className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-amber-500" />
                 Destination
               </label>
               <select
                 value={selectedDestination}
                 onChange={(e) => setSelectedDestination(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-amber-500 transition-colors"
               >
                 <option value="all">All Rajasthan Circuits</option>
                 <option value="Jaisalmer">Jodhpur & Jaisalmer</option>
@@ -160,14 +160,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
 
             {/* Travelers */}
             <div className="space-y-1">
-              <label className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase flex items-center gap-1.5">
-                <Users className="w-3.5 h-3.5 text-amber-400" />
+              <label className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase flex items-center gap-1.5">
+                <Users className="w-3.5 h-3.5 text-amber-500" />
                 Travelers
               </label>
               <select
                 value={travelers}
                 onChange={(e) => setTravelers(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-amber-500 transition-colors"
               >
                 <option value="1">1 Solo Explorer (Strangers Trip)</option>
                 <option value="2">2 Travelers (Duo / Couple)</option>
@@ -178,14 +178,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
 
             {/* Tour Type */}
             <div className="space-y-1">
-              <label className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-amber-400" />
+              <label className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-amber-500" />
                 Trip Style
               </label>
               <select
                 value={tourType}
                 onChange={(e) => setTourType(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-amber-500 transition-colors"
               >
                 <option value="all">All Trip Styles</option>
                 <option value="Strangers Trip">15 Strangers Social Trip</option>
@@ -200,9 +200,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
             <div className="flex items-end">
               <button
                 type="submit"
-                className="w-full py-2.5 px-4 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-md shadow-amber-500/25 active:scale-95 transition-all flex items-center justify-center gap-2 h-[42px]"
+                className="w-full py-2.5 px-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 shadow-md shadow-orange-500/20 active:scale-95 transition-all flex items-center justify-center gap-2 h-[42px]"
               >
-                <Search className="w-4 h-4 text-slate-950" />
+                <Search className="w-4 h-4 text-white" />
                 <span>Find Tours</span>
               </button>
             </div>

@@ -30,7 +30,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
   };
 
   return (
-    <div className="pt-24 pb-20 bg-slate-950 text-white min-h-screen">
+    <div className="pt-24 pb-20 bg-[#fafbfc] text-slate-900 min-h-screen">
       {/* Page Header */}
       <div className="relative py-20 bg-slate-900 border-b border-slate-800 text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -64,7 +64,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
             return (
               <div
                 key={dest.id}
-                className="bg-slate-900/70 border border-slate-800 hover:border-amber-500/40 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/5 group"
+                className="bg-white border border-slate-200/90 hover:border-amber-400/60 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 group"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-8">
                   {/* Image Column (5 cols) */}
@@ -103,30 +103,30 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                     }`}
                   >
                     <div>
-                      <span className="text-xs uppercase font-bold tracking-widest text-amber-400">
+                      <span className="text-xs uppercase font-bold tracking-widest text-amber-600">
                         {dest.tagline}
                       </span>
-                      <h2 className="text-2xl sm:text-3xl font-black font-heading text-white mt-1 group-hover:text-amber-400 transition-colors">
+                      <h2 className="text-2xl sm:text-3xl font-black font-heading text-slate-900 mt-1 group-hover:text-amber-600 transition-colors">
                         {dest.name}
                       </h2>
                     </div>
 
-                    <p className="text-sm text-slate-300 leading-relaxed">
+                    <p className="text-sm text-slate-600 leading-relaxed">
                       {dest.longDescription}
                     </p>
 
                     {/* Highlights */}
-                    <div className="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 space-y-2">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                    <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 space-y-2">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
                         Included In Our Tour Highlights:
                       </span>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {dest.highlights.map((h, i) => (
                           <div
                             key={i}
-                            className="flex items-center gap-2 text-xs text-slate-300"
+                            className="flex items-center gap-2 text-xs text-slate-700"
                           >
-                            <Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                            <Check className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                             <span>{h}</span>
                           </div>
                         ))}
@@ -137,13 +137,13 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                     <div className="pt-2 flex flex-wrap items-center gap-4">
                       <button
                         onClick={() => handleExploreTours(dest.name)}
-                        className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-md shadow-amber-500/20 transition-all flex items-center gap-2"
+                        className="px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-md shadow-amber-500/20 transition-all flex items-center gap-2"
                       >
                         <span>View {dest.name} Packages</span>
                         <ArrowRight className="w-4 h-4" />
                       </button>
 
-                      <span className="text-xs text-slate-400">
+                      <span className="text-xs text-slate-500">
                         Departure from Ahmedabad & Udaipur
                       </span>
                     </div>

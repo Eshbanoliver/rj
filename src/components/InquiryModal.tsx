@@ -74,12 +74,12 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
-      <div className="relative w-full max-w-lg bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 shadow-2xl text-white">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
+      <div className="relative w-full max-w-lg bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl text-slate-900">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-slate-950/80 hover:bg-amber-500 hover:text-slate-950 text-white transition-colors"
+          className="absolute top-4 right-4 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-950 transition-colors"
           aria-label="Close Inquiry Dialog"
         >
           <X className="w-5 h-5" />
@@ -87,21 +87,21 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
 
         {isSubmitted ? (
           <div className="text-center py-6 space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold font-heading text-white">
+            <h3 className="text-2xl font-bold font-heading text-slate-900">
               Trip Enquiry Received!
             </h3>
-            <p className="text-sm text-slate-300 leading-relaxed">
-              Thank you, <strong className="text-amber-400">{formData.name}</strong>. Our trip captain will connect with you at <strong className="text-amber-400">{formData.phone}</strong> shortly with complete batch details.
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Thank you, <strong className="text-slate-900">{formData.name}</strong>. Our trip captain will connect with you at <strong className="text-slate-900">{formData.phone}</strong> shortly with complete batch details.
             </p>
             <div className="pt-4 space-y-3">
               <a
                 href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg shadow-emerald-600/25 active:scale-95 transition-all flex items-center justify-center gap-2"
+                className="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-600/20 active:scale-95 transition-all flex items-center justify-center gap-2"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Continue on WhatsApp</span>
@@ -111,7 +111,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                   setIsSubmitted(false);
                   onClose();
                 }}
-                className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-400 hover:text-white bg-slate-800 transition-colors"
+                className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 transition-colors"
               >
                 Close Window
               </button>
@@ -120,27 +120,27 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
         ) : (
           <div>
             <div className="mb-6">
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 uppercase tracking-wider mb-1">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>R Journey Travel Desk</span>
               </div>
-              <h3 className="text-2xl font-black font-heading text-white">
+              <h3 className="text-2xl font-black font-heading text-slate-900">
                 Plan Your Journey
               </h3>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-slate-500 mt-1">
                 Fill out the quick form below or connect directly on WhatsApp.
               </p>
             </div>
 
             {errorMsg && (
-              <div className="mb-4 p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-medium">
+              <div className="mb-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-600 text-xs font-medium">
                 {errorMsg}
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="text-xs font-medium text-slate-300 block mb-1">
+                <label className="text-xs font-medium text-slate-700 block mb-1">
                   Full Name *
                 </label>
                 <input
@@ -150,13 +150,13 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="e.g. Rahul Sharma"
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs font-medium text-slate-300 block mb-1">
+                  <label className="text-xs font-medium text-slate-700 block mb-1">
                     Phone / WhatsApp *
                   </label>
                   <input
@@ -166,11 +166,11 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="10-digit mobile"
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-medium text-slate-300 block mb-1">
+                  <label className="text-xs font-medium text-slate-700 block mb-1">
                     Email Address
                   </label>
                   <input
@@ -179,21 +179,21 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="name@example.com"
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs font-medium text-slate-300 block mb-1">
+                  <label className="text-xs font-medium text-slate-700 block mb-1">
                     Select Tour Package
                   </label>
                   <select
                     name="tourTitle"
                     value={formData.tourTitle}
                     onChange={handleChange}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500 transition-colors"
                   >
                     <option value="">Choose a tour...</option>
                     {tourPackages.map((t) => (
@@ -207,14 +207,14 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                   </select>
                 </div>
                 <div>
-                  <label className="text-xs font-medium text-slate-300 block mb-1">
+                  <label className="text-xs font-medium text-slate-700 block mb-1">
                     Number of Travelers
                   </label>
                   <select
                     name="travelers"
                     value={formData.travelers}
                     onChange={handleChange}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500 transition-colors"
                   >
                     <option value="1">1 Solo Traveler</option>
                     <option value="2">2 Travelers (Duo)</option>
@@ -226,7 +226,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
               </div>
 
               <div>
-                <label className="text-xs font-medium text-slate-300 block mb-1">
+                <label className="text-xs font-medium text-slate-700 block mb-1">
                   Message / Special Request
                 </label>
                 <textarea
@@ -235,14 +235,14 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Preferred dates, questions about resort or desert camps..."
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors resize-none"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors resize-none"
                 />
               </div>
 
               <div className="pt-2 space-y-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/25 active:scale-95 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-md shadow-amber-500/25 active:scale-95 transition-all flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Submit Trip Request</span>
@@ -252,18 +252,18 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2.5 px-4 rounded-xl font-bold text-xs text-white bg-emerald-600/90 hover:bg-emerald-600 border border-emerald-500/40 transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-2.5 px-4 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-500 transition-colors flex items-center justify-center gap-2 shadow-xs"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>Quick Chat on WhatsApp</span>
                 </a>
               </div>
 
-              <div className="text-center pt-2 text-[11px] text-slate-400">
+              <div className="text-center pt-2 text-[11px] text-slate-500">
                 <span>Or reach us directly at </span>
                 <a
                   href={`tel:${companyData.phones[0]}`}
-                  className="text-amber-400 font-bold hover:underline"
+                  className="text-amber-600 font-bold hover:underline"
                 >
                   {companyData.displayPhone}
                 </a>

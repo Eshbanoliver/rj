@@ -70,7 +70,7 @@ export const ToursPage: React.FC<ToursPageProps> = ({
   }, [searchTerm, selectedDestination, selectedDeparture, sortBy]);
 
   return (
-    <div className="pt-24 pb-20 bg-slate-950 text-white min-h-screen">
+    <div className="pt-24 pb-20 bg-[#fafbfc] text-slate-900 min-h-screen">
       {/* Page Header */}
       <div className="relative py-20 bg-slate-900 border-b border-slate-800 text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -98,11 +98,11 @@ export const ToursPage: React.FC<ToursPageProps> = ({
 
       {/* Filter and Search Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xl mb-10">
+        <div className="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-sm mb-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Search Input */}
             <div className="relative">
-              <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">
+              <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mb-1">
                 Search Journeys
               </label>
               <div className="relative">
@@ -112,20 +112,20 @@ export const ToursPage: React.FC<ToursPageProps> = ({
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Forts, desert, lakes..."
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
                 />
               </div>
             </div>
 
             {/* Destination Filter */}
             <div>
-              <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">
+              <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mb-1">
                 Destination
               </label>
               <select
                 value={selectedDestination}
                 onChange={(e) => setSelectedDestination(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
               >
                 <option value="all">All Destinations</option>
                 <option value="Jaisalmer">Jaisalmer & Desert Dunes</option>
@@ -137,13 +137,13 @@ export const ToursPage: React.FC<ToursPageProps> = ({
 
             {/* Departure Hub */}
             <div>
-              <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">
+              <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mb-1">
                 Departure Hub
               </label>
               <select
                 value={selectedDeparture}
                 onChange={(e) => setSelectedDeparture(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
               >
                 <option value="all">All Departure Hubs</option>
                 <option value="Ahmedabad">Ex-Ahmedabad (Thu/Fri)</option>
@@ -153,13 +153,13 @@ export const ToursPage: React.FC<ToursPageProps> = ({
 
             {/* Sort Options */}
             <div>
-              <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">
+              <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mb-1">
                 Sort By Price
               </label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
               >
                 <option value="featured">Featured First</option>
                 <option value="price-asc">Price: Low to High</option>
@@ -169,9 +169,9 @@ export const ToursPage: React.FC<ToursPageProps> = ({
           </div>
 
           {/* Active Results Counter */}
-          <div className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+          <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
             <span>
-              Showing <strong className="text-white">{filteredTours.length}</strong> tour packages
+              Showing <strong className="text-slate-900">{filteredTours.length}</strong> tour packages
             </span>
             {(selectedDestination !== 'all' || selectedDeparture !== 'all' || searchTerm) && (
               <button
@@ -180,7 +180,7 @@ export const ToursPage: React.FC<ToursPageProps> = ({
                   setSelectedDeparture('all');
                   setSearchTerm('');
                 }}
-                className="text-amber-400 hover:underline"
+                className="text-amber-600 hover:underline font-semibold"
               >
                 Clear Filters
               </button>
@@ -193,7 +193,7 @@ export const ToursPage: React.FC<ToursPageProps> = ({
           {filteredTours.map((tour) => (
             <div
               key={tour.id}
-              className="bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-amber-500/10 group"
+              className="bg-white border border-slate-200/90 hover:border-amber-400/60 rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-amber-500/10 group"
             >
               {/* Image & Badges */}
               <div className="relative h-64 overflow-hidden">
@@ -202,19 +202,19 @@ export const ToursPage: React.FC<ToursPageProps> = ({
                   alt={tour.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-black/40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/30" />
 
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
                   <span className="bg-amber-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
                     {tour.badge || '15 Strangers'}
                   </span>
-                  <span className="bg-slate-950/80 backdrop-blur-md border border-slate-700 text-white text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1">
+                  <span className="bg-slate-900/80 backdrop-blur-md border border-slate-700 text-white text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1">
                     <Clock className="w-3 h-3 text-amber-400" />
                     {tour.duration}
                   </span>
                 </div>
 
-                <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-xs text-slate-200 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-800">
+                <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-xs text-slate-100 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-800">
                   <MapPin className="w-3.5 h-3.5 text-amber-400" />
                   <span>Ex-{tour.departureCity}</span>
                 </div>
@@ -223,24 +223,24 @@ export const ToursPage: React.FC<ToursPageProps> = ({
               {/* Body */}
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-2 text-xs font-medium text-amber-400 mb-2">
+                  <div className="flex items-center gap-2 text-xs font-medium text-amber-600 mb-2">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>{tour.departureSchedule.split('(')[0]}</span>
                   </div>
 
-                  <h3 className="text-xl font-bold font-heading text-white group-hover:text-amber-400 transition-colors line-clamp-2">
+                  <h3 className="text-xl font-bold font-heading text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-2">
                     {tour.title}
                   </h3>
 
-                  <p className="text-xs text-slate-400 italic mt-1 mb-4">
+                  <p className="text-xs text-slate-500 italic mt-1 mb-4">
                     "{tour.tagline}"
                   </p>
 
                   {/* Highlights checklist */}
-                  <div className="space-y-1.5 border-t border-slate-800 pt-4 mb-4">
+                  <div className="space-y-1.5 border-t border-slate-100 pt-4 mb-4">
                     {tour.inclusions.slice(0, 3).map((inc, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-slate-300">
-                        <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
+                        <Check className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
                         <span className="line-clamp-1">{inc}</span>
                       </div>
                     ))}
@@ -248,25 +248,25 @@ export const ToursPage: React.FC<ToursPageProps> = ({
                 </div>
 
                 {/* Pricing & CTA */}
-                <div className="border-t border-slate-800 pt-4 mt-2">
+                <div className="border-t border-slate-100 pt-4 mt-2">
                   <div className="flex items-baseline justify-between mb-4">
                     <div>
-                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block">
+                      <span className="text-[10px] text-slate-500 uppercase tracking-wider block">
                         Triple Sharing Starting At
                       </span>
                       <div className="flex items-baseline gap-1">
-                        <span className="text-2xl font-black font-heading text-amber-400">
+                        <span className="text-2xl font-black font-heading text-amber-600">
                           ₹{tour.startingPrice.toLocaleString('en-IN')}
                         </span>
-                        <span className="text-xs text-slate-400">/person</span>
+                        <span className="text-xs text-slate-500">/person</span>
                       </div>
                     </div>
 
                     <div className="text-right">
-                      <span className="text-[10px] text-slate-400 uppercase tracking-wider block">
+                      <span className="text-[10px] text-slate-500 uppercase tracking-wider block">
                         Double Sharing
                       </span>
-                      <span className="text-sm font-bold text-slate-200">
+                      <span className="text-sm font-bold text-slate-800">
                         ₹{tour.doubleSharingPrice.toLocaleString('en-IN')}/-
                       </span>
                     </div>
@@ -275,13 +275,13 @@ export const ToursPage: React.FC<ToursPageProps> = ({
                   <div className="grid grid-cols-2 gap-2">
                     <button
                       onClick={() => onSelectTour(tour)}
-                      className="py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors text-center"
+                      className="py-2.5 px-3 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors text-center"
                     >
                       View Details
                     </button>
                     <button
                       onClick={() => onOpenInquiry({ tourTitle: tour.title })}
-                      className="py-2.5 px-3 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-md shadow-amber-500/20 active:scale-95 transition-all text-center flex items-center justify-center gap-1.5"
+                      className="py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-md shadow-amber-500/20 active:scale-95 transition-all text-center flex items-center justify-center gap-1.5"
                     >
                       <span>Book Seat</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -289,7 +289,7 @@ export const ToursPage: React.FC<ToursPageProps> = ({
                   </div>
 
                   <div className="mt-3 text-center">
-                    <span className="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-medium">
+                    <span className="inline-flex items-center gap-1 text-[11px] text-emerald-700 font-medium">
                       <ShieldCheck className="w-3 h-3" />
                       Advance Deposit: ₹{tour.registrationAmount.toLocaleString('en-IN')} only
                     </span>

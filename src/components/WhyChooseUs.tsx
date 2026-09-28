@@ -36,17 +36,17 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-950 text-white relative">
+    <section className="py-20 bg-[#f8fafc] text-slate-900 relative border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-widest text-amber-400 font-bold">
+          <span className="text-xs uppercase tracking-widest text-amber-600 font-bold">
             The R Journey Distinction
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight mt-2">
-            Why Travelers Choose <span className="text-amber-400">R Journey</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight mt-2">
+            Why Travelers Choose <span className="text-amber-500">R Journey</span>
           </h2>
-          <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
             We don't do typical crowded sightseeing tours. We create vibrant community experiences rooted in Rajasthani hospitality and lifelong camaraderie.
           </p>
         </div>
@@ -58,15 +58,15 @@ export const WhyChooseUs: React.FC = () => {
             return (
               <div
                 key={index}
-                className="bg-slate-900/60 border border-slate-800 hover:border-amber-500/40 rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-amber-500/5 group"
+                className="bg-white border border-slate-200/90 hover:border-amber-400 rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-900/5 group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-slate-950 transition-all shadow-md">
+                <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-600 mb-6 group-hover:scale-110 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all shadow-sm">
                   <Icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold font-heading text-white group-hover:text-amber-400 transition-colors">
+                <h3 className="text-xl font-bold font-heading text-slate-900 group-hover:text-amber-600 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
                   {item.description}
                 </p>
               </div>

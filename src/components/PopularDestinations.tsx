@@ -13,29 +13,29 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
   onSelectDestination,
 }) => {
   return (
-    <section className="py-20 bg-slate-950 text-white relative overflow-hidden">
+    <section className="py-20 bg-[#f8fafc] text-slate-900 relative overflow-hidden border-b border-slate-200/80">
       {/* Decorative ambient light */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-amber-500/10 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-amber-500/5 blur-[130px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-amber-400 uppercase mb-2">
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-amber-600 uppercase mb-2">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Rajasthan Circuit</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight">
-              Explore Popular <span className="text-amber-400">Destinations</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight">
+              Explore Popular <span className="text-amber-500">Destinations</span>
             </h2>
-            <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
               From the azure alleys of the Blue City to golden rolling dunes of Jaisalmer and the romantic hillscapes of Udaipur. Handcrafted circuits straight from our signature brochures.
             </p>
           </div>
 
           <button
             onClick={() => onNavigate('destinations')}
-            className="inline-flex items-center gap-2 text-sm font-bold text-amber-400 hover:text-amber-300 group"
+            className="inline-flex items-center gap-2 text-sm font-bold text-amber-600 hover:text-amber-700 group"
           >
             <span>View All Destinations</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
