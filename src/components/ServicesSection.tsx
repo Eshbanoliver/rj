@@ -53,29 +53,32 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         </div>
 
         {/* 6 Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {servicesData.map((service: ServiceItem) => {
             const Icon = iconMap[service.iconName] || Users;
             return (
               <div
                 key={service.id}
-                className="bg-white border border-slate-200/90 hover:border-amber-400 rounded-3xl p-5 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/10 group h-full"
+                className="relative bg-white border border-slate-200/90 hover:border-amber-400 rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_-12px_rgba(245,158,11,0.22)] group h-full overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-500 before:scale-x-0 group-hover:before:scale-x-100 before:transition-transform before:duration-500 before:origin-left"
               >
-                <div>
+                {/* Ambient glow */}
+                <div className="absolute -top-16 -right-16 w-36 h-36 bg-amber-400/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                <div className="relative z-10">
                   {/* Top Icon & Badge */}
-                  <div className="flex items-center justify-between mb-4 sm:mb-6">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-white transition-all shadow-sm shrink-0">
+                  <div className="flex items-center justify-between mb-5 sm:mb-6">
+                    <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/80 text-amber-600 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm shrink-0">
                       <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                     </div>
                     {service.badge && (
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full shadow-xs group-hover:bg-amber-100 transition-colors">
                         {service.badge}
                       </span>
                     )}
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-amber-600 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-amber-600 transition-colors duration-300">
                     {service.title}
                   </h3>
 
@@ -85,19 +88,24 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   </p>
 
                   {/* Feature checklist */}
-                  <div className="mt-4 sm:mt-5 space-y-2 border-t border-slate-100 pt-3.5 sm:pt-4">
+                  <div className="mt-5 space-y-2 border-t border-slate-100 pt-4">
                     {service.features.slice(0, 3).map((feat, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
-                        <Check className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
-                        <span>{feat}</span>
+                      <div
+                        key={i}
+                        className="flex items-start gap-2.5 text-xs text-slate-600 px-2 py-1 -mx-2 rounded-lg hover:bg-amber-50/60 transition-colors"
+                      >
+                        <div className="w-4 h-4 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 stroke-[2.5]" />
+                        </div>
+                        <span className="font-medium">{feat}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Bottom Action */}
-                <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[11px] text-slate-500 italic line-clamp-1 max-w-[65%]">
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between relative z-10">
+                  <span className="text-[11px] text-slate-500 italic line-clamp-1 max-w-[62%]">
                     {service.idealFor}
                   </span>
                   <button
@@ -107,10 +115,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                         message: `Hi, I am interested in inquiring about ${service.title}.`,
                       })
                     }
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:text-amber-700 group-hover:translate-x-1 transition-transform py-1 px-2 -mr-2"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 bg-amber-50 hover:bg-amber-100/90 border border-amber-200/80 px-3 py-1.5 rounded-xl group/btn transition-all duration-300 shadow-xs cursor-pointer"
                   >
                     <span>Enquire</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>

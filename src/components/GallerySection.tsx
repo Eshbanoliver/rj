@@ -63,35 +63,35 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
         </div>
 
         {/* Gallery Grid: 2 columns on mobile, 4 columns on desktop */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
           {displayItems.map((item) => (
             <div
               key={item.id}
               onClick={() => setActiveImage(item)}
-              className="group relative h-48 sm:h-64 lg:h-72 rounded-2xl overflow-hidden cursor-pointer bg-slate-100 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
+              className="group relative h-52 sm:h-64 lg:h-72 rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer bg-slate-100 border border-slate-200/80 hover:border-amber-400 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(245,158,11,0.3)] hover:-translate-y-1.5 transition-all duration-500 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-500 before:scale-x-0 group-hover:before:scale-x-100 before:transition-transform before:duration-500 before:origin-left before:z-20"
             >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
 
               {/* Hover Zoom Icon */}
-              <div className="absolute top-3 right-3 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-900/80 backdrop-blur-md flex items-center justify-center text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
-                <ZoomIn className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <div className="absolute top-3.5 right-3.5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-950/75 backdrop-blur-md flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-slate-950 group-hover:scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-md z-10">
+                <ZoomIn className="w-4 h-4" />
               </div>
 
               {/* Bottom Info */}
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-0.5 sm:mb-1">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10">
+                <span className="inline-block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-amber-300 bg-amber-500/20 border border-amber-400/30 px-2 py-0.5 rounded-full mb-1 sm:mb-1.5 backdrop-blur-sm">
                   {item.category}
                 </span>
-                <h3 className="text-xs sm:text-sm font-bold text-white font-heading line-clamp-1">
+                <h3 className="text-xs sm:text-sm font-bold text-white font-heading line-clamp-1 group-hover:text-amber-300 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-[10px] sm:text-[11px] text-slate-200 flex items-center gap-1 mt-0.5 truncate">
+                <p className="text-[10px] sm:text-[11px] text-slate-300 flex items-center gap-1 mt-0.5 truncate">
                   <MapPin className="w-3 h-3 text-amber-400 shrink-0" />
                   <span className="truncate">{item.location}</span>
                 </p>

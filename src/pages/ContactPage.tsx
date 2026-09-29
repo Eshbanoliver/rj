@@ -105,8 +105,8 @@ export const ContactPage: React.FC = () => {
             {/* Contact Cards */}
             <div className="space-y-4">
               {/* Phone */}
-              <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0">
+              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-orange-500 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
@@ -135,8 +135,8 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Email */}
-              <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0">
+              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-orange-500 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
@@ -156,8 +156,8 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* WhatsApp Quick Link */}
-              <div className="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 shadow-sm flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+              <div className="relative p-5 rounded-2xl bg-gradient-to-br from-emerald-50/90 to-teal-50/60 border border-emerald-200/90 hover:border-emerald-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(16,185,129,0.22)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-emerald-500 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm">
                   <MessageSquare className="w-6 h-6" />
                 </div>
                 <div>
@@ -173,7 +173,7 @@ export const ContactPage: React.FC = () => {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 mt-2"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 mt-2 bg-white/90 hover:bg-white px-3 py-1.5 rounded-lg border border-emerald-200/80 shadow-2xs transition-all group-hover:shadow-xs"
                   >
                     <span>Chat +91 80942 68991</span>
                   </a>
@@ -181,8 +181,8 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Office Address */}
-              <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0">
+              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-orange-500 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
@@ -199,8 +199,8 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Business Hours & Instagram */}
-              <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0">
+              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-orange-500 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
@@ -226,11 +226,11 @@ export const ContactPage: React.FC = () => {
 
           {/* Right Column: Contact Form & Map (7 cols) */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-sm">
+            <div className="relative bg-white border border-slate-200/90 hover:border-amber-300 rounded-3xl p-6 sm:p-9 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-500">
               <h3 className="text-xl sm:text-2xl font-black font-heading text-slate-900 mb-1">
                 Send Us An Inquiry
               </h3>
-              <p className="text-xs text-slate-500 mb-6">
+              <p className="text-xs sm:text-sm text-slate-500 mb-6">
                 Tell us your destination, expected date, and traveler count. We'll respond with customized details.
               </p>
 

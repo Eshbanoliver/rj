@@ -119,3 +119,48 @@
     touch-action: manipulation;
   }
 }
+
+/* Modern Card Interactions & Shimmer */
+@keyframes cardShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.card-shimmer:hover::after {
+  animation: cardShimmer 1.2s ease-in-out;
+}
+
+.card-modern {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-modern:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.18), 0 0 20px rgba(245, 158, 11, 0.08);
+}

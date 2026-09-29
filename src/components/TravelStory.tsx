@@ -66,30 +66,30 @@ export const TravelStory: React.FC<TravelStoryProps> = ({ onNavigate, onOpenInqu
             </p>
 
             {/* 3 Value Points directly from brochure */}
-            <div className="space-y-3 pt-1">
-              <div className="flex items-start gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 flex items-center justify-center shrink-0">
-                  <Users className="w-4 h-4 sm:w-5 sm:h-5" />
+            <div className="space-y-3.5 pt-1">
+              <div className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-4.5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                  <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-heading">
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-heading group-hover:text-amber-600 transition-colors">
                     Turning Strangers Into Best Friends
                   </h4>
-                  <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
                     Engaging ice-breaker games, group conversations, and music make connecting effortless from the very first hour.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 flex items-center justify-center shrink-0">
-                  <Flame className="w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-4.5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                  <Flame className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-heading">
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-heading group-hover:text-amber-600 transition-colors">
                     Desert Thrills & Hillside Pool Parties
                   </h4>
-                  <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
                     Jeep dune bashing and sunset camel rides in Jaisalmer, plus rooftop DJ nights and pool parties at Palm Valley Resort Udaipur.
                   </p>
                 </div>

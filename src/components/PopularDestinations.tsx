@@ -51,17 +51,17 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 if (onSelectDestination) onSelectDestination(destinationsData[0]);
                 onNavigate('destinations');
               }}
-              className="md:col-span-7 group relative h-[300px] sm:h-[380px] lg:h-[430px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl border border-slate-200/80 hover:border-amber-400 transition-all duration-300"
+              className="md:col-span-7 group relative h-[300px] sm:h-[380px] lg:h-[430px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-[0_20px_45px_-12px_rgba(245,158,11,0.25)] border border-slate-200/90 hover:border-amber-400/90 transition-all duration-500 hover:-translate-y-2 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-300 before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
             >
               <img
                 src={destinationsData[0].image}
                 alt={destinationsData[0].name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/50 transition-colors" />
               
               {/* Badge */}
-              <div className="absolute top-4 sm:top-5 left-4 sm:left-5 bg-slate-900/80 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md">
+              <div className="absolute top-4 sm:top-5 left-4 sm:left-5 bg-slate-950/80 backdrop-blur-md border border-white/20 group-hover:border-amber-400/60 text-amber-400 text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg transition-colors">
                 <MapPin className="w-3.5 h-3.5" />
                 <span>City of Lakes & Hills</span>
               </div>
@@ -71,7 +71,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 <p className="text-[11px] sm:text-xs uppercase tracking-wider text-amber-400 font-bold mb-1">
                   {destinationsData[0].associatedToursCount} Active Tour Circuits
                 </p>
-                <h3 className="text-xl sm:text-3xl font-black font-heading text-white">
+                <h3 className="text-xl sm:text-3xl font-black font-heading text-white group-hover:text-amber-300 transition-colors">
                   {destinationsData[0].name}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-1 line-clamp-2 max-w-lg">
@@ -79,7 +79,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 </p>
                 <div className="mt-3 sm:mt-4 flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300">
                   <span>Explore Udaipur Trips</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1.5 group-hover:-translate-y-1 transition-transform duration-300" />
                 </div>
               </div>
             </div>
@@ -92,16 +92,16 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 if (onSelectDestination) onSelectDestination(destinationsData[1]);
                 onNavigate('destinations');
               }}
-              className="md:col-span-5 group relative h-[300px] sm:h-[380px] lg:h-[430px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl border border-slate-200/80 hover:border-amber-400 transition-all duration-300"
+              className="md:col-span-5 group relative h-[300px] sm:h-[380px] lg:h-[430px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-[0_20px_45px_-12px_rgba(245,158,11,0.25)] border border-slate-200/90 hover:border-amber-400/90 transition-all duration-500 hover:-translate-y-2 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-300 before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
             >
               <img
                 src={destinationsData[1].image}
                 alt={destinationsData[1].name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/50 transition-colors" />
               
-              <div className="absolute top-4 sm:top-5 left-4 sm:left-5 bg-slate-900/80 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md">
+              <div className="absolute top-4 sm:top-5 left-4 sm:left-5 bg-slate-950/80 backdrop-blur-md border border-white/20 group-hover:border-amber-400/60 text-amber-400 text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg transition-colors">
                 <MapPin className="w-3.5 h-3.5" />
                 <span>Golden Dunes & Fort</span>
               </div>
@@ -110,7 +110,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 <p className="text-[11px] sm:text-xs uppercase tracking-wider text-amber-400 font-bold mb-1">
                   Sam Sand Dunes Glamping
                 </p>
-                <h3 className="text-xl sm:text-3xl font-black font-heading text-white">
+                <h3 className="text-xl sm:text-3xl font-black font-heading text-white group-hover:text-amber-300 transition-colors">
                   {destinationsData[1].name}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-1 line-clamp-2">
@@ -118,7 +118,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 </p>
                 <div className="mt-3 sm:mt-4 flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300">
                   <span>Explore Desert Safaris</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1.5 group-hover:-translate-y-1 transition-transform duration-300" />
                 </div>
               </div>
             </div>
@@ -131,25 +131,29 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 if (onSelectDestination) onSelectDestination(destinationsData[2]);
                 onNavigate('destinations');
               }}
-              className="md:col-span-4 group relative h-[250px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl border border-slate-200/80 hover:border-amber-400 transition-all duration-300"
+              className="md:col-span-4 group relative h-[260px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-[0_20px_45px_-12px_rgba(245,158,11,0.25)] border border-slate-200/90 hover:border-amber-400/90 transition-all duration-500 hover:-translate-y-2 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-300 before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
             >
               <img
                 src={destinationsData[2].image}
                 alt={destinationsData[2].name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/50 transition-colors" />
               
               <div className="absolute bottom-5 left-5 right-5">
                 <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">
                   The Blue City
                 </span>
-                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5">
+                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5 group-hover:text-amber-300 transition-colors">
                   {destinationsData[2].name}
                 </h3>
                 <p className="text-xs text-slate-300 mt-1 line-clamp-2">
                   {destinationsData[2].shortDescription}
                 </p>
+                <div className="mt-2.5 flex items-center gap-1 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                  <span>Explore Fort & City</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
               </div>
             </div>
           )}
@@ -161,25 +165,29 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 if (onSelectDestination) onSelectDestination(destinationsData[3]);
                 onNavigate('destinations');
               }}
-              className="md:col-span-4 group relative h-[250px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl border border-slate-200/80 hover:border-amber-400 transition-all duration-300"
+              className="md:col-span-4 group relative h-[260px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-[0_20px_45px_-12px_rgba(245,158,11,0.25)] border border-slate-200/90 hover:border-amber-400/90 transition-all duration-500 hover:-translate-y-2 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-300 before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
             >
               <img
                 src={destinationsData[3].image}
                 alt={destinationsData[3].name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/50 transition-colors" />
               
               <div className="absolute bottom-5 left-5 right-5">
                 <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">
                   Great Wall of India
                 </span>
-                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5">
+                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5 group-hover:text-amber-300 transition-colors">
                   {destinationsData[3].name}
                 </h3>
                 <p className="text-xs text-slate-300 mt-1 line-clamp-2">
                   {destinationsData[3].shortDescription}
                 </p>
+                <div className="mt-2.5 flex items-center gap-1 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                  <span>Explore Fort & Jungle</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
               </div>
             </div>
           )}
@@ -191,25 +199,29 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 if (onSelectDestination) onSelectDestination(destinationsData[4]);
                 onNavigate('destinations');
               }}
-              className="md:col-span-4 group relative h-[250px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl border border-slate-200/80 hover:border-amber-400 transition-all duration-300"
+              className="md:col-span-4 group relative h-[260px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-[0_20px_45px_-12px_rgba(245,158,11,0.25)] border border-slate-200/90 hover:border-amber-400/90 transition-all duration-500 hover:-translate-y-2 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-300 before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
             >
               <img
                 src={destinationsData[4].image}
                 alt={destinationsData[4].name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/50 transition-colors" />
               
               <div className="absolute bottom-5 left-5 right-5">
                 <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">
                   Historic Aravali Pass
                 </span>
-                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5">
+                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5 group-hover:text-amber-300 transition-colors">
                   {destinationsData[4].name}
                 </h3>
                 <p className="text-xs text-slate-300 mt-1 line-clamp-2">
                   {destinationsData[4].shortDescription}
                 </p>
+                <div className="mt-2.5 flex items-center gap-1 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                  <span>Explore Valley Trails</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
               </div>
             </div>
           )}

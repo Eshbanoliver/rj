@@ -129,42 +129,60 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenInquiry 
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {companyData.pillars.map((pillar, i) => (
-              <div
-                key={i}
-                className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 hover:border-amber-400/60 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between h-full"
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all">
-                    <Sparkles className="w-6 h-6" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {companyData.pillars.map((pillar, i) => {
+              const num = String(i + 1).padStart(2, '0');
+              return (
+                <div
+                  key={i}
+                  className="relative p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 hover:border-amber-400 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_-12px_rgba(245,158,11,0.22)] group flex flex-col justify-between h-full overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-500 before:scale-x-0 group-hover:before:scale-x-100 before:transition-transform before:duration-500 before:origin-left"
+                >
+                  {/* Subtle ambient glow */}
+                  <div className="absolute -bottom-12 -right-12 w-28 h-28 bg-amber-400/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="w-13 h-13 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/80 text-amber-600 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm shrink-0">
+                        <Sparkles className="w-6 h-6" />
+                      </div>
+                      <span className="text-3xl font-black font-heading text-slate-200/80 group-hover:text-amber-500/20 group-hover:scale-110 transition-all duration-300 select-none">
+                        {num}
+                      </span>
+                    </div>
+
+                    <h4 className="text-base sm:text-lg font-bold font-heading text-slate-900 group-hover:text-amber-600 transition-colors duration-300">
+                      {pillar.title}
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-2 sm:mt-2.5 leading-relaxed">
+                      {pillar.description}
+                    </p>
                   </div>
-                  <h4 className="text-base sm:text-lg font-bold font-heading text-slate-900 group-hover:text-amber-600 transition-colors">
-                    {pillar.title}
-                  </h4>
-                  <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                    {pillar.description}
-                  </p>
+
+                  {/* Bottom indicator */}
+                  <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-400 group-hover:text-amber-600 transition-colors duration-300 relative z-10">
+                    <span className="text-[10px] uppercase tracking-wider">Core Value</span>
+                    <span className="w-2 h-2 rounded-full bg-slate-200 group-hover:bg-amber-500 group-hover:scale-125 transition-all duration-300" />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
         {/* Headquarter & Contact Strip */}
-        <div className="mt-14 sm:mt-20 p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-amber-50 via-white to-orange-50 border border-amber-200/80 shadow-md flex flex-col md:flex-row items-center justify-between gap-6 text-center sm:text-left">
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-amber-500/20">
-              <MapPin className="w-6 h-6" />
+        <div className="mt-14 sm:mt-20 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-50/80 via-white to-orange-50/80 border border-amber-200/90 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-6 text-center sm:text-left relative overflow-hidden group">
+          <div className="flex flex-col sm:flex-row items-center gap-4 relative z-10">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 text-white flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/25 group-hover:scale-105 transition-transform duration-300">
+              <MapPin className="w-7 h-7" />
             </div>
             <div>
               <span className="text-xs text-amber-700 font-bold uppercase tracking-wider block">
                 Official Head Office
               </span>
-              <h4 className="text-base font-bold text-slate-900 font-heading">
+              <h4 className="text-base sm:text-lg font-bold text-slate-900 font-heading mt-0.5">
                 {companyData.address.full}
               </h4>
-              <p className="text-xs text-slate-600">
+              <p className="text-xs text-slate-600 mt-0.5">
                 Operating hubs with weekly departures across Ahmedabad & Udaipur
               </p>
             </div>
@@ -172,9 +190,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenInquiry 
 
           <button
             onClick={() => onOpenInquiry()}
-            className="w-full sm:w-auto min-h-[44px] px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-amber-500 hover:bg-amber-600 shadow-md shadow-amber-500/20 transition-colors shrink-0 cursor-pointer"
+            className="w-full sm:w-auto min-h-[44px] px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-md shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all shrink-0 cursor-pointer relative z-10 flex items-center justify-center gap-2"
           >
-            Connect With Our Team
+            <span>Connect With Our Team</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </div>
