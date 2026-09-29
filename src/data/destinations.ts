@@ -20,7 +20,7 @@ export const destinationsData: Destination[] = [
     state: "Rajasthan",
     shortDescription: "Majestic palaces, serene lakes, Aravali hillscapes, and romantic rooftop evenings.",
     longDescription: "Known as the Venice of the East, Udaipur offers a magical blend of royal Rajput architecture, pristine lakefront promenades, vibrant art cafes, and hill resorts nestled in the ancient Aravali ranges.",
-    image: "/images/udaipur-city-palace-lake.jpg",
+    image: "/images/hero-udaipur.jpg",
     highlights: [
       "City Palace & Jagdish Temple",
       "Lake Pichola & Gangaur Ghat",
@@ -39,7 +39,7 @@ export const destinationsData: Destination[] = [
     state: "Rajasthan",
     shortDescription: "Golden sandstone fortresses, sweeping desert dunes, camel caravans, and starlit camps.",
     longDescription: "Rising like a golden mirage from the heart of the Great Indian Desert, Jaisalmer enchants with the living Sonar Qila fort, intricately carved merchant havelis, and unforgettable desert safaris across Sam Sand Dunes.",
-    image: "/images/jaisalmer-journey-arch.jpg",
+    image: "/images/hero-jaisalmer.jpg",
     highlights: [
       "Sonar Qila (Living Golden Fort)",
       "Sam Sand Dunes Jeep Safari & Camel Ride",
@@ -58,7 +58,7 @@ export const destinationsData: Destination[] = [
     state: "Rajasthan",
     shortDescription: "Towering Mehrangarh Fort, sea of azure blue houses, and rich Marwar culture.",
     longDescription: "Guarded by the colossal Mehrangarh Fort perched on a cliff, Jodhpur's blue cubical houses, bustling spice markets, and white marble Jaswant Thada capture Rajasthan's regal spirit at its grandest.",
-    image: "/images/jodhpur-mehrangarh-sunset.jpg",
+    image: "/images/hero-jodhpur.jpg",
     highlights: [
       "Colossal Mehrangarh Fort & Museum",
       "Jaswant Thada Marble Memorial",
@@ -77,7 +77,7 @@ export const destinationsData: Destination[] = [
     state: "Rajasthan",
     shortDescription: "The world's second-longest continuous wall guarding historic Rajput bastions.",
     longDescription: "Surrounded by the dense Aravali wildlife sanctuary, Kumbhalgarh Fort is an architectural marvel with its 36-kilometer serpentine perimeter wall and panoramic vistas stretching towards Mewar and Marwar.",
-    image: "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/hero-kumbhalgarh.jpg",
     highlights: [
       "36-kilometer Great Wall of India",
       "Badal Mahal (Palace of Clouds)",
@@ -95,7 +95,7 @@ export const destinationsData: Destination[] = [
     state: "Rajasthan",
     shortDescription: "Legendary mountain pass steeped in the heroic tale of Maharana Pratap and Chetak.",
     longDescription: "Famous for its turmeric-colored yellow soil and historic 1576 battle, Haldighati is a profound heritage landmark located in the hills near Udaipur that resonates with legendary courage.",
-    image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/hero-haldighati.jpg",
     highlights: [
       "Historic Battle of Haldighati Pass",
       "Chetak Smarak (Memorial to faithful horse)",

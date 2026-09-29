@@ -1,8 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PageType, SearchQuery } from '../types';
 import { tourPackages } from '../data/tours';
 import { companyData } from '../data/company';
-import { MapPin, Calendar, Users, Compass, Search, Sparkles, CheckCircle2, ArrowRight, MessageSquare } from 'lucide-react';
+import {
+  MapPin,
+  Calendar,
+  Users,
+  Compass,
+  Search,
+  Sparkles,
+  CheckCircle2,
+  ArrowRight,
+  MessageSquare,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play
+} from 'lucide-react';
 
 interface HeroProps {
   onNavigate: (page: PageType) => void;
@@ -10,11 +24,93 @@ interface HeroProps {
   onOpenInquiry: (initialData?: { tourTitle?: string }) => void;
 }
 
+interface HeroSlide {
+  id: string;
+  name: string;
+  tagline: string;
+  image: string;
+  highlight: string;
+  state: string;
+}
+
+const heroSlides: HeroSlide[] = [
+  {
+    id: 'udaipur',
+    name: 'Udaipur',
+    tagline: 'The City of Lakes & Royal Palaces',
+    image: '/images/hero-udaipur.jpg',
+    highlight: 'Lake Pichola • Grand City Palace • Aravali Hills',
+    state: 'Rajasthan',
+  },
+  {
+    id: 'jaisalmer',
+    name: 'Jaisalmer',
+    tagline: 'The Golden City & Thar Desert Dunes',
+    image: '/images/hero-jaisalmer.jpg',
+    highlight: 'Sam Sand Dunes • Sunset Camel Safari • Sonar Qila',
+    state: 'Rajasthan',
+  },
+  {
+    id: 'jodhpur',
+    name: 'Jodhpur',
+    tagline: 'The Majestic Blue City & Cliff Forts',
+    image: '/images/hero-jodhpur.jpg',
+    highlight: 'Mehrangarh Fort • Blue City • Jaswant Thada',
+    state: 'Rajasthan',
+  },
+  {
+    id: 'kumbhalgarh',
+    name: 'Kumbhalgarh',
+    tagline: 'The Great Wall of India & Cloud Citadel',
+    image: '/images/hero-kumbhalgarh.jpg',
+    highlight: '36km Perimeter Wall • Badal Mahal • Aravali Ridges',
+    state: 'Rajasthan',
+  },
+  {
+    id: 'haldighati',
+    name: 'Haldighati',
+    tagline: 'The Historic Pass of Valor & Turmeric Sands',
+    image: '/images/hero-haldighati.jpg',
+    highlight: 'Historic Canyon Pass • Chetak Smarak • Aravali Trails',
+    state: 'Rajasthan',
+  },
+];
+
 export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry }) => {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [selectedDestination, setSelectedDestination] = useState<string>('all');
   const [selectedDeparture, setSelectedDeparture] = useState<string>('all');
   const [travelers, setTravelers] = useState<number>(1);
   const [tourType, setTourType] = useState<string>('all');
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Auto-play timer
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    timerRef.current = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 5500);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isPlaying, currentSlideIndex]);
+
+  const handlePrevSlide = () => {
+    setCurrentSlideIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const handleSelectSlide = (index: number) => {
+    setCurrentSlideIndex(index);
+  };
+
+  const currentSlide = heroSlides[currentSlideIndex];
 
   const handleWhatsAppEnquiry = (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,34 +146,94 @@ Please share available batch dates, itinerary details & seat reservation process
   };
 
   return (
-    <section className="relative flex flex-col justify-between bg-slate-950 text-white">
-      {/* Background Image with Cinematic Gradient Overlays */}
+    <section className="relative flex flex-col justify-between bg-slate-950 text-white overflow-hidden min-h-[640px] sm:min-h-[700px]">
+      {/* Background Image Slider with Crossfade & Subtle Ken Burns Zoom */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <img
-          src="/images/strangers-sunset-community.jpg"
-          alt="15 Strangers Traveling together in Rajasthan - R Journey"
-          className="w-full h-full object-cover object-center filter brightness-[0.7] contrast-[1.05]"
-        />
-        {/* Layered gradients for text contrast and premium cinematic feel */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent" />
-        {/* Decorative ambient elements */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-amber-500/15 blur-[120px] rounded-full pointer-events-none" />
+        {heroSlides.map((slide, index) => {
+          const isActive = index === currentSlideIndex;
+          return (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={slide.image}
+                alt={`${slide.name} - ${slide.tagline}`}
+                className={`w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.08] transition-transform duration-[6000ms] ease-out ${
+                  isActive ? 'scale-105' : 'scale-100'
+                }`}
+              />
+            </div>
+          );
+        })}
+
+        {/* Layered cinematic gradients for flawless text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[280px] bg-amber-500/15 blur-[130px] rounded-full pointer-events-none" />
       </div>
 
-      {/* Decorative ambient elements */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-amber-500/15 blur-[120px] rounded-full pointer-events-none" />
-
       {/* Main Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 lg:pt-20 pb-6 sm:pb-10 flex-1 flex flex-col justify-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 lg:pt-16 pb-6 sm:pb-8 flex-1 flex flex-col justify-center w-full">
+        {/* Top Destination Slider Pills / Controls */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-8">
+          {/* Destination Selector Tabs */}
+          <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1">
+            {heroSlides.map((slide, idx) => {
+              const isActive = idx === currentSlideIndex;
+              return (
+                <button
+                  key={slide.id}
+                  onClick={() => handleSelectSlide(idx)}
+                  className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer shrink-0 ${
+                    isActive
+                      ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/30 scale-105'
+                      : 'bg-slate-900/70 hover:bg-slate-800/90 text-slate-300 hover:text-white border border-slate-700/60 backdrop-blur-md'
+                  }`}
+                >
+                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-slate-950' : 'bg-amber-400'}`} />
+                  <span>{slide.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Slider Prev / Next Controls */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handlePrevSlide}
+              aria-label="Previous destination"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-900/75 hover:bg-amber-500 hover:text-slate-950 text-white border border-slate-700/70 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
+            >
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-900/75 hover:bg-slate-800 text-amber-400 border border-slate-700/70 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95 text-xs font-bold"
+            >
+              {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+            </button>
+            <button
+              onClick={handleNextSlide}
+              aria-label="Next destination"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-900/75 hover:bg-amber-500 hover:text-slate-950 text-white border border-slate-700/70 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
+            >
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+          </div>
+        </div>
+
         <div className="max-w-3xl">
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-4 sm:mb-6 shadow-inner">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span>EXPLORE • EXPERIENCE • ENJOY</span>
-            <span className="hidden sm:inline w-1 h-1 rounded-full bg-amber-400" />
-            <span className="hidden sm:inline text-slate-300 font-normal normal-case">
-              15 Strangers Batches
+          {/* Eyebrow Badge with Active Slide Location Info */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-amber-500/40 text-amber-400 text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-4 sm:mb-5 shadow-lg transition-all duration-500">
+            <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0 animate-pulse" />
+            <span className="font-bold text-white">{currentSlide.name}</span>
+            <span className="w-1 h-1 rounded-full bg-amber-400" />
+            <span className="text-amber-300 font-normal truncate">
+              {currentSlide.tagline}
             </span>
           </div>
 
@@ -95,8 +251,15 @@ Please share available batch dates, itinerary details & seat reservation process
             Experience royal forts, thrilling Thar desert safaris, poolside DJ parties, and campfire nights.
           </p>
 
+          {/* Active Location Key Highlights Banner */}
+          <div className="mt-4 sm:mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/60 border border-slate-800/80 backdrop-blur-md text-xs sm:text-sm text-slate-300">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span className="text-amber-400 font-bold">{currentSlide.name} Circuit:</span>
+            <span className="text-slate-200 font-medium">{currentSlide.highlight}</span>
+          </div>
+
           {/* Value Highlights */}
-          <div className="mt-5 sm:mt-6 flex flex-wrap gap-y-2 gap-x-4 text-xs sm:text-sm text-slate-300 font-medium">
+          <div className="mt-4 sm:mt-5 flex flex-wrap gap-y-2 gap-x-4 text-xs sm:text-sm text-slate-300 font-medium">
             <span className="inline-flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
               Verified 3-Star Resorts & Desert Swiss Tents
@@ -115,15 +278,15 @@ Please share available batch dates, itinerary details & seat reservation process
           <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
             <button
               onClick={() => onNavigate('trips')}
-              className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 active:scale-98 transition-all flex items-center justify-center gap-2"
+              className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Explore Upcoming Trips</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
             <button
-              onClick={() => onOpenInquiry()}
-              className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-sm sm:text-base text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-500 backdrop-blur-md active:scale-98 transition-all flex items-center justify-center gap-2"
+              onClick={() => onOpenInquiry({ tourTitle: `${currentSlide.name} Package` })}
+              className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-sm sm:text-base text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-500 backdrop-blur-md active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Plan A Custom Trip</span>
             </button>
