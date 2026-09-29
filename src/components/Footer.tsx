@@ -169,7 +169,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
       <div className="border-t border-slate-900 bg-slate-950/80 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
           <div>
-            &copy; {new Date().getFullYear()} {companyData.name}. All Rights Reserved.
+            ©️ Copyright 2026 | R Journey | All Rights Reserved | Powered by{' '}
+            <a
+              href="https://www.futurexdigitalmarketing.com/"
+              target="_blank"
+              rel="noopener"
+              style={{ color: '#28a745' }}
+              className="hover:underline font-medium"
+            >
+              FutureX Digital Marketing
+            </a>
           </div>
 
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">

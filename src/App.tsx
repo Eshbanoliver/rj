@@ -28,8 +28,20 @@ import { DestinationsPage } from './pages/DestinationsPage';
 import { ToursPage } from './pages/ToursPage';
 import { ContactPage } from './pages/ContactPage';
 
+const getInitialPage = (): PageType => {
+  if (typeof window === 'undefined') return 'home';
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+  if (path === 'about') return 'about';
+  if (path === 'destinations') return 'destinations';
+  if (path === 'trips' || path === 'tours') return 'trips';
+  if (path === 'gallery') return 'gallery';
+  if (path === 'contact') return 'contact';
+  if (path === 'terms') return 'terms';
+  return 'home';
+};
+
 export function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('home');
+  const [currentPage, setCurrentPage] = useState<PageType>(getInitialPage);
   const [selectedTour, setSelectedTour] = useState<TourPackage | null>(null);
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
   const [isInquiryOpen, setIsInquiryOpen] = useState<boolean>(false);
@@ -43,11 +55,24 @@ export function App() {
     tourType: 'all',
   });
 
-  // Scroll to top upon page navigation
+  // Scroll to top and sync history URL upon page navigation
   const handleNavigate = (page: PageType) => {
     setCurrentPage(page);
+    const targetPath = page === 'home' ? '/' : `/${page}`;
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState({ page }, '', targetPath);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Sync state when user uses browser Back / Forward buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPage(getInitialPage());
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Prevent background scroll when modal is active
   useEffect(() => {
