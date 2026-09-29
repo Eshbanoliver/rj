@@ -60,6 +60,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
       return;
     }
     setIsSubmitted(true);
+    window.open(getWhatsAppUrl(), '_blank');
   };
 
   const getWhatsAppUrl = () => {
@@ -242,21 +243,11 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
               <div className="pt-2 space-y-2.5">
                 <button
                   type="submit"
-                  className="w-full min-h-[44px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-md shadow-amber-500/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full min-h-[44px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 shadow-md shadow-emerald-600/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Trip Request</span>
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Send Enquiry on WhatsApp</span>
                 </button>
-
-                <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full min-h-[44px] py-2.5 px-4 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-500 transition-colors flex items-center justify-center gap-2 shadow-xs"
-                >
-                  <MessageSquare className="w-3.5 h-3.5" />
-                  <span>Quick Chat on WhatsApp</span>
-                </a>
               </div>
 
               <div className="text-center pt-2 text-[11px] text-slate-500">

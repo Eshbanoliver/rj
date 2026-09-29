@@ -30,7 +30,7 @@ export const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="pt-16 sm:pt-28 pb-12 sm:pb-16 bg-white border-b border-slate-200/80 text-slate-900 relative">
+    <section className="pt-10 sm:pt-14 pb-12 sm:pb-16 bg-white border-b border-slate-200/80 text-slate-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Subtle trust badge */}
         <div className="text-center mb-8 sm:mb-12">
