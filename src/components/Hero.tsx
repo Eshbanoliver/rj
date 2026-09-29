@@ -146,7 +146,7 @@ Please share available batch dates, itinerary details & seat reservation process
   };
 
   return (
-    <section className="relative flex flex-col justify-between bg-slate-950 text-white overflow-hidden min-h-[640px] sm:min-h-[700px]">
+    <section className="relative flex flex-col justify-between bg-black text-white overflow-hidden min-h-[640px] sm:min-h-[700px]">
       {/* Background Image Slider with Crossfade & Subtle Ken Burns Zoom */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {heroSlides.map((slide, index) => {
@@ -161,7 +161,7 @@ Please share available batch dates, itinerary details & seat reservation process
               <img
                 src={slide.image}
                 alt={`${slide.name} - ${slide.tagline}`}
-                className={`w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.08] transition-transform duration-[6000ms] ease-out ${
+                className={`w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.04] transition-transform duration-[6000ms] ease-out ${
                   isActive ? 'scale-105' : 'scale-100'
                 }`}
               />
@@ -169,10 +169,10 @@ Please share available batch dates, itinerary details & seat reservation process
           );
         })}
 
-        {/* Layered cinematic gradients for flawless text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[280px] bg-amber-500/15 blur-[130px] rounded-full pointer-events-none" />
+        {/* Minimal neutral dark gradients (NO blue tint) for natural image colors and text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[280px] bg-amber-500/10 blur-[140px] rounded-full pointer-events-none" />
       </div>
 
       {/* Main Hero Content */}
@@ -190,7 +190,7 @@ Please share available batch dates, itinerary details & seat reservation process
                   className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer shrink-0 ${
                     isActive
                       ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/30 scale-105'
-                      : 'bg-slate-900/70 hover:bg-slate-800/90 text-slate-300 hover:text-white border border-slate-700/60 backdrop-blur-md'
+                      : 'bg-black/50 hover:bg-black/75 text-white/90 hover:text-white border border-white/20 backdrop-blur-md'
                   }`}
                 >
                   <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-slate-950' : 'bg-amber-400'}`} />
@@ -205,21 +205,21 @@ Please share available batch dates, itinerary details & seat reservation process
             <button
               onClick={handlePrevSlide}
               aria-label="Previous destination"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-900/75 hover:bg-amber-500 hover:text-slate-950 text-white border border-slate-700/70 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-amber-500 hover:text-slate-950 text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
             >
               <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={() => setIsPlaying(!isPlaying)}
               aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-900/75 hover:bg-slate-800 text-amber-400 border border-slate-700/70 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95 text-xs font-bold"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-black/80 text-amber-400 border border-white/20 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95 text-xs font-bold"
             >
               {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
             </button>
             <button
               onClick={handleNextSlide}
               aria-label="Next destination"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-900/75 hover:bg-amber-500 hover:text-slate-950 text-white border border-slate-700/70 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-amber-500 hover:text-slate-950 text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
             >
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -228,7 +228,7 @@ Please share available batch dates, itinerary details & seat reservation process
 
         <div className="max-w-3xl">
           {/* Eyebrow Badge with Active Slide Location Info */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-amber-500/40 text-amber-400 text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-4 sm:mb-5 shadow-lg transition-all duration-500">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-amber-500/40 text-amber-400 text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-4 sm:mb-5 shadow-lg transition-all duration-500">
             <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0 animate-pulse" />
             <span className="font-bold text-white">{currentSlide.name}</span>
             <span className="w-1 h-1 rounded-full bg-amber-400" />
@@ -238,7 +238,7 @@ Please share available batch dates, itinerary details & seat reservation process
           </div>
 
           {/* Main Title */}
-          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black font-heading tracking-tight leading-[1.1] text-white">
+          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black font-heading tracking-tight leading-[1.1] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
             Where Strangers <br className="hidden sm:inline" />
             <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 bg-clip-text text-transparent">
               Become Stories.
@@ -246,16 +246,16 @@ Please share available batch dates, itinerary details & seat reservation process
           </h1>
 
           {/* Subtitle / Philosophy */}
-          <p className="mt-4 sm:mt-5 text-sm sm:text-lg lg:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl drop-shadow-sm">
+          <p className="mt-4 sm:mt-5 text-sm sm:text-lg lg:text-xl text-slate-100 font-normal leading-relaxed max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
             Curated group journeys across Rajasthan designed for solo travelers, couples & friends.
             Experience royal forts, thrilling Thar desert safaris, poolside DJ parties, and campfire nights.
           </p>
 
           {/* Active Location Key Highlights Banner */}
-          <div className="mt-4 sm:mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/60 border border-slate-800/80 backdrop-blur-md text-xs sm:text-sm text-slate-300">
+          <div className="mt-4 sm:mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-black/55 border border-white/15 backdrop-blur-md text-xs sm:text-sm text-slate-200 shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span className="text-amber-400 font-bold">{currentSlide.name} Circuit:</span>
-            <span className="text-slate-200 font-medium">{currentSlide.highlight}</span>
+            <span className="text-slate-100 font-medium">{currentSlide.highlight}</span>
           </div>
 
           {/* Value Highlights */}
@@ -286,7 +286,7 @@ Please share available batch dates, itinerary details & seat reservation process
 
             <button
               onClick={() => onOpenInquiry({ tourTitle: `${currentSlide.name} Package` })}
-              className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-sm sm:text-base text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-500 backdrop-blur-md active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-sm sm:text-base text-white bg-black/60 hover:bg-black/80 border border-white/20 hover:border-amber-400/60 backdrop-blur-md active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
               <span>Plan A Custom Trip</span>
             </button>
