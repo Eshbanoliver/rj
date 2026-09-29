@@ -36,8 +36,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
           {/* Column 1: Brand Info (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center font-black text-slate-950 text-lg font-heading shadow-md shadow-amber-500/20">
-                RJ
+              <div className="w-12 h-12 rounded-xl bg-white p-1 shadow-md shadow-black/20 flex items-center justify-center overflow-hidden">
+                <img
+                  src="/images/r-journey-logo.png"
+                  alt="R Journey Tour & Travel Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-black font-heading tracking-tight text-white">

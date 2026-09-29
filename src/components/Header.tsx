@@ -88,10 +88,12 @@ export const Header: React.FC<HeaderProps> = ({
             className="flex items-center gap-3 text-left group focus:outline-none"
             aria-label="R Journey Tour & Travel Home"
           >
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 p-0.5 shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center font-bold text-amber-400 text-lg tracking-tighter">
-                RJ
-              </div>
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white p-1 shadow-sm border border-slate-200/80 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+              <img
+                src="/images/r-journey-logo.png"
+                alt="R Journey Tour & Travel Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div>
               <div className="flex items-baseline gap-1">
@@ -167,15 +169,19 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="fixed right-0 top-0 bottom-0 w-5/6 max-w-sm bg-white border-l border-slate-200 p-6 flex flex-col justify-between shadow-2xl z-50 overflow-y-auto text-slate-900">
             <div>
               <div className="flex items-center justify-between pb-6 border-b border-slate-200">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center font-bold text-slate-950 text-sm">
-                    RJ
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white p-1 border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
+                    <img
+                      src="/images/r-journey-logo.png"
+                      alt="R Journey Tour & Travel Logo"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-base font-heading">
-                      R Journey
+                      R <span className="text-amber-500">Journey</span>
                     </h3>
-                    <p className="text-[10px] text-slate-500">Tour & Travel</p>
+                    <p className="text-[10px] text-slate-500 font-semibold tracking-wider uppercase">Tour & Travel</p>
                   </div>
                 </div>
                 <button
