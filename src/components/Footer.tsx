@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
   ];
 
   return (
-    <footer className="bg-slate-950 text-white border-t border-slate-800">
+    <footer className="bg-[#113d48] text-white border-t border-[#184e5b]">
       {/* Upper Footer Columns */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10">
@@ -45,15 +45,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
               </div>
               <div>
                 <h3 className="text-xl font-black font-heading tracking-tight text-white">
-                  R <span className="text-amber-400">Journey</span>
+                  R <span className="text-[#1ca8cb]">Journey</span>
                 </h3>
-                <p className="text-[10px] tracking-widest uppercase text-slate-400">
+                <p className="text-[10px] tracking-widest uppercase text-cyan-200/80 font-bold">
                   Tour & Travel
                 </p>
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-sm">
               Where Strangers Become Stories. Specialized in curated 15 Strangers community journeys, college reunions, and luxury Rajasthan getaways from Ahmedabad and Udaipur.
             </p>
 
@@ -62,12 +62,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
                 href={companyData.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-400 transition-colors"
+                className="w-9 h-9 rounded-xl bg-[#0c2c34] border border-[#184e5b] flex items-center justify-center text-slate-200 hover:text-[#1ca8cb] hover:border-[#1ca8cb] transition-colors"
                 aria-label="Instagram Profile"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
-              <span className="text-xs text-slate-400 font-medium">
+              <span className="text-xs text-slate-300 font-medium">
                 {companyData.instagram}
               </span>
             </div>
@@ -86,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
                       onNavigate(link.page);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-slate-400 hover:text-amber-400 transition-colors cursor-pointer"
+                    className="text-slate-300 hover:text-[#1ca8cb] transition-colors cursor-pointer"
                   >
                     {link.label}
                   </button>
@@ -100,9 +100,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
             <h4 className="text-sm font-bold font-heading text-white uppercase tracking-wider">
               Destinations
             </h4>
-            <ul className="space-y-2 text-xs text-slate-400">
+            <ul className="space-y-2 text-xs text-slate-300">
               {destinations.map((dest, i) => (
-                <li key={i} className="hover:text-slate-200 transition-colors">
+                <li key={i} className="hover:text-[#1ca8cb] transition-colors">
                   {dest}
                 </li>
               ))}
@@ -114,40 +114,40 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
             <h4 className="text-sm font-bold font-heading text-white uppercase tracking-wider">
               Contact Information
             </h4>
-            <ul className="space-y-3 text-xs text-slate-300">
+            <ul className="space-y-3 text-xs text-slate-200">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#1ca8cb] shrink-0 mt-0.5" />
                 <span>{companyData.address.full}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <Phone className="w-4 h-4 text-[#1ca8cb] shrink-0" />
                 <div className="space-x-1">
                   <a
                     href="tel:8094268991"
-                    className="hover:text-amber-400 transition-colors"
+                    className="hover:text-[#1ca8cb] transition-colors"
                   >
                     8094268991
                   </a>
                   <span>/</span>
                   <a
                     href="tel:8890437050"
-                    className="hover:text-amber-400 transition-colors"
+                    className="hover:text-[#1ca8cb] transition-colors"
                   >
                     8890437050
                   </a>
                 </div>
               </li>
               <li className="flex items-center gap-2.5">
-                <span className="text-amber-400 text-sm font-bold">@</span>
+                <span className="text-[#1ca8cb] text-sm font-bold">@</span>
                 <a
                   href={`mailto:${companyData.email}`}
-                  className="hover:text-amber-400 transition-colors"
+                  className="hover:text-[#1ca8cb] transition-colors"
                 >
                   {companyData.email}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+                <Clock className="w-4 h-4 text-[#1ca8cb] shrink-0" />
                 <span>{companyData.businessHours}</span>
               </li>
             </ul>
@@ -155,7 +155,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
             <div className="pt-2">
               <button
                 onClick={onOpenTerms}
-                className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-medium underline cursor-pointer"
+                className="inline-flex items-center gap-1.5 text-xs text-[#1ca8cb] hover:text-cyan-200 font-medium underline cursor-pointer"
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>View 19 Terms & Conditions</span>
@@ -166,7 +166,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
       </div>
 
       {/* Bottom Legal Bar */}
-      <div className="border-t border-slate-900 bg-slate-950/80 py-6">
+      <div className="border-t border-[#184e5b] bg-[#0c2c34] py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
           <div>
             ©️ Copyright 2026 | R Journey | All Rights Reserved | Powered by{' '}

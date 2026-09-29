@@ -169,10 +169,10 @@ Please share available batch dates, itinerary details & seat reservation process
           );
         })}
 
-        {/* Minimal neutral dark gradients (NO blue tint) for natural image colors and text contrast */}
+        {/* Minimal neutral dark gradients for natural image colors and text contrast */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/15" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[280px] bg-amber-500/10 blur-[140px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[280px] bg-[#1ca8cb]/15 blur-[140px] rounded-full pointer-events-none" />
       </div>
 
       {/* Main Hero Content */}
@@ -189,11 +189,11 @@ Please share available batch dates, itinerary details & seat reservation process
                   onClick={() => handleSelectSlide(idx)}
                   className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-1.5 cursor-pointer shrink-0 ${
                     isActive
-                      ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/30 scale-105'
+                      ? 'bg-[#1ca8cb] text-[#113d48] shadow-lg shadow-[#1ca8cb]/30 scale-105 font-black'
                       : 'bg-black/50 hover:bg-black/75 text-white/90 hover:text-white border border-white/20 backdrop-blur-md'
                   }`}
                 >
-                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-slate-950' : 'bg-amber-400'}`} />
+                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-[#113d48]' : 'bg-[#1ca8cb]'}`} />
                   <span>{slide.name}</span>
                 </button>
               );
@@ -205,21 +205,21 @@ Please share available batch dates, itinerary details & seat reservation process
             <button
               onClick={handlePrevSlide}
               aria-label="Previous destination"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-amber-500 hover:text-slate-950 text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-[#1ca8cb] hover:text-[#113d48] text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
             >
               <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={() => setIsPlaying(!isPlaying)}
               aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-black/80 text-amber-400 border border-white/20 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95 text-xs font-bold"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-black/80 text-[#1ca8cb] border border-white/20 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95 text-xs font-bold"
             >
               {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
             </button>
             <button
               onClick={handleNextSlide}
               aria-label="Next destination"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-amber-500 hover:text-slate-950 text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/55 hover:bg-[#1ca8cb] hover:text-[#113d48] text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
             >
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -228,11 +228,11 @@ Please share available batch dates, itinerary details & seat reservation process
 
         <div className="max-w-3xl">
           {/* Eyebrow Badge with Active Slide Location Info */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-amber-500/40 text-amber-400 text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-4 sm:mb-5 shadow-lg transition-all duration-500">
-            <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#1ca8cb]/40 text-[#1ca8cb] text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-4 sm:mb-5 shadow-lg transition-all duration-500">
+            <MapPin className="w-3.5 h-3.5 text-[#1ca8cb] shrink-0 animate-pulse" />
             <span className="font-bold text-white">{currentSlide.name}</span>
-            <span className="w-1 h-1 rounded-full bg-amber-400" />
-            <span className="text-amber-300 font-normal truncate">
+            <span className="w-1 h-1 rounded-full bg-[#1ca8cb]" />
+            <span className="text-cyan-200 font-normal truncate">
               {currentSlide.tagline}
             </span>
           </div>
@@ -240,7 +240,7 @@ Please share available batch dates, itinerary details & seat reservation process
           {/* Main Title */}
           <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black font-heading tracking-tight leading-[1.1] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
             Where Strangers <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#1ca8cb] via-[#5dd3ee] to-white bg-clip-text text-transparent">
               Become Stories.
             </span>
           </h1>
@@ -253,23 +253,23 @@ Please share available batch dates, itinerary details & seat reservation process
 
           {/* Active Location Key Highlights Banner */}
           <div className="mt-4 sm:mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-black/55 border border-white/15 backdrop-blur-md text-xs sm:text-sm text-slate-200 shadow-md">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-            <span className="text-amber-400 font-bold">{currentSlide.name} Circuit:</span>
+            <Sparkles className="w-3.5 h-3.5 text-[#1ca8cb] shrink-0" />
+            <span className="text-[#1ca8cb] font-bold">{currentSlide.name} Circuit:</span>
             <span className="text-slate-100 font-medium">{currentSlide.highlight}</span>
           </div>
 
           {/* Value Highlights */}
           <div className="mt-4 sm:mt-5 flex flex-wrap gap-y-2 gap-x-4 text-xs sm:text-sm text-slate-300 font-medium">
             <span className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#1ca8cb] shrink-0" />
               Verified 3-Star Resorts & Desert Swiss Tents
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#1ca8cb] shrink-0" />
               Starting at just ₹6,999/-
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#1ca8cb] shrink-0" />
               ₹3,500 Token Deposit
             </span>
           </div>
@@ -278,7 +278,7 @@ Please share available batch dates, itinerary details & seat reservation process
           <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
             <button
               onClick={() => onNavigate('trips')}
-              className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-black text-sm sm:text-base text-slate-950 bg-gradient-to-r from-[#1ca8cb] to-[#3dbedc] hover:from-[#35bad8] hover:to-[#1ca8cb] shadow-lg shadow-[#1ca8cb]/30 hover:shadow-xl hover:shadow-[#1ca8cb]/40 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Explore Upcoming Trips</span>
               <ArrowRight className="w-4 h-4" />
@@ -286,7 +286,7 @@ Please share available batch dates, itinerary details & seat reservation process
 
             <button
               onClick={() => onOpenInquiry({ tourTitle: `${currentSlide.name} Package` })}
-              className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-sm sm:text-base text-white bg-black/60 hover:bg-black/80 border border-white/20 hover:border-amber-400/60 backdrop-blur-md active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              className="px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-sm sm:text-base text-white bg-black/60 hover:bg-black/80 border border-white/20 hover:border-[#1ca8cb]/60 backdrop-blur-md active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
               <span>Plan A Custom Trip</span>
             </button>
@@ -300,7 +300,7 @@ Please share available batch dates, itinerary details & seat reservation process
           <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3 sm:mb-4">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <h2 className="text-xs sm:text-base font-bold text-slate-900 tracking-wide uppercase font-heading">
+              <h2 className="text-xs sm:text-base font-bold text-[#113d48] tracking-wide uppercase font-heading">
                 Find Your Journey & Enquire
               </h2>
             </div>
@@ -314,13 +314,13 @@ Please share available batch dates, itinerary details & seat reservation process
             {/* Departure Hub */}
             <div className="space-y-1">
               <label className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase flex items-center gap-1.5">
-                <Compass className="w-3.5 h-3.5 text-amber-500" />
+                <Compass className="w-3.5 h-3.5 text-[#1ca8cb]" />
                 Departure From
               </label>
               <select
                 value={selectedDeparture}
                 onChange={(e) => setSelectedDeparture(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors cursor-pointer"
               >
                 <option value="all">Any Departure Hub</option>
                 <option value="Ahmedabad">Ahmedabad (Thu/Fri)</option>
@@ -331,13 +331,13 @@ Please share available batch dates, itinerary details & seat reservation process
             {/* Destination */}
             <div className="space-y-1">
               <label className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-amber-500" />
+                <MapPin className="w-3.5 h-3.5 text-[#1ca8cb]" />
                 Destination
               </label>
               <select
                 value={selectedDestination}
                 onChange={(e) => setSelectedDestination(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors cursor-pointer"
               >
                 <option value="all">All Rajasthan Circuits</option>
                 <option value="Jaisalmer">Jodhpur & Jaisalmer</option>
@@ -348,13 +348,13 @@ Please share available batch dates, itinerary details & seat reservation process
             {/* Travelers */}
             <div className="space-y-1">
               <label className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase flex items-center gap-1.5">
-                <Users className="w-3.5 h-3.5 text-amber-500" />
+                <Users className="w-3.5 h-3.5 text-[#1ca8cb]" />
                 Travelers
               </label>
               <select
                 value={travelers}
                 onChange={(e) => setTravelers(Number(e.target.value))}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors cursor-pointer"
               >
                 <option value="1">1 Solo (Strangers Batch)</option>
                 <option value="2">2 Travelers (Duo / Couple)</option>
@@ -366,13 +366,13 @@ Please share available batch dates, itinerary details & seat reservation process
             {/* Tour Type */}
             <div className="space-y-1">
               <label className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-amber-500" />
+                <Calendar className="w-3.5 h-3.5 text-[#1ca8cb]" />
                 Trip Style
               </label>
               <select
                 value={tourType}
                 onChange={(e) => setTourType(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors cursor-pointer"
               >
                 <option value="all">All Trip Styles</option>
                 <option value="15 Strangers Social Trip">15 Strangers Social Trip</option>
@@ -399,13 +399,13 @@ Please share available batch dates, itinerary details & seat reservation process
           {/* Quick links footer */}
           <div className="mt-3.5 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
             <span className="flex items-center gap-1.5 text-slate-600">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <Sparkles className="w-3.5 h-3.5 text-[#1ca8cb]" />
               <span>Verified 15 Strangers batches & private custom packages</span>
             </span>
             <button
               type="button"
               onClick={handleBrowseOnline}
-              className="text-amber-600 hover:text-amber-700 font-bold hover:underline flex items-center gap-1 cursor-pointer"
+              className="text-[#113d48] hover:text-[#1ca8cb] font-bold hover:underline flex items-center gap-1 cursor-pointer transition-colors"
             >
               <span>Or browse all packages online</span>
               <ArrowRight className="w-3.5 h-3.5" />

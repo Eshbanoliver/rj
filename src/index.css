@@ -1,9 +1,39 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #1ca8cb;
+  --color-primary-50: #f0f9fb;
+  --color-primary-100: #d8f1f7;
+  --color-primary-200: #b5e4ee;
+  --color-primary-300: #7fd0e2;
+  --color-primary-400: #42b7d3;
+  --color-primary-500: #1ca8cb;
+  --color-primary-600: #168ba8;
+  --color-primary-700: #156f87;
+  --color-primary-800: #165b6e;
+  --color-primary-900: #174c5c;
+  --color-primary-950: #0a313d;
+
+  --color-secondary: #113d48;
+  --color-secondary-50: #f2f7f8;
+  --color-secondary-100: #deebed;
+  --color-secondary-200: #c1dadf;
+  --color-secondary-300: #97c0c9;
+  --color-secondary-400: #649fae;
+  --color-secondary-500: #448393;
+  --color-secondary-600: #366a78;
+  --color-secondary-700: #2b5662;
+  --color-secondary-800: #264852;
+  --color-secondary-900: #113d48;
+  --color-secondary-950: #0b242b;
+}
+
 @layer base {
   :root {
     --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --primary: #1ca8cb;
+    --secondary: #113d48;
   }
 
   html {
@@ -42,10 +72,10 @@
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+    box-shadow: 0 0 14px rgba(28, 168, 203, 0.45);
   }
   50% {
-    box-shadow: 0 0 24px rgba(245, 158, 11, 0.65);
+    box-shadow: 0 0 28px rgba(28, 168, 203, 0.75);
   }
 }
 
@@ -162,5 +192,5 @@
 
 .card-modern:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.18), 0 0 20px rgba(245, 158, 11, 0.08);
+  box-shadow: 0 20px 40px -15px rgba(28, 168, 203, 0.25), 0 0 20px rgba(28, 168, 203, 0.12);
 }

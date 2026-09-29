@@ -121,11 +121,11 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
         ) : (
           <div>
             <div className="mb-6">
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 uppercase tracking-wider mb-1">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1ca8cb] uppercase tracking-wider mb-1">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>R Journey Travel Desk</span>
               </div>
-              <h3 className="text-2xl font-black font-heading text-slate-900">
+              <h3 className="text-2xl font-black font-heading text-[#113d48]">
                 Plan Your Journey
               </h3>
               <p className="text-xs text-slate-500 mt-1">
@@ -151,7 +151,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="e.g. Rahul Sharma"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#1ca8cb] focus:ring-1 focus:ring-[#1ca8cb] transition-colors"
                 />
               </div>
 
@@ -167,7 +167,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="10-digit mobile"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#1ca8cb] focus:ring-1 focus:ring-[#1ca8cb] transition-colors"
                   />
                 </div>
                 <div>
@@ -180,7 +180,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="name@example.com"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#1ca8cb] focus:ring-1 focus:ring-[#1ca8cb] transition-colors"
                   />
                 </div>
               </div>
@@ -194,7 +194,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                     name="tourTitle"
                     value={formData.tourTitle}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#1ca8cb] transition-colors"
                   >
                     <option value="">Choose a tour...</option>
                     {tourPackages.map((t) => (
@@ -215,7 +215,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                     name="travelers"
                     value={formData.travelers}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#1ca8cb] transition-colors"
                   >
                     <option value="1">1 Solo Traveler</option>
                     <option value="2">2 Travelers (Duo)</option>
@@ -236,7 +236,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Preferred dates, questions about resort or desert camps..."
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors resize-none"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#1ca8cb] focus:ring-1 focus:ring-[#1ca8cb] transition-colors resize-none"
                 />
               </div>
 
@@ -254,7 +254,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                 <span>Or reach us directly at </span>
                 <a
                   href={`tel:${companyData.phones[0]}`}
-                  className="text-amber-600 font-bold hover:underline"
+                  className="text-[#113d48] hover:text-[#1ca8cb] font-bold hover:underline transition-colors"
                 >
                   {companyData.displayPhone}
                 </a>

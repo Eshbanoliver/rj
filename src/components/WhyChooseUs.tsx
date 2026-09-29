@@ -40,11 +40,11 @@ export const WhyChooseUs: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <span className="text-[11px] sm:text-xs uppercase tracking-widest text-amber-600 font-bold">
+          <span className="text-[11px] sm:text-xs uppercase tracking-widest text-[#1ca8cb] font-bold">
             The R Journey Distinction
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight mt-1.5 sm:mt-2">
-            Why Travelers Choose <span className="text-amber-500">R Journey</span>
+            Why Travelers Choose <span className="text-[#1ca8cb]">R Journey</span>
           </h2>
           <p className="mt-3 sm:mt-4 text-slate-600 text-xs sm:text-base leading-relaxed">
             We don't do typical crowded sightseeing tours. We create vibrant community experiences rooted in Rajasthani hospitality and lifelong camaraderie.
@@ -59,24 +59,24 @@ export const WhyChooseUs: React.FC = () => {
             return (
               <div
                 key={index}
-                className="relative bg-white border border-slate-200/90 hover:border-amber-400 rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_-15px_rgba(245,158,11,0.22)] group flex flex-col justify-between h-full overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-500 before:scale-x-0 group-hover:before:scale-x-100 before:transition-transform before:duration-500 before:origin-left"
+                className="relative bg-white border border-slate-200/90 hover:border-[#1ca8cb] rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_-15px_rgba(28,168,203,0.25)] group flex flex-col justify-between h-full overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#1ca8cb] before:via-[#3eb8d4] before:to-[#113d48] before:scale-x-0 group-hover:before:scale-x-100 before:transition-transform before:duration-500 before:origin-left"
               >
                 {/* Subtle ambient background glow on hover */}
-                <div className="absolute -bottom-16 -right-16 w-36 h-36 bg-amber-400/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute -bottom-16 -right-16 w-36 h-36 bg-[#1ca8cb]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                 {/* Top Row: Icon + Watermark Number */}
                 <div className="flex items-center justify-between mb-5 sm:mb-6 relative z-10">
-                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/80 flex items-center justify-center text-amber-600 group-hover:scale-110 group-hover:rotate-6 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm shrink-0">
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#1ca8cb]/10 to-[#113d48]/10 border border-[#1ca8cb]/30 flex items-center justify-center text-[#1ca8cb] group-hover:scale-110 group-hover:rotate-6 group-hover:from-[#1ca8cb] group-hover:to-[#113d48] group-hover:text-white transition-all duration-300 shadow-sm shrink-0">
                     <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                   </div>
-                  <span className="text-3xl sm:text-4xl font-black font-heading text-slate-200/80 group-hover:text-amber-500/20 group-hover:scale-110 transition-all duration-300 select-none">
+                  <span className="text-3xl sm:text-4xl font-black font-heading text-slate-200/80 group-hover:text-[#1ca8cb]/20 group-hover:scale-110 transition-all duration-300 select-none">
                     {stepNum}
                   </span>
                 </div>
 
                 {/* Card Content */}
                 <div className="relative z-10 flex-1">
-                  <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-amber-600 transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-[#113d48] transition-colors duration-300">
                     {item.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 mt-2.5 sm:mt-3 leading-relaxed">
@@ -85,9 +85,9 @@ export const WhyChooseUs: React.FC = () => {
                 </div>
 
                 {/* Bottom Interactive Line */}
-                <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-400 group-hover:text-amber-600 transition-colors duration-300 relative z-10">
+                <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-semibold text-slate-400 group-hover:text-[#113d48] transition-colors duration-300 relative z-10">
                   <span className="tracking-wide uppercase text-[10px]">R Journey Standard</span>
-                  <span className="w-2 h-2 rounded-full bg-slate-200 group-hover:bg-amber-500 group-hover:scale-125 transition-all duration-300" />
+                  <span className="w-2 h-2 rounded-full bg-slate-200 group-hover:bg-[#1ca8cb] group-hover:scale-125 transition-all duration-300" />
                 </div>
               </div>
             );

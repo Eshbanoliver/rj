@@ -62,23 +62,23 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="pt-24 pb-20 bg-[#fafbfc] text-slate-900 min-h-screen">
       {/* Page Header */}
-      <div className="relative py-12 sm:py-20 bg-slate-900 border-b border-slate-800 text-center overflow-hidden">
+      <div className="relative py-12 sm:py-20 bg-[#113d48] border-b border-[#0e333d] text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/palm-valley-dinner.jpg"
             alt="Contact R Journey"
             className="w-full h-full object-cover filter brightness-[0.25]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#113d48] via-[#113d48]/80 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold tracking-widest text-amber-400 uppercase mb-3 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900/80 border border-amber-500/30">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold tracking-widest text-[#1ca8cb] uppercase mb-3 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900/80 border border-[#1ca8cb]/30">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Direct Travel Support</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading text-white tracking-tight">
-            Contact <span className="text-amber-400">Our Team</span>
+            Contact <span className="text-[#1ca8cb]">Our Team</span>
           </h1>
           <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto px-2">
             Ready to embark on your next Rajasthan journey? Get in touch with our travel desk in Udaipur or message us directly on WhatsApp.
@@ -91,7 +91,7 @@ export const ContactPage: React.FC = () => {
           {/* Left Column: Direct Info Cards (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             <div>
-              <span className="text-xs uppercase tracking-widest text-amber-600 font-bold block mb-1">
+              <span className="text-xs uppercase tracking-widest text-[#113d48] font-bold block mb-1">
                 Reach Us Anytime
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold font-heading text-slate-900">
@@ -105,8 +105,8 @@ export const ContactPage: React.FC = () => {
             {/* Contact Cards */}
             <div className="space-y-4">
               {/* Phone */}
-              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-orange-500 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#1ca8cb] shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(28,168,203,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-[#1ca8cb] before:to-[#113d48] before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1ca8cb]/10 to-[#113d48]/10 border border-[#1ca8cb]/30 text-[#113d48] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-[#1ca8cb] group-hover:to-[#113d48] group-hover:text-white transition-all duration-300 shadow-sm">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
@@ -117,7 +117,7 @@ export const ContactPage: React.FC = () => {
                     <div>
                       <a
                         href="tel:8094268991"
-                        className="hover:text-amber-600 transition-colors"
+                        className="hover:text-[#1ca8cb] transition-colors"
                       >
                         8094268991
                       </a>
@@ -125,7 +125,7 @@ export const ContactPage: React.FC = () => {
                     <div>
                       <a
                         href="tel:8890437050"
-                        className="hover:text-amber-600 transition-colors"
+                        className="hover:text-[#1ca8cb] transition-colors"
                       >
                         8890437050
                       </a>
@@ -135,8 +135,8 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Email */}
-              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-orange-500 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#1ca8cb] shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(28,168,203,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-[#1ca8cb] before:to-[#113d48] before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1ca8cb]/10 to-[#113d48]/10 border border-[#1ca8cb]/30 text-[#113d48] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-[#1ca8cb] group-hover:to-[#113d48] group-hover:text-white transition-all duration-300 shadow-sm">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
@@ -145,7 +145,7 @@ export const ContactPage: React.FC = () => {
                   </span>
                   <a
                     href="mailto:rjourney@gmail.com"
-                    className="text-sm font-bold text-amber-600 hover:underline block mt-1"
+                    className="text-sm font-bold text-[#113d48] hover:underline block mt-1"
                   >
                     rjourney@gmail.com
                   </a>
@@ -181,8 +181,8 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Office Address */}
-              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-orange-500 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#1ca8cb] shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(28,168,203,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-[#1ca8cb] before:to-[#113d48] before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1ca8cb]/10 to-[#113d48]/10 border border-[#1ca8cb]/30 text-[#113d48] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-[#1ca8cb] group-hover:to-[#113d48] group-hover:text-white transition-all duration-300 shadow-sm">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
@@ -199,8 +199,8 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Business Hours & Instagram */}
-              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-amber-400 before:to-orange-500 before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="relative p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#1ca8cb] shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(28,168,203,0.18)] hover:-translate-y-1 transition-all duration-300 group flex items-start gap-4 overflow-hidden before:absolute before:top-0 before:left-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-[#1ca8cb] before:to-[#113d48] before:scale-y-0 group-hover:before:scale-y-100 before:transition-transform before:duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1ca8cb]/10 to-[#113d48]/10 border border-[#1ca8cb]/30 text-[#113d48] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:from-[#1ca8cb] group-hover:to-[#113d48] group-hover:text-white transition-all duration-300 shadow-sm">
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
@@ -214,7 +214,7 @@ export const ContactPage: React.FC = () => {
                     href={companyData.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-amber-600 hover:underline mt-1 font-semibold"
+                    className="inline-flex items-center gap-1.5 text-xs text-[#113d48] hover:underline mt-1 font-semibold"
                   >
                     <InstagramIcon className="w-3.5 h-3.5" />
                     <span>{companyData.instagram}</span>
@@ -226,7 +226,7 @@ export const ContactPage: React.FC = () => {
 
           {/* Right Column: Contact Form & Map (7 cols) */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="relative bg-white border border-slate-200/90 hover:border-amber-300 rounded-3xl p-6 sm:p-9 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:via-orange-500 before:to-amber-500">
+            <div className="relative bg-white border border-slate-200/90 hover:border-[#1ca8cb]/60 rounded-3xl p-6 sm:p-9 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#1ca8cb] before:via-[#189bbd] before:to-[#113d48]">
               <h3 className="text-xl sm:text-2xl font-black font-heading text-slate-900 mb-1">
                 Send Us An Inquiry
               </h3>
@@ -277,7 +277,7 @@ export const ContactPage: React.FC = () => {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="e.g. Rahul Sharma"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       />
                     </div>
                     <div>
@@ -291,7 +291,7 @@ export const ContactPage: React.FC = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="10-digit mobile number"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       />
                     </div>
                   </div>
@@ -307,7 +307,7 @@ export const ContactPage: React.FC = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="name@domain.com"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       />
                     </div>
                     <div>
@@ -318,7 +318,7 @@ export const ContactPage: React.FC = () => {
                         name="destination"
                         value={formData.destination}
                         onChange={handleChange}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       >
                         <option value="Ahmedabad to Jodhpur & Jaisalmer">
                           Ahmedabad to Jodhpur & Jaisalmer (15 Strangers)
@@ -348,7 +348,7 @@ export const ContactPage: React.FC = () => {
                         name="travelers"
                         value={formData.travelers}
                         onChange={handleChange}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       >
                         <option value="1">1 Solo Traveler</option>
                         <option value="2">2 Travelers (Duo)</option>
@@ -367,7 +367,7 @@ export const ContactPage: React.FC = () => {
                         value={formData.travelDate}
                         onChange={handleChange}
                         placeholder="e.g. Next Friday / October Batch"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       />
                     </div>
                   </div>
@@ -382,7 +382,7 @@ export const ContactPage: React.FC = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Ask about sharing options, boarding points, vegetarian food..."
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors resize-none"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors resize-none"
                     />
                   </div>
 
@@ -403,7 +403,7 @@ export const ContactPage: React.FC = () => {
             <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm overflow-hidden">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-amber-600" />
+                  <MapPin className="w-4 h-4 text-[#1ca8cb]" />
                   <h4 className="text-sm font-bold text-slate-900 font-heading">
                     Office Location Map
                   </h4>

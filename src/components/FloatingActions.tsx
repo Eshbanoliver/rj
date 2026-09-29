@@ -27,21 +27,21 @@ export const FloatingActions: React.FC = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-900/90 text-white hover:bg-slate-800 border border-slate-700 shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer"
+          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#113d48] text-white hover:bg-[#184f5c] border border-[#184e5b] shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer"
           aria-label="Scroll to top"
         >
-          <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+          <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-[#1ca8cb]" />
         </button>
       )}
 
       {/* Floating Call Button */}
       <a
         href={`tel:${companyData.phones[0]}`}
-        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900 border border-amber-500/40 text-amber-400 shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 group relative"
+        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#113d48] border border-[#1ca8cb]/50 text-[#1ca8cb] shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 group relative"
         aria-label="Call R Journey Hotline"
       >
         <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-        <span className="hidden sm:block absolute right-14 bg-slate-900 text-white text-xs font-semibold px-2.5 py-1 rounded-lg border border-slate-700 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+        <span className="hidden sm:block absolute right-14 bg-[#113d48] text-white text-xs font-semibold px-2.5 py-1 rounded-lg border border-[#184e5b] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
           Call: {companyData.displayPhone}
         </span>
       </a>
@@ -55,7 +55,7 @@ export const FloatingActions: React.FC = () => {
         aria-label="Chat on WhatsApp"
       >
         <MessageSquare className="w-5 h-5 sm:w-7 sm:h-7" />
-        <span className="hidden sm:block absolute right-16 bg-slate-900 text-emerald-400 text-xs font-bold px-3 py-1.5 rounded-xl border border-slate-700 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+        <span className="hidden sm:block absolute right-16 bg-[#113d48] text-emerald-400 text-xs font-bold px-3 py-1.5 rounded-xl border border-[#184e5b] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
           Chat on WhatsApp
         </span>
       </a>

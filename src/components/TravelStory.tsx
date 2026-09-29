@@ -11,7 +11,7 @@ export const TravelStory: React.FC<TravelStoryProps> = ({ onNavigate, onOpenInqu
   return (
     <section className="py-16 sm:py-24 bg-white text-slate-900 relative overflow-hidden border-b border-slate-200/80">
       {/* Background subtle radial glow */}
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-amber-500/5 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-[#1ca8cb]/5 blur-[130px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -28,7 +28,7 @@ export const TravelStory: React.FC<TravelStoryProps> = ({ onNavigate, onOpenInqu
 
               {/* Floating Quote Badge */}
               <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-md border border-slate-200 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-lg">
-                <div className="flex items-center gap-1.5 text-amber-600 font-bold text-[11px] sm:text-xs uppercase tracking-wider mb-1">
+                <div className="flex items-center gap-1.5 text-[#1ca8cb] font-bold text-[11px] sm:text-xs uppercase tracking-wider mb-1">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>The 15 Strangers Creed</span>
                 </div>
@@ -39,7 +39,7 @@ export const TravelStory: React.FC<TravelStoryProps> = ({ onNavigate, onOpenInqu
             </div>
 
             {/* Floating Top Mini Badge */}
-            <div className="absolute top-3 right-3 sm:-top-4 sm:-right-4 bg-gradient-to-tr from-amber-500 to-orange-500 text-white font-bold text-[11px] sm:text-xs px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl shadow-xl flex items-center gap-1.5 sm:gap-2">
+            <div className="absolute top-3 right-3 sm:-top-4 sm:-right-4 bg-gradient-to-tr from-[#1ca8cb] to-[#113d48] text-white font-bold text-[11px] sm:text-xs px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl shadow-xl flex items-center gap-1.5 sm:gap-2">
               <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>15 Strangers • 1 Journey</span>
             </div>
@@ -47,14 +47,14 @@ export const TravelStory: React.FC<TravelStoryProps> = ({ onNavigate, onOpenInqu
 
           {/* Right Column: Storytelling Content (6 cols) */}
           <div className="lg:col-span-6 space-y-5 sm:space-y-6">
-            <div className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold tracking-widest text-amber-600 uppercase">
+            <div className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold tracking-widest text-[#1ca8cb] uppercase">
               <Heart className="w-3.5 h-3.5" />
               <span>Travel Philosophy</span>
             </div>
 
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight leading-tight">
               Travel More. <br />
-              <span className="text-amber-500">Experience More.</span>
+              <span className="text-[#1ca8cb]">Experience More.</span>
             </h2>
 
             <p className="text-slate-600 text-xs sm:text-base leading-relaxed">
@@ -67,12 +67,12 @@ export const TravelStory: React.FC<TravelStoryProps> = ({ onNavigate, onOpenInqu
 
             {/* 3 Value Points directly from brochure */}
             <div className="space-y-3.5 pt-1">
-              <div className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-4.5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-4.5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#1ca8cb] shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(28,168,203,0.2)] hover:-translate-y-1 transition-all duration-300 group">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#1ca8cb]/10 to-[#113d48]/10 border border-[#1ca8cb]/30 text-[#1ca8cb] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 group-hover:from-[#1ca8cb] group-hover:to-[#113d48] group-hover:text-white transition-all duration-300 shadow-sm">
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-heading group-hover:text-amber-600 transition-colors">
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-heading group-hover:text-[#113d48] transition-colors">
                     Turning Strangers Into Best Friends
                   </h4>
                   <p className="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
@@ -81,12 +81,12 @@ export const TravelStory: React.FC<TravelStoryProps> = ({ onNavigate, onOpenInqu
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-4.5 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-400 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(245,158,11,0.18)] hover:-translate-y-1 transition-all duration-300 group">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 group-hover:from-amber-500 group-hover:to-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-4.5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#1ca8cb] shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(28,168,203,0.2)] hover:-translate-y-1 transition-all duration-300 group">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#1ca8cb]/10 to-[#113d48]/10 border border-[#1ca8cb]/30 text-[#1ca8cb] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 group-hover:from-[#1ca8cb] group-hover:to-[#113d48] group-hover:text-white transition-all duration-300 shadow-sm">
                   <Flame className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-heading group-hover:text-amber-600 transition-colors">
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-heading group-hover:text-[#113d48] transition-colors">
                     Desert Thrills & Hillside Pool Parties
                   </h4>
                   <p className="text-[11px] sm:text-xs text-slate-600 mt-1 leading-relaxed">
@@ -100,7 +100,7 @@ export const TravelStory: React.FC<TravelStoryProps> = ({ onNavigate, onOpenInqu
             <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 onClick={() => onNavigate('trips')}
-                className="px-6 py-3 min-h-[44px] rounded-xl font-bold text-xs sm:text-sm text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-md shadow-amber-500/20 active:scale-95 transition-all flex items-center justify-center gap-2"
+                className="px-6 py-3 min-h-[44px] rounded-xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#1ca8cb] to-[#113d48] hover:from-[#35bad8] hover:to-[#0d3039] shadow-md shadow-[#1ca8cb]/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Find Your Next Journey</span>
                 <ArrowRight className="w-4 h-4" />
@@ -108,7 +108,7 @@ export const TravelStory: React.FC<TravelStoryProps> = ({ onNavigate, onOpenInqu
 
               <button
                 onClick={() => onOpenInquiry()}
-                className="px-6 py-3 min-h-[44px] rounded-xl font-bold text-xs sm:text-sm text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition-colors flex items-center justify-center"
+                className="px-6 py-3 min-h-[44px] rounded-xl font-bold text-xs sm:text-sm text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition-colors flex items-center justify-center cursor-pointer"
               >
                 <span>Customize A Private Trip</span>
               </button>

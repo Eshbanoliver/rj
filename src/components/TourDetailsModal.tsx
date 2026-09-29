@@ -101,15 +101,15 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
 
             <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 max-w-3xl">
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2">
-                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-amber-500 text-slate-950">
+                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-[#1ca8cb] text-slate-950">
                   {tour.badge || 'Curated Group Trip'}
                 </span>
                 <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-slate-900/80 backdrop-blur-md border border-slate-700 text-white flex items-center gap-1">
-                  <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
+                  <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#1ca8cb]" />
                   {tour.duration}
                 </span>
                 <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-slate-900/80 backdrop-blur-md border border-slate-700 text-white flex items-center gap-1">
-                  <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
+                  <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#1ca8cb]" />
                   Ex-{tour.departureCity}
                 </span>
               </div>
@@ -117,7 +117,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
               <h2 className="text-xl sm:text-3xl md:text-4xl font-black font-heading text-white leading-tight">
                 {tour.title}
               </h2>
-              <p className="text-xs sm:text-base text-amber-300 font-medium italic mt-1 line-clamp-1 sm:line-clamp-none">
+              <p className="text-xs sm:text-base text-[#1ca8cb] font-medium italic mt-1 line-clamp-1 sm:line-clamp-none">
                 "{tour.tagline}"
               </p>
             </div>
@@ -135,7 +135,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
               <div className="hidden sm:block w-px h-8 bg-slate-200" />
               <div>
                 <span className="text-slate-500 text-xs block">Group Style</span>
-                <span className="font-semibold text-amber-600">
+                <span className="font-semibold text-[#113d48]">
                   15 Strangers / Group
                 </span>
               </div>
@@ -146,7 +146,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                 <span className="text-[11px] text-slate-500 block uppercase tracking-wider">
                   Starting Price
                 </span>
-                <span className="text-2xl font-black font-heading text-amber-600">
+                <span className="text-2xl font-black font-heading text-[#113d48]">
                   ₹{tour.startingPrice.toLocaleString('en-IN')}
                 </span>
                 <span className="text-xs text-slate-500">/person</span>
@@ -161,14 +161,14 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
               {/* Overview & Story */}
               <div>
                 <h3 className="text-lg font-bold font-heading text-slate-900 mb-2 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-amber-500" />
+                  <Sparkles className="w-4 h-4 text-[#1ca8cb]" />
                   Experience Overview
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   {tour.overview}
                 </p>
                 {tour.experienceStory && (
-                  <p className="mt-3 text-sm text-slate-700 leading-relaxed bg-amber-50/60 p-4 rounded-2xl border border-amber-200/80 italic">
+                  <p className="mt-3 text-sm text-slate-700 leading-relaxed bg-[#1ca8cb]/10 p-4 rounded-2xl border border-[#1ca8cb]/20 italic">
                     "{tour.experienceStory}"
                   </p>
                 )}
@@ -180,7 +180,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                   onClick={() => setActiveTab('itinerary')}
                   className={`pb-2.5 sm:pb-3 text-xs sm:text-sm font-bold tracking-wide transition-all border-b-2 shrink-0 cursor-pointer ${
                     activeTab === 'itinerary'
-                      ? 'border-amber-500 text-amber-600'
+                      ? 'border-[#1ca8cb] text-[#113d48]'
                       : 'border-transparent text-slate-500 hover:text-slate-900'
                   }`}
                 >
@@ -190,7 +190,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                   onClick={() => setActiveTab('inclusions')}
                   className={`pb-2.5 sm:pb-3 text-xs sm:text-sm font-bold tracking-wide transition-all border-b-2 shrink-0 cursor-pointer ${
                     activeTab === 'inclusions'
-                      ? 'border-amber-500 text-amber-600'
+                      ? 'border-[#1ca8cb] text-[#113d48]'
                       : 'border-transparent text-slate-500 hover:text-slate-900'
                   }`}
                 >
@@ -200,7 +200,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                   onClick={() => setActiveTab('stays')}
                   className={`pb-2.5 sm:pb-3 text-xs sm:text-sm font-bold tracking-wide transition-all border-b-2 shrink-0 cursor-pointer ${
                     activeTab === 'stays'
-                      ? 'border-amber-500 text-amber-600'
+                      ? 'border-[#1ca8cb] text-[#113d48]'
                       : 'border-transparent text-slate-500 hover:text-slate-900'
                   }`}
                 >
@@ -218,14 +218,14 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                     >
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-3">
-                          <span className="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 text-white font-black text-sm flex items-center justify-center font-heading shadow-sm">
+                          <span className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#1ca8cb] to-[#113d48] text-white font-black text-sm flex items-center justify-center font-heading shadow-sm">
                             D{day.day}
                           </span>
                           <div>
                             <h4 className="text-base font-bold text-slate-900">
                               {day.title}
                             </h4>
-                            <span className="text-xs text-amber-600 font-semibold">
+                            <span className="text-xs text-[#113d48] font-semibold">
                               {day.location}
                             </span>
                           </div>
@@ -244,7 +244,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
 
                       {/* Highlights */}
                       <div className="bg-white rounded-xl p-3.5 border border-slate-200 mb-3">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 block mb-2">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#113d48] block mb-2">
                           Key Day Highlights:
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -330,14 +330,14 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                       className="bg-slate-50 border border-slate-200 rounded-2xl p-5"
                     >
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600">
+                        <div className="w-10 h-10 rounded-xl bg-[#1ca8cb]/10 border border-[#1ca8cb]/20 flex items-center justify-center text-[#113d48]">
                           <Hotel className="w-5 h-5" />
                         </div>
                         <div>
                           <h4 className="text-base font-bold text-slate-900">
                             {stay.hotelName}
                           </h4>
-                          <span className="text-xs text-amber-600 font-semibold">
+                          <span className="text-xs text-[#113d48] font-semibold">
                             {stay.type} • {stay.location}
                           </span>
                         </div>
@@ -349,7 +349,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                             key={i}
                             className="flex items-center gap-2 text-xs text-slate-700 bg-white px-3 py-1.5 rounded-lg border border-slate-200"
                           >
-                            <Check className="w-3.5 h-3.5 text-amber-500" />
+                            <Check className="w-3.5 h-3.5 text-[#1ca8cb]" />
                             <span>{h}</span>
                           </div>
                         ))}
@@ -362,7 +362,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
               {/* Upcoming Verified Batch Dates */}
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
                 <h4 className="text-sm font-bold font-heading text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-amber-500" />
+                  <Calendar className="w-4 h-4 text-[#1ca8cb]" />
                   Upcoming Batch Departure Dates
                 </h4>
                 <div className="space-y-3">
@@ -379,7 +379,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                             onClick={() => setSelectedBatchDate(date)}
                             className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                               selectedBatchDate === date
-                                ? 'bg-amber-500 text-white font-bold scale-105 shadow-sm'
+                                ? 'bg-[#1ca8cb] text-slate-950 font-bold scale-105 shadow-sm'
                                 : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
                             }`}
                           >
@@ -398,7 +398,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
               <div className="sticky top-6 bg-slate-50 border border-slate-200/90 rounded-3xl p-6 shadow-xl">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-5">
                   <div>
-                    <span className="text-[11px] text-amber-600 font-bold uppercase tracking-wider block">
+                    <span className="text-[11px] text-[#113d48] font-bold uppercase tracking-wider block">
                       Guaranteed Booking
                     </span>
                     <h3 className="text-xl font-black font-heading text-slate-900">
@@ -409,7 +409,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                     <span className="text-[10px] text-slate-500 block uppercase">
                       Starting At
                     </span>
-                    <span className="text-xl font-black text-amber-600 font-heading">
+                    <span className="text-xl font-black text-[#113d48] font-heading">
                       ₹{currentPrice.toLocaleString('en-IN')}
                     </span>
                   </div>
@@ -449,7 +449,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                           onClick={() => setSharingType('triple')}
                           className={`py-2 px-3 rounded-xl text-xs font-bold transition-all text-center border ${
                             sharingType === 'triple'
-                              ? 'bg-amber-500 text-white border-amber-500 shadow-sm'
+                              ? 'bg-[#113d48] text-white border-[#113d48] shadow-sm'
                               : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
                           }`}
                         >
@@ -463,7 +463,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                           onClick={() => setSharingType('double')}
                           className={`py-2 px-3 rounded-xl text-xs font-bold transition-all text-center border ${
                             sharingType === 'double'
-                              ? 'bg-amber-500 text-white border-amber-500 shadow-sm'
+                              ? 'bg-[#113d48] text-white border-[#113d48] shadow-sm'
                               : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
                           }`}
                         >
@@ -479,7 +479,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                     <div>
                       <div className="flex justify-between items-center text-xs text-slate-600 mb-1.5">
                         <span className="font-medium">Number of Travelers:</span>
-                        <span className="text-amber-600 font-bold">
+                        <span className="text-[#113d48] font-bold">
                           {passengerCount} {passengerCount === 1 ? 'Person' : 'People'}
                         </span>
                       </div>
@@ -491,7 +491,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                             onClick={() => setPassengerCount(num)}
                             className={`flex-1 py-1.5 rounded-lg text-xs font-bold border transition-all ${
                               passengerCount === num
-                                ? 'bg-amber-500 text-white border-amber-500 shadow-xs'
+                                ? 'bg-[#113d48] text-white border-[#113d48] shadow-xs'
                                 : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
                             }`}
                           >
@@ -528,7 +528,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                           value={formData.name}
                           onChange={handleInputChange}
                           placeholder="Your Full Name *"
-                          className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                          className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#1ca8cb] focus:ring-1 focus:ring-[#1ca8cb] transition-colors"
                         />
                       </div>
                       <div>
@@ -539,7 +539,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="WhatsApp Phone Number *"
-                          className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                          className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#1ca8cb] focus:ring-1 focus:ring-[#1ca8cb] transition-colors"
                         />
                       </div>
                       <div>
@@ -549,7 +549,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="Email Address (Optional)"
-                          className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                          className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#1ca8cb] focus:ring-1 focus:ring-[#1ca8cb] transition-colors"
                         />
                       </div>
                       <div>
@@ -559,7 +559,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                           value={formData.message}
                           onChange={handleInputChange}
                           placeholder="Any preferences or questions?"
-                          className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors resize-none"
+                          className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#1ca8cb] focus:ring-1 focus:ring-[#1ca8cb] transition-colors resize-none"
                         />
                       </div>
                     </div>
@@ -581,7 +581,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                         Need assistance? Call{' '}
                         <a
                           href={`tel:${companyData.phones[0]}`}
-                          className="text-amber-600 font-bold hover:underline"
+                          className="text-[#113d48] font-bold hover:underline"
                         >
                           {companyData.displayPhone}
                         </a>

@@ -55,29 +55,29 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <>
       {/* Top micro announcement bar */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-slate-800">
+      <div className="bg-[#113d48] text-slate-200 text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-[#184e5b]">
         <div className="max-w-7xl mx-auto flex justify-between items-center gap-2">
           <div className="flex items-center gap-2 sm:gap-4 overflow-hidden">
-            <span className="inline-flex items-center gap-1.5 text-amber-400 font-semibold tracking-wide text-[11px] sm:text-xs shrink-0">
+            <span className="inline-flex items-center gap-1.5 text-[#1ca8cb] font-semibold tracking-wide text-[11px] sm:text-xs shrink-0">
               <Compass className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '8s' }} />
               15 Strangers Trips
             </span>
-            <span className="hidden md:inline text-slate-400 text-xs truncate">
+            <span className="hidden md:inline text-slate-300/80 text-xs truncate">
               Departures every Thu & Fri from Ahmedabad & Udaipur
             </span>
           </div>
           <div className="flex items-center gap-3 sm:gap-4 text-xs shrink-0">
             <a
               href={`tel:${companyData.phones[0]}`}
-              className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-slate-300 hover:text-amber-400 font-medium transition-colors"
+              className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-slate-200 hover:text-[#1ca8cb] font-medium transition-colors"
             >
-              <Phone className="w-3 h-3 text-amber-500" />
+              <Phone className="w-3 h-3 text-[#1ca8cb]" />
               <span>{companyData.displayPhone}</span>
             </a>
-            <span className="hidden sm:inline text-slate-700">|</span>
+            <span className="hidden sm:inline text-slate-500">|</span>
             <a
               href={`mailto:${companyData.email}`}
-              className="hidden lg:inline hover:text-amber-400 transition-colors text-slate-400 text-xs"
+              className="hidden lg:inline hover:text-[#1ca8cb] transition-colors text-slate-300/80 text-xs"
             >
               {companyData.email}
             </a>
@@ -110,10 +110,10 @@ export const Header: React.FC<HeaderProps> = ({
             <div>
               <div className="flex items-baseline gap-1">
                 <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 font-heading">
-                  R <span className="text-amber-500">Journey</span>
+                  R <span className="text-[#1ca8cb]">Journey</span>
                 </span>
               </div>
-              <p className="text-[10px] tracking-widest uppercase text-slate-500 font-semibold">
+              <p className="text-[10px] tracking-widest uppercase text-[#113d48] font-bold">
                 Tour & Travel
               </p>
             </div>
@@ -129,8 +129,8 @@ export const Header: React.FC<HeaderProps> = ({
                   onClick={() => handleLinkClick(link.page)}
                   className={`px-3.5 py-1.5 rounded-xl text-sm font-medium transition-all ${
                     isActive
-                      ? 'text-amber-600 bg-amber-50 font-bold'
-                      : 'text-slate-700 hover:text-amber-600 hover:bg-slate-50'
+                      ? 'text-[#113d48] bg-[#1ca8cb]/15 font-bold shadow-xs'
+                      : 'text-slate-700 hover:text-[#1ca8cb] hover:bg-[#1ca8cb]/5'
                   }`}
                 >
                   {link.label}
@@ -143,14 +143,14 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={() => handleLinkClick('trips')}
-              className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 border border-slate-200 hover:border-amber-400 hover:text-amber-600 hover:bg-amber-50/50 transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 border border-slate-200 hover:border-[#1ca8cb] hover:text-[#113d48] hover:bg-[#1ca8cb]/5 transition-colors"
             >
-              <Calendar className="w-3.5 h-3.5 text-amber-500" />
+              <Calendar className="w-3.5 h-3.5 text-[#1ca8cb]" />
               View Batches
             </button>
             <button
               onClick={() => onOpenInquiry()}
-              className="relative group overflow-hidden inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-amber-500 to-orange-600 shadow-sm shadow-orange-500/25 hover:shadow-md hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="relative group overflow-hidden inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#1ca8cb] via-[#189bbd] to-[#113d48] shadow-sm shadow-[#1ca8cb]/25 hover:shadow-md hover:shadow-[#1ca8cb]/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               <span>Plan Trip</span>
               <ChevronRight className="w-3.5 h-3.5 hidden sm:inline group-hover:translate-x-0.5 transition-transform" />
@@ -173,7 +173,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="fixed inset-0 z-40 lg:hidden">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-[#113d48]/70 backdrop-blur-sm"
             onClick={() => setIsMobileMenuOpen(false)}
           />
 
@@ -191,9 +191,9 @@ export const Header: React.FC<HeaderProps> = ({
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-base font-heading">
-                      R <span className="text-amber-500">Journey</span>
+                      R <span className="text-[#1ca8cb]">Journey</span>
                     </h3>
-                    <p className="text-[10px] text-slate-500 font-semibold tracking-wider uppercase">Tour & Travel</p>
+                    <p className="text-[10px] text-[#113d48] font-bold tracking-wider uppercase">Tour & Travel</p>
                   </div>
                 </div>
                 <button
@@ -214,8 +214,8 @@ export const Header: React.FC<HeaderProps> = ({
                       onClick={() => handleLinkClick(link.page)}
                       className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left font-medium transition-all ${
                         isActive
-                          ? 'bg-amber-50 text-amber-600 font-bold'
-                          : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                          ? 'bg-[#1ca8cb]/15 text-[#113d48] font-bold'
+                          : 'text-slate-700 hover:bg-slate-50 hover:text-[#1ca8cb]'
                       }`}
                     >
                       <span>{link.label}</span>
@@ -233,7 +233,7 @@ export const Header: React.FC<HeaderProps> = ({
                   setIsMobileMenuOpen(false);
                   onOpenInquiry();
                 }}
-                className="w-full py-3 px-4 rounded-xl text-center font-bold text-white bg-gradient-to-r from-amber-500 to-orange-600 shadow-md shadow-orange-500/20 active:scale-95 transition-all text-sm flex items-center justify-center gap-2"
+                className="w-full py-3 px-4 rounded-xl text-center font-bold text-white bg-gradient-to-r from-[#1ca8cb] via-[#189bbd] to-[#113d48] shadow-md shadow-[#1ca8cb]/25 active:scale-95 transition-all text-sm flex items-center justify-center gap-2"
               >
                 <span>Plan Your Trip Now</span>
                 <ChevronRight className="w-4 h-4" />
@@ -244,7 +244,7 @@ export const Header: React.FC<HeaderProps> = ({
                   href={`tel:${companyData.phones[0]}`}
                   className="py-2.5 px-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center justify-center gap-1.5 transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-amber-500" />
+                  <Phone className="w-3.5 h-3.5 text-[#1ca8cb]" />
                   <span>Call Us</span>
                 </a>
                 <a
