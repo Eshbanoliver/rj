@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PageType } from '../types';
 import { companyData } from '../data/company';
-import { Menu, X, Phone, Compass, Calendar, ChevronRight } from 'lucide-react';
+import { Menu, X, Phone, Compass, Calendar, ChevronRight, MessageSquare } from 'lucide-react';
 
 interface HeaderProps {
   currentPage: PageType;
@@ -25,6 +25,18 @@ export const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock background scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks: { label: string; page: PageType }[] = [
     { label: 'Home', page: 'home' },
     { label: 'About Us', page: 'about' },
@@ -43,29 +55,29 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <>
       {/* Top micro announcement bar */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-          <div className="flex items-center gap-4">
-            <span className="inline-flex items-center gap-1.5 text-amber-400 font-semibold tracking-wide">
+      <div className="bg-slate-900 text-slate-300 text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex justify-between items-center gap-2">
+          <div className="flex items-center gap-2 sm:gap-4 overflow-hidden">
+            <span className="inline-flex items-center gap-1.5 text-amber-400 font-semibold tracking-wide text-[11px] sm:text-xs shrink-0">
               <Compass className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '8s' }} />
-              Signature 15 Strangers Trips
+              15 Strangers Trips
             </span>
-            <span className="hidden md:inline text-slate-400">
-              Departures every Thursday & Friday from Ahmedabad & Udaipur
+            <span className="hidden md:inline text-slate-400 text-xs truncate">
+              Departures every Thu & Fri from Ahmedabad & Udaipur
             </span>
           </div>
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex items-center gap-3 sm:gap-4 text-xs shrink-0">
             <a
-              href="tel:8094268991"
-              className="inline-flex items-center gap-1.5 hover:text-amber-400 transition-colors"
+              href={`tel:${companyData.phones[0]}`}
+              className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-slate-300 hover:text-amber-400 font-medium transition-colors"
             >
               <Phone className="w-3 h-3 text-amber-500" />
-              <span>8094268991 / 8890437050</span>
+              <span>{companyData.displayPhone}</span>
             </a>
-            <span className="hidden sm:inline text-slate-600">|</span>
+            <span className="hidden sm:inline text-slate-700">|</span>
             <a
               href={`mailto:${companyData.email}`}
-              className="hidden sm:inline hover:text-amber-400 transition-colors text-slate-300"
+              className="hidden lg:inline hover:text-amber-400 transition-colors text-slate-400 text-xs"
             >
               {companyData.email}
             </a>
@@ -128,31 +140,31 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={() => handleLinkClick('trips')}
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 border border-slate-200 hover:border-amber-400 hover:text-amber-600 hover:bg-amber-50/50 transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 border border-slate-200 hover:border-amber-400 hover:text-amber-600 hover:bg-amber-50/50 transition-colors"
             >
               <Calendar className="w-3.5 h-3.5 text-amber-500" />
               View Batches
             </button>
             <button
               onClick={() => onOpenInquiry()}
-              className="relative group overflow-hidden inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-amber-500 to-orange-600 shadow-md shadow-orange-500/25 hover:shadow-lg hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="relative group overflow-hidden inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-amber-500 to-orange-600 shadow-sm shadow-orange-500/25 hover:shadow-md hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
-              <span>Plan Your Trip</span>
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              <span>Plan Trip</span>
+              <ChevronRight className="w-3.5 h-3.5 hidden sm:inline group-hover:translate-x-0.5 transition-transform" />
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none transition-colors"
+              aria-label="Toggle Navigation Menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none"
-            aria-label="Toggle Navigation Menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
       </header>
 
@@ -215,28 +227,35 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
 
             {/* Bottom Actions */}
-            <div className="pt-6 border-t border-slate-200 space-y-3">
+            <div className="pt-5 border-t border-slate-100 space-y-3">
               <button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   onOpenInquiry();
                 }}
-                className="w-full py-3 px-4 rounded-xl text-center font-bold text-white bg-gradient-to-r from-amber-500 to-orange-600 shadow-lg shadow-orange-500/25 active:scale-95 transition-all text-sm"
+                className="w-full py-3 px-4 rounded-xl text-center font-bold text-white bg-gradient-to-r from-amber-500 to-orange-600 shadow-md shadow-orange-500/20 active:scale-95 transition-all text-sm flex items-center justify-center gap-2"
               >
-                Plan Your Trip Now
+                <span>Plan Your Trip Now</span>
+                <ChevronRight className="w-4 h-4" />
               </button>
 
-              <div className="text-center space-y-1 pt-2">
+              <div className="grid grid-cols-2 gap-2">
                 <a
-                  href="tel:8094268991"
-                  className="inline-flex items-center gap-2 text-xs text-slate-600 hover:text-amber-600 transition-colors"
+                  href={`tel:${companyData.phones[0]}`}
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-amber-500" />
-                  <span>Call: 8094268991 / 8890437050</span>
+                  <span>Call Us</span>
                 </a>
-                <p className="text-[11px] text-slate-500">
-                  Udaipur, Rajasthan • rjourney@gmail.com
-                </p>
+                <a
+                  href={`https://wa.me/${companyData.whatsapp}?text=${encodeURIComponent('Hello R Journey!')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-2.5 px-3 rounded-xl border border-emerald-200 text-xs font-semibold text-emerald-700 bg-emerald-50/50 hover:bg-emerald-50 flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>WhatsApp</span>
+                </a>
               </div>
             </div>
           </div>

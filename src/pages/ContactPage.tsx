@@ -61,7 +61,7 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="pt-24 pb-20 bg-[#fafbfc] text-slate-900 min-h-screen">
       {/* Page Header */}
-      <div className="relative py-20 bg-slate-900 border-b border-slate-800 text-center overflow-hidden">
+      <div className="relative py-12 sm:py-20 bg-slate-900 border-b border-slate-800 text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/palm-valley-dinner.jpg"
@@ -72,20 +72,20 @@ export const ContactPage: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-amber-400 uppercase mb-3 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-amber-500/30">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold tracking-widest text-amber-400 uppercase mb-3 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900/80 border border-amber-500/30">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Direct Travel Support</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-heading text-white tracking-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading text-white tracking-tight">
             Contact <span className="text-amber-400">Our Team</span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto px-2">
             Ready to embark on your next Rajasthan journey? Get in touch with our travel desk in Udaipur or message us directly on WhatsApp.
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column: Direct Info Cards (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
@@ -225,7 +225,7 @@ export const ContactPage: React.FC = () => {
 
           {/* Right Column: Contact Form & Map (7 cols) */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm">
+            <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-sm">
               <h3 className="text-xl sm:text-2xl font-black font-heading text-slate-900 mb-1">
                 Send Us An Inquiry
               </h3>
@@ -249,7 +249,7 @@ export const ContactPage: React.FC = () => {
                       href={getWhatsAppUrl()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 py-3 px-6 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 transition-all shadow-md shadow-emerald-600/20"
+                      className="inline-flex items-center gap-2 min-h-[44px] py-3 px-6 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 transition-all shadow-md shadow-emerald-600/20"
                     >
                       <MessageSquare className="w-4 h-4" />
                       <span>Chat on WhatsApp Directly</span>
@@ -388,7 +388,7 @@ export const ContactPage: React.FC = () => {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-md shadow-amber-500/25 active:scale-95 transition-all flex items-center justify-center gap-2"
+                      className="w-full min-h-[44px] py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-md shadow-amber-500/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <Send className="w-4 h-4" />
                       <span>Submit Inquiry</span>
@@ -399,7 +399,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Google Maps Embed Area for Udaipur Office */}
-            <div className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-sm overflow-hidden">
+            <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm overflow-hidden">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-amber-600" />
@@ -411,7 +411,7 @@ export const ContactPage: React.FC = () => {
                   Sector 13, Udaipur, Rajasthan
                 </span>
               </div>
-              <div className="w-full h-64 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+              <div className="w-full h-52 sm:h-64 rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
                 <iframe
                   title="R Journey Office Location Udaipur"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14515.65345704944!2d73.702951!3d24.568453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e56577889397%3A0xb35a74e578f1e582!2sSector%2013%2C%20Hiran%20Magri%2C%20Udaipur%2C%20Rajasthan%20313001!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"

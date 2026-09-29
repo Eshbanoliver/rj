@@ -43,7 +43,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
         </div>
 
         {/* Featured Destination Cards Grid (Asymmetric Editorial Layout) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6">
           {/* Card 1: Udaipur (Large Hero Card, span 7) */}
           {destinationsData[0] && (
             <div
@@ -51,7 +51,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 if (onSelectDestination) onSelectDestination(destinationsData[0]);
                 onNavigate('destinations');
               }}
-              className="md:col-span-7 group relative h-[380px] sm:h-[440px] rounded-3xl overflow-hidden cursor-pointer shadow-xl border border-slate-800"
+              className="md:col-span-7 group relative h-[300px] sm:h-[380px] lg:h-[430px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl border border-slate-200/80 hover:border-amber-400 transition-all duration-300"
             >
               <img
                 src={destinationsData[0].image}
@@ -61,25 +61,25 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
               
               {/* Badge */}
-              <div className="absolute top-5 left-5 bg-slate-900/80 backdrop-blur-md border border-amber-500/30 text-amber-400 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+              <div className="absolute top-4 sm:top-5 left-4 sm:left-5 bg-slate-900/80 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md">
                 <MapPin className="w-3.5 h-3.5" />
                 <span>City of Lakes & Hills</span>
               </div>
 
               {/* Content */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <p className="text-xs uppercase tracking-wider text-amber-400 font-bold mb-1">
+              <div className="absolute bottom-5 sm:bottom-6 left-5 sm:left-6 right-5 sm:right-6">
+                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-amber-400 font-bold mb-1">
                   {destinationsData[0].associatedToursCount} Active Tour Circuits
                 </p>
-                <h3 className="text-2xl sm:text-3xl font-black font-heading text-white">
+                <h3 className="text-xl sm:text-3xl font-black font-heading text-white">
                   {destinationsData[0].name}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-1 line-clamp-2 max-w-lg">
                   {destinationsData[0].shortDescription}
                 </p>
-                <div className="mt-4 flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                <div className="mt-3 sm:mt-4 flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300">
                   <span>Explore Udaipur Trips</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 if (onSelectDestination) onSelectDestination(destinationsData[1]);
                 onNavigate('destinations');
               }}
-              className="md:col-span-5 group relative h-[380px] sm:h-[440px] rounded-3xl overflow-hidden cursor-pointer shadow-xl border border-slate-800"
+              className="md:col-span-5 group relative h-[300px] sm:h-[380px] lg:h-[430px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl border border-slate-200/80 hover:border-amber-400 transition-all duration-300"
             >
               <img
                 src={destinationsData[1].image}
@@ -101,24 +101,24 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
               
-              <div className="absolute top-5 left-5 bg-slate-900/80 backdrop-blur-md border border-amber-500/30 text-amber-400 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+              <div className="absolute top-4 sm:top-5 left-4 sm:left-5 bg-slate-900/80 backdrop-blur-md border border-amber-500/30 text-amber-400 text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md">
                 <MapPin className="w-3.5 h-3.5" />
                 <span>Golden Dunes & Fort</span>
               </div>
 
-              <div className="absolute bottom-6 left-6 right-6">
-                <p className="text-xs uppercase tracking-wider text-amber-400 font-bold mb-1">
+              <div className="absolute bottom-5 sm:bottom-6 left-5 sm:left-6 right-5 sm:right-6">
+                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-amber-400 font-bold mb-1">
                   Sam Sand Dunes Glamping
                 </p>
-                <h3 className="text-2xl sm:text-3xl font-black font-heading text-white">
+                <h3 className="text-xl sm:text-3xl font-black font-heading text-white">
                   {destinationsData[1].name}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-1 line-clamp-2">
                   {destinationsData[1].shortDescription}
                 </p>
-                <div className="mt-4 flex items-center gap-2 text-xs font-bold text-amber-400 group-hover:text-amber-300">
+                <div className="mt-3 sm:mt-4 flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300">
                   <span>Explore Desert Safaris</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 if (onSelectDestination) onSelectDestination(destinationsData[2]);
                 onNavigate('destinations');
               }}
-              className="md:col-span-4 group relative h-[300px] sm:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-xl border border-slate-800"
+              className="md:col-span-4 group relative h-[250px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl border border-slate-200/80 hover:border-amber-400 transition-all duration-300"
             >
               <img
                 src={destinationsData[2].image}
@@ -144,7 +144,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">
                   The Blue City
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold font-heading text-white mt-0.5">
+                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5">
                   {destinationsData[2].name}
                 </h3>
                 <p className="text-xs text-slate-300 mt-1 line-clamp-2">
@@ -161,7 +161,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 if (onSelectDestination) onSelectDestination(destinationsData[3]);
                 onNavigate('destinations');
               }}
-              className="md:col-span-4 group relative h-[300px] sm:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-xl border border-slate-800"
+              className="md:col-span-4 group relative h-[250px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl border border-slate-200/80 hover:border-amber-400 transition-all duration-300"
             >
               <img
                 src={destinationsData[3].image}
@@ -174,7 +174,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">
                   Great Wall of India
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold font-heading text-white mt-0.5">
+                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5">
                   {destinationsData[3].name}
                 </h3>
                 <p className="text-xs text-slate-300 mt-1 line-clamp-2">
@@ -191,7 +191,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 if (onSelectDestination) onSelectDestination(destinationsData[4]);
                 onNavigate('destinations');
               }}
-              className="md:col-span-4 group relative h-[300px] sm:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-xl border border-slate-800"
+              className="md:col-span-4 group relative h-[250px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl border border-slate-200/80 hover:border-amber-400 transition-all duration-300"
             >
               <img
                 src={destinationsData[4].image}
@@ -204,7 +204,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                 <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">
                   Historic Aravali Pass
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold font-heading text-white mt-0.5">
+                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5">
                   {destinationsData[4].name}
                 </h3>
                 <p className="text-xs text-slate-300 mt-1 line-clamp-2">

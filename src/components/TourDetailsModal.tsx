@@ -77,11 +77,11 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6 animate-fadeIn">
       {/* Modal Container */}
-      <div className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden my-6 text-slate-900 flex flex-col max-h-[92vh]">
+      <div className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden my-3 sm:my-6 text-slate-900 flex flex-col max-h-[94vh]">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-950 text-white transition-all shadow-lg border border-slate-700"
+          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-20 p-2 sm:p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-950 text-white transition-all shadow-lg border border-slate-700 cursor-pointer"
           aria-label="Close Tour Details"
         >
           <X className="w-5 h-5" />
@@ -90,7 +90,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
         {/* Modal Scrollable Body */}
         <div className="overflow-y-auto flex-1">
           {/* Hero Banner */}
-          <div className="relative h-72 sm:h-96 w-full overflow-hidden">
+          <div className="relative h-56 sm:h-80 md:h-96 w-full overflow-hidden">
             <img
               src={tour.heroImage}
               alt={tour.title}
@@ -98,25 +98,25 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
 
-            <div className="absolute bottom-6 left-6 right-6 max-w-3xl">
-              <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500 text-slate-950">
+            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 max-w-3xl">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2">
+                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-amber-500 text-slate-950">
                   {tour.badge || 'Curated Group Trip'}
                 </span>
-                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/80 backdrop-blur-md border border-slate-700 text-white flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-amber-400" />
+                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-slate-900/80 backdrop-blur-md border border-slate-700 text-white flex items-center gap-1">
+                  <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
                   {tour.duration}
                 </span>
-                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/80 backdrop-blur-md border border-slate-700 text-white flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                  Departure from {tour.departureCity}
+                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-semibold bg-slate-900/80 backdrop-blur-md border border-slate-700 text-white flex items-center gap-1">
+                  <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
+                  Ex-{tour.departureCity}
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black font-heading text-white leading-tight">
+              <h2 className="text-xl sm:text-3xl md:text-4xl font-black font-heading text-white leading-tight">
                 {tour.title}
               </h2>
-              <p className="text-sm sm:text-base text-amber-300 font-medium italic mt-1">
+              <p className="text-xs sm:text-base text-amber-300 font-medium italic mt-1 line-clamp-1 sm:line-clamp-none">
                 "{tour.tagline}"
               </p>
             </div>
@@ -174,10 +174,10 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
               </div>
 
               {/* Navigation Tabs */}
-              <div className="flex border-b border-slate-200 space-x-4">
+              <div className="flex border-b border-slate-200 gap-2 sm:gap-4 overflow-x-auto no-scrollbar whitespace-nowrap pb-1">
                 <button
                   onClick={() => setActiveTab('itinerary')}
-                  className={`pb-3 text-sm font-bold tracking-wide transition-all border-b-2 ${
+                  className={`pb-2.5 sm:pb-3 text-xs sm:text-sm font-bold tracking-wide transition-all border-b-2 shrink-0 cursor-pointer ${
                     activeTab === 'itinerary'
                       ? 'border-amber-500 text-amber-600'
                       : 'border-transparent text-slate-500 hover:text-slate-900'
@@ -187,7 +187,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                 </button>
                 <button
                   onClick={() => setActiveTab('inclusions')}
-                  className={`pb-3 text-sm font-bold tracking-wide transition-all border-b-2 ${
+                  className={`pb-2.5 sm:pb-3 text-xs sm:text-sm font-bold tracking-wide transition-all border-b-2 shrink-0 cursor-pointer ${
                     activeTab === 'inclusions'
                       ? 'border-amber-500 text-amber-600'
                       : 'border-transparent text-slate-500 hover:text-slate-900'
@@ -197,7 +197,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                 </button>
                 <button
                   onClick={() => setActiveTab('stays')}
-                  className={`pb-3 text-sm font-bold tracking-wide transition-all border-b-2 ${
+                  className={`pb-2.5 sm:pb-3 text-xs sm:text-sm font-bold tracking-wide transition-all border-b-2 shrink-0 cursor-pointer ${
                     activeTab === 'stays'
                       ? 'border-amber-500 text-amber-600'
                       : 'border-transparent text-slate-500 hover:text-slate-900'
@@ -564,10 +564,10 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                     </div>
 
                     {/* Actions */}
-                    <div className="space-y-2 pt-2">
+                    <div className="space-y-2.5 pt-2">
                       <button
                         type="submit"
-                        className="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-md shadow-amber-500/25 active:scale-95 transition-all flex items-center justify-center gap-2"
+                        className="w-full min-h-[44px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-md shadow-amber-500/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
                       >
                         <Send className="w-3.5 h-3.5" />
                         <span>Send Booking Enquiry</span>
@@ -577,7 +577,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                         href={getWhatsAppBookingUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-2.5 px-4 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-500 transition-colors flex items-center justify-center gap-2 shadow-xs"
+                        className="w-full min-h-[44px] py-2.5 px-4 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-500 transition-colors flex items-center justify-center gap-2 shadow-xs"
                       >
                         <MessageSquare className="w-3.5 h-3.5" />
                         <span>Book Instant via WhatsApp</span>

@@ -30,36 +30,38 @@ export const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="pt-24 sm:pt-28 pb-14 bg-white border-b border-slate-200/80 text-slate-900 relative">
+    <section className="pt-16 sm:pt-28 pb-12 sm:pb-16 bg-white border-b border-slate-200/80 text-slate-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Subtle trust badge */}
-        <div className="text-center mb-10">
-          <p className="text-xs uppercase tracking-widest text-amber-600 font-bold">
+        <div className="text-center mb-8 sm:mb-12">
+          <p className="text-[11px] sm:text-xs uppercase tracking-widest text-amber-600 font-bold">
             Loved by Travelers Across India
           </p>
-          <h2 className="text-2xl sm:text-3xl font-black font-heading mt-1 text-slate-900">
+          <h2 className="text-xl sm:text-3xl font-black font-heading mt-1 text-slate-900 tracking-tight">
             Travel With Confidence & Community
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {stats.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className="bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:bg-white rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5 group"
+                className="bg-slate-50 border border-slate-200/80 hover:border-amber-400 hover:bg-white rounded-2xl p-3.5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/5 group flex flex-col justify-between"
               >
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all">
-                  <Icon className="w-6 h-6" />
+                <div>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 mb-3 sm:mb-4 group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-white transition-all">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </div>
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-black font-heading text-slate-900 tracking-tight">
+                    {item.value}
+                  </div>
+                  <h3 className="text-xs sm:text-sm font-bold text-amber-600 mt-1">
+                    {item.title}
+                  </h3>
                 </div>
-                <div className="text-2xl sm:text-3xl font-black font-heading text-slate-900 tracking-tight">
-                  {item.value}
-                </div>
-                <h3 className="text-sm font-bold text-amber-600 mt-1">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                <p className="text-[11px] sm:text-xs text-slate-600 mt-2 leading-relaxed">
                   {item.description}
                 </p>
               </div>

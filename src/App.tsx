@@ -49,6 +49,18 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Prevent background scroll when modal is active
+  useEffect(() => {
+    if (selectedTour || isInquiryOpen || isTermsOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedTour, isInquiryOpen, isTermsOpen]);
+
   const handleOpenInquiry = (initial?: { tourTitle?: string; message?: string }) => {
     setInquiryData(initial);
     setIsInquiryOpen(true);

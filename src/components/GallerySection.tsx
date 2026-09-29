@@ -46,14 +46,14 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 sm:flex-wrap sm:justify-center mb-8 sm:mb-12">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shrink-0 whitespace-nowrap ${
                 selectedCategory === cat
-                  ? 'bg-amber-500 text-white font-bold shadow-md shadow-amber-500/20 scale-105'
+                  ? 'bg-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/20 scale-105'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80'
               }`}
             >
@@ -62,13 +62,13 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
           ))}
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Gallery Grid: 2 columns on mobile, 4 columns on desktop */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {displayItems.map((item) => (
             <div
               key={item.id}
               onClick={() => setActiveImage(item)}
-              className="group relative h-64 sm:h-72 rounded-2xl overflow-hidden cursor-pointer bg-slate-100 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
+              className="group relative h-48 sm:h-64 lg:h-72 rounded-2xl overflow-hidden cursor-pointer bg-slate-100 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all"
             >
               <img
                 src={item.image}
@@ -79,21 +79,21 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
               {/* Hover Zoom Icon */}
-              <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-900/80 backdrop-blur-md flex items-center justify-center text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                <ZoomIn className="w-4 h-4" />
+              <div className="absolute top-3 right-3 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-900/80 backdrop-blur-md flex items-center justify-center text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+                <ZoomIn className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>
 
               {/* Bottom Info */}
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
+                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-0.5 sm:mb-1">
                   {item.category}
                 </span>
-                <h3 className="text-sm font-bold text-white font-heading line-clamp-1">
+                <h3 className="text-xs sm:text-sm font-bold text-white font-heading line-clamp-1">
                   {item.title}
                 </h3>
-                <p className="text-[11px] text-slate-200 flex items-center gap-1 mt-0.5">
-                  <MapPin className="w-3 h-3 text-amber-400" />
-                  <span>{item.location}</span>
+                <p className="text-[10px] sm:text-[11px] text-slate-200 flex items-center gap-1 mt-0.5 truncate">
+                  <MapPin className="w-3 h-3 text-amber-400 shrink-0" />
+                  <span className="truncate">{item.location}</span>
                 </p>
               </div>
             </div>
@@ -102,10 +102,10 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
 
         {/* View All Button if on Home Page */}
         {!isStandalonePage && onNavigate && (
-          <div className="mt-12 text-center">
+          <div className="mt-10 sm:mt-12 text-center">
             <button
               onClick={() => onNavigate('gallery')}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all hover:scale-105 shadow-md shadow-slate-900/10"
+              className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 transition-all hover:scale-105 shadow-md shadow-slate-900/10 active:scale-98"
             >
               <span>Explore Full Photo Gallery</span>
               <ArrowRight className="w-4 h-4 text-amber-400" />

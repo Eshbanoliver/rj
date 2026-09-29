@@ -31,12 +31,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
   return (
     <footer className="bg-slate-950 text-white border-t border-slate-800">
       {/* Upper Footer Columns */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10">
           {/* Column 1: Brand Info (4 cols) */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="sm:col-span-2 lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white p-1 shadow-md shadow-black/20 flex items-center justify-center overflow-hidden">
+              <div className="w-12 h-12 rounded-xl bg-white p-1 shadow-md shadow-black/20 flex items-center justify-center overflow-hidden shrink-0">
                 <img
                   src="/images/r-journey-logo.png"
                   alt="R Journey Tour & Travel Logo"
@@ -53,7 +53,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
               Where Strangers Become Stories. Specialized in curated 15 Strangers community journeys, college reunions, and luxury Rajasthan getaways from Ahmedabad and Udaipur.
             </p>
 
@@ -86,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
                       onNavigate(link.page);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-slate-400 hover:text-amber-400 transition-colors"
+                    className="text-slate-400 hover:text-amber-400 transition-colors cursor-pointer"
                   >
                     {link.label}
                   </button>
@@ -110,7 +110,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
           </div>
 
           {/* Column 4: Contact Information (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="sm:col-span-2 lg:col-span-3 space-y-3">
             <h4 className="text-sm font-bold font-heading text-white uppercase tracking-wider">
               Contact Information
             </h4>
@@ -155,7 +155,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
             <div className="pt-2">
               <button
                 onClick={onOpenTerms}
-                className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-medium underline"
+                className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-medium underline cursor-pointer"
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>View 19 Terms & Conditions</span>
@@ -167,21 +167,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
 
       {/* Bottom Legal Bar */}
       <div className="border-t border-slate-900 bg-slate-950/80 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
           <div>
             &copy; {new Date().getFullYear()} {companyData.name}. All Rights Reserved.
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">
             <button
               onClick={onOpenTerms}
-              className="hover:text-slate-300 transition-colors"
+              className="hover:text-slate-300 transition-colors cursor-pointer"
             >
               Terms & Conditions
             </button>
             <button
               onClick={onOpenTerms}
-              className="hover:text-slate-300 transition-colors"
+              className="hover:text-slate-300 transition-colors cursor-pointer"
             >
               Declaration Form
             </button>

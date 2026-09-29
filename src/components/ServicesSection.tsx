@@ -34,38 +34,38 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 }) => {
   return (
     <section
-      className={`py-20 bg-[#f8fafc] text-slate-900 relative ${
-        isStandalonePage ? 'pt-28' : ''
+      className={`py-14 sm:py-20 bg-[#f8fafc] text-slate-900 relative ${
+        isStandalonePage ? 'pt-24 sm:pt-28' : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-widest text-amber-600 font-bold">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <span className="text-[11px] sm:text-xs uppercase tracking-widest text-amber-600 font-bold">
             Tailored For Every Traveler
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight mt-2">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight mt-1.5 sm:mt-2">
             We're Specialized In
           </h2>
-          <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-slate-600 text-xs sm:text-base leading-relaxed">
             From our signature 15 Strangers community batches to tailored student group getaways and corporate retreats, explore our verified travel specializations.
           </p>
         </div>
 
         {/* 6 Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {servicesData.map((service: ServiceItem) => {
             const Icon = iconMap[service.iconName] || Users;
             return (
               <div
                 key={service.id}
-                className="bg-white border border-slate-200/90 hover:border-amber-400/60 rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-amber-500/10 group"
+                className="bg-white border border-slate-200/90 hover:border-amber-400 rounded-3xl p-5 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/10 group h-full"
               >
                 <div>
                   {/* Top Icon & Badge */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all shadow-sm">
-                      <Icon className="w-7 h-7" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center group-hover:scale-105 group-hover:bg-amber-500 group-hover:text-white transition-all shadow-sm shrink-0">
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                     </div>
                     {service.badge && (
                       <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full">
@@ -75,17 +75,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold font-heading text-slate-900 group-hover:text-amber-600 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-amber-600 transition-colors">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2 sm:mt-2.5 leading-relaxed">
                     {service.shortDescription}
                   </p>
 
                   {/* Feature checklist */}
-                  <div className="mt-5 space-y-2 border-t border-slate-100 pt-4">
+                  <div className="mt-4 sm:mt-5 space-y-2 border-t border-slate-100 pt-3.5 sm:pt-4">
                     {service.features.slice(0, 3).map((feat, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs text-slate-600">
                         <Check className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
@@ -96,7 +96,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 </div>
 
                 {/* Bottom Action */}
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-slate-100 flex items-center justify-between">
                   <span className="text-[11px] text-slate-500 italic line-clamp-1 max-w-[65%]">
                     {service.idealFor}
                   </span>
@@ -107,7 +107,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                         message: `Hi, I am interested in inquiring about ${service.title}.`,
                       })
                     }
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:text-amber-700 group-hover:translate-x-1 transition-transform"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:text-amber-700 group-hover:translate-x-1 transition-transform py-1 px-2 -mr-2"
                   >
                     <span>Enquire</span>
                     <ArrowRight className="w-3.5 h-3.5" />
