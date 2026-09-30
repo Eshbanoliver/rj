@@ -19,7 +19,6 @@ import { PlanTripSection } from './components/PlanTripSection';
 import { FeaturedTourPackages } from './components/FeaturedTourPackages';
 import { GallerySection } from './components/GallerySection';
 import { StatsSection } from './components/StatsSection';
-import { TourGuideSection } from './components/TourGuideSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { PartnerLogos } from './components/PartnerLogos';
 import { BlogSection } from './components/BlogSection';
@@ -159,10 +158,7 @@ export function App() {
             {/* 7. Circular Statistics (12+, 97%, 8k, 19k) */}
             <StatsSection />
 
-            {/* 8. Tour Guide (4 guides on soft cyan cards) */}
-            <TourGuideSection />
-
-            {/* 9. What Client Say About us (Testimonials with center card highlighted) */}
+            {/* 8. What Client Say About us (Testimonials with center card highlighted) */}
             <TestimonialsSection />
 
             {/* 10. Partner / Brand Logos Strip */}
