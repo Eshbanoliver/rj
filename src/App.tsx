@@ -11,16 +11,18 @@ import { TourDetailsModal } from './components/TourDetailsModal';
 import { InquiryModal } from './components/InquiryModal';
 import { TermsModal } from './components/TermsModal';
 
-// Home Sections
+// Home Sections matching Reference UI/UX
 import { Hero } from './components/Hero';
-import { StatsSection } from './components/StatsSection';
+import { TourCategories } from './components/TourCategories';
 import { PopularDestinations } from './components/PopularDestinations';
+import { PlanTripSection } from './components/PlanTripSection';
 import { FeaturedTourPackages } from './components/FeaturedTourPackages';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { TravelStory } from './components/TravelStory';
-import { ServicesSection } from './components/ServicesSection';
 import { GallerySection } from './components/GallerySection';
-import { CustomTripCTA } from './components/CustomTripCTA';
+import { StatsSection } from './components/StatsSection';
+import { TourGuideSection } from './components/TourGuideSection';
+import { TestimonialsSection } from './components/TestimonialsSection';
+import { PartnerLogos } from './components/PartnerLogos';
+import { BlogSection } from './components/BlogSection';
 
 // Dedicated Page Views
 import { AboutPage } from './pages/AboutPage';
@@ -118,34 +120,59 @@ export function App() {
       <main className="flex-1">
         {currentPage === 'home' && (
           <>
+            {/* 1. Hero with floating search */}
             <Hero
               onNavigate={handleNavigate}
               onSearch={handleSearchSubmit}
               onOpenInquiry={handleOpenInquiry}
             />
-            <StatsSection />
+
+            {/* 2. Tour Categories with arched cards */}
+            <TourCategories
+              onNavigate={handleNavigate}
+            />
+
+            {/* 3. Popular Destination Cover Flow Carousel */}
             <PopularDestinations
               onNavigate={handleNavigate}
               onSelectDestination={handleSelectDestination}
             />
+
+            {/* 4. Plan Your Trip With Us (3-capsule collage + 2 features) */}
+            <PlanTripSection
+              onNavigate={handleNavigate}
+              onOpenInquiry={handleOpenInquiry}
+            />
+
+            {/* 5. Popular Destination we offer for all (Tour Cards) */}
             <FeaturedTourPackages
               onNavigate={handleNavigate}
               onSelectTour={handleSelectTour}
               onOpenInquiry={handleOpenInquiry}
             />
-            <WhyChooseUs />
-            <TravelStory
-              onNavigate={handleNavigate}
-              onOpenInquiry={handleOpenInquiry}
-            />
-            <ServicesSection
-              onNavigate={handleNavigate}
-              onOpenInquiry={handleOpenInquiry}
-            />
+
+            {/* 6. Recent Gallery (4-column layout with center tall photo) */}
             <GallerySection
               onNavigate={handleNavigate}
             />
-            <CustomTripCTA onOpenInquiry={handleOpenInquiry} />
+
+            {/* 7. Circular Statistics (12+, 97%, 8k, 19k) */}
+            <StatsSection />
+
+            {/* 8. Tour Guide (4 guides on soft cyan cards) */}
+            <TourGuideSection />
+
+            {/* 9. What Client Say About us (Testimonials with center card highlighted) */}
+            <TestimonialsSection />
+
+            {/* 10. Partner / Brand Logos Strip */}
+            <PartnerLogos />
+
+            {/* 11. News & Articles From R Journey (3 blog cards) */}
+            <BlogSection
+              onNavigate={handleNavigate}
+              onOpenInquiry={handleOpenInquiry}
+            />
           </>
         )}
 

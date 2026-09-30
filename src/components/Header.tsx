@@ -142,18 +142,11 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Action CTAs */}
           <div className="flex items-center gap-2 sm:gap-3">
             <button
-              onClick={() => handleLinkClick('trips')}
-              className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 border border-slate-200 hover:border-[#1ca8cb] hover:text-[#113d48] hover:bg-[#1ca8cb]/5 transition-colors"
+              onClick={() => onOpenInquiry({ tourTitle: 'General Rajasthan Tour' })}
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-[#113d48] hover:bg-[#1ca8cb] shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer group active:scale-95"
             >
-              <Calendar className="w-3.5 h-3.5 text-[#1ca8cb]" />
-              View Batches
-            </button>
-            <button
-              onClick={() => onOpenInquiry()}
-              className="relative group overflow-hidden inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#1ca8cb] via-[#189bbd] to-[#113d48] shadow-sm shadow-[#1ca8cb]/25 hover:shadow-md hover:shadow-[#1ca8cb]/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
-            >
-              <span>Plan Trip</span>
-              <ChevronRight className="w-3.5 h-3.5 hidden sm:inline group-hover:translate-x-0.5 transition-transform" />
+              <span>Book A Tour</span>
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
 
             {/* Mobile Menu Button */}

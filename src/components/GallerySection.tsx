@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { galleryItems, GalleryItem } from '../data/gallery';
-import { Sparkles, MapPin, X, ZoomIn, ArrowRight } from 'lucide-react';
+import { MapPin, X, ZoomIn, ArrowRight } from 'lucide-react';
 import { PageType } from '../types';
 
 interface GallerySectionProps {
@@ -12,103 +12,189 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
   onNavigate,
   isStandalonePage = false,
 }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activeImage, setActiveImage] = useState<GalleryItem | null>(null);
 
-  const categories = ['All', 'Community', 'Destinations', 'Stays & Resorts', 'Experiences'];
-
-  const filteredItems =
-    selectedCategory === 'All'
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === selectedCategory);
-
-  const displayItems = isStandalonePage ? filteredItems : filteredItems.slice(0, 8);
+  // Home page recent items
+  const homeImages = [
+    {
+      id: 'g-lake',
+      title: 'Lakeside Rooftop Moments',
+      location: 'Udaipur, Rajasthan',
+      image: '/images/palm-valley-dinner.jpg',
+    },
+    {
+      id: 'g-bahubali',
+      title: 'Bahubali Hills Serenity',
+      location: 'Badi Lake, Udaipur',
+      image: '/images/hero-udaipur.jpg',
+    },
+    {
+      id: 'g-center-strangers',
+      title: '15 Strangers Sunset Gathering',
+      location: 'Aravali Hills, Udaipur',
+      image: '/images/strangers-sunset-community.jpg',
+    },
+    {
+      id: 'g-mehrangarh',
+      title: 'Mehrangarh Fort Golden Hour',
+      location: 'Jodhpur, Rajasthan',
+      image: '/images/jodhpur-mehrangarh-sunset.jpg',
+    },
+    {
+      id: 'g-desert',
+      title: 'Sunset Camel Caravan',
+      location: 'Sam Sand Dunes, Jaisalmer',
+      image: '/images/jaisalmer-journey-arch.jpg',
+    },
+    {
+      id: 'g-pool',
+      title: 'Palm Valley Night Pool Party',
+      location: 'Udaipur, Rajasthan',
+      image: '/images/palm-valley-night-pool.jpg',
+    },
+  ];
 
   return (
-    <section
-      className={`py-20 bg-white text-slate-900 relative ${
-        isStandalonePage ? 'pt-28' : ''
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#1ca8cb] uppercase mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Captured Memories</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight">
-            Moments on the <span className="text-[#1ca8cb]">Road</span>
+    <section className={`py-20 sm:py-24 bg-white relative overflow-hidden ${isStandalonePage ? 'pt-28' : ''}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Heading matching reference */}
+        <div className="text-center mb-14 sm:mb-16">
+          <span className="font-script text-[#1ca8cb] text-3xl sm:text-4xl font-bold tracking-wide inline-block transform -rotate-1">
+            Explore Our Photo Gallery
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#113d48] font-heading mt-1 tracking-tight">
+            Recent Gallery
           </h2>
-          <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Real moments from our Rajasthan journeys — sun-drenched hill resorts, camel caravans in the Thar dunes, and laughter with new friends.
-          </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 sm:flex-wrap sm:justify-center mb-8 sm:mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shrink-0 whitespace-nowrap cursor-pointer ${
-                selectedCategory === cat
-                  ? 'bg-[#1ca8cb] text-[#113d48] font-black shadow-md shadow-[#1ca8cb]/30 scale-105'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Gallery Grid: 2 columns on mobile, 4 columns on desktop */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6">
-          {displayItems.map((item) => (
+        {/* Masonry / Grid matching reference Section 7 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-center">
+          {/* Column 1: Two stacked images */}
+          <div className="flex flex-col gap-4 sm:gap-6">
             <div
-              key={item.id}
-              onClick={() => setActiveImage(item)}
-              className="group relative h-52 sm:h-64 lg:h-72 rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer bg-slate-100 border border-slate-200/80 hover:border-[#1ca8cb] shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(28,168,203,0.3)] hover:-translate-y-1.5 transition-all duration-500 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#1ca8cb] before:via-[#3eb8d4] before:to-[#113d48] before:scale-x-0 group-hover:before:scale-x-100 before:transition-transform before:duration-500 before:origin-left before:z-20"
+              onClick={() => setActiveImage({ id: '1', title: homeImages[0].title, location: homeImages[0].location, image: homeImages[0].image, category: 'Community', caption: '' })}
+              className="group relative h-48 sm:h-52 rounded-3xl overflow-hidden shadow-md cursor-pointer border border-slate-100"
             >
               <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
-                loading="lazy"
+                src={homeImages[0].image}
+                alt={homeImages[0].title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
-
-              {/* Hover Zoom Icon */}
-              <div className="absolute top-3.5 right-3.5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-950/75 backdrop-blur-md flex items-center justify-center text-[#1ca8cb] group-hover:bg-[#1ca8cb] group-hover:text-[#113d48] group-hover:scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-md z-10">
-                <ZoomIn className="w-4 h-4" />
-              </div>
-
-              {/* Bottom Info */}
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10">
-                <span className="inline-block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#1ca8cb] bg-[#1ca8cb]/20 border border-[#1ca8cb]/40 px-2 py-0.5 rounded-full mb-1 sm:mb-1.5 backdrop-blur-sm">
-                  {item.category}
-                </span>
-                <h3 className="text-xs sm:text-sm font-bold text-white font-heading line-clamp-1 group-hover:text-cyan-200 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-[10px] sm:text-[11px] text-slate-300 flex items-center gap-1 mt-0.5 truncate">
-                  <MapPin className="w-3.5 h-3.5 text-[#1ca8cb] shrink-0" />
-                  <span className="truncate">{item.location}</span>
-                </p>
+              <div className="absolute inset-0 bg-[#1ca8cb]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-white text-center">
+                <div className="w-10 h-10 rounded-full bg-white/25 flex items-center justify-center mb-2">
+                  <ZoomIn className="w-5 h-5 text-white" />
+                </div>
+                <h4 className="font-bold text-sm">{homeImages[0].title}</h4>
+                <p className="text-xs text-white/80">{homeImages[0].location}</p>
               </div>
             </div>
-          ))}
+
+            <div
+              onClick={() => setActiveImage({ id: '2', title: homeImages[1].title, location: homeImages[1].location, image: homeImages[1].image, category: 'Community', caption: '' })}
+              className="group relative h-48 sm:h-52 rounded-3xl overflow-hidden shadow-md cursor-pointer border border-slate-100"
+            >
+              <img
+                src={homeImages[1].image}
+                alt={homeImages[1].title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-[#1ca8cb]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-white text-center">
+                <div className="w-10 h-10 rounded-full bg-white/25 flex items-center justify-center mb-2">
+                  <ZoomIn className="w-5 h-5 text-white" />
+                </div>
+                <h4 className="font-bold text-sm">{homeImages[1].title}</h4>
+                <p className="text-xs text-white/80">{homeImages[1].location}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 2: TALL CENTER IMAGE */}
+          <div
+            onClick={() => setActiveImage({ id: '3', title: homeImages[2].title, location: homeImages[2].location, image: homeImages[2].image, category: 'Community', caption: '' })}
+            className="group relative h-[360px] sm:h-[440px] rounded-3xl overflow-hidden shadow-xl cursor-pointer border border-slate-100 ring-2 ring-[#1ca8cb]/20"
+          >
+            <img
+              src={homeImages[2].image}
+              alt={homeImages[2].title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+            />
+            <div className="absolute inset-0 bg-[#1ca8cb]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-white text-center">
+              <div className="w-12 h-12 rounded-full bg-white/25 flex items-center justify-center mb-3">
+                <ZoomIn className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="font-bold text-base sm:text-lg">{homeImages[2].title}</h4>
+              <p className="text-xs sm:text-sm text-white/80 mt-1">{homeImages[2].location}</p>
+            </div>
+          </div>
+
+          {/* Column 3: Two stacked images */}
+          <div className="flex flex-col gap-4 sm:gap-6">
+            <div
+              onClick={() => setActiveImage({ id: '4', title: homeImages[3].title, location: homeImages[3].location, image: homeImages[3].image, category: 'Community', caption: '' })}
+              className="group relative h-48 sm:h-52 rounded-3xl overflow-hidden shadow-md cursor-pointer border border-slate-100"
+            >
+              <img
+                src={homeImages[3].image}
+                alt={homeImages[3].title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-[#1ca8cb]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-white text-center">
+                <div className="w-10 h-10 rounded-full bg-white/25 flex items-center justify-center mb-2">
+                  <ZoomIn className="w-5 h-5 text-white" />
+                </div>
+                <h4 className="font-bold text-sm">{homeImages[3].title}</h4>
+                <p className="text-xs text-white/80">{homeImages[3].location}</p>
+              </div>
+            </div>
+
+            <div
+              onClick={() => setActiveImage({ id: '5', title: homeImages[4].title, location: homeImages[4].location, image: homeImages[4].image, category: 'Community', caption: '' })}
+              className="group relative h-48 sm:h-52 rounded-3xl overflow-hidden shadow-md cursor-pointer border border-slate-100"
+            >
+              <img
+                src={homeImages[4].image}
+                alt={homeImages[4].title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-[#1ca8cb]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-white text-center">
+                <div className="w-10 h-10 rounded-full bg-white/25 flex items-center justify-center mb-2">
+                  <ZoomIn className="w-5 h-5 text-white" />
+                </div>
+                <h4 className="font-bold text-sm">{homeImages[4].title}</h4>
+                <p className="text-xs text-white/80">{homeImages[4].location}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 4: TALL RIGHT IMAGE */}
+          <div
+            onClick={() => setActiveImage({ id: '6', title: homeImages[5].title, location: homeImages[5].location, image: homeImages[5].image, category: 'Community', caption: '' })}
+            className="group relative h-[360px] sm:h-[440px] rounded-3xl overflow-hidden shadow-xl cursor-pointer border border-slate-100 ring-2 ring-[#1ca8cb]/20"
+          >
+            <img
+              src={homeImages[5].image}
+              alt={homeImages[5].title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+            />
+            <div className="absolute inset-0 bg-[#1ca8cb]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-white text-center">
+              <div className="w-12 h-12 rounded-full bg-white/25 flex items-center justify-center mb-3">
+                <ZoomIn className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="font-bold text-base sm:text-lg">{homeImages[5].title}</h4>
+              <p className="text-xs sm:text-sm text-white/80 mt-1">{homeImages[5].location}</p>
+            </div>
+          </div>
         </div>
 
-        {/* View All Button if on Home Page */}
-        {!isStandalonePage && onNavigate && (
-          <div className="mt-10 sm:mt-12 text-center">
+        {/* View Full Gallery Link */}
+        {onNavigate && (
+          <div className="text-center mt-12">
             <button
               onClick={() => onNavigate('gallery')}
-              className="inline-flex items-center gap-2 px-6 py-3 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold text-white bg-[#113d48] hover:bg-[#184f5c] transition-all hover:scale-105 shadow-md shadow-[#113d48]/20 active:scale-98 cursor-pointer"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full border-2 border-[#113d48] text-[#113d48] hover:bg-[#113d48] hover:text-white font-bold text-sm transition-all duration-300 shadow-sm cursor-pointer"
             >
-              <span>Explore Full Photo Gallery</span>
-              <ArrowRight className="w-4 h-4 text-[#1ca8cb]" />
+              <span>View Full Photo Gallery</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         )}
@@ -117,45 +203,25 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
       {/* Lightbox Modal */}
       {activeImage && (
         <div
-          className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4"
           onClick={() => setActiveImage(null)}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
         >
-          <div
-            className="relative max-w-4xl w-full bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl text-slate-900"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="relative max-w-4xl max-h-[90vh] flex flex-col items-center">
             <button
               onClick={() => setActiveImage(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-900/80 hover:bg-[#1ca8cb] hover:text-[#113d48] text-white transition-colors cursor-pointer"
-              aria-label="Close Preview"
+              aria-label="Close"
+              className="absolute -top-12 right-0 text-white hover:text-[#1ca8cb] transition-colors p-2"
             >
-              <X className="w-5 h-5" />
+              <X className="w-8 h-8" />
             </button>
-
-            <div className="max-h-[70vh] overflow-hidden flex items-center justify-center bg-slate-950">
-              <img
-                src={activeImage.image}
-                alt={activeImage.title}
-                className="w-full h-auto max-h-[70vh] object-contain"
-              />
-            </div>
-
-            <div className="p-6 bg-white border-t border-slate-100">
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                <h3 className="text-lg font-bold text-slate-900 font-heading">
-                  {activeImage.title}
-                </h3>
-                <span className="text-xs text-[#113d48] font-bold px-2.5 py-1 rounded-full bg-[#1ca8cb]/15 border border-[#1ca8cb]/30">
-                  {activeImage.category}
-                </span>
-              </div>
-              <p className="text-xs text-slate-500 flex items-center gap-1.5 mb-2">
-                <MapPin className="w-3.5 h-3.5 text-[#1ca8cb]" />
-                <span>{activeImage.location}</span>
-              </p>
-              <p className="text-sm text-slate-600">
-                {activeImage.caption}
-              </p>
+            <img
+              src={activeImage.image}
+              alt={activeImage.title}
+              className="max-h-[80vh] w-auto rounded-2xl object-contain shadow-2xl"
+            />
+            <div className="mt-4 text-center text-white">
+              <h3 className="text-xl font-bold">{activeImage.title}</h3>
+              <p className="text-sm text-slate-300 mt-1">{activeImage.location}</p>
             </div>
           </div>
         </div>

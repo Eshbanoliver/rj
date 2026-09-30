@@ -1,8 +1,8 @@
+import React, { useState } from 'react';
 import { PageType } from '../types';
 import { companyData } from '../data/company';
-import { MapPin, Phone, Clock, ShieldCheck, Heart } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { InstagramIcon } from './icons';
-
 
 interface FooterProps {
   onNavigate: (page: PageType) => void;
@@ -10,75 +10,149 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubscribed(true);
+    setTimeout(() => setSubscribed(false), 4000);
+    setEmail('');
+  };
+
   const quickLinks: { label: string; page: PageType }[] = [
     { label: 'Home', page: 'home' },
     { label: 'About Us', page: 'about' },
     { label: 'Destinations', page: 'destinations' },
-    { label: 'Gallery', page: 'gallery' },
-    { label: 'Upcoming Trips', page: 'trips' },
-    { label: 'Contact', page: 'contact' },
+    { label: 'Tour Packages', page: 'trips' },
+    { label: 'Recent Gallery', page: 'gallery' },
+    { label: 'Contact Us', page: 'contact' },
   ];
 
-  const destinations = [
-    'Udaipur (City of Lakes)',
-    'Jaisalmer (Golden Dunes)',
-    'Jodhpur (The Blue City)',
-    'Kumbhalgarh (Great Wall)',
-    'Haldighati Valley',
-    'Sam Sand Dunes Glamping',
+  const categories = [
+    '15 Strangers Trips',
+    'Desert Safari & Camping',
+    'Lakes & Royal Palaces',
+    'Heritage Fort Expeditions',
+    'DJ & Pool Party Getaways',
+    'Custom Group Tours',
+  ];
+
+  const instagramPhotos = [
+    '/images/hero-udaipur.jpg',
+    '/images/hero-jaisalmer.jpg',
+    '/images/hero-jodhpur.jpg',
+    '/images/palm-valley-night-pool.jpg',
+    '/images/strangers-sunset-community.jpg',
+    '/images/udaipur-group-strangers.jpg',
   ];
 
   return (
-    <footer className="bg-[#113d48] text-white border-t border-[#184e5b]">
-      {/* Upper Footer Columns */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10">
-          {/* Column 1: Brand Info (4 cols) */}
-          <div className="sm:col-span-2 lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white p-1 shadow-md shadow-black/20 flex items-center justify-center overflow-hidden shrink-0">
-                <img
-                  src="/images/r-journey-logo.png"
-                  alt="R Journey Tour & Travel Logo"
-                  className="w-full h-full object-contain"
+    <footer className="bg-white text-slate-800 border-t border-slate-200">
+      {/* Top Newsletter Bar matching reference */}
+      <div className="border-b border-slate-100 py-10 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div>
+              <span className="font-script text-[#1ca8cb] text-2xl sm:text-3xl font-bold tracking-wide">
+                Stay In The Loop
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#113d48] font-heading mt-0.5">
+                Get Update To The Latest Newsletter
+              </h3>
+            </div>
+
+            <form onSubmit={handleSubscribe} className="flex items-center gap-2 max-w-md w-full">
+              <div className="relative flex-1">
+                <input
+                  type="email"
+                  required
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-5 py-3 rounded-full border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1ca8cb] text-sm text-slate-800 placeholder-slate-400"
                 />
               </div>
+              <button
+                type="submit"
+                className="px-7 py-3 rounded-full bg-[#113d48] hover:bg-[#1ca8cb] text-white text-sm font-bold shadow-md transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-1.5"
+              >
+                <span>Subscribe</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </form>
+          </div>
+
+          {subscribed && (
+            <div className="mt-3 text-xs text-emerald-600 font-bold flex items-center gap-1">
+              <CheckCircle2 className="w-4 h-4" />
+              <span>Thank you for subscribing! We will send you upcoming batch schedules and discounts.</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Main 4-Column Footer Content matching reference */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+          
+          {/* Col 1: Brand Info (4 cols) */}
+          <div className="sm:col-span-2 lg:col-span-4 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[#1ca8cb] text-white flex items-center justify-center font-black text-xl shadow-md">
+                R
+              </div>
               <div>
-                <h3 className="text-xl font-black font-heading tracking-tight text-white">
-                  R <span className="text-[#1ca8cb]">Journey</span>
-                </h3>
-                <p className="text-[10px] tracking-widest uppercase text-cyan-200/80 font-bold">
+                <h4 className="text-xl font-black font-heading text-[#113d48] tracking-tight">
+                  R Journey
+                </h4>
+                <p className="text-[10px] tracking-widest uppercase text-[#1ca8cb] font-bold">
                   Tour & Travel
                 </p>
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-sm">
-              Where Strangers Become Stories. Specialized in curated 15 Strangers community journeys, college reunions, and luxury Rajasthan getaways from Ahmedabad and Udaipur.
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm">
+              Turning strangers into lifelong stories across Rajasthan's most iconic landscapes. Curated 15 Strangers group trips from Ahmedabad & Udaipur.
             </p>
 
-            <div className="pt-2 flex items-center gap-3">
+            {/* Social Icons */}
+            <div className="flex items-center gap-3 pt-2">
               <a
                 href={companyData.instagramUrl}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-[#0c2c34] border border-[#184e5b] flex items-center justify-center text-slate-200 hover:text-[#1ca8cb] hover:border-[#1ca8cb] transition-colors"
-                aria-label="Instagram Profile"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="w-9 h-9 rounded-full bg-[#f0f9fb] hover:bg-[#1ca8cb] text-[#113d48] hover:text-white flex items-center justify-center transition-colors border border-slate-200"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
-              <span className="text-xs text-slate-300 font-medium">
-                {companyData.instagram}
-              </span>
+              <a
+                href={`https://wa.me/${companyData.whatsapp}?text=Hi%20R%20Journey!`}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+                className="w-9 h-9 rounded-full bg-[#f0f9fb] hover:bg-[#1ca8cb] text-[#113d48] hover:text-white flex items-center justify-center transition-colors border border-slate-200"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+              <a
+                href={`mailto:${companyData.email}`}
+                aria-label="Email"
+                className="w-9 h-9 rounded-full bg-[#f0f9fb] hover:bg-[#1ca8cb] text-[#113d48] hover:text-white flex items-center justify-center transition-colors border border-slate-200"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
-          {/* Column 2: Quick Links (2 cols) */}
+          {/* Col 2: Quick Links (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-sm font-bold font-heading text-white uppercase tracking-wider">
+            <h4 className="text-sm font-bold font-heading text-[#113d48] uppercase tracking-wider">
               Quick Links
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs sm:text-sm">
               {quickLinks.map((link) => (
                 <li key={link.page}>
                   <button
@@ -86,7 +160,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
                       onNavigate(link.page);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-slate-300 hover:text-[#1ca8cb] transition-colors cursor-pointer"
+                    className="text-slate-600 hover:text-[#1ca8cb] transition-colors cursor-pointer"
                   >
                     {link.label}
                   </button>
@@ -95,108 +169,82 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
             </ul>
           </div>
 
-          {/* Column 3: Popular Destinations (3 cols) */}
+          {/* Col 3: Categories & Contact (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-sm font-bold font-heading text-white uppercase tracking-wider">
-              Destinations
+            <h4 className="text-sm font-bold font-heading text-[#113d48] uppercase tracking-wider">
+              Contact Info
             </h4>
-            <ul className="space-y-2 text-xs text-slate-300">
-              {destinations.map((dest, i) => (
-                <li key={i} className="hover:text-[#1ca8cb] transition-colors">
-                  {dest}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: Contact Information (3 cols) */}
-          <div className="sm:col-span-2 lg:col-span-3 space-y-3">
-            <h4 className="text-sm font-bold font-heading text-white uppercase tracking-wider">
-              Contact Information
-            </h4>
-            <ul className="space-y-3 text-xs text-slate-200">
-              <li className="flex items-start gap-2.5">
+            <div className="space-y-2.5 text-xs sm:text-sm text-slate-600">
+              <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#1ca8cb] shrink-0 mt-0.5" />
-                <span>{companyData.address.full}</span>
-              </li>
-              <li className="flex items-center gap-2.5">
+                <span>25 MP Colony, Sector-13, Udaipur, Rajasthan 313001</span>
+              </div>
+              <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#1ca8cb] shrink-0" />
-                <div className="space-x-1">
-                  <a
-                    href="tel:8094268991"
-                    className="hover:text-[#1ca8cb] transition-colors"
-                  >
-                    8094268991
-                  </a>
-                  <span>/</span>
-                  <a
-                    href="tel:8890437050"
-                    className="hover:text-[#1ca8cb] transition-colors"
-                  >
-                    8890437050
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <span className="text-[#1ca8cb] text-sm font-bold">@</span>
-                <a
-                  href={`mailto:${companyData.email}`}
-                  className="hover:text-[#1ca8cb] transition-colors"
-                >
+                <a href={`tel:${companyData.phones[0]}`} className="hover:text-[#1ca8cb]">
+                  {companyData.displayPhone}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#1ca8cb] shrink-0" />
+                <a href={`mailto:${companyData.email}`} className="hover:text-[#1ca8cb]">
                   {companyData.email}
                 </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-[#1ca8cb] shrink-0" />
-                <span>{companyData.businessHours}</span>
-              </li>
-            </ul>
-
-            <div className="pt-2">
-              <button
-                onClick={onOpenTerms}
-                className="inline-flex items-center gap-1.5 text-xs text-[#1ca8cb] hover:text-cyan-200 font-medium underline cursor-pointer"
-              >
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>View 19 Terms & Conditions</span>
-              </button>
+              </div>
             </div>
           </div>
+
+          {/* Col 4: Instagram Feed Grid (3 cols) */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="text-sm font-bold font-heading text-[#113d48] uppercase tracking-wider">
+              Instagram Feed
+            </h4>
+            <div className="grid grid-cols-3 gap-2">
+              {instagramPhotos.map((src, i) => (
+                <a
+                  key={i}
+                  href={companyData.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="aspect-square rounded-xl overflow-hidden block group relative"
+                >
+                  <img
+                    src={src}
+                    alt={`Instagram photo ${i + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-[#1ca8cb]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                    <InstagramIcon className="w-4 h-4" />
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* Bottom Legal Bar */}
-      <div className="border-t border-[#184e5b] bg-[#0c2c34] py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
-          <div>
-            ©️ Copyright 2026 | R Journey | All Rights Reserved | Powered by{' '}
-            <a
-              href="https://www.futurexdigitalmarketing.com/"
-              target="_blank"
-              rel="noopener"
-              style={{ color: '#28a745' }}
-              className="hover:underline font-medium"
-            >
-              FutureX Digital Marketing
-            </a>
-          </div>
+      {/* Bottom Bar matching reference */}
+      <div className="bg-[#113d48] text-white py-4 text-xs border-t border-[#1a4a56]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-slate-300 text-center sm:text-left">
+            Copyright © 2026 <span className="text-[#1ca8cb] font-bold">R Journey</span>. All Rights Reserved.
+          </p>
 
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">
+          <div className="flex items-center gap-4">
             <button
               onClick={onOpenTerms}
-              className="hover:text-slate-300 transition-colors cursor-pointer"
+              className="text-slate-300 hover:text-white transition-colors cursor-pointer text-xs"
             >
-              Terms & Conditions
+              Terms & Policy
             </button>
-            <button
-              onClick={onOpenTerms}
-              className="hover:text-slate-300 transition-colors cursor-pointer"
-            >
-              Declaration Form
-            </button>
-            <span className="flex items-center gap-1 text-slate-500">
-              Made with <Heart className="w-3 h-3 text-red-500 fill-red-500" /> for Rajasthan Travelers
-            </span>
+            <span className="text-slate-500">|</span>
+            <div className="flex items-center gap-2 text-slate-300 text-[11px] font-semibold">
+              <span className="px-2 py-0.5 rounded bg-white/10">VISA</span>
+              <span className="px-2 py-0.5 rounded bg-white/10">MasterCard</span>
+              <span className="px-2 py-0.5 rounded bg-white/10">UPI</span>
+              <span className="px-2 py-0.5 rounded bg-white/10">RuPay</span>
+            </div>
           </div>
         </div>
       </div>

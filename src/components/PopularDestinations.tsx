@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PageType } from '../types';
 import { destinationsData, Destination } from '../data/destinations';
-import { MapPin, ArrowUpRight, Sparkles } from 'lucide-react';
+import { MapPin, ChevronLeft, ChevronRight, Star, ArrowRight } from 'lucide-react';
 
 interface PopularDestinationsProps {
   onNavigate: (page: PageType) => void;
@@ -12,219 +12,163 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
   onNavigate,
   onSelectDestination,
 }) => {
+  const [activeIndex, setActiveIndex] = useState(2); // Center on Jodhpur/Udaipur initially
+  const total = destinationsData.length;
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + total) % total);
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % total);
+  };
+
+  const handleCardClick = (index: number, dest: Destination) => {
+    if (index === activeIndex) {
+      if (onSelectDestination) onSelectDestination(dest);
+      onNavigate('destinations');
+    } else {
+      setActiveIndex(index);
+    }
+  };
+
   return (
-    <section className="py-20 bg-[#f8fafc] text-slate-900 relative overflow-hidden border-b border-slate-200/80">
-      {/* Decorative ambient light */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#1ca8cb]/5 blur-[130px] rounded-full pointer-events-none" />
-
+    <section className="py-20 sm:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#1ca8cb] uppercase mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Rajasthan Circuit</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight">
-              Explore Popular <span className="text-[#1ca8cb]">Destinations</span>
-            </h2>
-            <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-              From the azure alleys of the Blue City to golden rolling dunes of Jaisalmer and the romantic hillscapes of Udaipur. Handcrafted circuits straight from our signature brochures.
-            </p>
-          </div>
-
-          <button
-            onClick={() => onNavigate('destinations')}
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#113d48] hover:text-[#1ca8cb] group cursor-pointer transition-colors"
-          >
-            <span>View All Destinations</span>
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+        {/* Section Heading */}
+        <div className="text-center mb-14 sm:mb-16">
+          <span className="font-script text-[#1ca8cb] text-3xl sm:text-4xl font-bold tracking-wide inline-block transform -rotate-1">
+            Destination
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#113d48] font-heading mt-1 tracking-tight">
+            Popular Destination
+          </h2>
         </div>
 
-        {/* Featured Destination Cards Grid (Asymmetric Editorial Layout) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6">
-          {/* Card 1: Udaipur (Large Hero Card, span 7) */}
-          {destinationsData[0] && (
-            <div
-              onClick={() => {
-                if (onSelectDestination) onSelectDestination(destinationsData[0]);
-                onNavigate('destinations');
-              }}
-              className="md:col-span-7 group relative h-[300px] sm:h-[380px] lg:h-[430px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-[0_20px_45px_-12px_rgba(28,168,203,0.3)] border border-slate-200/90 hover:border-[#1ca8cb]/90 transition-all duration-500 hover:-translate-y-2 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#1ca8cb] before:via-[#3eb8d4] before:to-[#113d48] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
-            >
-              <img
-                src={destinationsData[0].image}
-                alt={destinationsData[0].name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/50 transition-colors" />
-              
-              {/* Badge */}
-              <div className="absolute top-4 sm:top-5 left-4 sm:left-5 bg-slate-950/80 backdrop-blur-md border border-white/20 group-hover:border-[#1ca8cb]/60 text-[#1ca8cb] text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg transition-colors">
-                <MapPin className="w-3.5 h-3.5" />
-                <span>City of Lakes & Hills</span>
-              </div>
+        {/* Cover Flow Carousel Container */}
+        <div className="relative w-full flex items-center justify-center min-h-[460px] sm:min-h-[520px] px-2 sm:px-12">
+          {/* Navigation Arrows */}
+          <button
+            onClick={handlePrev}
+            aria-label="Previous destination"
+            className="absolute left-2 sm:left-4 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-[#1ca8cb] text-[#113d48] hover:text-white shadow-xl flex items-center justify-center transition-all duration-300 border border-slate-200 cursor-pointer active:scale-95 group"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
+          </button>
 
-              {/* Content */}
-              <div className="absolute bottom-5 sm:bottom-6 left-5 sm:left-6 right-5 sm:right-6">
-                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-[#1ca8cb] font-bold mb-1">
-                  {destinationsData[0].associatedToursCount} Active Tour Circuits
-                </p>
-                <h3 className="text-xl sm:text-3xl font-black font-heading text-white group-hover:text-cyan-200 transition-colors">
-                  {destinationsData[0].name}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 mt-1 line-clamp-2 max-w-lg">
-                  {destinationsData[0].shortDescription}
-                </p>
-                <div className="mt-3 sm:mt-4 flex items-center gap-1.5 text-xs font-bold text-[#1ca8cb] group-hover:text-cyan-200">
-                  <span>Explore Udaipur Trips</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1.5 group-hover:-translate-y-1 transition-transform duration-300" />
+          <button
+            onClick={handleNext}
+            aria-label="Next destination"
+            className="absolute right-2 sm:right-4 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-[#1ca8cb] text-[#113d48] hover:text-white shadow-xl flex items-center justify-center transition-all duration-300 border border-slate-200 cursor-pointer active:scale-95 group"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
+          </button>
+
+          {/* 5-Card Cover Flow Display */}
+          <div className="flex items-center justify-center gap-3 sm:gap-6 w-full max-w-6xl mx-auto overflow-hidden sm:overflow-visible py-4">
+            {destinationsData.map((dest, idx) => {
+              // Calculate distance from activeIndex with circular wrap
+              let diff = idx - activeIndex;
+              if (diff < -Math.floor(total / 2)) diff += total;
+              if (diff > Math.floor(total / 2)) diff -= total;
+
+              const isCenter = diff === 0;
+              const isAdjacent = Math.abs(diff) === 1;
+              const isOuter = Math.abs(diff) === 2;
+              const isHidden = Math.abs(diff) > 2;
+
+              if (isHidden) return null;
+
+              return (
+                <div
+                  key={dest.id}
+                  onClick={() => handleCardClick(idx, dest)}
+                  style={{ order: diff + 2 }}
+                  className={`transition-all duration-500 ease-out cursor-pointer relative rounded-3xl overflow-hidden ${
+                    isCenter
+                      ? 'w-[280px] sm:w-[320px] lg:w-[340px] h-[440px] sm:h-[480px] z-20 shadow-2xl scale-100 sm:scale-105 ring-4 ring-[#1ca8cb]/40'
+                      : isAdjacent
+                      ? 'hidden sm:block sm:w-[220px] lg:w-[250px] h-[380px] sm:h-[420px] z-10 opacity-80 scale-95 shadow-lg hover:opacity-100'
+                      : 'hidden lg:block lg:w-[190px] h-[330px] lg:h-[370px] z-0 opacity-50 scale-90 shadow-md hover:opacity-80'
+                  }`}
+                >
+                  {/* Destination Image */}
+                  <img
+                    src={dest.image}
+                    alt={dest.name}
+                    className={`w-full h-full object-cover transition-transform duration-700 ${
+                      isCenter ? 'hover:scale-110' : ''
+                    }`}
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div
+                    className={`absolute inset-0 transition-opacity duration-300 ${
+                      isCenter
+                        ? 'bg-gradient-to-t from-black/85 via-black/30 to-black/10'
+                        : 'bg-gradient-to-t from-black/80 via-black/40 to-transparent'
+                    }`}
+                  />
+
+                  {/* Rating Badge */}
+                  <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1 text-white text-xs font-bold border border-white/20">
+                    <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                    <span>5.0</span>
+                  </div>
+
+                  {/* Content Overlay */}
+                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 text-white flex flex-col justify-end">
+                    <div className="flex items-center gap-1.5 text-cyan-300 text-xs font-semibold mb-1">
+                      <MapPin className="w-3.5 h-3.5 text-[#1ca8cb]" />
+                      <span>{dest.state}</span>
+                    </div>
+
+                    <h3 className={`font-bold font-heading text-white ${
+                      isCenter ? 'text-2xl sm:text-3xl' : 'text-lg sm:text-xl'
+                    }`}>
+                      {dest.name}
+                    </h3>
+
+                    {isCenter && (
+                      <p className="text-xs sm:text-sm text-slate-200 line-clamp-2 mt-1.5 mb-4 leading-relaxed font-normal">
+                        {dest.tagline}
+                      </p>
+                    )}
+
+                    {isCenter && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (onSelectDestination) onSelectDestination(dest);
+                          onNavigate('destinations');
+                        }}
+                        className="w-full py-2.5 px-4 rounded-full bg-[#1ca8cb] hover:bg-white text-white hover:text-[#113d48] text-xs sm:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#1ca8cb]/30 cursor-pointer"
+                      >
+                        <span>Explore Destination</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </div>
-          )}
+              );
+            })}
+          </div>
+        </div>
 
-          {/* Card 2: Jaisalmer (Large Hero Card, span 5) */}
-          {destinationsData[1] && (
-            <div
-              onClick={() => {
-                if (onSelectDestination) onSelectDestination(destinationsData[1]);
-                onNavigate('destinations');
-              }}
-              className="md:col-span-5 group relative h-[300px] sm:h-[380px] lg:h-[430px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-[0_20px_45px_-12px_rgba(28,168,203,0.3)] border border-slate-200/90 hover:border-[#1ca8cb]/90 transition-all duration-500 hover:-translate-y-2 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#1ca8cb] before:via-[#3eb8d4] before:to-[#113d48] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
-            >
-              <img
-                src={destinationsData[1].image}
-                alt={destinationsData[1].name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/50 transition-colors" />
-              
-              <div className="absolute top-4 sm:top-5 left-4 sm:left-5 bg-slate-950/80 backdrop-blur-md border border-white/20 group-hover:border-[#1ca8cb]/60 text-[#1ca8cb] text-[11px] sm:text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg transition-colors">
-                <MapPin className="w-3.5 h-3.5" />
-                <span>Golden Dunes & Fort</span>
-              </div>
-
-              <div className="absolute bottom-5 sm:bottom-6 left-5 sm:left-6 right-5 sm:right-6">
-                <p className="text-[11px] sm:text-xs uppercase tracking-wider text-[#1ca8cb] font-bold mb-1">
-                  Sam Sand Dunes Glamping
-                </p>
-                <h3 className="text-xl sm:text-3xl font-black font-heading text-white group-hover:text-cyan-200 transition-colors">
-                  {destinationsData[1].name}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 mt-1 line-clamp-2">
-                  {destinationsData[1].shortDescription}
-                </p>
-                <div className="mt-3 sm:mt-4 flex items-center gap-1.5 text-xs font-bold text-[#1ca8cb] group-hover:text-cyan-200">
-                  <span>Explore Desert Safaris</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1.5 group-hover:-translate-y-1 transition-transform duration-300" />
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Card 3: Jodhpur (span 4) */}
-          {destinationsData[2] && (
-            <div
-              onClick={() => {
-                if (onSelectDestination) onSelectDestination(destinationsData[2]);
-                onNavigate('destinations');
-              }}
-              className="md:col-span-4 group relative h-[260px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-[0_20px_45px_-12px_rgba(28,168,203,0.3)] border border-slate-200/90 hover:border-[#1ca8cb]/90 transition-all duration-500 hover:-translate-y-2 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#1ca8cb] before:via-[#3eb8d4] before:to-[#113d48] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
-            >
-              <img
-                src={destinationsData[2].image}
-                alt={destinationsData[2].name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/50 transition-colors" />
-              
-              <div className="absolute bottom-5 left-5 right-5">
-                <span className="text-[11px] font-bold text-[#1ca8cb] uppercase tracking-wider">
-                  The Blue City
-                </span>
-                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5 group-hover:text-cyan-200 transition-colors">
-                  {destinationsData[2].name}
-                </h3>
-                <p className="text-xs text-slate-300 mt-1 line-clamp-2">
-                  {destinationsData[2].shortDescription}
-                </p>
-                <div className="mt-2.5 flex items-center gap-1 text-xs font-bold text-[#1ca8cb] group-hover:text-cyan-200">
-                  <span>Explore Fort & City</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Card 4: Kumbhalgarh (span 4) */}
-          {destinationsData[3] && (
-            <div
-              onClick={() => {
-                if (onSelectDestination) onSelectDestination(destinationsData[3]);
-                onNavigate('destinations');
-              }}
-              className="md:col-span-4 group relative h-[260px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-[0_20px_45px_-12px_rgba(28,168,203,0.3)] border border-slate-200/90 hover:border-[#1ca8cb]/90 transition-all duration-500 hover:-translate-y-2 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#1ca8cb] before:via-[#3eb8d4] before:to-[#113d48] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
-            >
-              <img
-                src={destinationsData[3].image}
-                alt={destinationsData[3].name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/50 transition-colors" />
-              
-              <div className="absolute bottom-5 left-5 right-5">
-                <span className="text-[11px] font-bold text-[#1ca8cb] uppercase tracking-wider">
-                  Great Wall of India
-                </span>
-                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5 group-hover:text-cyan-200 transition-colors">
-                  {destinationsData[3].name}
-                </h3>
-                <p className="text-xs text-slate-300 mt-1 line-clamp-2">
-                  {destinationsData[3].shortDescription}
-                </p>
-                <div className="mt-2.5 flex items-center gap-1 text-xs font-bold text-[#1ca8cb] group-hover:text-cyan-200">
-                  <span>Explore Fort & Jungle</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Card 5: Haldighati (span 4) */}
-          {destinationsData[4] && (
-            <div
-              onClick={() => {
-                if (onSelectDestination) onSelectDestination(destinationsData[4]);
-                onNavigate('destinations');
-              }}
-              className="md:col-span-4 group relative h-[260px] sm:h-[300px] lg:h-[340px] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-[0_20px_45px_-12px_rgba(28,168,203,0.3)] border border-slate-200/90 hover:border-[#1ca8cb]/90 transition-all duration-500 hover:-translate-y-2 before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#1ca8cb] before:via-[#3eb8d4] before:to-[#113d48] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
-            >
-              <img
-                src={destinationsData[4].image}
-                alt={destinationsData[4].name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/50 transition-colors" />
-              
-              <div className="absolute bottom-5 left-5 right-5">
-                <span className="text-[11px] font-bold text-[#1ca8cb] uppercase tracking-wider">
-                  Historic Aravali Pass
-                </span>
-                <h3 className="text-lg sm:text-2xl font-bold font-heading text-white mt-0.5 group-hover:text-cyan-200 transition-colors">
-                  {destinationsData[4].name}
-                </h3>
-                <p className="text-xs text-slate-300 mt-1 line-clamp-2">
-                  {destinationsData[4].shortDescription}
-                </p>
-                <div className="mt-2.5 flex items-center gap-1 text-xs font-bold text-[#1ca8cb] group-hover:text-cyan-200">
-                  <span>Explore Valley Trails</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-              </div>
-            </div>
-          )}
+        {/* Carousel Pagination Dots */}
+        <div className="flex items-center justify-center gap-2 mt-8">
+          {destinationsData.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              aria-label={`Go to destination ${idx + 1}`}
+              className={`transition-all duration-300 rounded-full cursor-pointer ${
+                activeIndex === idx
+                  ? 'w-7 h-2.5 bg-[#1ca8cb]'
+                  : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400'
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -32,8 +32,13 @@
   :root {
     --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-script: 'Caveat', cursive, sans-serif;
     --primary: #1ca8cb;
     --secondary: #113d48;
+  }
+
+  .font-script {
+    font-family: var(--font-script);
   }
 
   html {
@@ -193,4 +198,49 @@
 .card-modern:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 40px -15px rgba(28, 168, 203, 0.25), 0 0 20px rgba(28, 168, 203, 0.12);
+}
+
+/* Travel Doodle Pattern Background */
+.bg-travel-doodles {
+  background-color: #f7fcfe;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231ca8cb' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round' opacity='0.08'%3E%3Cpath d='M25 20 L28 12 L31 20 L40 23 L28 26 L26 33 L24 26 L15 23 Z' /%3E%3Ccircle cx='90' cy='30' r='12' /%3E%3Cpath d='M90 22 L93 30 L87 30 Z M90 38 L87 30 L93 30 Z' fill='%231ca8cb' /%3E%3Cpath d='M30 95 Q32 80 30 65 M30 65 Q20 58 12 65 M30 65 Q22 50 20 42 M30 65 Q38 50 42 42 M30 65 Q42 58 48 65' /%3E%3Crect x='78' cy='75' width='22' height='16' rx='3' /%3E%3Cpath d='M85 75 V71 C85 70 87 69 89 69 H91 C93 69 95 70 95 71 V75' /%3E%3Crect x='60' y='15' width='16' height='11' rx='2' /%3E%3Ccircle cx='68' cy='20.5' r='3.5' /%3E%3Cpath d='M8 105 Q18 108 28 105 L26 112 Q18 114 10 112 Z M18 104 V90 L26 104 Z M16 104 V93 L10 104 Z' /%3E%3Ccircle cx='105' cy='95' r='4' /%3E%3Cpath d='M105 88 V90 M105 100 V102 M98 95 H100 M110 95 H112' /%3E%3C/g%3E%3C/svg%3E");
+}
+
+.bg-travel-doodles-white {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231ca8cb' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round' opacity='0.08'%3E%3Cpath d='M25 20 L28 12 L31 20 L40 23 L28 26 L26 33 L24 26 L15 23 Z' /%3E%3Ccircle cx='90' cy='30' r='12' /%3E%3Cpath d='M90 22 L93 30 L87 30 Z M90 38 L87 30 L93 30 Z' fill='%231ca8cb' /%3E%3Cpath d='M30 95 Q32 80 30 65 M30 65 Q20 58 12 65 M30 65 Q22 50 20 42 M30 65 Q38 50 42 42 M30 65 Q42 58 48 65' /%3E%3Crect x='78' cy='75' width='22' height='16' rx='3' /%3E%3Cpath d='M85 75 V71 C85 70 87 69 89 69 H91 C93 69 95 70 95 71 V75' /%3E%3Crect x='60' y='15' width='16' height='11' rx='2' /%3E%3Ccircle cx='68' cy='20.5' r='3.5' /%3E%3Cpath d='M8 105 Q18 108 28 105 L26 112 Q18 114 10 112 Z M18 104 V90 L26 104 Z M16 104 V93 L10 104 Z' /%3E%3Ccircle cx='105' cy='95' r='4' /%3E%3Cpath d='M105 88 V90 M105 100 V102 M98 95 H100 M110 95 H112' /%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Circular dashed stat ring */
+.circle-dashed-stat {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 9999px;
+  border: 2px dashed rgba(28, 168, 203, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  background: white;
+}
+
+.circle-dashed-stat:hover {
+  border-color: #1ca8cb;
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(28, 168, 203, 0.22);
+}
+
+.circle-dashed-stat::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background-color: #1ca8cb;
+  box-shadow: 0 0 10px #1ca8cb;
 }
