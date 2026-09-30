@@ -230,20 +230,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
             Copyright © 2026 <span className="text-[#1ca8cb] font-bold">R Journey</span>. All Rights Reserved.
           </p>
 
-          <div className="flex items-center gap-4">
+          <div>
             <button
               onClick={onOpenTerms}
               className="text-slate-300 hover:text-white transition-colors cursor-pointer text-xs"
             >
               Terms & Policy
             </button>
-            <span className="text-slate-500">|</span>
-            <div className="flex items-center gap-2 text-slate-300 text-[11px] font-semibold">
-              <span className="px-2 py-0.5 rounded bg-white/10">VISA</span>
-              <span className="px-2 py-0.5 rounded bg-white/10">MasterCard</span>
-              <span className="px-2 py-0.5 rounded bg-white/10">UPI</span>
-              <span className="px-2 py-0.5 rounded bg-white/10">RuPay</span>
-            </div>
           </div>
         </div>
       </div>
