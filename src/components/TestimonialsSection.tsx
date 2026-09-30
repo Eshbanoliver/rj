@@ -41,9 +41,21 @@ export const TestimonialsSection: React.FC = () => {
   const scrollToTestimonial = (index: number) => {
     setActiveDot(index);
     if (scrollContainerRef.current) {
-      const cards = scrollContainerRef.current.querySelectorAll('.testimonial-card');
+      const container = scrollContainerRef.current;
+      const cards = container.querySelectorAll<HTMLElement>('.testimonial-card');
       if (cards[index]) {
-        cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        const card = cards[index];
+        const containerRect = container.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+        const targetScrollLeft =
+          container.scrollLeft +
+          (cardRect.left - containerRect.left) -
+          container.clientWidth / 2 +
+          cardRect.width / 2;
+        container.scrollTo({
+          left: Math.max(0, targetScrollLeft),
+          behavior: 'smooth',
+        });
       }
     }
   };

@@ -93,6 +93,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
   const pillRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const pillsContainerRef = useRef<HTMLDivElement>(null);
 
   // Auto-play timer for crossfade slides
   useEffect(() => {
@@ -107,13 +108,22 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
     };
   }, [isPlaying, currentSlideIndex]);
 
-  // Smoothly scroll active destination pill into view on mobile
+  // Smoothly scroll active destination pill horizontally into view on mobile without affecting page scroll
   useEffect(() => {
-    if (pillRefs.current[currentSlideIndex]) {
-      pillRefs.current[currentSlideIndex]?.scrollIntoView({
+    const container = pillsContainerRef.current;
+    const activePill = pillRefs.current[currentSlideIndex];
+    if (container && activePill) {
+      const containerRect = container.getBoundingClientRect();
+      const pillRect = activePill.getBoundingClientRect();
+      const targetScrollLeft =
+        container.scrollLeft +
+        (pillRect.left - containerRect.left) -
+        container.clientWidth / 2 +
+        pillRect.width / 2;
+
+      container.scrollTo({
+        left: Math.max(0, targetScrollLeft),
         behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
       });
     }
   }, [currentSlideIndex]);
@@ -227,6 +237,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
           <div className="w-full flex items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-7">
             {/* Destination Pills - Edge-to-edge touch horizontal scroll on mobile */}
             <div
+              ref={pillsContainerRef}
               onTouchStart={(e) => e.stopPropagation()}
               onTouchEnd={(e) => e.stopPropagation()}
               className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1 w-full -mx-4 px-4 sm:mx-0 sm:px-0 snap-x"
