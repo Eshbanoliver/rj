@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PageType } from '../types';
 import { companyData } from '../data/company';
-import { MapPin, Phone, Mail, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowRight, CheckCircle2, Compass } from 'lucide-react';
 import { InstagramIcon } from './icons';
 
 interface FooterProps {
@@ -31,26 +31,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
   ];
 
   const categories = [
-    '15 Strangers Trips',
-    'Desert Safari & Camping',
-    'Lakes & Royal Palaces',
-    'Heritage Fort Expeditions',
-    'DJ & Pool Party Getaways',
-    'Custom Group Tours',
-  ];
-
-  const instagramPhotos = [
-    '/images/hero-udaipur.jpg',
-    '/images/hero-jaisalmer.jpg',
-    '/images/hero-jodhpur.jpg',
-    '/images/palm-valley-night-pool.jpg',
-    '/images/strangers-sunset-community.jpg',
-    '/images/udaipur-group-strangers.jpg',
+    { label: '15 Strangers Social Trips', page: 'trips' as PageType },
+    { label: 'Ahmedabad to Udaipur (Pool Party)', page: 'trips' as PageType },
+    { label: 'Ahmedabad to Jodhpur & Jaisalmer', page: 'trips' as PageType },
+    { label: 'Udaipur to Jodhpur & Jaisalmer', page: 'trips' as PageType },
+    { label: 'Sam Sand Dunes Desert Glamping', page: 'trips' as PageType },
+    { label: 'Custom & Corporate Offsites', page: 'contact' as PageType },
   ];
 
   return (
     <footer className="bg-white text-slate-800 border-t border-slate-200">
-      {/* Top Newsletter Bar matching reference */}
+      {/* Top Newsletter Bar */}
       <div className="border-b border-slate-100 py-10 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
@@ -93,7 +84,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
         </div>
       </div>
 
-      {/* Main 4-Column Footer Content matching reference */}
+      {/* Main 4-Column Balanced Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
           
@@ -114,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm">
-              Turning strangers into lifelong stories across Rajasthan's most iconic landscapes. Curated 15 Strangers group trips from Ahmedabad & Udaipur.
+              Turning strangers into lifelong stories across Rajasthan's most iconic landscapes. Curated 15 Strangers group trips with luxury hill stays, desert glamping, and DJ pool parties from Ahmedabad & Udaipur.
             </p>
 
             {/* Social Icons */}
@@ -169,62 +160,70 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
             </ul>
           </div>
 
-          {/* Col 3: Categories & Contact (3 cols) */}
+          {/* Col 3: Tour Circuits & Categories (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-sm font-bold font-heading text-[#113d48] uppercase tracking-wider">
-              Contact Info
+              Tour Circuits
             </h4>
-            <div className="space-y-2.5 text-xs sm:text-sm text-slate-600">
-              <div className="flex items-start gap-2">
+            <ul className="space-y-2 text-xs sm:text-sm">
+              {categories.map((cat, idx) => (
+                <li key={idx}>
+                  <button
+                    onClick={() => {
+                      onNavigate(cat.page);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="text-slate-600 hover:text-[#1ca8cb] transition-colors cursor-pointer text-left leading-snug"
+                  >
+                    {cat.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4: Contact Info & Hubs (3 cols) */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="text-sm font-bold font-heading text-[#113d48] uppercase tracking-wider">
+              Contact & Hubs
+            </h4>
+            <div className="space-y-3 text-xs sm:text-sm text-slate-600">
+              <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#1ca8cb] shrink-0 mt-0.5" />
-                <span>25 MP Colony, Sector-13, Udaipur, Rajasthan 313001</span>
+                <span className="leading-snug">{companyData.address.full}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
+                <Compass className="w-4 h-4 text-[#1ca8cb] shrink-0" />
+                <span>Hubs: Ahmedabad & Udaipur</span>
+              </div>
+              <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#1ca8cb] shrink-0" />
-                <a href={`tel:${companyData.phones[0]}`} className="hover:text-[#1ca8cb]">
-                  {companyData.displayPhone}
-                </a>
+                <div className="flex flex-col">
+                  <a href={`tel:${companyData.phones[0]}`} className="hover:text-[#1ca8cb] font-semibold">
+                    {companyData.phones[0]}
+                  </a>
+                  <a href={`tel:${companyData.phones[1]}`} className="hover:text-[#1ca8cb] text-slate-500">
+                    {companyData.phones[1]}
+                  </a>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#1ca8cb] shrink-0" />
                 <a href={`mailto:${companyData.email}`} className="hover:text-[#1ca8cb]">
                   {companyData.email}
                 </a>
               </div>
-            </div>
-          </div>
-
-          {/* Col 4: Instagram Feed Grid (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-sm font-bold font-heading text-[#113d48] uppercase tracking-wider">
-              Instagram Feed
-            </h4>
-            <div className="grid grid-cols-3 gap-2">
-              {instagramPhotos.map((src, i) => (
-                <a
-                  key={i}
-                  href={companyData.instagramUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="aspect-square rounded-xl overflow-hidden block group relative"
-                >
-                  <img
-                    src={src}
-                    alt={`Instagram photo ${i + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-[#1ca8cb]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
-                    <InstagramIcon className="w-4 h-4" />
-                  </div>
-                </a>
-              ))}
+              <div className="flex items-center gap-2.5 text-[11px] text-slate-500 pt-1 border-t border-slate-100">
+                <Clock className="w-3.5 h-3.5 text-[#1ca8cb] shrink-0" />
+                <span>{companyData.businessHours}</span>
+              </div>
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* Bottom Bar matching reference */}
+      {/* Bottom Bar */}
       <div className="bg-[#113d48] text-white py-4 text-xs border-t border-[#1a4a56]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-slate-300 text-center sm:text-left">
