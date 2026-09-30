@@ -22,22 +22,22 @@ export const FloatingActions: React.FC = () => {
   )}`;
 
   return (
-    <div className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-40 flex flex-col items-center gap-2 sm:gap-3">
+    <div className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] right-3 sm:bottom-6 sm:right-6 z-40 flex flex-col items-center gap-2 sm:gap-3 pointer-events-auto">
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#113d48] text-white hover:bg-[#184f5c] border border-[#184e5b] shadow-xl flex items-center justify-center transition-all hover:scale-115 active:scale-95 cursor-pointer animate-fadeIn"
+          className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#113d48] text-white hover:bg-[#184f5c] border border-[#184e5b] shadow-xl flex items-center justify-center transition-all hover:scale-115 active:scale-95 cursor-pointer animate-fadeIn"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5 text-[#1ca8cb]" />
         </button>
       )}
 
-      {/* Floating Call Button */}
+      {/* Floating Call Button - Subtle on mobile */}
       <a
         href={`tel:${companyData.phones[0]}`}
-        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#113d48] border border-[#1ca8cb]/50 text-[#1ca8cb] shadow-xl flex items-center justify-center transition-all hover:scale-115 active:scale-95 group relative hover:shadow-[0_0_20px_rgba(28,168,203,0.5)]"
+        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#113d48] border border-[#1ca8cb]/50 text-[#1ca8cb] shadow-xl flex items-center justify-center transition-all hover:scale-115 active:scale-95 group relative hover:shadow-[0_0_20px_rgba(28,168,203,0.5)]"
         aria-label="Call R Journey Hotline"
       >
         <Phone className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform duration-300" />
@@ -51,7 +51,7 @@ export const FloatingActions: React.FC = () => {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-emerald-600 to-green-500 text-white shadow-2xl shadow-emerald-500/30 flex items-center justify-center transition-all hover:scale-115 active:scale-95 animate-pulse-glow group relative"
+        className="w-11 h-11 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-emerald-600 to-green-500 text-white shadow-2xl shadow-emerald-500/30 flex items-center justify-center transition-all hover:scale-115 active:scale-95 animate-pulse-glow group relative"
         aria-label="Chat on WhatsApp"
       >
         <div className="absolute inset-0 rounded-full border-2 border-emerald-400 animate-ping opacity-30 pointer-events-none" />

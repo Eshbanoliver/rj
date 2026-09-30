@@ -226,9 +226,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-[#113d48] text-white py-4 text-xs border-t border-[#1a4a56]">
+      <div className="bg-[#113d48] text-white py-4 pb-20 sm:pb-4 text-xs border-t border-[#1a4a56]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-slate-300 text-center sm:text-left">
+          <p className="text-slate-300 text-center sm:text-left text-[11px] sm:text-xs leading-relaxed">
             ©️ Copyright 2026 | R Journey | All Rights Reserved | Powered by{' '}
             <a
               href="https://www.futurexdigitalmarketing.com/"
@@ -244,7 +244,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
           <div>
             <button
               onClick={onOpenTerms}
-              className="text-slate-300 hover:text-white transition-colors cursor-pointer text-xs"
+              className="text-slate-300 hover:text-white transition-colors cursor-pointer text-xs underline sm:no-underline py-1.5 px-3 rounded-lg hover:bg-white/10"
             >
               Terms & Policy
             </button>

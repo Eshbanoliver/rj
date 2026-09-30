@@ -51,7 +51,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onNavigate, onOpenInqu
 
           <button
             onClick={() => {
-              if (onOpenInquiry) {
+              if (onNavigate) {
+                onNavigate('trips');
+              } else if (onOpenInquiry) {
                 onOpenInquiry({ message: 'I would like to receive the latest travel guides and articles from R Journey.' });
               }
             }}

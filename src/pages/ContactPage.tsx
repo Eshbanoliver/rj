@@ -6,7 +6,6 @@ import {
   MapPin,
   Clock,
   MessageSquare,
-  Send,
   CheckCircle2,
   Sparkles,
 } from 'lucide-react';
@@ -277,7 +276,7 @@ export const ContactPage: React.FC = () => {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="e.g. Rahul Sharma"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
+                        className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       />
                     </div>
                     <div>
@@ -291,7 +290,7 @@ export const ContactPage: React.FC = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="10-digit mobile number"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
+                        className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       />
                     </div>
                   </div>
@@ -307,7 +306,7 @@ export const ContactPage: React.FC = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="name@domain.com"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
+                        className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       />
                     </div>
                     <div>
@@ -318,7 +317,7 @@ export const ContactPage: React.FC = () => {
                         name="destination"
                         value={formData.destination}
                         onChange={handleChange}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
+                        className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       >
                         <option value="Ahmedabad to Jodhpur & Jaisalmer">
                           Ahmedabad to Jodhpur & Jaisalmer (15 Strangers)
@@ -348,7 +347,7 @@ export const ContactPage: React.FC = () => {
                         name="travelers"
                         value={formData.travelers}
                         onChange={handleChange}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
+                        className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       >
                         <option value="1">1 Solo Traveler</option>
                         <option value="2">2 Travelers (Duo)</option>
@@ -367,7 +366,7 @@ export const ContactPage: React.FC = () => {
                         value={formData.travelDate}
                         onChange={handleChange}
                         placeholder="e.g. Next Friday / October Batch"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
+                        className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                       />
                     </div>
                   </div>

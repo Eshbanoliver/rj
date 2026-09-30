@@ -68,13 +68,13 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
         <div
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="relative w-full flex items-center justify-center min-h-[440px] sm:min-h-[520px] px-2 sm:px-12"
+          className="relative w-full flex items-center justify-center min-h-[420px] sm:min-h-[520px] px-1 sm:px-12"
         >
           {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
             aria-label="Previous destination"
-            className="absolute left-1 sm:left-4 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-[#1ca8cb] text-[#113d48] hover:text-white shadow-xl flex items-center justify-center transition-all duration-300 border border-slate-200 cursor-pointer active:scale-95 group"
+            className="absolute left-1 sm:left-4 z-30 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-[#1ca8cb] text-[#113d48] hover:text-white shadow-xl flex items-center justify-center transition-all duration-300 border border-slate-200 cursor-pointer active:scale-95 group"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
           </button>
@@ -82,7 +82,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
           <button
             onClick={handleNext}
             aria-label="Next destination"
-            className="absolute right-1 sm:right-4 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-[#1ca8cb] text-[#113d48] hover:text-white shadow-xl flex items-center justify-center transition-all duration-300 border border-slate-200 cursor-pointer active:scale-95 group"
+            className="absolute right-1 sm:right-4 z-30 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-[#1ca8cb] text-[#113d48] hover:text-white shadow-xl flex items-center justify-center transition-all duration-300 border border-slate-200 cursor-pointer active:scale-95 group"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
           </button>
@@ -108,7 +108,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                   style={{ order: diff + 2 }}
                   className={`transition-all duration-500 ease-out cursor-pointer relative rounded-3xl overflow-hidden group ${
                     isCenter
-                      ? 'w-[82vw] xs:w-[290px] sm:w-[320px] lg:w-[340px] h-[430px] sm:h-[480px] z-20 shadow-[0_20px_50px_-10px_rgba(28,168,203,0.45)] scale-100 sm:scale-105 ring-4 ring-[#1ca8cb]'
+                      ? 'w-[calc(100vw-86px)] max-w-[320px] xs:w-[290px] sm:w-[320px] lg:w-[340px] h-[410px] xs:h-[430px] sm:h-[480px] z-20 shadow-[0_20px_50px_-10px_rgba(28,168,203,0.45)] scale-100 sm:scale-105 ring-3 sm:ring-4 ring-[#1ca8cb]'
                       : isAdjacent
                       ? 'hidden sm:block sm:w-[220px] lg:w-[250px] h-[380px] sm:h-[420px] z-10 opacity-80 scale-95 shadow-lg hover:opacity-100 hover:scale-98'
                       : 'hidden lg:block lg:w-[190px] h-[330px] lg:h-[370px] z-0 opacity-50 scale-90 shadow-md hover:opacity-80'
@@ -141,20 +141,20 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                   </div>
 
                   {/* Content Overlay */}
-                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 text-white flex flex-col justify-end">
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 text-white flex flex-col justify-end">
                     <div className="flex items-center gap-1.5 text-cyan-300 text-xs font-semibold mb-1">
                       <MapPin className="w-3.5 h-3.5 text-[#1ca8cb] group-hover:scale-110 transition-transform" />
                       <span>{dest.state}</span>
                     </div>
 
                     <h3 className={`font-bold font-heading text-white transition-colors ${
-                      isCenter ? 'text-2xl sm:text-3xl' : 'text-lg sm:text-xl'
+                      isCenter ? 'text-xl sm:text-3xl' : 'text-lg sm:text-xl'
                     }`}>
                       {dest.name}
                     </h3>
 
                     {isCenter && (
-                      <p className="text-xs sm:text-sm text-slate-200 line-clamp-2 mt-1.5 mb-4 leading-relaxed font-normal">
+                      <p className="text-xs sm:text-sm text-slate-200 line-clamp-2 mt-1 mb-3.5 sm:mb-4 leading-relaxed font-normal">
                         {dest.tagline}
                       </p>
                     )}
@@ -166,7 +166,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                           if (onSelectDestination) onSelectDestination(dest);
                           onNavigate('destinations');
                         }}
-                        className="btn-shimmer w-full py-3 px-4 rounded-full bg-[#1ca8cb] hover:bg-white text-white hover:text-[#113d48] text-xs sm:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#1ca8cb]/30 cursor-pointer active:scale-95 group/btn"
+                        className="btn-shimmer min-h-[44px] w-full py-2.5 sm:py-3 px-4 rounded-full bg-[#1ca8cb] hover:bg-white text-white hover:text-[#113d48] text-xs sm:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#1ca8cb]/30 cursor-pointer active:scale-95 group/btn"
                       >
                         <span>Explore Destination</span>
                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -179,8 +179,13 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
           </div>
         </div>
 
+        {/* Mobile Swipe Guidance Note */}
+        <div className="flex sm:hidden items-center justify-center gap-1.5 mt-2 text-[11px] text-slate-400 font-medium">
+          <span>👈 Swipe or tap arrows to view destinations 👉</span>
+        </div>
+
         {/* Carousel Pagination Dots */}
-        <div className="flex items-center justify-center gap-2 mt-6 sm:mt-8">
+        <div className="flex items-center justify-center gap-2 mt-5 sm:mt-8">
           {destinationsData.map((_, idx) => (
             <button
               key={idx}

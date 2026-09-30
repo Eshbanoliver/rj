@@ -35,31 +35,39 @@ const testimonials: Testimonial[] = [
 
 export const TestimonialsSection: React.FC = () => {
   const [activeDot, setActiveDot] = useState(1); // Center card active
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return;
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX.current - touchEndX;
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) {
-        setActiveDot((prev) => (prev + 1) % testimonials.length);
-      } else {
-        setActiveDot((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const scrollToTestimonial = (index: number) => {
+    setActiveDot(index);
+    if (scrollContainerRef.current) {
+      const cards = scrollContainerRef.current.querySelectorAll('.testimonial-card');
+      if (cards[index]) {
+        cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     }
-    touchStartX.current = null;
+  };
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = container.offsetWidth * 0.85;
+      const newIndex = Math.min(
+        testimonials.length - 1,
+        Math.max(0, Math.round(scrollLeft / cardWidth))
+      );
+      if (newIndex !== activeDot) {
+        setActiveDot(newIndex);
+      }
+    }
   };
 
   return (
     <section className="py-16 sm:py-24 bg-white relative overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading matching reference */}
-        <div className="text-center mb-10 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-16">
           <span className="font-script text-[#1ca8cb] text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide inline-block transform -rotate-1">
             Testimonial
           </span>
@@ -70,9 +78,9 @@ export const TestimonialsSection: React.FC = () => {
 
         {/* 3 Review Cards matching reference with mobile swipe */}
         <div
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8 items-center"
+          ref={scrollContainerRef}
+          onScroll={handleScroll}
+          className="flex md:grid md:grid-cols-3 gap-4 sm:gap-5 lg:gap-8 items-center overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 py-2"
         >
           {testimonials.map((item, idx) => {
             const isCenter = idx === 1;
@@ -81,9 +89,8 @@ export const TestimonialsSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                onClick={() => setActiveDot(idx)}
-                className={`relative rounded-3xl p-6 sm:p-7 transition-all duration-400 flex flex-col justify-between cursor-pointer group transform hover:-translate-y-2 ${
-                  // On mobile, highlight or emphasize the touched dot card
+                onClick={() => scrollToTestimonial(idx)}
+                className={`testimonial-card w-[86vw] max-w-[340px] md:w-auto shrink-0 snap-center relative rounded-3xl p-5 sm:p-7 transition-all duration-400 flex flex-col justify-between cursor-pointer group transform hover:-translate-y-2 ${
                   isMobileActive ? 'ring-2 ring-[#1ca8cb]/40' : ''
                 } ${
                   isCenter
@@ -140,11 +147,11 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Carousel Pagination Dots */}
-        <div className="flex items-center justify-center gap-2 mt-8 sm:mt-12">
+        <div className="flex items-center justify-center gap-2 mt-6 sm:mt-12">
           {testimonials.map((_, dot) => (
             <button
               key={dot}
-              onClick={() => setActiveDot(dot)}
+              onClick={() => scrollToTestimonial(dot)}
               aria-label={`Go to testimonial ${dot + 1}`}
               className={`transition-all duration-300 rounded-full cursor-pointer ${
                 activeDot === dot

@@ -12,7 +12,7 @@ interface FeaturedTourPackagesProps {
 export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
   onNavigate,
   onSelectTour,
-  onOpenInquiry,
+  onOpenInquiry: _onOpenInquiry,
 }) => {
   const [activeFilter, setActiveFilter] = useState<'all' | 'udaipur' | 'jaisalmer' | 'strangers'>('all');
   const [activeDot, setActiveDot] = useState(0);
@@ -104,6 +104,7 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
           {filteredPackages.map((tour, idx) => (
             <div
               key={tour.id}
+              id={`tour-card-${idx}`}
               className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between border border-slate-100 card-interactive card-shimmer group transform hover:-translate-y-2"
             >
               {/* Image with rounded top */}
@@ -157,7 +158,7 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
 
                   <button
                     onClick={() => onSelectTour(tour)}
-                    className="btn-shimmer px-3.5 py-2 rounded-full bg-[#113d48] group-hover:bg-[#1ca8cb] text-white text-xs font-bold transition-all duration-300 flex items-center gap-1 shadow-md cursor-pointer shrink-0 active:scale-95"
+                    className="btn-shimmer min-h-[44px] px-4 py-2 rounded-full bg-[#113d48] group-hover:bg-[#1ca8cb] text-white text-xs font-bold transition-all duration-300 flex items-center gap-1 shadow-md cursor-pointer shrink-0 active:scale-95"
                   >
                     <span>Book Now</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -168,13 +169,17 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
           ))}
         </div>
 
-        {/* Carousel Pagination Dots */}
-        <div className="flex items-center justify-center gap-2 mt-8 sm:mt-10">
-          {[0, 1, 2, 3].map((dot) => (
+        {/* Mobile-only Navigator Dots that smooth-scroll to card */}
+        <div className="flex sm:hidden items-center justify-center gap-2 mt-6">
+          {filteredPackages.map((_, dot) => (
             <button
               key={dot}
-              onClick={() => setActiveDot(dot)}
-              aria-label={`Go to slide ${dot + 1}`}
+              onClick={() => {
+                setActiveDot(dot);
+                const el = document.getElementById(`tour-card-${dot}`);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }}
+              aria-label={`Go to tour package ${dot + 1}`}
               className={`transition-all duration-300 rounded-full cursor-pointer ${
                 activeDot === dot
                   ? 'w-7 h-2.5 bg-[#1ca8cb]'

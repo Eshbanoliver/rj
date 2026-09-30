@@ -9,13 +9,10 @@ import {
   Check,
   Ban,
   Hotel,
-  Users,
-  ShieldCheck,
-  Send,
   MessageSquare,
   Sparkles,
-  Phone,
-  CheckCircle2
+  CheckCircle2,
+  ArrowRight,
 } from 'lucide-react';
 
 interface TourDetailsModalProps {
@@ -78,11 +75,11 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6 animate-fadeIn">
       {/* Modal Container */}
-      <div className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden my-3 sm:my-6 text-slate-900 flex flex-col max-h-[94vh] animate-fadeInUp">
+      <div className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden my-2 sm:my-6 text-slate-900 flex flex-col max-h-[94vh] animate-fadeInUp">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-20 p-2 sm:p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-950 text-white transition-all shadow-lg border border-slate-700 cursor-pointer"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 min-w-[42px] min-h-[42px] p-2.5 rounded-full bg-slate-900/85 hover:bg-slate-950 text-white transition-all shadow-xl border border-slate-700 flex items-center justify-center cursor-pointer"
           aria-label="Close Tour Details"
         >
           <X className="w-5 h-5" />
@@ -124,33 +121,46 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
           </div>
 
           {/* Quick Info Bar */}
-          <div className="bg-slate-50 px-6 py-4 border-y border-slate-200 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-6 text-xs sm:text-sm">
+          <div className="bg-slate-50 px-4 sm:px-6 py-3.5 sm:py-4 border-y border-slate-200 flex flex-wrap items-center justify-between gap-3 sm:gap-4">
+            <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm">
               <div>
-                <span className="text-slate-500 text-xs block">Departure</span>
-                <span className="font-semibold text-slate-900">
+                <span className="text-slate-500 text-[10px] sm:text-xs block">Departure</span>
+                <span className="font-semibold text-slate-900 text-xs sm:text-sm">
                   {tour.departureSchedule}
                 </span>
               </div>
               <div className="hidden sm:block w-px h-8 bg-slate-200" />
               <div>
-                <span className="text-slate-500 text-xs block">Group Style</span>
-                <span className="font-semibold text-[#113d48]">
+                <span className="text-slate-500 text-[10px] sm:text-xs block">Group Style</span>
+                <span className="font-semibold text-[#113d48] text-xs sm:text-sm">
                   15 Strangers / Group
                 </span>
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <div className="text-right">
-                <span className="text-[11px] text-slate-500 block uppercase tracking-wider">
+                <span className="text-[10px] sm:text-[11px] text-slate-500 block uppercase tracking-wider">
                   Starting Price
                 </span>
-                <span className="text-2xl font-black font-heading text-[#113d48]">
+                <span className="text-xl sm:text-2xl font-black font-heading text-[#113d48]">
                   ₹{tour.startingPrice.toLocaleString('en-IN')}
                 </span>
-                <span className="text-xs text-slate-500">/person</span>
+                <span className="text-[11px] sm:text-xs text-slate-500">/person</span>
               </div>
+
+              {/* Mobile Quick Jump to Booking Section */}
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('tour-booking-section');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="lg:hidden min-h-[40px] px-3.5 py-1.5 rounded-full bg-[#113d48] hover:bg-[#1ca8cb] text-white text-xs font-bold transition-all shadow-md active:scale-95 flex items-center gap-1.5 shrink-0 cursor-pointer"
+              >
+                <span>Book Seat</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </div>
           </div>
 
@@ -394,8 +404,8 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
             </div>
 
             {/* Right Sticky Booking Column (5 cols) */}
-            <div className="lg:col-span-5">
-              <div className="sticky top-6 bg-slate-50 border border-slate-200/90 rounded-3xl p-6 shadow-xl">
+            <div id="tour-booking-section" className="lg:col-span-5 scroll-mt-6">
+              <div className="sticky top-6 bg-slate-50 border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-xl">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-5">
                   <div>
                     <span className="text-[11px] text-[#113d48] font-bold uppercase tracking-wider block">

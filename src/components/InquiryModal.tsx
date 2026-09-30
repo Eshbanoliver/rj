@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { companyData } from '../data/company';
 import { tourPackages } from '../data/tours';
-import { X, Send, CheckCircle2, MessageSquare, Phone, Sparkles } from 'lucide-react';
+import { X, CheckCircle2, MessageSquare, Sparkles } from 'lucide-react';
 
 interface InquiryModalProps {
   isOpen: boolean;
@@ -80,7 +80,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 p-2 sm:p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-950 transition-colors z-10 cursor-pointer"
+          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 min-w-[42px] min-h-[42px] flex items-center justify-center p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-950 transition-colors z-10 cursor-pointer"
           aria-label="Close Inquiry Dialog"
         >
           <X className="w-5 h-5" />

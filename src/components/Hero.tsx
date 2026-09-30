@@ -12,7 +12,6 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
-  Sparkles,
 } from 'lucide-react';
 
 interface HeroProps {
@@ -206,9 +205,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-14 pb-20 sm:pb-28 lg:pb-32 flex-1 flex flex-col justify-center text-center lg:text-left w-full">
           
           {/* Top Destination Selector Pills & Slideshow Controls */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-between gap-3 mb-6 sm:mb-8">
-            {/* Destination Pills */}
-            <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 max-w-full">
+          <div className="flex flex-wrap items-center justify-center lg:justify-between gap-2.5 sm:gap-3 mb-5 sm:mb-8">
+            {/* Destination Pills - Horizontal scroll with padding on mobile */}
+            <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 max-w-full -mx-2 px-2 sm:mx-0 sm:px-0">
               {heroSlides.map((slide, idx) => {
                 const isActive = idx === currentSlideIndex;
                 return (
@@ -256,34 +255,34 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
 
           <div className="max-w-3xl mx-auto lg:mx-0">
             {/* Active Destination Chip */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-[#1ca8cb]/50 text-[#1ca8cb] text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-3 shadow-lg animate-fadeIn">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-[#1ca8cb]/50 text-[#1ca8cb] text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-2.5 sm:mb-3 shadow-lg animate-fadeIn max-w-full">
               <MapPin className="w-3.5 h-3.5 text-[#1ca8cb] shrink-0 animate-pulse" />
-              <span className="font-bold text-white">{currentSlide.name}</span>
-              <span className="w-1 h-1 rounded-full bg-[#1ca8cb]" />
+              <span className="font-bold text-white shrink-0">{currentSlide.name}</span>
+              <span className="w-1 h-1 rounded-full bg-[#1ca8cb] shrink-0" />
               <span className="text-cyan-200 font-normal truncate">
                 {currentSlide.tagline}
               </span>
             </div>
 
             {/* Script Subtitle matching reference */}
-            <div className="mb-2">
-              <span className="font-script text-[#1ca8cb] text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide drop-shadow-md inline-block animate-float-slow">
+            <div className="mb-1.5 sm:mb-2">
+              <span className="font-script text-[#1ca8cb] text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide drop-shadow-md inline-block animate-float-slow">
                 {currentSlide.subtitle}
               </span>
             </div>
 
             {/* Main Headline matching reference */}
-            <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-black font-heading text-white tracking-tight leading-[1.1] drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)] animate-fadeInUp">
-              Explore beauty of <br />
+            <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-black font-heading text-white tracking-tight leading-[1.12] drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)] animate-fadeInUp">
+              Explore beauty of <br className="hidden xs:inline" />
               <span className="text-white">the whole world</span>
             </h1>
 
             {/* Action Buttons matching reference */}
-            <div className="mt-7 sm:mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
+            <div className="mt-6 sm:mt-10 flex flex-col xs:flex-row items-stretch xs:items-center justify-center lg:justify-start gap-3 sm:gap-6">
               {/* Primary Cyan Pill Button with Shimmer */}
               <button
                 onClick={() => onOpenInquiry({ tourTitle: `${currentSlide.name} Rajasthan Tour` })}
-                className="btn-shimmer w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-full bg-[#1ca8cb] hover:bg-white text-white hover:text-[#113d48] font-bold text-sm sm:text-base shadow-xl shadow-[#1ca8cb]/40 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer group active:scale-95"
+                className="btn-shimmer min-h-[46px] w-full xs:w-auto px-7 sm:px-8 py-3 sm:py-3.5 rounded-full bg-[#1ca8cb] hover:bg-white text-white hover:text-[#113d48] font-bold text-xs sm:text-base shadow-xl shadow-[#1ca8cb]/40 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer group active:scale-95 shrink-0"
               >
                 <span>Book A Tour</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
@@ -292,12 +291,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
               {/* Video Play Button with Radar Pulse Halo */}
               <button
                 onClick={() => setIsVideoOpen(true)}
-                className="flex items-center justify-center gap-3 text-white hover:text-[#1ca8cb] transition-colors group cursor-pointer py-1"
+                className="min-h-[44px] flex items-center justify-center gap-3 text-white hover:text-[#1ca8cb] transition-colors group cursor-pointer py-1"
               >
-                <div className="relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#1ca8cb]/30 backdrop-blur-md border border-white/40 group-hover:bg-[#1ca8cb] group-hover:border-[#1ca8cb] transition-all duration-300 animate-radar group-hover:scale-105">
-                  <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white fill-white relative z-10 ml-0.5" />
+                <div className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1ca8cb]/30 backdrop-blur-md border border-white/40 group-hover:bg-[#1ca8cb] group-hover:border-[#1ca8cb] transition-all duration-300 animate-radar group-hover:scale-105 shrink-0">
+                  <Play className="w-4 h-4 text-white fill-white relative z-10 ml-0.5" />
                 </div>
-                <span className="font-bold text-sm sm:text-base drop-shadow-sm group-hover:translate-x-1 transition-transform duration-300">
+                <span className="font-bold text-xs sm:text-base drop-shadow-sm group-hover:translate-x-1 transition-transform duration-300">
                   Watch Video
                 </span>
               </button>
@@ -322,26 +321,26 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
         </div>
 
         {/* Floating Search Filter Bar Overlapping Bottom matching reference */}
-        <div className="relative z-30 max-w-5xl mx-auto px-4 sm:px-6 w-full -mb-10 sm:-mb-12">
+        <div className="relative z-30 max-w-5xl mx-auto px-3 sm:px-6 w-full -mb-8 sm:-mb-12">
           <form
             onSubmit={handleSearchSubmit}
-            className="bg-white rounded-2xl lg:rounded-full shadow-2xl hover:shadow-[0_25px_60px_-12px_rgba(28,168,203,0.3)] transition-all duration-500 p-4 lg:p-3 border border-slate-100 flex flex-col lg:flex-row items-center justify-between gap-3 text-slate-800"
+            className="bg-white rounded-2xl lg:rounded-full shadow-2xl hover:shadow-[0_25px_60px_-12px_rgba(28,168,203,0.3)] transition-all duration-500 p-3 sm:p-4 lg:p-3 border border-slate-100 grid grid-cols-2 lg:flex lg:flex-row items-center justify-between gap-2.5 sm:gap-3 text-slate-800"
           >
             {/* Field 1: Destination */}
-            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 pb-2.5 lg:pb-0 group">
-              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
-                <MapPin className="w-4 h-4 group-hover:rotate-6 transition-transform" />
+            <div className="col-span-1 lg:w-1/4 px-1.5 sm:px-3 py-1 flex items-center gap-2 sm:gap-3 border-b lg:border-b-0 border-r border-slate-100 pb-2.5 lg:pb-0 group">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
+                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:rotate-6 transition-transform" />
               </div>
               <div className="flex-1 min-w-0">
-                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
                   Where to?
                 </label>
                 <select
                   value={selectedDestination}
                   onChange={(e) => setSelectedDestination(e.target.value)}
-                  className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-1"
+                  className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-0.5"
                 >
-                  <option value="all">All Destinations</option>
+                  <option value="all">All Places</option>
                   <option value="Udaipur">Udaipur</option>
                   <option value="Jaisalmer">Jaisalmer</option>
                   <option value="Jodhpur">Jodhpur</option>
@@ -351,21 +350,21 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
             </div>
 
             {/* Field 2: Tour Type */}
-            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 pb-2.5 lg:pb-0 group">
-              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
-                <Compass className="w-4 h-4 group-hover:rotate-45 transition-transform" />
+            <div className="col-span-1 lg:w-1/4 px-1.5 sm:px-3 py-1 flex items-center gap-2 sm:gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 pb-2.5 lg:pb-0 group">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
+                <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:rotate-45 transition-transform" />
               </div>
               <div className="flex-1 min-w-0">
-                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
                   Tour Type
                 </label>
                 <select
                   value={selectedTourType}
                   onChange={(e) => setSelectedTourType(e.target.value)}
-                  className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-1"
+                  className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-0.5"
                 >
-                  <option value="all">All Tour Types</option>
-                  <option value="Strangers Trip">15 Strangers Trip</option>
+                  <option value="all">All Tours</option>
+                  <option value="Strangers Trip">15 Strangers</option>
                   <option value="Group Trip">Group Trip</option>
                   <option value="Customise Trip">Custom Trip</option>
                 </select>
@@ -373,42 +372,42 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
             </div>
 
             {/* Field 3: Duration */}
-            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 pb-2.5 lg:pb-0 group">
-              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
-                <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
+            <div className="col-span-1 lg:w-1/4 px-1.5 sm:px-3 py-1 flex items-center gap-2 sm:gap-3 border-r border-slate-100 pt-1 lg:pt-0 group">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
+                <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
               </div>
               <div className="flex-1 min-w-0">
-                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                  Duration / When
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
+                  Duration
                 </label>
                 <select
                   value={selectedDuration}
                   onChange={(e) => setSelectedDuration(e.target.value)}
-                  className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-1"
+                  className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-0.5"
                 >
                   <option value="all">Any Duration</option>
-                  <option value="2D1N">2 Days | 1 Night</option>
-                  <option value="3D2N">3 Days | 2 Nights</option>
-                  <option value="5D4N">5 Days | 4 Nights</option>
+                  <option value="2D1N">2D | 1N</option>
+                  <option value="3D2N">3D | 2N</option>
+                  <option value="5D4N">5D | 4N</option>
                 </select>
               </div>
             </div>
 
             {/* Field 4: Travelers */}
-            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 pb-2.5 lg:pb-0 group">
-              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
-                <Users className="w-4 h-4 group-hover:scale-110 transition-transform" />
+            <div className="col-span-1 lg:w-1/4 px-1.5 sm:px-3 py-1 flex items-center gap-2 sm:gap-3 pt-1 lg:pt-0 group">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
+                <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
               </div>
               <div className="flex-1 min-w-0">
-                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
                   Travelers
                 </label>
                 <select
                   value={travelers}
                   onChange={(e) => setTravelers(Number(e.target.value))}
-                  className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-1"
+                  className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-0.5"
                 >
-                  <option value={1}>1 Solo Guest</option>
+                  <option value={1}>1 Guest</option>
                   <option value={2}>2 Guests</option>
                   <option value={3}>3 Guests</option>
                   <option value={4}>4+ Guests</option>
@@ -417,13 +416,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
             </div>
 
             {/* Submit Button: Cyan Pill */}
-            <div className="w-full lg:w-auto shrink-0 pt-1 lg:pt-0">
+            <div className="col-span-2 lg:col-span-auto w-full lg:w-auto shrink-0 pt-1 lg:pt-0">
               <button
                 type="submit"
-                className="btn-shimmer w-full lg:w-auto px-7 py-3.5 rounded-full bg-[#1ca8cb] hover:bg-[#113d48] text-white text-xs sm:text-sm font-bold shadow-lg shadow-[#1ca8cb]/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 group/search"
+                className="btn-shimmer min-h-[44px] w-full lg:w-auto px-7 py-3 rounded-xl lg:rounded-full bg-[#1ca8cb] hover:bg-[#113d48] text-white text-xs sm:text-sm font-bold shadow-lg shadow-[#1ca8cb]/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 group/search"
               >
                 <Search className="w-4 h-4 group-hover/search:scale-110 transition-transform" />
-                <span>Search</span>
+                <span>Search Tours</span>
               </button>
             </div>
           </form>

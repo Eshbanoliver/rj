@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PageType, SearchQuery } from '../types';
 import { destinationsData, Destination } from '../data/destinations';
-import { MapPin, Calendar, Compass, ArrowRight, Sparkles, Check } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, Sparkles, Check } from 'lucide-react';
 
 interface DestinationsPageProps {
   onNavigate: (page: PageType) => void;
@@ -12,11 +12,7 @@ interface DestinationsPageProps {
 export const DestinationsPage: React.FC<DestinationsPageProps> = ({
   onNavigate,
   onSearch,
-  selectedDestinationInitial,
 }) => {
-  const [activeModalDest, setActiveModalDest] = useState<Destination | null>(
-    selectedDestinationInitial || null
-  );
 
   const handleExploreTours = (destName: string) => {
     onSearch({

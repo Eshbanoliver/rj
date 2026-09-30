@@ -33,15 +33,15 @@ export const TermsModal: React.FC<TermsModalProps> = ({ isOpen, onClose }) => {
 
           <button
             onClick={onClose}
-            className="p-2 sm:p-2.5 rounded-full bg-slate-200/80 hover:bg-slate-300 text-slate-700 transition-colors shrink-0 cursor-pointer"
+            className="min-w-[40px] min-h-[40px] p-2 sm:p-2.5 rounded-full bg-slate-200/80 hover:bg-slate-300 text-slate-700 transition-colors shrink-0 flex items-center justify-center cursor-pointer"
             aria-label="Close Terms Window"
           >
-            <X className="w-4 h-4 sm:w-5 sm:h-5" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Tab switcher */}
-        <div className="bg-slate-50 px-4 sm:px-6 border-b border-slate-200 flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar whitespace-nowrap">
+        <div className="bg-slate-50 px-3 sm:px-6 border-b border-slate-200 flex gap-3 sm:gap-6 overflow-x-auto no-scrollbar whitespace-nowrap">
           <button
             onClick={() => setActiveTab('terms')}
             className={`py-3 text-xs sm:text-sm font-bold border-b-2 shrink-0 cursor-pointer transition-all ${

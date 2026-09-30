@@ -3,7 +3,6 @@ import { PageType, SearchQuery } from '../types';
 import { tourPackages, TourPackage } from '../data/tours';
 import {
   Search,
-  Filter,
   MapPin,
   Clock,
   Calendar,
@@ -11,18 +10,17 @@ import {
   ArrowRight,
   ShieldCheck,
   Sparkles,
-  SlidersHorizontal,
 } from 'lucide-react';
 
 interface ToursPageProps {
-  onNavigate: (page: PageType) => void;
+  onNavigate?: (page: PageType) => void;
   onSelectTour: (tour: TourPackage) => void;
   onOpenInquiry: (initialData?: { tourTitle?: string }) => void;
   initialQuery?: SearchQuery;
 }
 
 export const ToursPage: React.FC<ToursPageProps> = ({
-  onNavigate,
+  onNavigate: _onNavigate,
   onSelectTour,
   onOpenInquiry,
   initialQuery,
@@ -112,7 +110,7 @@ export const ToursPage: React.FC<ToursPageProps> = ({
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Forts, desert, lakes..."
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
+                  className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
                 />
               </div>
             </div>
@@ -125,7 +123,7 @@ export const ToursPage: React.FC<ToursPageProps> = ({
               <select
                 value={selectedDestination}
                 onChange={(e) => setSelectedDestination(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
+                className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
               >
                 <option value="all">All Destinations</option>
                 <option value="Jaisalmer">Jaisalmer & Desert Dunes</option>
@@ -143,7 +141,7 @@ export const ToursPage: React.FC<ToursPageProps> = ({
               <select
                 value={selectedDeparture}
                 onChange={(e) => setSelectedDeparture(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
+                className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
               >
                 <option value="all">All Departure Hubs</option>
                 <option value="Ahmedabad">Ex-Ahmedabad (Thu/Fri)</option>
@@ -159,7 +157,7 @@ export const ToursPage: React.FC<ToursPageProps> = ({
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
+                className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-[#1ca8cb] focus:bg-white transition-colors"
               >
                 <option value="featured">Featured First</option>
                 <option value="price-asc">Price: Low to High</option>
