@@ -143,10 +143,10 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={() => onOpenInquiry({ tourTitle: 'General Rajasthan Tour' })}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-[#113d48] hover:bg-[#1ca8cb] shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer group active:scale-95"
+              className="btn-shimmer inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-[#113d48] hover:bg-[#1ca8cb] shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group active:scale-95"
             >
               <span>Book A Tour</span>
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
 
             {/* Mobile Menu Button */}

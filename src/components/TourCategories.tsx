@@ -106,24 +106,24 @@ export const TourCategories: React.FC<TourCategoriesProps> = ({ onNavigate }) =>
                 setActiveDot(idx);
                 onNavigate('trips');
               }}
-              className="w-[155px] xs:w-[175px] sm:w-auto shrink-0 snap-start group cursor-pointer flex flex-col items-center transition-all duration-300 transform hover:-translate-y-2 active:scale-95"
+              className="w-[155px] xs:w-[175px] sm:w-auto shrink-0 snap-start group cursor-pointer flex flex-col items-center transition-all duration-300 transform hover:-translate-y-2.5 active:scale-95"
             >
               {/* Arched Photo Card */}
-              <div className="w-full aspect-[4/5] rounded-t-[36px] sm:rounded-t-[40px] rounded-b-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 relative border-2 border-white group-hover:border-[#1ca8cb]/40">
+              <div className="w-full aspect-[4/5] rounded-t-[36px] sm:rounded-t-[40px] rounded-b-2xl overflow-hidden shadow-md group-hover:shadow-[0_20px_35px_-8px_rgba(28,168,203,0.35)] transition-all duration-500 relative border-2 border-white group-hover:border-[#1ca8cb] card-shimmer">
                 <img
                   src={cat.image}
                   alt={cat.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out filter brightness-[0.92] group-hover:brightness-100"
+                  className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out filter brightness-[0.92] group-hover:brightness-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-25 transition-opacity duration-300" />
               </div>
 
               {/* Title & Tour Count */}
               <div className="mt-3 text-center">
-                <h3 className="text-sm sm:text-base lg:text-lg font-bold text-[#113d48] group-hover:text-[#1ca8cb] transition-colors font-heading leading-tight">
+                <h3 className="text-sm sm:text-base lg:text-lg font-bold text-[#113d48] group-hover:text-[#1ca8cb] transition-colors duration-300 font-heading leading-tight">
                   {cat.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">
+                <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5 group-hover:text-slate-700 transition-colors">
                   {cat.tourCount}
                 </p>
               </div>

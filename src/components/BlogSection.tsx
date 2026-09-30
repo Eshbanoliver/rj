@@ -55,7 +55,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onNavigate, onOpenInqu
                 onOpenInquiry({ message: 'I would like to receive the latest travel guides and articles from R Journey.' });
               }
             }}
-            className="w-full sm:w-auto px-6 py-2.5 rounded-full border border-[#113d48] text-[#113d48] hover:bg-[#113d48] hover:text-white font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm cursor-pointer text-center active:scale-95"
+            className="btn-shimmer w-full sm:w-auto px-6 py-2.5 rounded-full border border-[#113d48] text-[#113d48] hover:bg-[#113d48] hover:text-white font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm cursor-pointer text-center active:scale-95 group"
           >
             <span>View All Blog</span>
           </button>
@@ -66,14 +66,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onNavigate, onOpenInqu
           {articles.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-slate-100 group transform hover:-translate-y-1.5"
+              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between border border-slate-100 card-interactive card-shimmer group transform hover:-translate-y-2"
             >
               {/* Image */}
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
                 />
               </div>
 
@@ -82,19 +82,19 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onNavigate, onOpenInqu
                 <div>
                   {/* Date & Comment meta */}
                   <div className="flex items-center gap-3 text-xs text-slate-400 font-medium mb-2">
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1 group-hover:text-slate-600 transition-colors">
                       <Calendar className="w-3.5 h-3.5 text-[#1ca8cb]" />
                       {item.date}
                     </span>
                     <span>•</span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1 group-hover:text-slate-600 transition-colors">
                       <MessageSquare className="w-3.5 h-3.5 text-[#1ca8cb]" />
                       {item.comments}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-bold text-base sm:text-lg text-[#113d48] group-hover:text-[#1ca8cb] transition-colors leading-snug font-heading">
+                  <h3 className="font-bold text-base sm:text-lg text-[#113d48] group-hover:text-[#1ca8cb] transition-colors duration-300 leading-snug font-heading">
                     {item.title}
                   </h3>
 
@@ -115,7 +115,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onNavigate, onOpenInqu
                     className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1ca8cb] hover:text-[#113d48] transition-colors group/link cursor-pointer"
                   >
                     <span>Read More</span>
-                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1.5 transition-transform duration-300" />
                   </button>
                 </div>
               </div>

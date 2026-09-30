@@ -14,7 +14,7 @@ export const TermsModal: React.FC<TermsModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-6 animate-fadeIn">
-      <div className="relative w-full max-w-4xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden text-slate-900 flex flex-col max-h-[92vh] my-auto">
+      <div className="relative w-full max-w-4xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden text-slate-900 flex flex-col max-h-[92vh] my-auto animate-fadeInUp">
         {/* Header */}
         <div className="p-4 sm:p-6 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2.5 sm:gap-3">

@@ -389,7 +389,7 @@ export const ContactPage: React.FC = () => {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full min-h-[44px] py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 shadow-md shadow-emerald-600/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                      className="btn-shimmer w-full min-h-[44px] py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 shadow-md shadow-emerald-600/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <MessageSquare className="w-4 h-4" />
                       <span>Send Inquiry on WhatsApp</span>

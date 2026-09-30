@@ -55,38 +55,37 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
           <div className="max-w-3xl mx-auto lg:mx-0">
             {/* Script Subtitle matching reference */}
             <div className="mb-2">
-              <span className="font-script text-[#1ca8cb] text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide drop-shadow-md">
+              <span className="font-script text-[#1ca8cb] text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide drop-shadow-md inline-block animate-float-slow">
                 Get Unforgettable Pleasure With Us
               </span>
             </div>
 
             {/* Main Headline matching reference */}
-            <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-black font-heading text-white tracking-tight leading-[1.1] drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
+            <h1 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-black font-heading text-white tracking-tight leading-[1.1] drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] animate-fadeInUp">
               Explore beauty of <br />
               <span className="text-white">the whole world</span>
             </h1>
 
             {/* Action Buttons matching reference */}
             <div className="mt-7 sm:mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
-              {/* Primary Cyan Pill Button */}
+              {/* Primary Cyan Pill Button with Shimmer */}
               <button
                 onClick={() => onOpenInquiry({ tourTitle: 'General Rajasthan Tour' })}
-                className="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-full bg-[#1ca8cb] hover:bg-white text-white hover:text-[#113d48] font-bold text-sm sm:text-base shadow-xl shadow-[#1ca8cb]/40 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer group active:scale-95"
+                className="btn-shimmer w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-full bg-[#1ca8cb] hover:bg-white text-white hover:text-[#113d48] font-bold text-sm sm:text-base shadow-xl shadow-[#1ca8cb]/40 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer group active:scale-95"
               >
                 <span>Book A Tour</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
               </button>
 
-              {/* Video Play Button with Pulsing Halo */}
+              {/* Video Play Button with Radar Pulse Halo */}
               <button
                 onClick={() => setIsVideoOpen(true)}
                 className="flex items-center justify-center gap-3 text-white hover:text-[#1ca8cb] transition-colors group cursor-pointer py-1"
               >
-                <div className="relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/40 group-hover:bg-[#1ca8cb] group-hover:border-[#1ca8cb] transition-all">
-                  <div className="absolute inset-0 rounded-full bg-[#1ca8cb]/40 animate-ping" />
+                <div className="relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#1ca8cb]/30 backdrop-blur-md border border-white/40 group-hover:bg-[#1ca8cb] group-hover:border-[#1ca8cb] transition-all duration-300 animate-radar group-hover:scale-105">
                   <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white fill-white relative z-10 ml-0.5" />
                 </div>
-                <span className="font-bold text-sm sm:text-base drop-shadow-sm">
+                <span className="font-bold text-sm sm:text-base drop-shadow-sm group-hover:translate-x-1 transition-transform duration-300">
                   Watch Video
                 </span>
               </button>
@@ -98,12 +97,12 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
         <div className="relative z-30 max-w-5xl mx-auto px-4 sm:px-6 w-full -mb-10 sm:-mb-12">
           <form
             onSubmit={handleSearchSubmit}
-            className="bg-white rounded-2xl lg:rounded-full shadow-2xl p-4 lg:p-3 border border-slate-100 flex flex-col lg:flex-row items-center justify-between gap-3 text-slate-800"
+            className="bg-white rounded-2xl lg:rounded-full shadow-2xl hover:shadow-[0_25px_60px_-12px_rgba(28,168,203,0.3)] transition-all duration-500 p-4 lg:p-3 border border-slate-100 flex flex-col lg:flex-row items-center justify-between gap-3 text-slate-800"
           >
             {/* Field 1: Destination */}
-            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 pb-2.5 lg:pb-0">
-              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] flex items-center justify-center text-[#1ca8cb] shrink-0">
-                <MapPin className="w-4 h-4" />
+            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 pb-2.5 lg:pb-0 group">
+              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
+                <MapPin className="w-4 h-4 group-hover:rotate-6 transition-transform" />
               </div>
               <div className="flex-1 min-w-0">
                 <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
@@ -124,9 +123,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
             </div>
 
             {/* Field 2: Tour Type */}
-            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 pb-2.5 lg:pb-0">
-              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] flex items-center justify-center text-[#1ca8cb] shrink-0">
-                <Compass className="w-4 h-4" />
+            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 pb-2.5 lg:pb-0 group">
+              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
+                <Compass className="w-4 h-4 group-hover:rotate-45 transition-transform" />
               </div>
               <div className="flex-1 min-w-0">
                 <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
@@ -146,9 +145,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
             </div>
 
             {/* Field 3: Duration */}
-            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 pb-2.5 lg:pb-0">
-              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] flex items-center justify-center text-[#1ca8cb] shrink-0">
-                <Calendar className="w-4 h-4" />
+            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 pb-2.5 lg:pb-0 group">
+              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
+                <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform" />
               </div>
               <div className="flex-1 min-w-0">
                 <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
@@ -168,9 +167,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
             </div>
 
             {/* Field 4: Travelers */}
-            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 pb-2.5 lg:pb-0">
-              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] flex items-center justify-center text-[#1ca8cb] shrink-0">
-                <Users className="w-4 h-4" />
+            <div className="w-full lg:w-1/4 px-2 sm:px-3 py-1 flex items-center gap-3 pb-2.5 lg:pb-0 group">
+              <div className="w-9 h-9 rounded-full bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/15 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
+                <Users className="w-4 h-4 group-hover:scale-110 transition-transform" />
               </div>
               <div className="flex-1 min-w-0">
                 <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
@@ -193,9 +192,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
             <div className="w-full lg:w-auto shrink-0 pt-1 lg:pt-0">
               <button
                 type="submit"
-                className="w-full lg:w-auto px-7 py-3.5 rounded-full bg-[#1ca8cb] hover:bg-[#113d48] text-white text-xs sm:text-sm font-bold shadow-lg shadow-[#1ca8cb]/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                className="btn-shimmer w-full lg:w-auto px-7 py-3.5 rounded-full bg-[#1ca8cb] hover:bg-[#113d48] text-white text-xs sm:text-sm font-bold shadow-lg shadow-[#1ca8cb]/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 group/search"
               >
-                <Search className="w-4 h-4" />
+                <Search className="w-4 h-4 group-hover/search:scale-110 transition-transform" />
                 <span>Search</span>
               </button>
             </div>

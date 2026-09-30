@@ -73,15 +73,15 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
           <div className="flex flex-col gap-3 sm:gap-6">
             <div
               onClick={() => setActiveImage({ id: '1', title: homeImages[0].title, location: homeImages[0].location, image: homeImages[0].image, category: 'Community', caption: '' })}
-              className="group relative h-40 xs:h-48 sm:h-52 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md cursor-pointer border border-slate-100"
+              className="group relative h-40 xs:h-48 sm:h-52 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer border border-slate-100 card-shimmer transition-all duration-300 transform hover:-translate-y-1"
             >
               <img
                 src={homeImages[0].image}
                 alt={homeImages[0].title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-[#1ca8cb]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-2 sm:p-4 text-white text-center">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/25 flex items-center justify-center mb-1.5 sm:mb-2">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/25 flex items-center justify-center mb-1.5 sm:mb-2 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
                   <ZoomIn className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <h4 className="font-bold text-xs sm:text-sm line-clamp-1">{homeImages[0].title}</h4>
@@ -91,15 +91,15 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
 
             <div
               onClick={() => setActiveImage({ id: '2', title: homeImages[1].title, location: homeImages[1].location, image: homeImages[1].image, category: 'Community', caption: '' })}
-              className="group relative h-40 xs:h-48 sm:h-52 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md cursor-pointer border border-slate-100"
+              className="group relative h-40 xs:h-48 sm:h-52 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer border border-slate-100 card-shimmer transition-all duration-300 transform hover:-translate-y-1"
             >
               <img
                 src={homeImages[1].image}
                 alt={homeImages[1].title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-[#1ca8cb]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-2 sm:p-4 text-white text-center">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/25 flex items-center justify-center mb-1.5 sm:mb-2">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/25 flex items-center justify-center mb-1.5 sm:mb-2 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
                   <ZoomIn className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <h4 className="font-bold text-xs sm:text-sm line-clamp-1">{homeImages[1].title}</h4>
@@ -111,15 +111,15 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
           {/* Column 2: TALL CENTER IMAGE */}
           <div
             onClick={() => setActiveImage({ id: '3', title: homeImages[2].title, location: homeImages[2].location, image: homeImages[2].image, category: 'Community', caption: '' })}
-            className="group relative h-[330px] xs:h-[396px] sm:h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl cursor-pointer border border-slate-100 ring-2 ring-[#1ca8cb]/20"
+            className="group relative h-[330px] xs:h-[396px] sm:h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl cursor-pointer border border-slate-100 ring-2 ring-[#1ca8cb]/30 card-shimmer transition-all duration-300 transform hover:-translate-y-1.5"
           >
             <img
               src={homeImages[2].image}
               alt={homeImages[2].title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+              className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-[#1ca8cb]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-3 sm:p-6 text-white text-center">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/25 flex items-center justify-center mb-2 sm:mb-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/25 flex items-center justify-center mb-2 sm:mb-3 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
                 <ZoomIn className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <h4 className="font-bold text-xs sm:text-lg">{homeImages[2].title}</h4>
@@ -131,15 +131,15 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
           <div className="flex flex-col gap-3 sm:gap-6">
             <div
               onClick={() => setActiveImage({ id: '4', title: homeImages[3].title, location: homeImages[3].location, image: homeImages[3].image, category: 'Community', caption: '' })}
-              className="group relative h-40 xs:h-48 sm:h-52 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md cursor-pointer border border-slate-100"
+              className="group relative h-40 xs:h-48 sm:h-52 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer border border-slate-100 card-shimmer transition-all duration-300 transform hover:-translate-y-1"
             >
               <img
                 src={homeImages[3].image}
                 alt={homeImages[3].title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-[#1ca8cb]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-2 sm:p-4 text-white text-center">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/25 flex items-center justify-center mb-1.5 sm:mb-2">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/25 flex items-center justify-center mb-1.5 sm:mb-2 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
                   <ZoomIn className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <h4 className="font-bold text-xs sm:text-sm line-clamp-1">{homeImages[3].title}</h4>
@@ -149,15 +149,15 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
 
             <div
               onClick={() => setActiveImage({ id: '5', title: homeImages[4].title, location: homeImages[4].location, image: homeImages[4].image, category: 'Community', caption: '' })}
-              className="group relative h-40 xs:h-48 sm:h-52 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md cursor-pointer border border-slate-100"
+              className="group relative h-40 xs:h-48 sm:h-52 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer border border-slate-100 card-shimmer transition-all duration-300 transform hover:-translate-y-1"
             >
               <img
                 src={homeImages[4].image}
                 alt={homeImages[4].title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-[#1ca8cb]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-2 sm:p-4 text-white text-center">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/25 flex items-center justify-center mb-1.5 sm:mb-2">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/25 flex items-center justify-center mb-1.5 sm:mb-2 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
                   <ZoomIn className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <h4 className="font-bold text-xs sm:text-sm line-clamp-1">{homeImages[4].title}</h4>
@@ -169,15 +169,15 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
           {/* Column 4: TALL RIGHT IMAGE */}
           <div
             onClick={() => setActiveImage({ id: '6', title: homeImages[5].title, location: homeImages[5].location, image: homeImages[5].image, category: 'Community', caption: '' })}
-            className="group relative h-[330px] xs:h-[396px] sm:h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl cursor-pointer border border-slate-100 ring-2 ring-[#1ca8cb]/20"
+            className="group relative h-[330px] xs:h-[396px] sm:h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl cursor-pointer border border-slate-100 ring-2 ring-[#1ca8cb]/30 card-shimmer transition-all duration-300 transform hover:-translate-y-1.5"
           >
             <img
               src={homeImages[5].image}
               alt={homeImages[5].title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+              className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-[#1ca8cb]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-3 sm:p-6 text-white text-center">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/25 flex items-center justify-center mb-2 sm:mb-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/25 flex items-center justify-center mb-2 sm:mb-3 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
                 <ZoomIn className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <h4 className="font-bold text-xs sm:text-lg">{homeImages[5].title}</h4>
@@ -191,10 +191,10 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
           <div className="text-center mt-10 sm:mt-12">
             <button
               onClick={() => onNavigate('gallery')}
-              className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-full border-2 border-[#113d48] text-[#113d48] hover:bg-[#113d48] hover:text-white font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
+              className="btn-shimmer inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-[#113d48] text-[#113d48] hover:bg-[#113d48] hover:text-white font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer active:scale-95 group"
             >
               <span>View Full Photo Gallery</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         )}

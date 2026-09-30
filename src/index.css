@@ -75,12 +75,59 @@
   }
 }
 
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(-1deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
 @keyframes pulseGlow {
   0%, 100% {
     box-shadow: 0 0 14px rgba(28, 168, 203, 0.45);
   }
   50% {
     box-shadow: 0 0 28px rgba(28, 168, 203, 0.75);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -95,16 +142,115 @@
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-float {
   animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 5s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
   animation: pulseGlow 2.5s ease-in-out infinite;
 }
 
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 18s linear infinite;
+}
+
+.animate-radar {
+  animation: radarPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 .animate-fadeIn {
-  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes radarPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(28, 168, 203, 0.8);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 16px rgba(28, 168, 203, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(28, 168, 203, 0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-25deg);
+}
+
+.btn-shimmer:hover::before {
+  left: 200%;
+  transition: all 0.75s ease-in-out;
 }
 
 /* Glassmorphism helpers */
@@ -180,15 +326,16 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.25) 50%,
     transparent 100%
   );
   transform: translateX(-100%);
   pointer-events: none;
+  z-index: 10;
 }
 
 .card-shimmer:hover::after {
-  animation: cardShimmer 1.2s ease-in-out;
+  animation: cardShimmer 1.1s ease-in-out;
 }
 
 .card-modern {
@@ -198,6 +345,39 @@
 .card-modern:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 40px -15px rgba(28, 168, 203, 0.25), 0 0 20px rgba(28, 168, 203, 0.12);
+}
+
+/* Card Interactive with top glow border */
+.card-interactive {
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-interactive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1ca8cb, #38bdf8, #1ca8cb);
+  opacity: 0;
+  transform: scaleX(0.4);
+  transition: all 0.35s ease-out;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  z-index: 15;
+}
+
+.card-interactive:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 40px -12px rgba(17, 61, 72, 0.15), 0 0 25px rgba(28, 168, 203, 0.18);
+  border-color: rgba(28, 168, 203, 0.45);
+}
+
+.card-interactive:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 /* Travel Doodle Pattern Background */
@@ -211,18 +391,26 @@
   background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231ca8cb' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round' opacity='0.08'%3E%3Cpath d='M25 20 L28 12 L31 20 L40 23 L28 26 L26 33 L24 26 L15 23 Z' /%3E%3Ccircle cx='90' cy='30' r='12' /%3E%3Cpath d='M90 22 L93 30 L87 30 Z M90 38 L87 30 L93 30 Z' fill='%231ca8cb' /%3E%3Cpath d='M30 95 Q32 80 30 65 M30 65 Q20 58 12 65 M30 65 Q22 50 20 42 M30 65 Q38 50 42 42 M30 65 Q42 58 48 65' /%3E%3Crect x='78' cy='75' width='22' height='16' rx='3' /%3E%3Cpath d='M85 75 V71 C85 70 87 69 89 69 H91 C93 69 95 70 95 71 V75' /%3E%3Crect x='60' y='15' width='16' height='11' rx='2' /%3E%3Ccircle cx='68' cy='20.5' r='3.5' /%3E%3Cpath d='M8 105 Q18 108 28 105 L26 112 Q18 114 10 112 Z M18 104 V90 L26 104 Z M16 104 V93 L10 104 Z' /%3E%3Ccircle cx='105' cy='95' r='4' /%3E%3Cpath d='M105 88 V90 M105 100 V102 M98 95 H100 M110 95 H112' /%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Circular dashed stat ring - responsive */
+/* Circular dashed stat ring - responsive & animated */
+@keyframes ringSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .circle-dashed-stat {
   position: relative;
   width: 110px;
   height: 110px;
   border-radius: 9999px;
-  border: 2px dashed rgba(28, 168, 203, 0.45);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   background: white;
 }
 
@@ -233,13 +421,20 @@
   }
 }
 
-.circle-dashed-stat:hover {
-  border-color: #1ca8cb;
-  transform: translateY(-4px) scale(1.04);
-  box-shadow: 0 12px 30px rgba(28, 168, 203, 0.22);
+/* Outer dashed spinning ring */
+.circle-dashed-stat::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  border: 2px dashed rgba(28, 168, 203, 0.5);
+  animation: ringSpin 25s linear infinite;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
 }
 
-.circle-dashed-stat::before {
+/* Orbiting glowing bead */
+.circle-dashed-stat::after {
   content: '';
   position: absolute;
   top: -5px;
@@ -249,5 +444,21 @@
   height: 10px;
   border-radius: 9999px;
   background-color: #1ca8cb;
-  box-shadow: 0 0 10px #1ca8cb;
+  box-shadow: 0 0 12px #1ca8cb, 0 0 4px #fff;
+  transition: all 0.3s ease;
+}
+
+.circle-dashed-stat:hover {
+  transform: translateY(-5px) scale(1.06);
+  box-shadow: 0 14px 35px rgba(28, 168, 203, 0.28);
+}
+
+.circle-dashed-stat:hover::before {
+  border-color: #1ca8cb;
+  animation-duration: 10s;
+}
+
+.circle-dashed-stat:hover::after {
+  transform: translateX(-50%) scale(1.25);
+  box-shadow: 0 0 16px #1ca8cb, 0 0 6px #fff;
 }

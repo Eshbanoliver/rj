@@ -82,13 +82,13 @@ export const TestimonialsSection: React.FC = () => {
               <div
                 key={idx}
                 onClick={() => setActiveDot(idx)}
-                className={`relative rounded-3xl p-6 sm:p-7 transition-all duration-300 flex flex-col justify-between cursor-pointer ${
+                className={`relative rounded-3xl p-6 sm:p-7 transition-all duration-400 flex flex-col justify-between cursor-pointer group transform hover:-translate-y-2 ${
                   // On mobile, highlight or emphasize the touched dot card
                   isMobileActive ? 'ring-2 ring-[#1ca8cb]/40' : ''
                 } ${
                   isCenter
-                    ? 'bg-[#dcf4f9] border border-[#a2e3f0] shadow-xl md:scale-105 z-10'
-                    : 'bg-white border border-slate-200 shadow-md hover:shadow-xl'
+                    ? 'bg-[#dcf4f9] border border-[#a2e3f0] shadow-[0_20px_45px_-10px_rgba(28,168,203,0.35)] md:scale-105 z-10 hover:shadow-[0_25px_50px_-10px_rgba(28,168,203,0.45)]'
+                    : 'bg-white border border-slate-200 shadow-md hover:shadow-xl hover:border-[#1ca8cb]/40'
                 }`}
               >
                 <div>
@@ -98,10 +98,10 @@ export const TestimonialsSection: React.FC = () => {
                       <img
                         src={item.avatar}
                         alt={item.name}
-                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white shadow-sm shrink-0"
+                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white shadow-sm shrink-0 group-hover:scale-110 transition-transform duration-300"
                       />
                       <div className="min-w-0">
-                        <h4 className="font-bold text-[#113d48] text-sm sm:text-base font-heading truncate">
+                        <h4 className="font-bold text-[#113d48] group-hover:text-[#1ca8cb] transition-colors text-sm sm:text-base font-heading truncate">
                           {item.name}
                         </h4>
                         <p className="text-[11px] sm:text-xs text-slate-500 font-medium truncate">
@@ -111,7 +111,7 @@ export const TestimonialsSection: React.FC = () => {
                     </div>
 
                     {/* Star Rating */}
-                    <div className="flex items-center gap-0.5 shrink-0">
+                    <div className="flex items-center gap-0.5 shrink-0 group-hover:scale-105 transition-transform duration-300">
                       {[...Array(item.rating)].map((_, i) => (
                         <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 fill-amber-400" />
                       ))}
@@ -119,8 +119,8 @@ export const TestimonialsSection: React.FC = () => {
                   </div>
 
                   {/* Review Text */}
-                  <p className={`text-xs sm:text-sm leading-relaxed mt-2 font-normal ${
-                    isCenter ? 'text-slate-800' : 'text-slate-600'
+                  <p className={`text-xs sm:text-sm leading-relaxed mt-2 font-normal transition-colors ${
+                    isCenter ? 'text-slate-800' : 'text-slate-600 group-hover:text-slate-900'
                   }`}>
                     "{item.text}"
                   </p>
@@ -128,8 +128,8 @@ export const TestimonialsSection: React.FC = () => {
 
                 {/* Bottom Quote Icon Indicator */}
                 <div className="mt-5 sm:mt-6 flex justify-center">
-                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center ${
-                    isCenter ? 'bg-[#1ca8cb] text-white shadow-md' : 'bg-slate-100 text-[#1ca8cb]'
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-12 ${
+                    isCenter ? 'bg-[#1ca8cb] text-white shadow-md' : 'bg-slate-100 text-[#1ca8cb] group-hover:bg-[#1ca8cb] group-hover:text-white'
                   }`}>
                     <Quote className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
                   </div>

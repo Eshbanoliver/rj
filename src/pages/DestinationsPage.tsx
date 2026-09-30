@@ -69,7 +69,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center p-5 sm:p-8">
                   {/* Image Column (5 cols) */}
                   <div
-                    className={`lg:col-span-5 relative h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-md ${
+                    className={`lg:col-span-5 relative h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-md card-shimmer ${
                       isEven ? 'lg:order-1' : 'lg:order-2'
                     }`}
                   >
@@ -80,7 +80,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                     
-                    <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 bg-slate-950/75 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-semibold text-[#1ca8cb] border border-slate-700/80 flex items-center gap-1.5 shadow-md">
+                    <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 bg-slate-950/75 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-semibold text-[#1ca8cb] border border-slate-700/80 flex items-center gap-1.5 shadow-md group-hover:scale-105 transition-transform duration-300">
                       <MapPin className="w-3.5 h-3.5" />
                       <span>{dest.state}, India</span>
                     </div>
@@ -140,7 +140,7 @@ export const DestinationsPage: React.FC<DestinationsPageProps> = ({
                     <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                       <button
                         onClick={() => handleExploreTours(dest.name)}
-                        className="w-full sm:w-auto min-h-[44px] justify-center px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-[#1ca8cb] to-[#113d48] hover:opacity-95 shadow-md shadow-[#1ca8cb]/20 group/btn transition-all duration-300 flex items-center gap-2 cursor-pointer hover:scale-105 active:scale-95"
+                        className="btn-shimmer w-full sm:w-auto min-h-[44px] justify-center px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-[#1ca8cb] to-[#113d48] hover:opacity-95 shadow-md shadow-[#1ca8cb]/20 group/btn transition-all duration-300 flex items-center gap-2 cursor-pointer hover:scale-105 active:scale-95"
                       >
                         <span>View {dest.name} Packages</span>
                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />

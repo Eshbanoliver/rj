@@ -193,7 +193,7 @@ export const ToursPage: React.FC<ToursPageProps> = ({
           {filteredTours.map((tour) => (
             <div
               key={tour.id}
-              className="relative overflow-hidden bg-white border border-slate-200/90 hover:border-[#1ca8cb]/90 rounded-2xl sm:rounded-3xl flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_22px_45px_-12px_rgba(28,168,203,0.22)] group h-full before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#1ca8cb] before:via-[#189bbd] before:to-[#113d48] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
+              className="relative overflow-hidden bg-white border border-slate-200/90 hover:border-[#1ca8cb]/90 rounded-2xl sm:rounded-3xl flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_22px_45px_-12px_rgba(28,168,203,0.22)] group h-full card-shimmer before:absolute before:top-0 before:left-0 before:right-0 before:h-1 before:bg-gradient-to-r before:from-[#1ca8cb] before:via-[#189bbd] before:to-[#113d48] before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500 before:z-10"
             >
               {/* Image & Badges */}
               <div className="relative h-56 sm:h-64 overflow-hidden shrink-0">
@@ -205,11 +205,11 @@ export const ToursPage: React.FC<ToursPageProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-black/30" />
 
                 <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
-                  <span className="bg-gradient-to-r from-[#1ca8cb] to-[#189bbd] text-slate-950 text-[11px] sm:text-xs font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider flex items-center gap-1">
+                  <span className="bg-gradient-to-r from-[#1ca8cb] to-[#189bbd] text-slate-950 text-[11px] sm:text-xs font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-wider flex items-center gap-1 group-hover:scale-105 transition-transform duration-300">
                     <Sparkles className="w-3 h-3 text-slate-950" />
                     <span>{tour.badge || '15 Strangers'}</span>
                   </span>
-                  <span className="bg-slate-950/80 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md">
+                  <span className="bg-slate-950/80 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md group-hover:scale-105 transition-transform duration-300">
                     <Clock className="w-3 h-3 text-[#1ca8cb]" />
                     {tour.duration}
                   </span>
@@ -287,13 +287,13 @@ export const ToursPage: React.FC<ToursPageProps> = ({
                   <div className="grid grid-cols-2 gap-2">
                     <button
                       onClick={() => onSelectTour(tour)}
-                      className="min-h-[44px] py-2.5 px-3 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 hover:text-slate-950 border border-slate-200/90 active:scale-98 transition-all text-center cursor-pointer flex items-center justify-center shadow-xs"
+                      className="min-h-[44px] py-2.5 px-3 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 hover:text-slate-950 border border-slate-200/90 active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center shadow-xs"
                     >
                       View Details
                     </button>
                     <button
                       onClick={() => onOpenInquiry({ tourTitle: tour.title })}
-                      className="min-h-[44px] py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#1ca8cb] to-[#113d48] hover:opacity-95 shadow-md shadow-[#1ca8cb]/25 active:scale-98 transition-all text-center flex items-center justify-center gap-1.5 cursor-pointer group/btn"
+                      className="btn-shimmer min-h-[44px] py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#1ca8cb] to-[#113d48] hover:opacity-95 shadow-md shadow-[#1ca8cb]/25 active:scale-95 transition-all text-center flex items-center justify-center gap-1.5 cursor-pointer group/btn"
                     >
                       <span>Book Seat</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />

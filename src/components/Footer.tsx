@@ -67,16 +67,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
               </div>
               <button
                 type="submit"
-                className="px-7 py-3 rounded-full bg-[#113d48] hover:bg-[#1ca8cb] text-white text-sm font-bold shadow-md transition-all duration-300 shrink-0 cursor-pointer flex items-center justify-center gap-1.5 min-h-[44px] active:scale-95"
+                className="btn-shimmer px-7 py-3 rounded-full bg-[#113d48] hover:bg-[#1ca8cb] text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-300 shrink-0 cursor-pointer flex items-center justify-center gap-1.5 min-h-[44px] active:scale-95 group"
               >
                 <span>Subscribe</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
           </div>
 
           {subscribed && (
-            <div className="mt-3 text-xs text-emerald-600 font-bold flex items-center gap-1">
+            <div className="mt-3 text-xs text-emerald-600 font-bold flex items-center gap-1 animate-fadeIn">
               <CheckCircle2 className="w-4 h-4" />
               <span>Thank you for subscribing! We will send you upcoming batch schedules and discounts.</span>
             </div>
@@ -90,12 +90,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
           
           {/* Col 1: Brand Info (4 cols) */}
           <div className="sm:col-span-2 lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#1ca8cb] text-white flex items-center justify-center font-black text-xl shadow-md">
+            <div className="flex items-center gap-3 group cursor-pointer" onClick={() => onNavigate('home')}>
+              <div className="w-10 h-10 rounded-full bg-[#1ca8cb] text-white flex items-center justify-center font-black text-xl shadow-md group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                 R
               </div>
               <div>
-                <h4 className="text-xl font-black font-heading text-[#113d48] tracking-tight">
+                <h4 className="text-xl font-black font-heading text-[#113d48] group-hover:text-[#1ca8cb] transition-colors tracking-tight">
                   R Journey
                 </h4>
                 <p className="text-[10px] tracking-widest uppercase text-[#1ca8cb] font-bold">
@@ -115,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="w-9 h-9 rounded-full bg-[#f0f9fb] hover:bg-[#1ca8cb] text-[#113d48] hover:text-white flex items-center justify-center transition-colors border border-slate-200"
+                className="w-10 h-10 rounded-full bg-[#f0f9fb] hover:bg-[#1ca8cb] text-[#113d48] hover:text-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg border border-slate-200 active:scale-95"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
@@ -124,14 +124,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="WhatsApp"
-                className="w-9 h-9 rounded-full bg-[#f0f9fb] hover:bg-[#1ca8cb] text-[#113d48] hover:text-white flex items-center justify-center transition-colors border border-slate-200"
+                className="w-10 h-10 rounded-full bg-[#f0f9fb] hover:bg-[#1ca8cb] text-[#113d48] hover:text-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg border border-slate-200 active:scale-95"
               >
                 <Phone className="w-4 h-4" />
               </a>
               <a
                 href={`mailto:${companyData.email}`}
                 aria-label="Email"
-                className="w-9 h-9 rounded-full bg-[#f0f9fb] hover:bg-[#1ca8cb] text-[#113d48] hover:text-white flex items-center justify-center transition-colors border border-slate-200"
+                className="w-10 h-10 rounded-full bg-[#f0f9fb] hover:bg-[#1ca8cb] text-[#113d48] hover:text-white flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg border border-slate-200 active:scale-95"
               >
                 <Mail className="w-4 h-4" />
               </a>
@@ -151,9 +151,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
                       onNavigate(link.page);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-slate-600 hover:text-[#1ca8cb] transition-colors cursor-pointer"
+                    className="text-slate-600 hover:text-[#1ca8cb] hover:translate-x-1.5 transition-all duration-200 cursor-pointer inline-flex items-center gap-1.5 group"
                   >
-                    {link.label}
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[#1ca8cb] transition-colors" />
+                    <span>{link.label}</span>
                   </button>
                 </li>
               ))}
@@ -173,9 +174,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
                       onNavigate(cat.page);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-slate-600 hover:text-[#1ca8cb] transition-colors cursor-pointer text-left leading-snug"
+                    className="text-slate-600 hover:text-[#1ca8cb] hover:translate-x-1.5 transition-all duration-200 cursor-pointer text-left leading-snug inline-flex items-center gap-1.5 group"
                   >
-                    {cat.label}
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-[#1ca8cb] transition-colors shrink-0" />
+                    <span>{cat.label}</span>
                   </button>
                 </li>
               ))}

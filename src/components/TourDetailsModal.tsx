@@ -78,7 +78,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6 animate-fadeIn">
       {/* Modal Container */}
-      <div className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden my-3 sm:my-6 text-slate-900 flex flex-col max-h-[94vh]">
+      <div className="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden my-3 sm:my-6 text-slate-900 flex flex-col max-h-[94vh] animate-fadeInUp">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -568,7 +568,7 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                     <div className="space-y-2.5 pt-2">
                       <button
                         type="submit"
-                        className="w-full min-h-[44px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 shadow-md shadow-emerald-600/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                        className="btn-shimmer w-full min-h-[44px] py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 shadow-md shadow-emerald-600/25 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
                       >
                         <MessageSquare className="w-4 h-4" />
                         <span>Send Booking Enquiry on WhatsApp</span>

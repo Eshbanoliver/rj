@@ -27,14 +27,14 @@ export const StatsSection: React.FC = () => {
           {stats.map((item, idx) => (
             <div key={idx} className="flex flex-col items-center text-center group">
               {/* Circular Dashed Ring matching reference */}
-              <div className="circle-dashed-stat shadow-sm group-hover:shadow-xl">
-                <span className="text-3xl sm:text-4xl font-extrabold text-[#113d48] font-heading group-hover:text-[#1ca8cb] transition-colors">
+              <div className="circle-dashed-stat shadow-sm group-hover:shadow-xl cursor-pointer">
+                <span className="text-3xl sm:text-4xl font-extrabold text-[#113d48] font-heading group-hover:text-[#1ca8cb] group-hover:scale-110 transition-all duration-300">
                   {item.value}
                 </span>
               </div>
 
               {/* Title below circle */}
-              <h3 className="mt-4 text-sm sm:text-base font-bold text-slate-700 font-heading">
+              <h3 className="mt-4 text-sm sm:text-base font-bold text-slate-700 font-heading group-hover:text-[#113d48] transition-colors">
                 {item.label}
               </h3>
             </div>

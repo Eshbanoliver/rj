@@ -104,7 +104,7 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
           {filteredPackages.map((tour, idx) => (
             <div
               key={tour.id}
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-slate-100 hover:border-[#1ca8cb]/40 group transform hover:-translate-y-1.5"
+              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between border border-slate-100 card-interactive card-shimmer group transform hover:-translate-y-2"
             >
               {/* Image with rounded top */}
               <div className="relative aspect-[16/11] overflow-hidden">
@@ -113,16 +113,16 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
                   alt={tour.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
                 {/* Duration Badge */}
-                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-bold text-[#113d48] shadow-md flex items-center gap-1">
+                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-bold text-[#113d48] shadow-md flex items-center gap-1 group-hover:scale-105 transition-transform duration-300">
                   <Clock className="w-3 h-3 text-[#1ca8cb]" />
                   <span>{tour.duration}</span>
                 </div>
 
                 {/* Rating Badge */}
-                <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2 py-1 rounded-full text-[11px] font-bold text-white shadow-md flex items-center gap-1">
+                <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2 py-1 rounded-full text-[11px] font-bold text-white shadow-md flex items-center gap-1 group-hover:scale-105 transition-transform duration-300">
                   <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
                   <span>5.0</span>
                 </div>
@@ -133,7 +133,7 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
                 <div>
                   {/* Location Pin */}
                   <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium mb-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#1ca8cb]" />
+                    <MapPin className="w-3.5 h-3.5 text-[#1ca8cb] group-hover:scale-110 transition-transform" />
                     <span>Ex-{tour.departureCity}</span>
                   </div>
 
@@ -157,10 +157,10 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
 
                   <button
                     onClick={() => onSelectTour(tour)}
-                    className="px-3.5 py-2 rounded-full bg-[#113d48] group-hover:bg-[#1ca8cb] text-white text-xs font-bold transition-all duration-300 flex items-center gap-1 shadow-md cursor-pointer shrink-0 active:scale-95"
+                    className="btn-shimmer px-3.5 py-2 rounded-full bg-[#113d48] group-hover:bg-[#1ca8cb] text-white text-xs font-bold transition-all duration-300 flex items-center gap-1 shadow-md cursor-pointer shrink-0 active:scale-95"
                   >
                     <span>Book Now</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>

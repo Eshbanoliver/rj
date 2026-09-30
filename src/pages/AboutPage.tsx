@@ -92,28 +92,36 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenInquiry 
 
           <div className="lg:col-span-6 grid grid-cols-2 gap-3 sm:gap-4">
             <div className="space-y-3 sm:space-y-4">
-              <img
-                src="/images/udaipur-group-strangers.jpg"
-                alt="Community Group"
-                className="rounded-2xl sm:rounded-3xl object-cover h-44 sm:h-64 w-full border border-slate-200 shadow-md"
-              />
-              <img
-                src="/images/palm-valley-pool.jpg"
-                alt="Pool Day"
-                className="rounded-2xl sm:rounded-3xl object-cover h-36 sm:h-48 w-full border border-slate-200 shadow-md"
-              />
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden card-shimmer border border-slate-200 shadow-md">
+                <img
+                  src="/images/udaipur-group-strangers.jpg"
+                  alt="Community Group"
+                  className="object-cover h-44 sm:h-64 w-full hover:scale-110 transition-transform duration-700 ease-out"
+                />
+              </div>
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden card-shimmer border border-slate-200 shadow-md">
+                <img
+                  src="/images/palm-valley-pool.jpg"
+                  alt="Pool Day"
+                  className="object-cover h-36 sm:h-48 w-full hover:scale-110 transition-transform duration-700 ease-out"
+                />
+              </div>
             </div>
             <div className="space-y-3 sm:space-y-4 pt-4 sm:pt-8">
-              <img
-                src="/images/jodhpur-mehrangarh-sunset.jpg"
-                alt="Mehrangarh Fort"
-                className="rounded-2xl sm:rounded-3xl object-cover h-36 sm:h-48 w-full border border-slate-200 shadow-md"
-              />
-              <img
-                src="/images/palm-valley-night-pool.jpg"
-                alt="Resort at night"
-                className="rounded-2xl sm:rounded-3xl object-cover h-44 sm:h-64 w-full border border-slate-200 shadow-md"
-              />
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden card-shimmer border border-slate-200 shadow-md">
+                <img
+                  src="/images/jodhpur-mehrangarh-sunset.jpg"
+                  alt="Mehrangarh Fort"
+                  className="object-cover h-36 sm:h-48 w-full hover:scale-110 transition-transform duration-700 ease-out"
+                />
+              </div>
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden card-shimmer border border-slate-200 shadow-md">
+                <img
+                  src="/images/palm-valley-night-pool.jpg"
+                  alt="Resort at night"
+                  className="object-cover h-44 sm:h-64 w-full hover:scale-110 transition-transform duration-700 ease-out"
+                />
+              </div>
             </div>
           </div>
         </div>
