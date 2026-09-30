@@ -54,7 +54,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
               </h3>
             </div>
 
-            <form onSubmit={handleSubscribe} className="flex items-center gap-2 max-w-md w-full">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 max-w-md w-full">
               <div className="relative flex-1">
                 <input
                   type="email"
@@ -62,12 +62,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-5 py-3 rounded-full border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1ca8cb] text-sm text-slate-800 placeholder-slate-400"
+                  className="w-full px-5 py-3 rounded-full border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1ca8cb] text-sm text-slate-800 placeholder-slate-400 min-h-[44px]"
                 />
               </div>
               <button
                 type="submit"
-                className="px-7 py-3 rounded-full bg-[#113d48] hover:bg-[#1ca8cb] text-white text-sm font-bold shadow-md transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-1.5"
+                className="px-7 py-3 rounded-full bg-[#113d48] hover:bg-[#1ca8cb] text-white text-sm font-bold shadow-md transition-all duration-300 shrink-0 cursor-pointer flex items-center justify-center gap-1.5 min-h-[44px] active:scale-95"
               >
                 <span>Subscribe</span>
                 <ArrowRight className="w-4 h-4" />

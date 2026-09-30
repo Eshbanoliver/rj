@@ -36,15 +36,15 @@ const articles = [
 
 export const BlogSection: React.FC<BlogSectionProps> = ({ onNavigate, onOpenInquiry }) => {
   return (
-    <section className="py-20 sm:py-24 bg-[#edf8fa] relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-[#edf8fa] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Row: Title on Left, View All Button on Right matching reference */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 sm:mb-16 gap-6">
-          <div>
-            <span className="font-script text-[#1ca8cb] text-3xl sm:text-4xl font-bold tracking-wide inline-block transform -rotate-1">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-16 gap-5">
+          <div className="text-center sm:text-left">
+            <span className="font-script text-[#1ca8cb] text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide inline-block transform -rotate-1">
               News & Article
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#113d48] font-heading mt-1 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#113d48] font-heading mt-1 tracking-tight">
               News & Articles From R Journey
             </h2>
           </div>
@@ -55,18 +55,18 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onNavigate, onOpenInqu
                 onOpenInquiry({ message: 'I would like to receive the latest travel guides and articles from R Journey.' });
               }
             }}
-            className="self-start sm:self-auto px-6 py-2.5 rounded-full border border-[#113d48] text-[#113d48] hover:bg-[#113d48] hover:text-white font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm cursor-pointer"
+            className="w-full sm:w-auto px-6 py-2.5 rounded-full border border-[#113d48] text-[#113d48] hover:bg-[#113d48] hover:text-white font-bold text-xs sm:text-sm transition-all duration-300 shadow-sm cursor-pointer text-center active:scale-95"
           >
             <span>View All Blog</span>
           </button>
         </div>
 
         {/* 3 Blog Cards Grid matching reference */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
           {articles.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-slate-100 group transform hover:-translate-y-2"
+              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-slate-100 group transform hover:-translate-y-1.5"
             >
               {/* Image */}
               <div className="relative aspect-[16/10] overflow-hidden">
@@ -78,10 +78,10 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onNavigate, onOpenInqu
               </div>
 
               {/* Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                 <div>
                   {/* Date & Comment meta */}
-                  <div className="flex items-center gap-4 text-xs text-slate-400 font-medium mb-2.5">
+                  <div className="flex items-center gap-3 text-xs text-slate-400 font-medium mb-2">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5 text-[#1ca8cb]" />
                       {item.date}
@@ -105,7 +105,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onNavigate, onOpenInqu
                 </div>
 
                 {/* Read More Link */}
-                <div className="mt-5 pt-4 border-t border-slate-100">
+                <div className="mt-4 pt-3.5 border-t border-slate-100">
                   <button
                     onClick={() => {
                       if (onOpenInquiry) {

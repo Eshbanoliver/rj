@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Star, Quote } from 'lucide-react';
 
 interface Testimonial {
@@ -35,28 +35,57 @@ const testimonials: Testimonial[] = [
 
 export const TestimonialsSection: React.FC = () => {
   const [activeDot, setActiveDot] = useState(1); // Center card active
+  const touchStartX = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        setActiveDot((prev) => (prev + 1) % testimonials.length);
+      } else {
+        setActiveDot((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+      }
+    }
+    touchStartX.current = null;
+  };
 
   return (
-    <section className="py-20 sm:py-24 bg-white relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-white relative overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading matching reference */}
-        <div className="text-center mb-14 sm:mb-16">
-          <span className="font-script text-[#1ca8cb] text-3xl sm:text-4xl font-bold tracking-wide inline-block transform -rotate-1">
+        <div className="text-center mb-10 sm:mb-16">
+          <span className="font-script text-[#1ca8cb] text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide inline-block transform -rotate-1">
             Testimonial
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#113d48] font-heading mt-1 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#113d48] font-heading mt-1 tracking-tight">
             What Client Say About us
           </h2>
         </div>
 
-        {/* 3 Review Cards matching reference */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center">
+        {/* 3 Review Cards matching reference with mobile swipe */}
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8 items-center"
+        >
           {testimonials.map((item, idx) => {
             const isCenter = idx === 1;
+            const isMobileActive = idx === activeDot;
+
             return (
               <div
                 key={idx}
-                className={`relative rounded-3xl p-7 transition-all duration-300 flex flex-col justify-between ${
+                onClick={() => setActiveDot(idx)}
+                className={`relative rounded-3xl p-6 sm:p-7 transition-all duration-300 flex flex-col justify-between cursor-pointer ${
+                  // On mobile, highlight or emphasize the touched dot card
+                  isMobileActive ? 'ring-2 ring-[#1ca8cb]/40' : ''
+                } ${
                   isCenter
                     ? 'bg-[#dcf4f9] border border-[#a2e3f0] shadow-xl md:scale-105 z-10'
                     : 'bg-white border border-slate-200 shadow-md hover:shadow-xl'
@@ -64,33 +93,33 @@ export const TestimonialsSection: React.FC = () => {
               >
                 <div>
                   {/* Top: Avatar, Name, Stars */}
-                  <div className="flex items-center justify-between gap-4 mb-4">
+                  <div className="flex items-center justify-between gap-3 mb-4">
                     <div className="flex items-center gap-3">
                       <img
                         src={item.avatar}
                         alt={item.name}
-                        className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
+                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-white shadow-sm shrink-0"
                       />
-                      <div>
-                        <h4 className="font-bold text-[#113d48] text-base font-heading">
+                      <div className="min-w-0">
+                        <h4 className="font-bold text-[#113d48] text-sm sm:text-base font-heading truncate">
                           {item.name}
                         </h4>
-                        <p className="text-xs text-slate-500 font-medium">
+                        <p className="text-[11px] sm:text-xs text-slate-500 font-medium truncate">
                           {item.location}
                         </p>
                       </div>
                     </div>
 
                     {/* Star Rating */}
-                    <div className="flex items-center gap-0.5">
+                    <div className="flex items-center gap-0.5 shrink-0">
                       {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                        <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 fill-amber-400" />
                       ))}
                     </div>
                   </div>
 
                   {/* Review Text */}
-                  <p className={`text-sm leading-relaxed mt-2 font-normal ${
+                  <p className={`text-xs sm:text-sm leading-relaxed mt-2 font-normal ${
                     isCenter ? 'text-slate-800' : 'text-slate-600'
                   }`}>
                     "{item.text}"
@@ -98,11 +127,11 @@ export const TestimonialsSection: React.FC = () => {
                 </div>
 
                 {/* Bottom Quote Icon Indicator */}
-                <div className="mt-6 flex justify-center">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                <div className="mt-5 sm:mt-6 flex justify-center">
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center ${
                     isCenter ? 'bg-[#1ca8cb] text-white shadow-md' : 'bg-slate-100 text-[#1ca8cb]'
                   }`}>
-                    <Quote className="w-4 h-4 fill-current" />
+                    <Quote className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
                   </div>
                 </div>
               </div>
@@ -111,8 +140,8 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Carousel Pagination Dots */}
-        <div className="flex items-center justify-center gap-2 mt-12">
-          {[0, 1, 2].map((dot) => (
+        <div className="flex items-center justify-center gap-2 mt-8 sm:mt-12">
+          {testimonials.map((_, dot) => (
             <button
               key={dot}
               onClick={() => setActiveDot(dot)}

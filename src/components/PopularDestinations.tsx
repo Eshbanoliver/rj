@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { PageType } from '../types';
 import { destinationsData, Destination } from '../data/destinations';
 import { MapPin, ChevronLeft, ChevronRight, Star, ArrowRight } from 'lucide-react';
@@ -14,6 +14,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState(2); // Center on Jodhpur/Udaipur initially
   const total = destinationsData.length;
+  const touchStartX = useRef<number | null>(null);
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + total) % total);
@@ -21,6 +22,24 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % total);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    touchStartX.current = null;
   };
 
   const handleCardClick = (index: number, dest: Destination) => {
@@ -33,25 +52,29 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
   };
 
   return (
-    <section className="py-20 sm:py-24 bg-white relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-white relative overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
-        <div className="text-center mb-14 sm:mb-16">
-          <span className="font-script text-[#1ca8cb] text-3xl sm:text-4xl font-bold tracking-wide inline-block transform -rotate-1">
+        <div className="text-center mb-10 sm:mb-16">
+          <span className="font-script text-[#1ca8cb] text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide inline-block transform -rotate-1">
             Destination
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#113d48] font-heading mt-1 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#113d48] font-heading mt-1 tracking-tight">
             Popular Destination
           </h2>
         </div>
 
-        {/* Cover Flow Carousel Container */}
-        <div className="relative w-full flex items-center justify-center min-h-[460px] sm:min-h-[520px] px-2 sm:px-12">
+        {/* Cover Flow Carousel Container with Touch Gestures */}
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="relative w-full flex items-center justify-center min-h-[440px] sm:min-h-[520px] px-2 sm:px-12"
+        >
           {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
             aria-label="Previous destination"
-            className="absolute left-2 sm:left-4 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-[#1ca8cb] text-[#113d48] hover:text-white shadow-xl flex items-center justify-center transition-all duration-300 border border-slate-200 cursor-pointer active:scale-95 group"
+            className="absolute left-1 sm:left-4 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-[#1ca8cb] text-[#113d48] hover:text-white shadow-xl flex items-center justify-center transition-all duration-300 border border-slate-200 cursor-pointer active:scale-95 group"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
           </button>
@@ -59,7 +82,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
           <button
             onClick={handleNext}
             aria-label="Next destination"
-            className="absolute right-2 sm:right-4 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-[#1ca8cb] text-[#113d48] hover:text-white shadow-xl flex items-center justify-center transition-all duration-300 border border-slate-200 cursor-pointer active:scale-95 group"
+            className="absolute right-1 sm:right-4 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-[#1ca8cb] text-[#113d48] hover:text-white shadow-xl flex items-center justify-center transition-all duration-300 border border-slate-200 cursor-pointer active:scale-95 group"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
           </button>
@@ -74,7 +97,6 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
 
               const isCenter = diff === 0;
               const isAdjacent = Math.abs(diff) === 1;
-              const isOuter = Math.abs(diff) === 2;
               const isHidden = Math.abs(diff) > 2;
 
               if (isHidden) return null;
@@ -86,7 +108,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                   style={{ order: diff + 2 }}
                   className={`transition-all duration-500 ease-out cursor-pointer relative rounded-3xl overflow-hidden ${
                     isCenter
-                      ? 'w-[280px] sm:w-[320px] lg:w-[340px] h-[440px] sm:h-[480px] z-20 shadow-2xl scale-100 sm:scale-105 ring-4 ring-[#1ca8cb]/40'
+                      ? 'w-[82vw] xs:w-[290px] sm:w-[320px] lg:w-[340px] h-[430px] sm:h-[480px] z-20 shadow-2xl scale-100 sm:scale-105 ring-4 ring-[#1ca8cb]/40'
                       : isAdjacent
                       ? 'hidden sm:block sm:w-[220px] lg:w-[250px] h-[380px] sm:h-[420px] z-10 opacity-80 scale-95 shadow-lg hover:opacity-100'
                       : 'hidden lg:block lg:w-[190px] h-[330px] lg:h-[370px] z-0 opacity-50 scale-90 shadow-md hover:opacity-80'
@@ -105,7 +127,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                   <div
                     className={`absolute inset-0 transition-opacity duration-300 ${
                       isCenter
-                        ? 'bg-gradient-to-t from-black/85 via-black/30 to-black/10'
+                        ? 'bg-gradient-to-t from-black/90 via-black/35 to-black/10'
                         : 'bg-gradient-to-t from-black/80 via-black/40 to-transparent'
                     }`}
                   />
@@ -142,7 +164,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
                           if (onSelectDestination) onSelectDestination(dest);
                           onNavigate('destinations');
                         }}
-                        className="w-full py-2.5 px-4 rounded-full bg-[#1ca8cb] hover:bg-white text-white hover:text-[#113d48] text-xs sm:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#1ca8cb]/30 cursor-pointer"
+                        className="w-full py-3 px-4 rounded-full bg-[#1ca8cb] hover:bg-white text-white hover:text-[#113d48] text-xs sm:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#1ca8cb]/30 cursor-pointer active:scale-98"
                       >
                         <span>Explore Destination</span>
                         <ArrowRight className="w-4 h-4" />
@@ -156,7 +178,7 @@ export const PopularDestinations: React.FC<PopularDestinationsProps> = ({
         </div>
 
         {/* Carousel Pagination Dots */}
-        <div className="flex items-center justify-center gap-2 mt-8">
+        <div className="flex items-center justify-center gap-2 mt-6 sm:mt-8">
           {destinationsData.map((_, idx) => (
             <button
               key={idx}
