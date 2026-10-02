@@ -47,7 +47,199 @@ export interface TourPackage {
 }
 
 export const tourPackages: TourPackage[] = [
-  // 1. 3D/2N: Udaipur, Haldighati & Kumbhalgarh — ₹6,999* (Ex-Ahmedabad)
+  // 1. 2D/1N: Udaipur Weekend Getaway — ₹4,500* (Ex-Ahmedabad)
+  {
+    id: "tour-ahmedabad-udaipur-2d1n",
+    slug: "ahmedabad-to-udaipur-weekend-getaway-2d1n",
+    title: "Udaipur Weekend Getaway — Lakes & Hilltop Sunsets",
+    badge: "Weekend Special",
+    departureCity: "Ahmedabad",
+    destinations: ["Udaipur", "Bahubali Hills", "Lake Pichola"],
+    duration: "2 Days | 1 Night",
+    days: 2,
+    nights: 1,
+    startingPrice: 4500,
+    tripleSharingPrice: 4500,
+    doubleSharingPrice: 5500,
+    registrationAmount: 2000,
+    departureSchedule: "Every Saturday Morning Departure from Ahmedabad (6:00 AM)",
+    batchSchedule: [
+      {
+        month: "October Batches",
+        dates: ["3rd Oct", "10th Oct", "17th Oct", "24th Oct", "31st Oct"]
+      },
+      {
+        month: "November Batches",
+        dates: ["7th Nov", "14th Nov", "21st Nov", "28th Nov"]
+      }
+    ],
+    heroImage: "/images/hero-udaipur.jpg",
+    galleryImages: [
+      "/images/hero-udaipur.jpg",
+      "/images/udaipur-city-palace-lake.jpg",
+      "/images/palm-valley-pool.jpg",
+      "/images/palm-valley-resort-full.jpg"
+    ],
+    tagline: "Quick 2D/1N Refreshing Escape to the City of Lakes",
+    overview: "The ultimate quick weekend escape from Ahmedabad without taking leave from work. Relax at scenic hill resort Palm Valley, cruise Lake Pichola, visit City Palace, wander Gangaur Ghat, and witness magical sunsets at Bahubali Hills overlooking Lake Badi.",
+    experienceStory: "Crafted for working professionals, couples, and friends seeking a quick reset. Enjoy pool lounging, royal heritage walks, and rooftop dining under starry Mewar skies.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Ahmedabad to Udaipur & Royal Old City Heritage",
+        location: "Ahmedabad to Udaipur",
+        timing: "6:00 AM Departure from Ahmedabad",
+        description: "Depart Ahmedabad at 6:00 AM in AC comfort. Breakfast on highway included. Arrive at resort around noon, check in and freshen up with villa lunch. Head out to explore City Palace, Gangaur Ghat lakeside promenade, and take a sunset boat ride on Lake Pichola. Wrap up with rooftop dining in Old City.",
+        highlights: [
+          "Scenic Aravali mountain drive",
+          "Check in at Palm Valley Resort",
+          "City Palace & Gangaur Ghat",
+          "Lake Pichola sunset & Old City cafes"
+        ],
+        mealsIncluded: "Breakfast & Lunch (Veg)",
+        sightseeingNote: "City Palace entry tickets and boat ride on own expense."
+      },
+      {
+        day: 2,
+        title: "Bahubali Hills, Fateh Sagar & Return Journey",
+        location: "Udaipur to Ahmedabad",
+        timing: "Morning hike, afternoon departure",
+        description: "Enjoy sunrise hike at Bahubali Hills with sweeping 360-degree views of Lake Badi and surrounding Aravali peaks. Visit Fateh Sagar Lake and Saheliyon Ki Bari before beginning the return journey back to Ahmedabad, arriving by Sunday late evening.",
+        highlights: [
+          "Bahubali Hills breathtaking panoramic viewpoint",
+          "Fateh Sagar Lake promenade",
+          "Saheliyon Ki Bari historic gardens",
+          "Smooth evening return to Ahmedabad"
+        ],
+        mealsIncluded: "Breakfast & Lunch (Veg)",
+        sightseeingNote: "Dinner stop en route at own expense."
+      }
+    ],
+    inclusions: [
+      "Comfortable AC Transport (Ex-Ahmedabad)",
+      "01 Night Deluxe Stay at Palm Valley Resort",
+      "Meals (2 Breakfast + 2 Lunch - Pure Veg)",
+      "Complete Udaipur Sightseeing as per Itinerary",
+      "All Toll, Parking & Driver Allowance"
+    ],
+    exclusions: [
+      "City Palace & Monument Entry Tickets",
+      "Lake Pichola Boat Ride",
+      "Personal Expenses & Tips"
+    ],
+    stayDetails: [
+      {
+        hotelName: "Palm Valley Resort",
+        location: "Udaipur Aravali Hills",
+        type: "Luxury 3-Star Resort",
+        highlights: [
+          "Twin Swimming Pools",
+          "Lush Garden Lawns",
+          "Spacious Deluxe AC Rooms"
+        ]
+      }
+    ],
+    featured: true,
+    tourType: "Strangers Trip"
+  },
+
+  // 2. 2D/1N: Jawai & Kumbhalgarh — ₹4,999* (Ex-Ahmedabad)
+  {
+    id: "tour-ahmedabad-jawai-kumbhalgarh-2d1n",
+    slug: "ahmedabad-to-jawai-kumbhalgarh-leopard-safari-2d1n",
+    title: "Jawai & Kumbhalgarh — Leopard Safari & Great Wall",
+    badge: "Wildlife & Heritage",
+    departureCity: "Ahmedabad",
+    destinations: ["Jawai", "Kumbhalgarh", "Pali"],
+    duration: "2 Days | 1 Night",
+    days: 2,
+    nights: 1,
+    startingPrice: 4999,
+    tripleSharingPrice: 4999,
+    doubleSharingPrice: 5999,
+    registrationAmount: 2500,
+    departureSchedule: "Every Saturday Morning Departure from Ahmedabad (5:30 AM)",
+    batchSchedule: [
+      {
+        month: "October Batches",
+        dates: ["3rd Oct", "10th Oct", "17th Oct", "24th Oct", "31st Oct"]
+      },
+      {
+        month: "November Batches",
+        dates: ["7th Nov", "14th Nov", "21st Nov", "28th Nov"]
+      }
+    ],
+    heroImage: "/images/hero-jawai.jpg",
+    galleryImages: [
+      "/images/hero-jawai.jpg",
+      "/images/hero-kumbhalgarh.jpg",
+      "/images/strangers-sunset-community.jpg"
+    ],
+    tagline: "Wild Leopard Tracking Boulders & Cloud Citadel Wall",
+    overview: "A thrilling combination of Rajasthan's raw wildlife and colossal fortress architecture. Track wild leopards roaming freely across prehistoric granite boulders in Jawai, witness sunset at Jawai Bandh dam, meet the indigenous Rabari pastoral tribe, and conquer the 36-km Great Wall at Kumbhalgarh Fort.",
+    experienceStory: "Feel the rush of an open 4x4 gypsy safari traversing rocky terrains as wild leopards lounge atop sun-warmed rocks, followed by standing upon the majestic ramparts of Kumbhalgarh guarding the Mewar pass.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Ahmedabad to Jawai 4x4 Leopard Safari & Dam Sunset",
+        location: "Ahmedabad to Jawai Bandh",
+        timing: "5:30 AM Departure from Ahmedabad",
+        description: "Depart Ahmedabad at 5:30 AM in comfortable AC transport. Reach Jawai by early afternoon and check in. Board open 4x4 Gypsies for an adrenaline-pumping Leopard Tracking Safari through granite caves and boulder ridges. Witness stunning sunset reflections over Jawai Dam with crocodile and migratory bird spotting, followed by an evening campfire dinner.",
+        highlights: [
+          "Open 4x4 Gypsy Leopard Tracking Safari",
+          "Granite boulder terrain & Rabari pastoral culture",
+          "Jawai Dam sunset & crocodile spotting",
+          "Evening campfire buffet dinner under the stars"
+        ],
+        mealsIncluded: "Breakfast & Campfire Dinner",
+        sightseeingNote: "Jawai Gypsy Safari coordination included. Wildlife permits on guest expense."
+      },
+      {
+        day: 2,
+        title: "Kumbhalgarh Fort Great Wall & Return to Ahmedabad",
+        location: "Kumbhalgarh to Ahmedabad",
+        timing: "Morning checkout, scenic mountain drive",
+        description: "After breakfast, take a scenic drive through the Aravali sanctuary hills to Kumbhalgarh Fort. Explore the world's second-longest continuous wall (36 km), Badal Mahal (Palace of Clouds), and historic Hindu/Jain shrines within the citadel. Begin return drive to Ahmedabad arriving by late evening.",
+        highlights: [
+          "36-km Great Wall of India at Kumbhalgarh Fort",
+          "Badal Mahal high vantage citadel point",
+          "Aravali Wildlife Sanctuary valley drive",
+          "Return journey to Ahmedabad"
+        ],
+        mealsIncluded: "Breakfast & Lunch",
+        sightseeingNote: "Fort entry tickets payable by guests."
+      }
+    ],
+    inclusions: [
+      "Sanitized AC Bus / Tempo (Ex-Ahmedabad)",
+      "01 Night Stay in Jawai / Kumbhalgarh Wilderness Resort",
+      "Meals (2 Breakfast + 1 Lunch + 1 Dinner)",
+      "Jawai 4x4 Gypsy Safari Coordination",
+      "Complete Kumbhalgarh Fort Sightseeing",
+      "All Tolls, Parking & Driver Allowance"
+    ],
+    exclusions: [
+      "Kumbhalgarh Fort Entry Tickets",
+      "Any Individual Forest / Safari Entry Fees",
+      "Personal Expenses & Mineral Water"
+    ],
+    stayDetails: [
+      {
+        hotelName: "Jawai Wilderness Camp / Resort",
+        location: "Jawai Pali",
+        type: "Wildlife Eco-Resort",
+        highlights: [
+          "Dramatic Granite Boulder Views",
+          "Campfire Arena & Lawn",
+          "Stargazing Deck & AC Rooms"
+        ]
+      }
+    ],
+    featured: true,
+    tourType: "Group Trip"
+  },
+
+  // 3. 3D/2N: Udaipur, Haldighati & Kumbhalgarh — ₹6,999* (Ex-Ahmedabad)
   {
     id: "tour-ahmedabad-udaipur-haldighati-kumbhalgarh-3d2n",
     slug: "ahmedabad-to-udaipur-haldighati-kumbhalgarh",
@@ -167,85 +359,100 @@ export const tourPackages: TourPackage[] = [
     tourType: "Strangers Trip"
   },
 
-  // 2. 2D/1N: Udaipur Weekend Getaway — ₹4,500* (Ex-Ahmedabad)
+  // 4. 3D/2N: Udaipur & Nathdwara Heritage — ₹6,999* (Ex-Ahmedabad)
   {
-    id: "tour-ahmedabad-udaipur-2d1n",
-    slug: "ahmedabad-to-udaipur-weekend-getaway-2d1n",
-    title: "Udaipur Weekend Getaway — Lakes & Hilltop Sunsets",
-    badge: "Weekend Special",
+    id: "tour-ahmedabad-udaipur-nathdwara-3d2n",
+    slug: "ahmedabad-to-udaipur-nathdwara-heritage-3d2n",
+    title: "Udaipur & Nathdwara — Shreenathji & Lake Heritage",
+    badge: "Spiritual & Leisure",
     departureCity: "Ahmedabad",
-    destinations: ["Udaipur", "Bahubali Hills", "Lake Pichola"],
-    duration: "2 Days | 1 Night",
-    days: 2,
-    nights: 1,
-    startingPrice: 4500,
-    tripleSharingPrice: 4500,
-    doubleSharingPrice: 5500,
-    registrationAmount: 2000,
-    departureSchedule: "Every Saturday Morning Departure from Ahmedabad (6:00 AM)",
+    destinations: ["Udaipur", "Nathdwara", "Statue of Belief"],
+    duration: "3 Days | 2 Nights",
+    days: 3,
+    nights: 2,
+    startingPrice: 6999,
+    tripleSharingPrice: 6999,
+    doubleSharingPrice: 7999,
+    registrationAmount: 3000,
+    departureSchedule: "Every Friday Departure from Ahmedabad (6:00 AM)",
     batchSchedule: [
       {
         month: "October Batches",
-        dates: ["3rd Oct", "10th Oct", "17th Oct", "24th Oct", "31st Oct"]
+        dates: ["2nd Oct", "9th Oct", "16th Oct", "23rd Oct", "30th Oct"]
       },
       {
         month: "November Batches",
-        dates: ["7th Nov", "14th Nov", "21st Nov", "28th Nov"]
+        dates: ["6th Nov", "13th Nov", "20th Nov", "27th Nov"]
       }
     ],
     heroImage: "/images/hero-udaipur.jpg",
     galleryImages: [
       "/images/hero-udaipur.jpg",
       "/images/udaipur-city-palace-lake.jpg",
-      "/images/palm-valley-pool.jpg",
+      "/images/palm-valley-dinner.jpg",
       "/images/palm-valley-resort-full.jpg"
     ],
-    tagline: "Quick 2D/1N Refreshing Escape to the City of Lakes",
-    overview: "The ultimate quick weekend escape from Ahmedabad without taking leave from work. Relax at scenic hill resort Palm Valley, cruise Lake Pichola, visit City Palace, wander Gangaur Ghat, and witness magical sunsets at Bahubali Hills overlooking Lake Badi.",
-    experienceStory: "Crafted for working professionals, couples, and friends seeking a quick reset. Enjoy pool lounging, royal heritage walks, and rooftop dining under starry Mewar skies.",
+    tagline: "Sacred Shreenathji Darshan, Viswas Swaroopam & Lake City",
+    overview: "A divine blend of spiritual devotion and Udaipur's royal heritage. Seek blessings at the sacred Shreenathji Temple in Nathdwara, gaze up at the monumental 369-ft Statue of Belief (Viswas Swaroopam — the world's tallest Shiva statue), and relax at Palm Valley Resort with lakefront promenades in Udaipur.",
+    experienceStory: "A soulful, family-friendly tour combining rich Vaishnav devotional culture, authentic Rajasthani vegetarian thalis, divine darshan, and serene resort comforts in the Aravali hills.",
     itinerary: [
       {
         day: 1,
-        title: "Ahmedabad to Udaipur & Royal Old City Heritage",
+        title: "Ahmedabad Departure & Udaipur City Heritage",
         location: "Ahmedabad to Udaipur",
         timing: "6:00 AM Departure from Ahmedabad",
-        description: "Depart Ahmedabad at 6:00 AM in AC comfort. Breakfast on highway included. Arrive at resort around noon, check in and freshen up with villa lunch. Head out to explore City Palace, Gangaur Ghat lakeside promenade, and take a sunset boat ride on Lake Pichola. Wrap up with rooftop dining in Old City.",
+        description: "Depart Ahmedabad at 6:00 AM. Breakfast on highway included. Arrive at Palm Valley Resort Udaipur by noon, check in, and enjoy lunch at the villa. Post lunch, visit City Palace, Gangaur Ghat, and enjoy evening lake views at Lake Pichola.",
         highlights: [
           "Scenic Aravali mountain drive",
-          "Check in at Palm Valley Resort",
+          "Check-in at Palm Valley Resort",
           "City Palace & Gangaur Ghat",
-          "Lake Pichola sunset & Old City cafes"
+          "Sunset views over Lake Pichola"
         ],
-        mealsIncluded: "Breakfast & Lunch (Veg)",
-        sightseeingNote: "City Palace entry tickets and boat ride on own expense."
+        mealsIncluded: "Breakfast & Lunch (Pure Veg)",
+        sightseeingNote: "City Palace tickets payable by guests."
       },
       {
         day: 2,
-        title: "Bahubali Hills, Fateh Sagar & Return Journey",
-        location: "Udaipur to Ahmedabad",
-        timing: "Morning hike, afternoon departure",
-        description: "Enjoy sunrise hike at Bahubali Hills with sweeping 360-degree views of Lake Badi and surrounding Aravali peaks. Visit Fateh Sagar Lake and Saheliyon Ki Bari before beginning the return journey back to Ahmedabad, arriving by Sunday late evening.",
+        title: "Nathdwara Shreenathji Darshan & Statue of Belief",
+        location: "Nathdwara",
+        timing: "Full day pilgrimage and cultural excursion",
+        description: "Early morning drive to the sacred town of Nathdwara. Seek blessings at the revered Shreenathji Temple, savor traditional Prasad, and visit Viswas Swaroopam (Statue of Belief). Return to Udaipur for group dinner at the resort.",
         highlights: [
-          "Bahubali Hills breathtaking panoramic viewpoint",
-          "Fateh Sagar Lake promenade",
-          "Saheliyon Ki Bari historic gardens",
-          "Smooth evening return to Ahmedabad"
+          "Shreenathji Mandir Darshan",
+          "Statue of Belief (Viswas Swaroopam - 369 ft)",
+          "Authentic Rajasthani Sweets & Cuisine",
+          "Relaxing poolside evening at resort"
         ],
-        mealsIncluded: "Breakfast & Lunch (Veg)",
+        mealsIncluded: "Breakfast & Dinner (Pure Veg)",
+        sightseeingNote: "Special puja or VIP temple passes on guest expense."
+      },
+      {
+        day: 3,
+        title: "Bahubali Hills, Saheliyon Ki Bari & Return Journey",
+        location: "Udaipur to Ahmedabad",
+        timing: "Morning sightseeing, afternoon departure",
+        description: "Morning visit to panoramic Bahubali Hills overlooking Lake Badi and lush Saheliyon Ki Bari historic fountains. Enjoy lunch and begin smooth return journey back to Ahmedabad by late evening.",
+        highlights: [
+          "Bahubali Hills 360-degree viewpoint",
+          "Saheliyon Ki Bari gardens",
+          "Udaipur craft & souvenir shopping",
+          "Comfortable return drive to Ahmedabad"
+        ],
+        mealsIncluded: "Breakfast & Lunch (Pure Veg)",
         sightseeingNote: "Dinner stop en route at own expense."
       }
     ],
     inclusions: [
-      "Comfortable AC Transport (Ex-Ahmedabad)",
-      "01 Night Deluxe Stay at Palm Valley Resort",
-      "Meals (2 Breakfast + 2 Lunch - Pure Veg)",
-      "Complete Udaipur Sightseeing as per Itinerary",
-      "All Toll, Parking & Driver Allowance"
+      "Comfortable AC Bus / Tempo (Ex-Ahmedabad)",
+      "02 Nights Resort Stay in Udaipur (Palm Valley Resort)",
+      "Meals (3 Breakfast + 2 Lunch + 1 Dinner - Pure Veg)",
+      "Complete Nathdwara & Udaipur Sightseeing",
+      "All Tolls, Parking & Driver Allowance"
     ],
     exclusions: [
-      "City Palace & Monument Entry Tickets",
-      "Lake Pichola Boat Ride",
-      "Personal Expenses & Tips"
+      "Temple VIP Passes (if opted)",
+      "Monument Entry Tickets",
+      "Personal Expenses"
     ],
     stayDetails: [
       {
@@ -254,104 +461,8 @@ export const tourPackages: TourPackage[] = [
         type: "Luxury 3-Star Resort",
         highlights: [
           "Twin Swimming Pools",
-          "Lush Garden Lawns",
-          "Spacious Deluxe AC Rooms"
-        ]
-      }
-    ],
-    featured: true,
-    tourType: "Strangers Trip"
-  },
-
-  // 3. 2D/1N: Jawai & Kumbhalgarh — ₹4,999* (Ex-Ahmedabad)
-  {
-    id: "tour-ahmedabad-jawai-kumbhalgarh-2d1n",
-    slug: "ahmedabad-to-jawai-kumbhalgarh-leopard-safari-2d1n",
-    title: "Jawai & Kumbhalgarh — Leopard Safari & Great Wall",
-    badge: "Wildlife & Heritage",
-    departureCity: "Ahmedabad",
-    destinations: ["Jawai", "Kumbhalgarh", "Pali"],
-    duration: "2 Days | 1 Night",
-    days: 2,
-    nights: 1,
-    startingPrice: 4999,
-    tripleSharingPrice: 4999,
-    doubleSharingPrice: 5999,
-    registrationAmount: 2500,
-    departureSchedule: "Every Saturday Morning Departure from Ahmedabad (5:30 AM)",
-    batchSchedule: [
-      {
-        month: "October Batches",
-        dates: ["3rd Oct", "10th Oct", "17th Oct", "24th Oct", "31st Oct"]
-      },
-      {
-        month: "November Batches",
-        dates: ["7th Nov", "14th Nov", "21st Nov", "28th Nov"]
-      }
-    ],
-    heroImage: "/images/hero-jawai.jpg",
-    galleryImages: [
-      "/images/hero-jawai.jpg",
-      "/images/hero-kumbhalgarh.jpg",
-      "/images/strangers-sunset-community.jpg"
-    ],
-    tagline: "Wild Leopard Tracking Boulders & Cloud Citadel Wall",
-    overview: "A thrilling combination of Rajasthan's raw wildlife and colossal fortress architecture. Track wild leopards roaming freely across prehistoric granite boulders in Jawai, witness sunset at Jawai Bandh dam, meet the indigenous Rabari pastoral tribe, and conquer the 36-km Great Wall at Kumbhalgarh Fort.",
-    experienceStory: "Feel the rush of an open 4x4 gypsy safari traversing rocky terrains as wild leopards lounge atop sun-warmed rocks, followed by standing upon the majestic ramparts of Kumbhalgarh guarding the Mewar pass.",
-    itinerary: [
-      {
-        day: 1,
-        title: "Ahmedabad to Jawai 4x4 Leopard Safari & Dam Sunset",
-        location: "Ahmedabad to Jawai Bandh",
-        timing: "5:30 AM Departure from Ahmedabad",
-        description: "Depart Ahmedabad at 5:30 AM in comfortable AC transport. Reach Jawai by early afternoon and check in. Board open 4x4 Gypsies for an adrenaline-pumping Leopard Tracking Safari through granite caves and boulder ridges. Witness stunning sunset reflections over Jawai Dam with crocodile and migratory bird spotting, followed by an evening campfire dinner.",
-        highlights: [
-          "Open 4x4 Gypsy Leopard Tracking Safari",
-          "Granite boulder terrain & Rabari pastoral culture",
-          "Jawai Dam sunset & crocodile spotting",
-          "Evening campfire buffet dinner under the stars"
-        ],
-        mealsIncluded: "Breakfast & Campfire Dinner",
-        sightseeingNote: "Jawai Gypsy Safari coordination included. Wildlife permits on guest expense."
-      },
-      {
-        day: 2,
-        title: "Kumbhalgarh Fort Great Wall & Return to Ahmedabad",
-        location: "Kumbhalgarh to Ahmedabad",
-        timing: "Morning checkout, scenic mountain drive",
-        description: "After breakfast, take a scenic drive through the Aravali sanctuary hills to Kumbhalgarh Fort. Explore the world's second-longest continuous wall (36 km), Badal Mahal (Palace of Clouds), and historic Hindu/Jain shrines within the citadel. Begin return drive to Ahmedabad arriving by late evening.",
-        highlights: [
-          "36-km Great Wall of India at Kumbhalgarh Fort",
-          "Badal Mahal high vantage citadel point",
-          "Aravali Wildlife Sanctuary valley drive",
-          "Return journey to Ahmedabad"
-        ],
-        mealsIncluded: "Breakfast & Lunch",
-        sightseeingNote: "Fort entry tickets payable by guests."
-      }
-    ],
-    inclusions: [
-      "Sanitized AC Bus / Tempo (Ex-Ahmedabad)",
-      "01 Night Stay in Jawai / Kumbhalgarh Wilderness Resort",
-      "Meals (2 Breakfast + 1 Lunch + 1 Dinner)",
-      "Jawai 4x4 Gypsy Safari Coordination",
-      "Complete Kumbhalgarh Fort Sightseeing",
-      "All Tolls, Parking & Driver Allowance"
-    ],
-    exclusions: [
-      "Kumbhalgarh Fort Entry Tickets",
-      "Any Individual Forest / Safari Entry Fees",
-      "Personal Expenses & Mineral Water"
-    ],
-    stayDetails: [
-      {
-        hotelName: "Jawai Wilderness Camp / Resort",
-        location: "Jawai Pali",
-        type: "Wildlife Eco-Resort",
-        highlights: [
-          "Dramatic Granite Boulder Views",
-          "Campfire Arena & Lawn",
-          "Stargazing Deck & AC Rooms"
+          "Pure Vegetarian Kitchen",
+          "Lush Garden Lawns"
         ]
       }
     ],
@@ -359,7 +470,7 @@ export const tourPackages: TourPackage[] = [
     tourType: "Group Trip"
   },
 
-  // 4. 3D/2N: Jodhpur & Jaisalmer Desert Safari — ₹7,999* (Ex-Ahmedabad)
+  // 5. 3D/2N: Jodhpur & Jaisalmer Desert Safari — ₹7,999* (Ex-Ahmedabad)
   {
     id: "tour-ahmedabad-jodhpur-jaisalmer-3d2n",
     slug: "ahmedabad-to-jodhpur-jaisalmer-strangers-trip",
@@ -473,117 +584,6 @@ export const tourPackages: TourPackage[] = [
     ],
     featured: true,
     tourType: "Strangers Trip"
-  },
-
-  // 5. 3D/2N: Udaipur & Nathdwara Heritage — ₹6,999* (Ex-Ahmedabad)
-  {
-    id: "tour-ahmedabad-udaipur-nathdwara-3d2n",
-    slug: "ahmedabad-to-udaipur-nathdwara-heritage-3d2n",
-    title: "Udaipur & Nathdwara — Shreenathji & Lake Heritage",
-    badge: "Spiritual & Leisure",
-    departureCity: "Ahmedabad",
-    destinations: ["Udaipur", "Nathdwara", "Statue of Belief"],
-    duration: "3 Days | 2 Nights",
-    days: 3,
-    nights: 2,
-    startingPrice: 6999,
-    tripleSharingPrice: 6999,
-    doubleSharingPrice: 7999,
-    registrationAmount: 3000,
-    departureSchedule: "Every Friday Departure from Ahmedabad (6:00 AM)",
-    batchSchedule: [
-      {
-        month: "October Batches",
-        dates: ["2nd Oct", "9th Oct", "16th Oct", "23rd Oct", "30th Oct"]
-      },
-      {
-        month: "November Batches",
-        dates: ["6th Nov", "13th Nov", "20th Nov", "27th Nov"]
-      }
-    ],
-    heroImage: "/images/hero-udaipur.jpg",
-    galleryImages: [
-      "/images/hero-udaipur.jpg",
-      "/images/udaipur-city-palace-lake.jpg",
-      "/images/palm-valley-dinner.jpg",
-      "/images/palm-valley-resort-full.jpg"
-    ],
-    tagline: "Sacred Shreenathji Darshan, Viswas Swaroopam & Lake City",
-    overview: "A divine blend of spiritual devotion and Udaipur's royal heritage. Seek blessings at the sacred Shreenathji Temple in Nathdwara, gaze up at the monumental 369-ft Statue of Belief (Viswas Swaroopam — the world's tallest Shiva statue), and relax at Palm Valley Resort with lakefront promenades in Udaipur.",
-    experienceStory: "A soulful, family-friendly tour combining rich Vaishnav devotional culture, authentic Rajasthani vegetarian thalis, divine darshan, and serene resort comforts in the Aravali hills.",
-    itinerary: [
-      {
-        day: 1,
-        title: "Ahmedabad Departure & Udaipur City Heritage",
-        location: "Ahmedabad to Udaipur",
-        timing: "6:00 AM Departure from Ahmedabad",
-        description: "Depart Ahmedabad at 6:00 AM. Breakfast on highway included. Arrive at Palm Valley Resort Udaipur by noon, check in, and enjoy lunch at the villa. Post lunch, visit City Palace, Gangaur Ghat, and enjoy evening lake views at Lake Pichola.",
-        highlights: [
-          "Scenic Aravali mountain drive",
-          "Check-in at Palm Valley Resort",
-          "City Palace & Gangaur Ghat",
-          "Sunset views over Lake Pichola"
-        ],
-        mealsIncluded: "Breakfast & Lunch (Pure Veg)",
-        sightseeingNote: "City Palace tickets payable by guests."
-      },
-      {
-        day: 2,
-        title: "Nathdwara Shreenathji Darshan & Statue of Belief",
-        location: "Nathdwara",
-        timing: "Full day pilgrimage and cultural excursion",
-        description: "Early morning drive to the sacred town of Nathdwara. Seek blessings at the revered Shreenathji Temple, savor traditional Prasad, and visit Viswas Swaroopam (Statue of Belief). Return to Udaipur for group dinner at the resort.",
-        highlights: [
-          "Shreenathji Mandir Darshan",
-          "Statue of Belief (Viswas Swaroopam - 369 ft)",
-          "Authentic Rajasthani Sweets & Cuisine",
-          "Relaxing poolside evening at resort"
-        ],
-        mealsIncluded: "Breakfast & Dinner (Pure Veg)",
-        sightseeingNote: "Special puja or VIP temple passes on guest expense."
-      },
-      {
-        day: 3,
-        title: "Bahubali Hills, Saheliyon Ki Bari & Return Journey",
-        location: "Udaipur to Ahmedabad",
-        timing: "Morning sightseeing, afternoon departure",
-        description: "Morning visit to panoramic Bahubali Hills overlooking Lake Badi and lush Saheliyon Ki Bari historic fountains. Enjoy lunch and begin smooth return journey back to Ahmedabad by late evening.",
-        highlights: [
-          "Bahubali Hills 360-degree viewpoint",
-          "Saheliyon Ki Bari gardens",
-          "Udaipur craft & souvenir shopping",
-          "Comfortable return drive to Ahmedabad"
-        ],
-        mealsIncluded: "Breakfast & Lunch (Pure Veg)",
-        sightseeingNote: "Dinner stop en route at own expense."
-      }
-    ],
-    inclusions: [
-      "Comfortable AC Bus / Tempo (Ex-Ahmedabad)",
-      "02 Nights Resort Stay in Udaipur (Palm Valley Resort)",
-      "Meals (3 Breakfast + 2 Lunch + 1 Dinner - Pure Veg)",
-      "Complete Nathdwara & Udaipur Sightseeing",
-      "All Tolls, Parking & Driver Allowance"
-    ],
-    exclusions: [
-      "Temple VIP Passes (if opted)",
-      "Monument Entry Tickets",
-      "Personal Expenses"
-    ],
-    stayDetails: [
-      {
-        hotelName: "Palm Valley Resort",
-        location: "Udaipur Aravali Hills",
-        type: "Luxury 3-Star Resort",
-        highlights: [
-          "Twin Swimming Pools",
-          "Pure Vegetarian Kitchen",
-          "Lush Garden Lawns"
-        ]
-      }
-    ],
-    featured: true,
-    tourType: "Group Trip"
   },
 
   // 6. 3D/2N: Ex-Delhi to Udaipur & Kumbhalgarh — ₹7,999* (Ex-Delhi)

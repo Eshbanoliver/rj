@@ -17,15 +17,17 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
   const [activeFilter, setActiveFilter] = useState<'all' | 'ex-ahm' | 'ex-delhi' | 'udaipur' | 'jawai' | 'jaisalmer'>('all');
   const [activeDot, setActiveDot] = useState(0);
 
-  const filteredPackages = tourPackages.filter((p) => {
-    if (activeFilter === 'all') return true;
-    if (activeFilter === 'ex-ahm') return p.departureCity.toLowerCase().includes('ahmedabad');
-    if (activeFilter === 'ex-delhi') return p.departureCity.toLowerCase().includes('delhi');
-    if (activeFilter === 'udaipur') return p.destinations.includes('Udaipur');
-    if (activeFilter === 'jawai') return p.destinations.includes('Jawai');
-    if (activeFilter === 'jaisalmer') return p.destinations.includes('Jaisalmer');
-    return true;
-  });
+  const filteredPackages = tourPackages
+    .filter((p) => {
+      if (activeFilter === 'all') return true;
+      if (activeFilter === 'ex-ahm') return p.departureCity.toLowerCase().includes('ahmedabad');
+      if (activeFilter === 'ex-delhi') return p.departureCity.toLowerCase().includes('delhi');
+      if (activeFilter === 'udaipur') return p.destinations.includes('Udaipur');
+      if (activeFilter === 'jawai') return p.destinations.includes('Jawai');
+      if (activeFilter === 'jaisalmer') return p.destinations.includes('Jaisalmer');
+      return true;
+    })
+    .sort((a, b) => a.startingPrice - b.startingPrice);
 
   return (
     <section className="py-16 sm:py-24 lg:py-28 bg-travel-doodles relative overflow-hidden">
