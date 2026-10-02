@@ -117,8 +117,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenInquiry 
               </div>
               <div className="rounded-2xl sm:rounded-3xl overflow-hidden card-shimmer border border-slate-200 shadow-md">
                 <img
-                  src="/images/palm-valley-night-pool.jpg"
-                  alt="Resort at night"
+                  src="/images/dj-pool-party.jpg"
+                  alt="Resort DJ pool party"
                   className="object-cover h-44 sm:h-64 w-full hover:scale-110 transition-transform duration-700 ease-out"
                 />
               </div>

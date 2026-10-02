@@ -310,7 +310,7 @@ export const tourPackages: TourPackage[] = [
     heroImage: "/images/udaipur-group-strangers.jpg",
     galleryImages: [
       "/images/udaipur-group-strangers.jpg",
-      "/images/palm-valley-night-pool.jpg",
+      "/images/dj-pool-party.jpg",
       "/images/strangers-sunset-community.jpg",
       "/images/palm-valley-aerial.jpg",
       "/images/palm-valley-suite.jpg",

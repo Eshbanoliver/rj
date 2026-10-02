@@ -36,7 +36,7 @@ export const galleryItems: GalleryItem[] = [
     id: "g4",
     title: "Palm Valley Resort Twilight Pools",
     category: "Stays & Resorts",
-    image: "/images/palm-valley-night-pool.jpg",
+    image: "/images/dj-pool-party.jpg",
     location: "Udaipur, Rajasthan",
     caption: "Luxury hill resort with illuminated twin swimming pools and evening pool party arena."
   },

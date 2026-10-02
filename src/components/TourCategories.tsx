@@ -39,8 +39,8 @@ const categories: CategoryItem[] = [
     id: 'pool-party',
     title: 'DJ Pool Parties',
     tourCount: '2 Tours',
-    image: '/images/palm-valley-night-pool.jpg',
-    alt: 'Palm Valley Resort Twin Swimming Pools'
+    image: '/images/dj-pool-party.jpg',
+    alt: 'Luxury Resort DJ Pool Parties'
   },
   {
     id: 'strangers',

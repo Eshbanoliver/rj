@@ -50,7 +50,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
       id: 'g-pool',
       title: 'Palm Valley Night Pool Party',
       location: 'Udaipur, Rajasthan',
-      image: '/images/palm-valley-night-pool.jpg',
+      image: '/images/dj-pool-party.jpg',
     },
   ];
 

@@ -94,7 +94,7 @@ export const servicesData: ServiceItem[] = [
     ],
     idealFor: "Couples, relaxation seekers, weekend escape enthusiasts.",
     iconName: "Palmtree",
-    image: "/images/palm-valley-night-pool.jpg"
+    image: "/images/palm-valley-resort-full.jpg"
   },
   {
     id: "customise-trips",
