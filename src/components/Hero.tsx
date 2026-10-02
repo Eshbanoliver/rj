@@ -196,7 +196,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
                 <img
                   src={slide.image}
                   alt={`${slide.name} - ${slide.tagline}`}
-                  className={`w-full h-full object-cover filter brightness-[0.78] contrast-[1.06] transition-transform duration-[6000ms] ease-out will-change-transform ${
+                  className={`w-full h-full object-cover filter brightness-[0.95] contrast-[1.02] transition-transform duration-[6000ms] ease-out will-change-transform ${
                     isActive ? 'scale-105' : 'scale-100'
                   }`}
                 />
@@ -204,10 +204,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
             );
           })}
 
-          {/* Gradients for high text contrast across mobile and desktop */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/50" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[350px] sm:w-[550px] h-[220px] sm:h-[280px] bg-[#1ca8cb]/15 blur-[120px] sm:blur-[140px] rounded-full pointer-events-none" />
+          {/* Soft reduced overlays so hero image is clearly visible across the full section */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[350px] sm:w-[550px] h-[220px] sm:h-[280px] bg-[#1ca8cb]/10 blur-[140px] rounded-full pointer-events-none" />
         </div>
 
         {/* Desktop Side Navigation Arrows */}
@@ -303,13 +303,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
 
             {/* Script Subtitle matching reference */}
             <div className="mb-1 sm:mb-2">
-              <span className="font-script text-[#1ca8cb] text-lg xs:text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide drop-shadow-md inline-block animate-float-slow">
+              <span className="font-script text-[#1ca8cb] text-lg xs:text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] inline-block animate-float-slow">
                 {currentSlide.subtitle}
               </span>
             </div>
 
             {/* Main Headline matching reference */}
-            <h1 className="text-2.5xl xs:text-4xl sm:text-6xl lg:text-7xl font-black font-heading text-white tracking-tight leading-[1.14] drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)] animate-fadeInUp">
+            <h1 className="text-2.5xl xs:text-4xl sm:text-6xl lg:text-7xl font-black font-heading text-white tracking-tight leading-[1.14] drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] animate-fadeInUp">
               Explore beauty of <br className="hidden xs:inline" />
               <span className="text-white">the whole world</span>
             </h1>
