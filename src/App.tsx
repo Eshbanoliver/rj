@@ -131,22 +131,22 @@ export function App() {
               onNavigate={handleNavigate}
             />
 
-            {/* 3. Popular Destination Cover Flow Carousel */}
+            {/* 3. Popular Destination we offer for all (Tour Cards) */}
+            <FeaturedTourPackages
+              onNavigate={handleNavigate}
+              onSelectTour={handleSelectTour}
+              onOpenInquiry={handleOpenInquiry}
+            />
+
+            {/* 4. Popular Destination Cover Flow Carousel */}
             <PopularDestinations
               onNavigate={handleNavigate}
               onSelectDestination={handleSelectDestination}
             />
 
-            {/* 4. Plan Your Trip With Us (3-capsule collage + 2 features) */}
+            {/* 5. Plan Your Trip With Us (3-capsule collage + 2 features) */}
             <PlanTripSection
               onNavigate={handleNavigate}
-              onOpenInquiry={handleOpenInquiry}
-            />
-
-            {/* 5. Popular Destination we offer for all (Tour Cards) */}
-            <FeaturedTourPackages
-              onNavigate={handleNavigate}
-              onSelectTour={handleSelectTour}
               onOpenInquiry={handleOpenInquiry}
             />
 
