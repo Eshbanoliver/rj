@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PageType } from '../types';
 import { tourPackages, TourPackage } from '../data/tours';
-import { Clock, MapPin, Star, ArrowRight } from 'lucide-react';
+import { Clock, MapPin, Star, ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 
 interface FeaturedTourPackagesProps {
   onNavigate: (page: PageType) => void;
@@ -10,54 +10,20 @@ interface FeaturedTourPackagesProps {
 }
 
 export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
-  onNavigate,
+  onNavigate: _onNavigate,
   onSelectTour,
   onOpenInquiry: _onOpenInquiry,
 }) => {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'udaipur' | 'jaisalmer' | 'strangers'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'ex-ahm' | 'ex-delhi' | 'udaipur' | 'jawai' | 'jaisalmer'>('all');
   const [activeDot, setActiveDot] = useState(0);
 
-  // Expanded list with customized signature tour option for 4 cards
-  const allPackages = [
-    ...tourPackages,
-    {
-      id: 'tour-custom-rajasthan-circuit',
-      slug: 'signature-rajasthan-grand-circuit',
-      title: 'Grand Rajasthan Circuit — Udaipur, Jodhpur & Jaisalmer',
-      badge: 'Signature Expedition',
-      departureCity: 'Ahmedabad / Udaipur',
-      destinations: ['Udaipur', 'Jodhpur', 'Jaisalmer', 'Sam Sand Dunes'],
-      duration: '5 Days | 4 Nights',
-      days: 5,
-      nights: 4,
-      startingPrice: 13999,
-      tripleSharingPrice: 13999,
-      doubleSharingPrice: 15499,
-      registrationAmount: 3500,
-      departureSchedule: 'Every Alternate Thursday (Fixed Batches)',
-      batchSchedule: [
-        { month: 'October Batches', dates: ['8th Oct', '22nd Oct'] },
-        { month: 'November Batches', dates: ['5th Nov', '19th Nov'] }
-      ],
-      heroImage: '/images/hero-jodhpur.jpg',
-      galleryImages: ['/images/hero-jodhpur.jpg', '/images/hero-jaisalmer.jpg'],
-      tagline: 'Complete Rajasthan Royal Heritage & Desert Odyssey',
-      overview: 'Experience the pinnacle of Rajasthan in one unforgettable journey. From Udaipur’s royal palaces and DJ pool parties to Jodhpur’s blue streets and Jaisalmer’s starry Thar desert glamping.',
-      experienceStory: 'The ultimate royal group trip combining heritage, adventure, and nightlife.',
-      itinerary: [],
-      inclusions: ['AC Coach', 'Luxury Hotels & Swiss Desert Camp', 'All Breakfast & Dinner', 'Jeep & Camel Safari'],
-      exclusions: ['Monument Entry Tickets', 'Personal Expenses'],
-      stayDetails: [],
-      featured: true,
-      tourType: 'Strangers Trip' as const,
-    }
-  ];
-
-  const filteredPackages = allPackages.filter((p) => {
+  const filteredPackages = tourPackages.filter((p) => {
     if (activeFilter === 'all') return true;
+    if (activeFilter === 'ex-ahm') return p.departureCity.toLowerCase().includes('ahmedabad');
+    if (activeFilter === 'ex-delhi') return p.departureCity.toLowerCase().includes('delhi');
     if (activeFilter === 'udaipur') return p.destinations.includes('Udaipur');
+    if (activeFilter === 'jawai') return p.destinations.includes('Jawai');
     if (activeFilter === 'jaisalmer') return p.destinations.includes('Jaisalmer');
-    if (activeFilter === 'strangers') return p.badge?.includes('Strangers');
     return true;
   });
 
@@ -73,21 +39,26 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
             Popular Destination we offer for all
           </h2>
           <p className="mt-2.5 sm:mt-3 text-slate-600 text-xs sm:text-base leading-relaxed">
-            A team of passionate travel experts committed to crafting unforgettable journeys for every traveler.
+            Curated group tours & weekend getaways. All packages are Ex-Ahmedabad (with direct Ex-Delhi departures available).
           </p>
         </div>
 
         {/* Filter Pills for quick mobile & desktop filtering */}
         <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar pb-3 sm:pb-0 mb-8 sm:mb-12 -mx-4 px-4 sm:mx-0 sm:px-0">
           {[
-            { id: 'all', label: 'All Circuits' },
+            { id: 'all', label: 'All Packages (6)' },
+            { id: 'ex-ahm', label: 'Ex-Ahmedabad' },
+            { id: 'ex-delhi', label: 'Ex-Delhi Special' },
             { id: 'udaipur', label: 'Udaipur & Kumbhalgarh' },
+            { id: 'jawai', label: 'Jawai Safari' },
             { id: 'jaisalmer', label: 'Jodhpur & Jaisalmer' },
-            { id: 'strangers', label: '15 Strangers Batches' },
           ].map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveFilter(tab.id as any)}
+              onClick={() => {
+                setActiveFilter(tab.id as any);
+                setActiveDot(0);
+              }}
               className={`px-4 py-2 rounded-full text-xs font-bold transition-all shrink-0 cursor-pointer ${
                 activeFilter === tab.id
                   ? 'bg-[#113d48] text-white shadow-md'
@@ -99,22 +70,22 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
           ))}
         </div>
 
-        {/* 4 Tour Cards Grid matching reference */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        {/* Tour Cards Grid (6 packages displayed cleanly in 3 columns) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
           {filteredPackages.map((tour, idx) => (
             <div
               key={tour.id}
               id={`tour-card-${idx}`}
               className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between border border-slate-100 card-interactive card-shimmer group transform hover:-translate-y-2"
             >
-              {/* Image with rounded top */}
-              <div className="relative aspect-[16/11] overflow-hidden">
+              {/* Image with badges */}
+              <div className="relative aspect-[16/10] overflow-hidden">
                 <img
                   src={tour.heroImage}
                   alt={tour.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
                 {/* Duration Badge */}
                 <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-bold text-[#113d48] shadow-md flex items-center gap-1 group-hover:scale-105 transition-transform duration-300">
@@ -122,43 +93,71 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
                   <span>{tour.duration}</span>
                 </div>
 
-                {/* Rating Badge */}
-                <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2 py-1 rounded-full text-[11px] font-bold text-white shadow-md flex items-center gap-1 group-hover:scale-105 transition-transform duration-300">
+                {/* Badge Tag (e.g. Bestseller / Ex-Delhi / Weekend Special) */}
+                {tour.badge && (
+                  <div className="absolute top-3 right-3 bg-[#113d48]/90 text-white backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold shadow-md flex items-center gap-1 border border-white/20">
+                    <Sparkles className="w-3 h-3 text-amber-300" />
+                    <span>{tour.badge}</span>
+                  </div>
+                )}
+
+                {/* Rating Badge Bottom Left */}
+                <div className="absolute bottom-3 left-3 bg-black/55 backdrop-blur-md px-2 py-0.5 rounded-full text-[11px] font-bold text-white shadow-md flex items-center gap-1">
                   <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
                   <span>5.0</span>
                 </div>
               </div>
 
               {/* Card Body */}
-              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+              <div className="p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  {/* Location Pin */}
-                  <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium mb-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#1ca8cb] group-hover:scale-110 transition-transform" />
-                    <span>Ex-{tour.departureCity}</span>
+                  {/* Location & Departure Badge */}
+                  <div className="flex items-center justify-between gap-2 text-xs mb-2">
+                    <div className="flex items-center gap-1.5 text-slate-600 font-semibold">
+                      <MapPin className="w-3.5 h-3.5 text-[#1ca8cb] shrink-0 group-hover:scale-110 transition-transform" />
+                      <span className="bg-[#1ca8cb]/10 text-[#113d48] px-2 py-0.5 rounded-md font-bold text-[11px]">
+                        Ex-{tour.departureCity}
+                      </span>
+                    </div>
+
+                    <span className="text-[11px] text-slate-500 font-medium">
+                      {tour.days}D / {tour.nights}N
+                    </span>
                   </div>
 
                   {/* Title */}
                   <h3
                     onClick={() => onSelectTour(tour)}
-                    className="font-bold text-sm sm:text-base lg:text-lg text-[#113d48] group-hover:text-[#1ca8cb] transition-colors line-clamp-2 leading-snug cursor-pointer font-heading"
+                    className="font-bold text-base sm:text-lg text-[#113d48] group-hover:text-[#1ca8cb] transition-colors line-clamp-2 leading-snug cursor-pointer font-heading"
                   >
                     {tour.title}
                   </h3>
+
+                  {/* Tagline / Highlights */}
+                  <p className="text-xs text-slate-500 line-clamp-2 mt-1.5 leading-relaxed">
+                    {tour.tagline}
+                  </p>
+
+                  {/* Quick Feature Pill */}
+                  <div className="mt-3 flex items-center gap-1 text-[11px] text-slate-600 font-medium">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1ca8cb] shrink-0" />
+                    <span className="truncate">{tour.departureSchedule}</span>
+                  </div>
                 </div>
 
-                {/* Card Footer: Price & CTA */}
-                <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2">
+                {/* Card Footer: Price with Asterisk & CTA */}
+                <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2">
                   <div>
                     <span className="text-[10px] text-slate-400 font-medium block">Starting from</span>
-                    <span className="text-base sm:text-lg font-black text-[#1ca8cb]">
-                      ₹{tour.startingPrice.toLocaleString('en-IN')}
+                    <span className="text-lg sm:text-xl font-black text-[#1ca8cb]">
+                      ₹{tour.startingPrice.toLocaleString('en-IN')}*
                     </span>
+                    <span className="text-[9px] text-slate-400 block font-normal -mt-0.5">/ person</span>
                   </div>
 
                   <button
                     onClick={() => onSelectTour(tour)}
-                    className="btn-shimmer min-h-[44px] px-4 py-2 rounded-full bg-[#113d48] group-hover:bg-[#1ca8cb] text-white text-xs font-bold transition-all duration-300 flex items-center gap-1 shadow-md cursor-pointer shrink-0 active:scale-95"
+                    className="btn-shimmer min-h-[42px] px-4 py-2 rounded-full bg-[#113d48] group-hover:bg-[#1ca8cb] text-white text-xs font-bold transition-all duration-300 flex items-center gap-1 shadow-md cursor-pointer shrink-0 active:scale-95"
                   >
                     <span>Book Now</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -167,6 +166,15 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Asterisk Pricing Disclaimer Banner */}
+        <div className="mt-10 sm:mt-14 max-w-4xl mx-auto bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-slate-200/90 shadow-sm text-center">
+          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+            <span className="font-extrabold text-[#113d48]">* Note on Pricing:</span> All packages are{' '}
+            <strong className="text-[#1ca8cb] font-bold">Ex-Ahmedabad</strong> (except specified{' '}
+            <strong className="text-[#1ca8cb] font-bold">Ex-Delhi</strong> packages). Prices mentioned are per person on triple-sharing basis. Double-sharing room upgrades available upon request. 5% GST, monument entrance tickets, and personal expenses are additional.
+          </p>
         </div>
 
         {/* Mobile-only Navigator Dots that smooth-scroll to card */}
