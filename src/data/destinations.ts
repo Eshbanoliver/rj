@@ -105,5 +105,24 @@ export const destinationsData: Destination[] = [
     bestTimeToVisit: "September to February",
     associatedToursCount: 1,
     popularSpots: ["Haldighati Pass", "Chetak Samadhi", "Maharana Pratap Museum"]
+  },
+  {
+    id: "jawai",
+    name: "Jawai",
+    tagline: "The Land of Leopards & Granite Hills",
+    state: "Rajasthan",
+    shortDescription: "Dramatic granite hills, untamed leopard safaris, Jawai Bandh sunsets, and Rabari culture.",
+    longDescription: "Nestled along the Aravali ranges in Pali district, Jawai is world-renowned for its surreal prehistoric granite boulders where wild leopards live in harmony with the pastoral Rabari tribe. Experience open 4x4 gypsy wildlife safaris, birdwatching at Jawai Bandh dam, and starlit wilderness glamping.",
+    image: "/images/hero-jawai.jpg",
+    highlights: [
+      "Open 4x4 Gypsy Leopard Tracking Safari",
+      "Spectacular Jawai Bandh Dam & Sunset Vistas",
+      "Ancient Granite Cave & Hill Formations",
+      "Migratory Bird Watching & Crocodiles",
+      "Indigenous Rabari Pastoral Tribe Encounters"
+    ],
+    bestTimeToVisit: "October to April",
+    associatedToursCount: 1,
+    popularSpots: ["Jawai Bandh Reservoir", "Perwa Hills", "Sena Boulders", "Dev Giri Temple", "Rabari Settlements"]
   }
 ];

@@ -389,6 +389,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
                     <option value="Udaipur">Udaipur</option>
                     <option value="Jaisalmer">Jaisalmer</option>
                     <option value="Jodhpur">Jodhpur</option>
+                    <option value="Jawai">Jawai</option>
                     <option value="Kumbhalgarh">Kumbhalgarh</option>
                     <option value="Haldighati">Haldighati</option>
                   </select>
