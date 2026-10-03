@@ -97,23 +97,31 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Logo & Brand */}
           <button
             onClick={() => handleLinkClick('home')}
-            className="flex items-center gap-2 sm:gap-3 text-left group focus:outline-none min-w-0 shrink cursor-pointer"
+            className="flex items-center gap-2.5 sm:gap-3.5 text-left group focus:outline-none min-w-0 shrink cursor-pointer"
             aria-label="R Journey Tour & Travel Home"
           >
-            <div className="relative w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-white p-1 shadow-xs border border-slate-200/80 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden shrink-0">
-              <img
-                src="/images/r-journey-logo.png"
-                alt="R Journey Tour & Travel Logo"
-                className="w-full h-full object-contain"
-              />
+            {/* Circular Logo with Ambient Blur Glow */}
+            <div className="relative shrink-0">
+              {/* Blur halo backdrop effect */}
+              <div className="absolute -inset-1 sm:-inset-1.5 rounded-full bg-gradient-to-tr from-[#1ca8cb]/45 via-[#189bbd]/30 to-[#113d48]/20 blur-md sm:blur-lg opacity-85 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 pointer-events-none" />
+
+              {/* Circular glassmorphism container */}
+              <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/90 backdrop-blur-md p-1.5 sm:p-2 shadow-[0_8px_25px_-5px_rgba(28,168,203,0.35)] border-2 border-white group-hover:border-[#1ca8cb]/50 flex items-center justify-center transition-all duration-300 group-hover:scale-105 overflow-hidden">
+                <img
+                  src="/images/r-journey-logo.png"
+                  alt="R Journey Tour & Travel Logo"
+                  className="w-full h-full object-contain rounded-full"
+                />
+              </div>
             </div>
+
             <div className="min-w-0">
               <div className="flex items-baseline gap-1">
-                <span className="text-lg sm:text-2xl font-black tracking-tight text-slate-900 font-heading leading-tight truncate">
+                <span className="text-xl sm:text-2xl lg:text-[26px] font-black tracking-tight text-slate-900 font-heading leading-tight truncate">
                   R <span className="text-[#1ca8cb]">Journey</span>
                 </span>
               </div>
-              <p className="text-[9px] sm:text-[10px] tracking-widest uppercase text-[#113d48] font-bold truncate">
+              <p className="text-[9px] sm:text-[11px] tracking-widest uppercase text-[#113d48] font-bold truncate">
                 Tour & Travel
               </p>
             </div>
@@ -174,13 +182,16 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="fixed right-0 top-0 bottom-0 w-[86vw] max-w-sm bg-white border-l border-slate-200 p-5 sm:p-6 flex flex-col justify-between shadow-2xl z-50 overflow-y-auto text-slate-900 animate-fadeInUp">
             <div>
               <div className="flex items-center justify-between pb-5 border-b border-slate-200">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-10 h-10 rounded-xl bg-white p-1 border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden shrink-0">
-                    <img
-                      src="/images/r-journey-logo.png"
-                      alt="R Journey Tour & Travel Logo"
-                      className="w-full h-full object-contain"
-                    />
+                <div className="flex items-center gap-3">
+                  <div className="relative shrink-0">
+                    <div className="absolute -inset-1 rounded-full bg-[#1ca8cb]/40 blur-md opacity-80 pointer-events-none" />
+                    <div className="relative w-12 h-12 rounded-full bg-white/95 backdrop-blur-md p-1.5 border-2 border-white shadow-md flex items-center justify-center overflow-hidden">
+                      <img
+                        src="/images/r-journey-logo.png"
+                        alt="R Journey Tour & Travel Logo"
+                        className="w-full h-full object-contain rounded-full"
+                      />
+                    </div>
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-base font-heading">
