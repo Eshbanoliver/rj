@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PageType } from '../types';
 import { companyData } from '../data/company';
-import { MapPin, Phone, Mail, Clock, ArrowRight, CheckCircle2, Compass } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { InstagramIcon } from './icons';
 
 interface FooterProps {
@@ -185,19 +185,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
             </ul>
           </div>
 
-          {/* Col 4: Contact Info & Hubs (3 cols) */}
+          {/* Col 4: Contact Info (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-sm font-bold font-heading text-[#113d48] uppercase tracking-wider">
-              Contact & Hubs
+              Contact Info
             </h4>
             <div className="space-y-3 text-xs sm:text-sm text-slate-600">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#1ca8cb] shrink-0 mt-0.5" />
                 <span className="leading-snug">{companyData.address.full}</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Compass className="w-4 h-4 text-[#1ca8cb] shrink-0" />
-                <span>Hubs: Ahmedabad & Udaipur</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#1ca8cb] shrink-0" />
