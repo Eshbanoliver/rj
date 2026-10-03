@@ -707,7 +707,7 @@ export const tourPackages: TourPackage[] = [
     ],
     featured: true,
     tourType: "Strangers Trip"
-  }
+  },
 
   // 7. 3D/2N: Udaipur to Jodhpur & Jaisalmer (15 Strangers) — ₹6,999* (Ex-Udaipur)
   {
