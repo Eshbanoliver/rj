@@ -10,6 +10,7 @@ import {
   ArrowRight,
   ShieldCheck,
   Sparkles,
+  FileDown,
 } from 'lucide-react';
 
 interface ToursPageProps {
@@ -281,6 +282,22 @@ export const ToursPage: React.FC<ToursPageProps> = ({
                       </span>
                     </div>
                   </div>
+
+                  {/* Official PDF Brochure Link */}
+                  {tour.brochureUrl && (
+                    <div className="mb-2.5">
+                      <a
+                        href={tour.brochureUrl}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-1.5 px-3 rounded-xl text-[11px] font-bold text-[#113d48] bg-[#1ca8cb]/10 hover:bg-[#1ca8cb]/20 border border-[#1ca8cb]/30 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs hover:scale-[1.01]"
+                      >
+                        <FileDown className="w-3.5 h-3.5 text-[#1ca8cb]" />
+                        <span>Download Brochure (PDF)</span>
+                      </a>
+                    </div>
+                  )}
 
                   <div className="grid grid-cols-2 gap-2">
                     <button

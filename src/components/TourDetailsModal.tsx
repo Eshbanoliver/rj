@@ -10,6 +10,7 @@ import {
   Phone,
   Calendar,
   Sparkles,
+  FileDown,
 } from 'lucide-react';
 
 interface TourDetailsModalProps {
@@ -250,6 +251,20 @@ export const TourDetailsModal: React.FC<TourDetailsModalProps> = ({
                 className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#1ca8cb]"
               />
             </div>
+
+            {/* Official Brochure Download CTA */}
+            {tour.brochureUrl && (
+              <a
+                href={tour.brochureUrl}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-xl font-bold text-xs text-[#113d48] bg-[#1ca8cb]/15 hover:bg-[#1ca8cb]/25 border border-[#1ca8cb]/35 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs hover:scale-[1.01]"
+              >
+                <FileDown className="w-4 h-4 text-[#1ca8cb]" />
+                <span>Download Official PDF Brochure</span>
+              </a>
+            )}
 
             {/* Actions: Book on WhatsApp & Direct Call */}
             <div className="flex flex-col sm:flex-row gap-2 pt-1">

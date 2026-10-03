@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PageType } from '../types';
 import { tourPackages, TourPackage } from '../data/tours';
-import { Clock, MapPin, Star, ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Clock, MapPin, Star, ArrowRight, Sparkles, CheckCircle2, FileDown } from 'lucide-react';
 
 interface FeaturedTourPackagesProps {
   onNavigate: (page: PageType) => void;
@@ -157,13 +157,27 @@ export const FeaturedTourPackages: React.FC<FeaturedTourPackagesProps> = ({
                     <span className="text-[9px] text-slate-400 block font-normal -mt-0.5">/ person</span>
                   </div>
 
-                  <button
-                    onClick={() => onSelectTour(tour)}
-                    className="btn-shimmer min-h-[42px] px-4 py-2 rounded-full bg-[#113d48] group-hover:bg-[#1ca8cb] text-white text-xs font-bold transition-all duration-300 flex items-center gap-1 shadow-md cursor-pointer shrink-0 active:scale-95"
-                  >
-                    <span>Book Now</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  <div className="flex items-center gap-1.5">
+                    {tour.brochureUrl && (
+                      <a
+                        href={tour.brochureUrl}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Download Official PDF Brochure"
+                        className="p-2 rounded-full border border-slate-200 hover:border-[#1ca8cb] text-slate-500 hover:text-[#113d48] bg-slate-50 hover:bg-white transition-all cursor-pointer shadow-2xs hover:scale-105"
+                      >
+                        <FileDown className="w-4 h-4 text-[#1ca8cb]" />
+                      </a>
+                    )}
+                    <button
+                      onClick={() => onSelectTour(tour)}
+                      className="btn-shimmer min-h-[42px] px-4 py-2 rounded-full bg-[#113d48] group-hover:bg-[#1ca8cb] text-white text-xs font-bold transition-all duration-300 flex items-center gap-1 shadow-md cursor-pointer shrink-0 active:scale-95"
+                    >
+                      <span>Book Now</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

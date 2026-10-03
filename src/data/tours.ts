@@ -20,10 +20,12 @@ export interface TourPackage {
   days: number;
   nights: number;
   startingPrice: number;
+  quadSharingPrice?: number;
   tripleSharingPrice: number;
   doubleSharingPrice: number;
   registrationAmount: number;
   departureSchedule: string;
+  brochureUrl?: string;
   batchSchedule: {
     month: string;
     dates: string[];
@@ -58,11 +60,13 @@ export const tourPackages: TourPackage[] = [
     duration: "2 Days | 1 Night",
     days: 2,
     nights: 1,
-    startingPrice: 4500,
-    tripleSharingPrice: 4500,
-    doubleSharingPrice: 5500,
-    registrationAmount: 2000,
-    departureSchedule: "Every Saturday Morning Departure from Ahmedabad (6:00 AM)",
+    startingPrice: 4499,
+    quadSharingPrice: 4499,
+    tripleSharingPrice: 4499,
+    doubleSharingPrice: 5499,
+    registrationAmount: 3500,
+    departureSchedule: "Every Saturday Morning Departure from Nehru Place, Ahmedabad (07:00 AM)",
+    brochureUrl: "/brochure/Ahemdabad%20to%20Udaipur%202d1n%20(2).pdf",
     batchSchedule: [
       {
         month: "October Batches",
@@ -155,10 +159,12 @@ export const tourPackages: TourPackage[] = [
     days: 2,
     nights: 1,
     startingPrice: 4999,
+    quadSharingPrice: 4999,
     tripleSharingPrice: 4999,
-    doubleSharingPrice: 5999,
-    registrationAmount: 2500,
-    departureSchedule: "Every Saturday Morning Departure from Ahmedabad (5:30 AM)",
+    doubleSharingPrice: 6100,
+    registrationAmount: 3500,
+    departureSchedule: "Every Wednesday & Saturday Morning Departure from Ahmedabad (08:00 AM)",
+    brochureUrl: "/brochure/Ahemdabad%20to%20Jawai%202%20days%201%20night.pdf",
     batchSchedule: [
       {
         month: "October Batches",
@@ -255,6 +261,7 @@ export const tourPackages: TourPackage[] = [
     doubleSharingPrice: 8200,
     registrationAmount: 3500,
     departureSchedule: "Every Friday Departure from Ahmedabad (6:00 AM)",
+    brochureUrl: "/brochure/Brochure%20Ex%20Ahmedabad%20to%20Udaipur.pdf",
     batchSchedule: [
       {
         month: "October Batches",
@@ -371,10 +378,12 @@ export const tourPackages: TourPackage[] = [
     days: 3,
     nights: 2,
     startingPrice: 6999,
+    quadSharingPrice: 6999,
     tripleSharingPrice: 6999,
-    doubleSharingPrice: 7999,
-    registrationAmount: 3000,
-    departureSchedule: "Every Friday Departure from Ahmedabad (6:00 AM)",
+    doubleSharingPrice: 8199,
+    registrationAmount: 3150,
+    departureSchedule: "Every Friday Departure (07:00 AM / 05:00 PM) from Nehru Place, Ahmedabad",
+    brochureUrl: "/brochure/Ahemdabad%20to%20Nathdwara.pdf",
     batchSchedule: [
       {
         month: "October Batches",
@@ -486,6 +495,7 @@ export const tourPackages: TourPackage[] = [
     doubleSharingPrice: 8999,
     registrationAmount: 3500,
     departureSchedule: "Every Thursday Night (11:00 PM) Departure from Ahmedabad",
+    brochureUrl: "/brochure/1%20BROUCHRE.pdf",
     batchSchedule: [
       {
         month: "October Batches",
@@ -598,10 +608,12 @@ export const tourPackages: TourPackage[] = [
     days: 3,
     nights: 2,
     startingPrice: 7999,
-    tripleSharingPrice: 7999,
-    doubleSharingPrice: 9200,
-    registrationAmount: 3500,
-    departureSchedule: "Every Thursday Evening Departure from Delhi NCR",
+    quadSharingPrice: 7999,
+    tripleSharingPrice: 8499,
+    doubleSharingPrice: 9499,
+    registrationAmount: 3150,
+    departureSchedule: "Every Thursday Night (10:00 PM) from Gurugram IFFCO Chowk Metro Station, Delhi",
+    brochureUrl: "/brochure/Delhi%20to%20Udaipur.pdf",
     batchSchedule: [
       {
         month: "October Batches",
@@ -696,4 +708,122 @@ export const tourPackages: TourPackage[] = [
     featured: true,
     tourType: "Strangers Trip"
   }
+
+  // 7. 3D/2N: Udaipur to Jodhpur & Jaisalmer (15 Strangers) — ₹6,999* (Ex-Udaipur)
+  {
+    id: "tour-udaipur-jodhpur-jaisalmer-3d2n",
+    slug: "udaipur-to-jodhpur-jaisalmer-strangers-trip",
+    title: "Udaipur to Jodhpur & Jaisalmer — A Trip with 15 Strangers",
+    badge: "Signature Strangers Trip",
+    departureCity: "Udaipur",
+    destinations: ["Jodhpur", "Jaisalmer", "Sam Sand Dunes"],
+    duration: "3 Days | 2 Nights",
+    days: 3,
+    nights: 2,
+    startingPrice: 6999,
+    tripleSharingPrice: 6999,
+    doubleSharingPrice: 7999,
+    registrationAmount: 3500,
+    departureSchedule: "Every Friday Morning Departure from Udaipur (06:00 AM)",
+    brochureUrl: "/brochure/Udaipur%20to%20jaisailmer%20trip%20brochure.pdf",
+    batchSchedule: [
+      {
+        month: "October Batches",
+        dates: ["2nd Oct", "9th Oct", "16th Oct", "23rd Oct", "30th Oct"]
+      },
+      {
+        month: "November Batches",
+        dates: ["6th Nov", "13th Nov", "20th Nov", "27th Nov"]
+      }
+    ],
+    heroImage: "/images/hero-jaisalmer.jpg",
+    galleryImages: [
+      "/images/jodhpur-mehrangarh-sunset.jpg",
+      "/images/jaisalmer-journey-arch.jpg",
+      "/images/hero-jaisalmer.jpg",
+      "/images/hero-jodhpur.jpg"
+    ],
+    tagline: "Where Golden Sands Meet Timeless Stories",
+    overview: "Join our flagship format: A Trip with 15 Strangers departing directly from the City of Lakes. Traverse the blue alleyways of Jodhpur and plunge into the majestic Thar desert at Sam Sand Dunes. Enjoy jeep dune bashing, camel safaris, starlit campfire sessions, and authentic folk performances.",
+    experienceStory: "Depart with 15 like-minded strangers from Udaipur and return with a circle of friends for life. Enjoy Rajasthani hospitality, vibrant desert folk nights, Mehrangarh Fort views, and golden havelis.",
+    itinerary: [
+      {
+        day: 1,
+        title: "Udaipur Departure to Jodhpur & Blue City Heritage",
+        location: "Udaipur to Jodhpur",
+        timing: "Friday 06:00 AM Departure from Udaipur",
+        description: "Depart from Udaipur at 6:00 AM. Arrive in Jodhpur around 11:00 AM–12:00 PM. Check in at hotel, enjoy breakfast, and explore Mehrangarh Fort, Jaswant Thada, and the iconic Blue City. Dinner at hotel followed by overnight journey/prep for Jaisalmer.",
+        highlights: [
+          "Departure from Udaipur at 6:00 AM",
+          "Mehrangarh Fort exploration",
+          "Jaswant Thada cenotaph",
+          "Blue City heritage walk",
+          "Dinner at hotel"
+        ],
+        mealsIncluded: "Breakfast & Dinner",
+        sightseeingNote: "All monument entry fees payable by guests."
+      },
+      {
+        day: 2,
+        title: "Jodhpur to Sam Sand Dunes & Desert Glamping",
+        location: "Jodhpur to Jaisalmer Dunes",
+        timing: "08:00 AM Departure to Jaisalmer Sam Sand Dunes",
+        description: "Depart Jodhpur at 8:00 AM. Arrive at Sam Desert Camp by afternoon (12:00–1:00 PM). Experience traditional Rajasthani welcome, open 4x4 Jeep Safari over dunes, sunset Camel Ride, Kalbelia folk dance, live music around the campfire, and royal Rajasthani dinner under starry skies.",
+        highlights: [
+          "Sam Sand Dunes Luxury Swiss Camp",
+          "Thrilling 4x4 Jeep Safari",
+          "Sunset Camel Caravan",
+          "Folk Dance, Music & Campfire",
+          "Royal Rajasthani Buffet Dinner"
+        ],
+        mealsIncluded: "Breakfast & Dinner",
+        sightseeingNote: "Jeep & Camel safari included in package."
+      },
+      {
+        day: 3,
+        title: "Golden Fort, Patwon Ki Haveli & Return Journey",
+        location: "Jaisalmer to Udaipur",
+        timing: "Morning sightseeing, 08:00 PM departure for return",
+        description: "Post breakfast and camp checkout, visit the living Jaisalmer Fort (Sonar Qila), Patwon Ki Haveli, Gadisar Lake, and explore local desert handicraft bazaars. Depart around 8:00–9:00 PM for Udaipur with dinner en route in bus.",
+        highlights: [
+          "Jaisalmer Golden Living Fort",
+          "Patwon Ki Haveli carving details",
+          "Gadisar Lake tranquil promenade",
+          "Return departure to Udaipur (8:00 PM)"
+        ],
+        mealsIncluded: "Breakfast & Dinner en route",
+        sightseeingNote: "Arrive Udaipur next morning with lifelong memories."
+      }
+    ],
+    inclusions: [
+      "AC Coach / Bus from Udaipur",
+      "01 Night Stay in Jodhpur (Luxury Hotel)",
+      "01 Night Stay in Jaisalmer (Premium Desert Camp)",
+      "Meals (3 Breakfast + 3 Dinner)",
+      "Jeep Safari + Camel Safari in Thar Dunes",
+      "Complete Jodhpur & Jaisalmer Sightseeing",
+      "Tolls, Parking & Driver Allowance"
+    ],
+    exclusions: [
+      "Monument & Fort Entry Tickets",
+      "Local Auto/Jeep where big coach restricted",
+      "Packaged Drinking Water & Personal Rides",
+      "Anything not mentioned in inclusions"
+    ],
+    stayDetails: [
+      {
+        hotelName: "Royal Heritage Jodhpur & Sam Desert Camp",
+        location: "Jodhpur & Thar Dunes",
+        type: "Heritage Hotel & Luxury Swiss Desert Tents",
+        highlights: [
+          "Swiss Luxury Tents with attached washrooms",
+          "Open desert campfire arena",
+          "Traditional folk welcome"
+        ]
+      }
+    ],
+    featured: true,
+    tourType: "Strangers Trip"
+  }
+
 ];

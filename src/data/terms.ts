@@ -111,3 +111,129 @@ export const declarationText = [
   "I acknowledge that R Journey is not liable for the acts, omissions, performance, or services of independent third-party service providers, including hotels, transport providers, guides, taxi operators, or local vendors.",
   "I agree to follow all instructions given by the trip leader, tour captain, or representatives of R Journey. Any misbehavior, violation of laws, drug or alcohol misuse, harassment, or actions endangering others may result in immediate removal without refund."
 ];
+
+export interface CancellationRule {
+  timeline: string;
+  refundPercentage: string;
+  note: string;
+}
+
+export const cancellationPolicyData: CancellationRule[] = [
+  {
+    timeline: "More than 30 Days before departure",
+    refundPercentage: "100% Refund",
+    note: "Excluding standard processing / banking charges."
+  },
+  {
+    timeline: "15 to 30 Days before departure",
+    refundPercentage: "50% Refund",
+    note: "50% of the total tour cost refunded."
+  },
+  {
+    timeline: "7 to 14 Days before departure",
+    refundPercentage: "25% Refund",
+    note: "25% of the total tour cost refunded."
+  },
+  {
+    timeline: "Less than 7 Days before departure",
+    refundPercentage: "No Refund (0%)",
+    note: "100% cancellation charges apply."
+  },
+  {
+    timeline: "No-Show on Departure Day",
+    refundPercentage: "No Refund (0%)",
+    note: "Seat considered forfeited without compensation."
+  }
+];
+
+export interface BrochureDocument {
+  id: string;
+  title: string;
+  origin: string;
+  destinations: string;
+  duration: string;
+  fileName: string;
+  fileUrl: string;
+  sizeMb: string;
+  priceStarting: string;
+}
+
+export const brochuresListData: BrochureDocument[] = [
+  {
+    id: "brochure-1",
+    title: "Ahmedabad to Jodhpur & Jaisalmer (15 Strangers)",
+    origin: "Ahmedabad",
+    destinations: "Jodhpur & Jaisalmer Dunes",
+    duration: "3 Days | 2 Nights",
+    fileName: "1 BROUCHRE.pdf",
+    fileUrl: "/brochure/1%20BROUCHRE.pdf",
+    sizeMb: "15 MB",
+    priceStarting: "₹7,999/-"
+  },
+  {
+    id: "brochure-2",
+    title: "Udaipur to Jodhpur & Jaisalmer (15 Strangers)",
+    origin: "Udaipur",
+    destinations: "Jodhpur & Jaisalmer Dunes",
+    duration: "3 Days | 2 Nights",
+    fileName: "Udaipur to jaisailmer trip brochure.pdf",
+    fileUrl: "/brochure/Udaipur%20to%20jaisailmer%20trip%20brochure.pdf",
+    sizeMb: "16 MB",
+    priceStarting: "₹6,999/-"
+  },
+  {
+    id: "brochure-3",
+    title: "Ahmedabad to Jawai & Kumbhalgarh (Leopard Safari)",
+    origin: "Ahmedabad",
+    destinations: "Jawai Leopard Hills & Kumbhalgarh",
+    duration: "2 Days | 1 Night",
+    fileName: "Ahemdabad to Jawai 2 days 1 night.pdf",
+    fileUrl: "/brochure/Ahemdabad%20to%20Jawai%202%20days%201%20night.pdf",
+    sizeMb: "28 MB",
+    priceStarting: "₹4,999/-"
+  },
+  {
+    id: "brochure-4",
+    title: "Ahmedabad to Nathdwara & Udaipur (Spiritual Circuit)",
+    origin: "Ahmedabad",
+    destinations: "Nathdwara, Shrinathji & Udaipur",
+    duration: "3 Days | 2 Nights",
+    fileName: "Ahemdabad to Nathdwara.pdf",
+    fileUrl: "/brochure/Ahemdabad%20to%20Nathdwara.pdf",
+    sizeMb: "20 MB",
+    priceStarting: "₹6,999/-"
+  },
+  {
+    id: "brochure-5",
+    title: "Ahmedabad to Udaipur Weekend (Palm Valley Resort)",
+    origin: "Ahmedabad",
+    destinations: "Udaipur Old City & Bahubali Hills",
+    duration: "2 Days | 1 Night",
+    fileName: "Ahemdabad to Udaipur 2d1n (2).pdf",
+    fileUrl: "/brochure/Ahemdabad%20to%20Udaipur%202d1n%20(2).pdf",
+    sizeMb: "26 MB",
+    priceStarting: "₹4,499/-"
+  },
+  {
+    id: "brochure-6",
+    title: "Delhi to Udaipur & Kumbhalgarh (Royal Expedition)",
+    origin: "Delhi",
+    destinations: "Udaipur, Aravalis & Kumbhalgarh",
+    duration: "3 Days | 2 Nights",
+    fileName: "Delhi to Udaipur.pdf",
+    fileUrl: "/brochure/Delhi%20to%20Udaipur.pdf",
+    sizeMb: "24 MB",
+    priceStarting: "₹7,999/-"
+  },
+  {
+    id: "brochure-7",
+    title: "Ahmedabad to Udaipur Resort Edition",
+    origin: "Ahmedabad",
+    destinations: "Udaipur & Palm Valley Resort",
+    duration: "3 Days | 2 Nights",
+    fileName: "Brochure Ex Ahmedabad to Udaipur.pdf",
+    fileUrl: "/brochure/Brochure%20Ex%20Ahmedabad%20to%20Udaipur.pdf",
+    sizeMb: "29 MB",
+    priceStarting: "₹5,499/-"
+  }
+];
