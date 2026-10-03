@@ -227,28 +227,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
 
       {/* Bottom Bar */}
       <div className="bg-[#113d48] text-white py-4 pb-20 sm:pb-4 text-xs border-t border-[#1a4a56]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-slate-300 text-center sm:text-left text-[11px] sm:text-xs leading-relaxed">
-            Powered by{' '}
-            <a
-              href="https://www.futurexdigitalmarketing.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#28a745' }}
-              className="hover:underline font-semibold"
-            >
-              FutureX Digital Marketing
-            </a>
-          </p>
-
-          <div>
-            <button
-              onClick={onOpenTerms}
-              className="text-slate-300 hover:text-white transition-colors cursor-pointer text-xs underline sm:no-underline py-1.5 px-3 rounded-lg hover:bg-white/10"
-            >
-              Terms & Policy
-            </button>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+          <button
+            onClick={onOpenTerms}
+            className="text-slate-300 hover:text-white transition-colors cursor-pointer text-xs underline sm:no-underline py-1.5 px-3 rounded-lg hover:bg-white/10"
+          >
+            Terms & Policy
+          </button>
         </div>
       </div>
     </footer>
