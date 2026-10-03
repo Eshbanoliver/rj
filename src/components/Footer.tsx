@@ -28,6 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
     { label: 'Tour Packages', page: 'trips' },
     { label: 'Recent Gallery', page: 'gallery' },
     { label: 'Contact Us', page: 'contact' },
+    { label: 'Declaration & Terms', page: 'declaration' },
   ];
 
   const categories = [
@@ -229,10 +230,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
       <div className="bg-[#113d48] text-white py-4 pb-20 sm:pb-4 text-xs border-t border-[#1a4a56]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
           <button
-            onClick={onOpenTerms}
-            className="text-slate-300 hover:text-white transition-colors cursor-pointer text-xs underline sm:no-underline py-1.5 px-3 rounded-lg hover:bg-white/10"
+            onClick={() => {
+              onNavigate('declaration');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="text-slate-300 hover:text-white transition-colors cursor-pointer text-xs underline sm:no-underline py-1.5 px-3 rounded-lg hover:bg-white/10 font-medium"
           >
-            Terms & Policy
+            Declaration & Terms of Service
           </button>
         </div>
       </div>

@@ -5,7 +5,8 @@ export type PageType =
   | 'gallery' 
   | 'trips' 
   | 'contact' 
-  | 'terms';
+  | 'terms'
+  | 'declaration';
 
 export interface SearchQuery {
   destination: string;

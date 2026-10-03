@@ -28,6 +28,7 @@ import { AboutPage } from './pages/AboutPage';
 import { DestinationsPage } from './pages/DestinationsPage';
 import { ToursPage } from './pages/ToursPage';
 import { ContactPage } from './pages/ContactPage';
+import { DeclarationPage } from './pages/DeclarationPage';
 
 const getInitialPage = (): PageType => {
   if (typeof window === 'undefined') return 'home';
@@ -38,6 +39,7 @@ const getInitialPage = (): PageType => {
   if (path === 'gallery') return 'gallery';
   if (path === 'contact') return 'contact';
   if (path === 'terms') return 'terms';
+  if (path === 'declaration') return 'declaration';
   return 'home';
 };
 
@@ -205,10 +207,11 @@ export function App() {
 
         {currentPage === 'contact' && <ContactPage />}
 
-        {currentPage === 'terms' && (
-          <div className="pt-28 pb-16">
-            <TermsModal isOpen={true} onClose={() => handleNavigate('home')} />
-          </div>
+        {(currentPage === 'terms' || currentPage === 'declaration') && (
+          <DeclarationPage
+            onNavigate={handleNavigate}
+            onOpenInquiry={handleOpenInquiry}
+          />
         )}
       </main>
 
