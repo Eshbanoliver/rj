@@ -5,7 +5,6 @@ import {
   MapPin,
   Calendar,
   Users,
-  Compass,
   Search,
   Play,
   Pause,
@@ -13,7 +12,10 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronDown,
+  Download,
+  CheckCircle2,
 } from 'lucide-react';
+import { tourPackages } from '../data/tours';
 
 interface HeroProps {
   onNavigate: (page: PageType) => void;
@@ -86,14 +88,52 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [selectedDestination, setSelectedDestination] = useState<string>('all');
-  const [selectedTourType, setSelectedTourType] = useState<string>('all');
-  const [selectedDuration, setSelectedDuration] = useState<string>('all');
+  const [selectedPackageId, setSelectedPackageId] = useState<string>(tourPackages[0]?.id || '');
   const [travelers, setTravelers] = useState<number>(1);
+  const [isDownloaded, setIsDownloaded] = useState<boolean>(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
   const pillRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const pillsContainerRef = useRef<HTMLDivElement>(null);
+
+  const destinationOptions = [
+    { value: 'all', label: 'All Places' },
+    { value: 'Udaipur', label: 'Udaipur' },
+    { value: 'Jaisalmer', label: 'Jaisalmer' },
+    { value: 'Jodhpur', label: 'Jodhpur' },
+    { value: 'Jawai', label: 'Jawai' },
+    { value: 'Kumbhalgarh', label: 'Kumbhalgarh' },
+    { value: 'Nathdwara', label: 'Nathdwara' },
+    { value: 'Delhi', label: 'Delhi' },
+  ];
+
+  // Filter packages based on selected destination
+  const getFilteredPackages = (dest: string) => {
+    if (dest === 'all') return tourPackages;
+    return tourPackages.filter((tour) => {
+      const dLower = dest.toLowerCase();
+      const matchDest = tour.destinations.some((d) => d.toLowerCase().includes(dLower));
+      const matchTitle = tour.title.toLowerCase().includes(dLower);
+      const matchDep = tour.departureCity.toLowerCase().includes(dLower);
+      return matchDest || matchTitle || matchDep;
+    });
+  };
+
+  const currentFilteredPackages = getFilteredPackages(selectedDestination);
+
+  const handleDestinationChange = (newDest: string) => {
+    setSelectedDestination(newDest);
+    const pkgs = getFilteredPackages(newDest);
+    if (pkgs.length > 0) {
+      setSelectedPackageId(pkgs[0].id);
+    }
+  };
+
+  const activeTour =
+    tourPackages.find((t) => t.id === selectedPackageId) ||
+    currentFilteredPackages[0] ||
+    tourPackages[0];
 
   // Auto-play timer for crossfade slides
   useEffect(() => {
@@ -167,14 +207,36 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
 
   const currentSlide = heroSlides[currentSlideIndex];
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  // Handle direct download of the selected package PDF
+  const handleDownloadBrochure = (e?: React.MouseEvent | React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (!activeTour?.brochureUrl) return;
+
+    const link = document.createElement('a');
+    link.href = activeTour.brochureUrl;
+    const rawFileName = activeTour.brochureUrl.split('/').pop() || 'RJ-Brochure.pdf';
+    link.download = decodeURIComponent(rawFileName);
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setIsDownloaded(true);
+    setTimeout(() => {
+      setIsDownloaded(false);
+    }, 2500);
+  };
+
+  // Optional online tours search
+  const handleSearchSubmit = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     onSearch({
       destination: selectedDestination,
-      departureCity: 'all',
+      departureCity: activeTour?.departureCity || 'all',
       travelDate: '',
       travelers: Number(travelers),
-      tourType: selectedTourType,
+      tourType: activeTour?.tourType || 'all',
     });
     onNavigate('trips');
   };
@@ -361,126 +423,129 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, onSearch, onOpenInquiry 
           </div>
         </div>
 
-        {/* Floating Search Filter Bar Overlapping Bottom */}
+        {/* Floating Search & Download Bar Overlapping Bottom */}
         <div className="relative z-30 max-w-5xl mx-auto px-3 sm:px-6 w-full -mb-10 sm:-mb-12">
           <form
-            onSubmit={handleSearchSubmit}
+            onSubmit={handleDownloadBrochure}
             className="bg-white rounded-2xl lg:rounded-full shadow-2xl hover:shadow-[0_25px_60px_-12px_rgba(28,168,203,0.3)] transition-all duration-500 p-2.5 sm:p-4 lg:p-3 border border-slate-100 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-2.5 sm:gap-3 text-slate-800"
           >
-            {/* Mobile 2x2 Grid / Desktop 4-col Inline Fields */}
-            <div className="grid grid-cols-2 lg:flex lg:flex-1 items-stretch lg:items-center gap-2 sm:gap-3">
-              {/* Field 1: Destination */}
-              <div className="lg:w-1/4 px-2.5 sm:px-3 py-2 lg:py-1 rounded-xl lg:rounded-none bg-slate-50/80 lg:bg-transparent border border-slate-100/90 lg:border-0 lg:border-r lg:border-slate-100 group transition-colors hover:bg-[#f0f9fb] lg:hover:bg-transparent flex flex-col justify-center">
+            {/* 3 Columns Grid / Desktop Inline Fields */}
+            <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row lg:flex-1 items-stretch lg:items-center gap-2 sm:gap-3">
+              {/* Field 1: Where to? */}
+              <div className="sm:col-span-1 lg:w-[26%] px-2.5 sm:px-3 py-2 lg:py-1 rounded-xl lg:rounded-none bg-slate-50/80 lg:bg-transparent border border-slate-100/90 lg:border-0 lg:border-r lg:border-slate-100 group transition-colors hover:bg-[#f0f9fb] lg:hover:bg-transparent flex flex-col justify-center">
                 <div className="flex items-center gap-1.5 mb-1 lg:mb-0">
                   <div className="w-5 h-5 lg:w-9 lg:h-9 rounded-full bg-[#1ca8cb]/10 lg:bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/20 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
                     <MapPin className="w-3 h-3 lg:w-4 lg:h-4 group-hover:rotate-6 transition-transform" />
                   </div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
+                  <label htmlFor="hero-destination-select" className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
                     Where to?
                   </label>
                 </div>
                 <div className="relative pl-0 lg:pl-10 lg:-mt-2 flex items-center">
                   <select
+                    id="hero-destination-select"
                     value={selectedDestination}
-                    onChange={(e) => setSelectedDestination(e.target.value)}
+                    onChange={(e) => handleDestinationChange(e.target.value)}
                     className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-0.5 pr-4 appearance-none"
                   >
-                    <option value="all">All Places</option>
-                    <option value="Udaipur">Udaipur</option>
-                    <option value="Jaisalmer">Jaisalmer</option>
-                    <option value="Jodhpur">Jodhpur</option>
-                    <option value="Jawai">Jawai</option>
-                    <option value="Kumbhalgarh">Kumbhalgarh</option>
-                    <option value="Haldighati">Haldighati</option>
+                    {destinationOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </option>
+                    ))}
                   </select>
                   <ChevronDown className="w-3 h-3 text-slate-400 absolute right-0 pointer-events-none" />
                 </div>
               </div>
 
-              {/* Field 2: Tour Type */}
-              <div className="lg:w-1/4 px-2.5 sm:px-3 py-2 lg:py-1 rounded-xl lg:rounded-none bg-slate-50/80 lg:bg-transparent border border-slate-100/90 lg:border-0 lg:border-r lg:border-slate-100 group transition-colors hover:bg-[#f0f9fb] lg:hover:bg-transparent flex flex-col justify-center">
-                <div className="flex items-center gap-1.5 mb-1 lg:mb-0">
-                  <div className="w-5 h-5 lg:w-9 lg:h-9 rounded-full bg-[#1ca8cb]/10 lg:bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/20 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
-                    <Compass className="w-3 h-3 lg:w-4 lg:h-4 group-hover:rotate-45 transition-transform" />
-                  </div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
-                    Tour Type
-                  </label>
-                </div>
-                <div className="relative pl-0 lg:pl-10 lg:-mt-2 flex items-center">
-                  <select
-                    value={selectedTourType}
-                    onChange={(e) => setSelectedTourType(e.target.value)}
-                    className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-0.5 pr-4 appearance-none"
-                  >
-                    <option value="all">All Tours</option>
-                    <option value="Strangers Trip">15 Strangers</option>
-                    <option value="Group Trip">Group Trip</option>
-                    <option value="Customise Trip">Custom Trip</option>
-                  </select>
-                  <ChevronDown className="w-3 h-3 text-slate-400 absolute right-0 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Field 3: Duration */}
-              <div className="lg:w-1/4 px-2.5 sm:px-3 py-2 lg:py-1 rounded-xl lg:rounded-none bg-slate-50/80 lg:bg-transparent border border-slate-100/90 lg:border-0 lg:border-r lg:border-slate-100 group transition-colors hover:bg-[#f0f9fb] lg:hover:bg-transparent flex flex-col justify-center">
+              {/* Field 2: Day & Night Choice (According to place and package) */}
+              <div className="sm:col-span-2 lg:w-[48%] px-2.5 sm:px-3 py-2 lg:py-1 rounded-xl lg:rounded-none bg-slate-50/80 lg:bg-transparent border border-slate-100/90 lg:border-0 lg:border-r lg:border-slate-100 group transition-colors hover:bg-[#f0f9fb] lg:hover:bg-transparent flex flex-col justify-center">
                 <div className="flex items-center gap-1.5 mb-1 lg:mb-0">
                   <div className="w-5 h-5 lg:w-9 lg:h-9 rounded-full bg-[#1ca8cb]/10 lg:bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/20 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
                     <Calendar className="w-3 h-3 lg:w-4 lg:h-4 group-hover:scale-110 transition-transform" />
                   </div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
-                    Duration
-                  </label>
+                  <div className="flex items-center justify-between w-full pr-1">
+                    <label htmlFor="hero-day-night-select" className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
+                      Day & Night Choice
+                    </label>
+                    <span className="hidden sm:inline-block text-[9px] font-semibold text-[#1ca8cb] bg-[#1ca8cb]/10 px-1.5 py-0.5 rounded">
+                      {currentFilteredPackages.length} {currentFilteredPackages.length === 1 ? 'Package' : 'Packages'}
+                    </span>
+                  </div>
                 </div>
                 <div className="relative pl-0 lg:pl-10 lg:-mt-2 flex items-center">
                   <select
-                    value={selectedDuration}
-                    onChange={(e) => setSelectedDuration(e.target.value)}
+                    id="hero-day-night-select"
+                    value={activeTour?.id || ''}
+                    onChange={(e) => setSelectedPackageId(e.target.value)}
                     className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-0.5 pr-4 appearance-none"
                   >
-                    <option value="all">Any Duration</option>
-                    <option value="2D1N">2D | 1N</option>
-                    <option value="3D2N">3D | 2N</option>
-                    <option value="5D4N">5D | 4N</option>
+                    {currentFilteredPackages.map((tour) => (
+                      <option key={tour.id} value={tour.id}>
+                        {tour.duration} — {tour.title.split('—')[0].trim()} ({tour.departureCity})
+                      </option>
+                    ))}
                   </select>
                   <ChevronDown className="w-3 h-3 text-slate-400 absolute right-0 pointer-events-none" />
                 </div>
               </div>
 
-              {/* Field 4: Travelers */}
-              <div className="lg:w-1/4 px-2.5 sm:px-3 py-2 lg:py-1 rounded-xl lg:rounded-none bg-slate-50/80 lg:bg-transparent border border-slate-100/90 lg:border-0 group transition-colors hover:bg-[#f0f9fb] lg:hover:bg-transparent flex flex-col justify-center">
+              {/* Field 3: No. of Guests */}
+              <div className="sm:col-span-1 lg:w-[26%] px-2.5 sm:px-3 py-2 lg:py-1 rounded-xl lg:rounded-none bg-slate-50/80 lg:bg-transparent border border-slate-100/90 lg:border-0 group transition-colors hover:bg-[#f0f9fb] lg:hover:bg-transparent flex flex-col justify-center">
                 <div className="flex items-center gap-1.5 mb-1 lg:mb-0">
                   <div className="w-5 h-5 lg:w-9 lg:h-9 rounded-full bg-[#1ca8cb]/10 lg:bg-[#f0f9fb] group-hover:bg-[#1ca8cb]/20 group-hover:scale-105 transition-all duration-300 flex items-center justify-center text-[#1ca8cb] shrink-0">
                     <Users className="w-3 h-3 lg:w-4 lg:h-4 group-hover:scale-110 transition-transform" />
                   </div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
-                    Travelers
+                  <label htmlFor="hero-guests-select" className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
+                    No. of Guests
                   </label>
                 </div>
                 <div className="relative pl-0 lg:pl-10 lg:-mt-2 flex items-center">
                   <select
+                    id="hero-guests-select"
                     value={travelers}
                     onChange={(e) => setTravelers(Number(e.target.value))}
                     className="w-full bg-transparent text-xs sm:text-sm font-bold text-[#113d48] focus:outline-none cursor-pointer truncate py-0.5 pr-4 appearance-none"
                   >
-                    <option value={1}>1 Guest</option>
-                    <option value={2}>2 Guests</option>
-                    <option value={3}>3 Guests</option>
-                    <option value={4}>4+ Guests</option>
+                    <option value={1}>1 Guest (Solo)</option>
+                    <option value={2}>2 Guests (Double Sharing)</option>
+                    <option value={3}>3 Guests (Triple Sharing)</option>
+                    <option value={4}>4+ Guests (Quad / Group)</option>
                   </select>
                   <ChevronDown className="w-3 h-3 text-slate-400 absolute right-0 pointer-events-none" />
                 </div>
               </div>
             </div>
 
-            {/* Submit Button: Cyan Pill */}
-            <div className="w-full lg:w-auto shrink-0 pt-0.5 lg:pt-0">
+            {/* Action Buttons: Download PDF (Primary) + Search (Companion) */}
+            <div className="flex items-center gap-2 w-full lg:w-auto shrink-0 pt-0.5 lg:pt-0">
               <button
                 type="submit"
-                className="btn-shimmer min-h-[46px] lg:min-h-[44px] w-full lg:w-auto px-7 py-3 rounded-xl lg:rounded-full bg-[#1ca8cb] hover:bg-[#113d48] text-white text-xs sm:text-sm font-bold shadow-lg shadow-[#1ca8cb]/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 group/search"
+                id="hero-download-pdf-btn"
+                title={activeTour?.brochureUrl ? `Download Official PDF: ${decodeURIComponent(activeTour.brochureUrl.split('/').pop() || '')}` : 'Download Package PDF'}
+                className="btn-shimmer min-h-[46px] lg:min-h-[44px] flex-1 lg:flex-initial px-6 py-3 rounded-xl lg:rounded-full bg-[#1ca8cb] hover:bg-[#113d48] text-white text-xs sm:text-sm font-bold shadow-lg shadow-[#1ca8cb]/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 group/download"
+              >
+                {isDownloaded ? (
+                  <>
+                    <CheckCircle2 className="w-4 h-4 text-emerald-300 animate-bounce" />
+                    <span>PDF Downloading!</span>
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-4 h-4 group-hover/download:translate-y-0.5 transition-transform" />
+                    <span>Download PDF</span>
+                  </>
+                )}
+              </button>
+
+              <button
+                type="button"
+                onClick={handleSearchSubmit}
+                id="hero-search-tours-btn"
+                title="Explore Tours Online"
+                className="min-h-[46px] lg:min-h-[44px] w-[46px] lg:w-[44px] rounded-xl lg:rounded-full bg-slate-100 hover:bg-[#1ca8cb] text-slate-600 hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer shrink-0 group/search shadow-sm"
               >
                 <Search className="w-4 h-4 group-hover/search:scale-110 transition-transform" />
-                <span>Search Tours</span>
               </button>
             </div>
           </form>
