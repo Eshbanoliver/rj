@@ -63,9 +63,9 @@ export const companyData: CompanyInfo = {
       description: "Intimate curated batches designed for maximum bonding and real community connection."
     },
     {
-      label: "Departure Hubs",
-      value: "Ahmedabad & Udaipur",
-      description: "Convenient weekly AC coach departures every Thursday & Friday."
+      label: "Experience",
+      value: "2+ Years",
+      description: "Over two years of crafting authentic group and strangers adventures across Rajasthan."
     },
     {
       label: "Advance Booking",
@@ -73,9 +73,9 @@ export const companyData: CompanyInfo = {
       description: "Lock your guaranteed seat with an easy advance deposit adjusted against final cost."
     },
     {
-      label: "Traveler Community",
-      value: "Loved Across India",
-      description: "Solo travelers, college groups, corporate peers and young explorers across the nation."
+      label: "Curated Batches",
+      value: "100+ Batches",
+      description: "Over 100 successful group journeys conducted with 1,200+ travelers turned into lifelong friends."
     }
   ],
   pillars: [
