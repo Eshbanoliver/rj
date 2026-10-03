@@ -155,7 +155,7 @@ export function App() {
               onNavigate={handleNavigate}
             />
 
-            {/* 7. Circular Statistics (12+, 97%, 8k, 19k) */}
+            {/* 7. Circular Statistics (2+, 97%, 100+, 19k) */}
             <StatsSection />
 
             {/* 8. What Client Say About us (Testimonials with center card highlighted) */}
