@@ -239,6 +239,17 @@
   animation-play-state: paused;
 }
 
+.animate-marquee-testimonials {
+  display: flex;
+  width: max-content;
+  animation: marquee 52s linear infinite;
+}
+
+.animate-marquee-testimonials.paused,
+.animate-marquee-testimonials:hover {
+  animation-play-state: paused;
+}
+
 .btn-shimmer {
   position: relative;
   overflow: hidden;
