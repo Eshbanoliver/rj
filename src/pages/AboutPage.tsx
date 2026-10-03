@@ -48,7 +48,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenInquiry 
             <span>Official About R Journey</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading text-white tracking-tight">
-            About <span className="text-[#1ca8cb]">R Journey</span>
+            About <span className="text-[#1ca8cb]">R जourney</span>
           </h1>
           <p className="mt-3 sm:mt-4 text-sm sm:text-xl font-medium text-slate-200 max-w-2xl mx-auto px-2">
             "Where Strangers Meet, Stories Begin & Memories Last Forever."
@@ -82,7 +82,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenInquiry 
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#113d48] uppercase">
               <Compass className="w-3.5 h-3.5 text-[#1ca8cb]" />
-              <span>The R Journey Story</span>
+              <span>The R जourney Story</span>
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-black font-heading text-slate-900 tracking-tight leading-tight">
@@ -90,7 +90,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenInquiry 
             </h2>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Headquartered in the royal City of Lakes (Udaipur, Rajasthan), <strong>R Journey Tour & Travel</strong> was founded with a singular conviction: <em>the richest part of travel is not just the places you see, but the people you experience them with.</em>
+              Headquartered in the royal City of Lakes (Udaipur, Rajasthan), <strong>R जourney Tour & Travel</strong> was founded with a singular conviction: <em>the richest part of travel is not just the places you see, but the people you experience them with.</em>
             </p>
 
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">

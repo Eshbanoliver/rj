@@ -34,7 +34,7 @@ export interface CompanyInfo {
 }
 
 export const companyData: CompanyInfo = {
-  name: "R Journey Tour & Travel",
+  name: "R जourney Tour & Travel",
   tagline: "Where Strangers Become Stories",
   secondaryTagline: "Where Golden Sands Meet Timeless Stories",
   philosophy: "We believe that travel is not just about visiting places — it's about the people you meet along the way. Our handcrafted social group journeys bring together 15 adventurous strangers to explore majestic Rajasthan, turning shared moments into lifelong friendships.",

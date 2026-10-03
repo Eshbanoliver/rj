@@ -97,7 +97,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenTerms }) => {
               </div>
               <div>
                 <h4 className="text-xl font-black font-heading text-[#113d48] group-hover:text-[#1ca8cb] transition-colors tracking-tight">
-                  R Journey
+                  R <span className="text-[#1ca8cb]">जourney</span>
                 </h4>
                 <p className="text-[10px] tracking-widest uppercase text-[#1ca8cb] font-bold">
                   Tour & Travel

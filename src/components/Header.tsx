@@ -118,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="min-w-0">
               <div className="flex items-baseline gap-1">
                 <span className="text-xl sm:text-2xl lg:text-[28px] font-black tracking-tight text-slate-900 font-heading leading-tight truncate">
-                  R <span className="text-[#1ca8cb]">Journey</span>
+                  R <span className="text-[#1ca8cb]">जourney</span>
                 </span>
               </div>
               <p className="text-[10px] sm:text-xs tracking-widest uppercase text-[#113d48] font-bold truncate">
