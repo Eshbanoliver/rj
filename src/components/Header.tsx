@@ -89,8 +89,8 @@ export const Header: React.FC<HeaderProps> = ({
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5 sm:py-3 border-b border-slate-200/90'
-            : 'bg-white/90 backdrop-blur-sm py-3 sm:py-4 border-b border-slate-200/60'
+            ? 'bg-white/95 backdrop-blur-md shadow-md py-1.5 sm:py-2 border-b border-slate-200/90'
+            : 'bg-white/90 backdrop-blur-sm py-2 sm:py-2.5 border-b border-slate-200/60'
         }`}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2">
@@ -103,10 +103,10 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Circular Logo with Ambient Blur Glow */}
             <div className="relative shrink-0">
               {/* Blur halo backdrop effect */}
-              <div className="absolute -inset-1 sm:-inset-1.5 rounded-full bg-gradient-to-tr from-[#1ca8cb]/45 via-[#189bbd]/30 to-[#113d48]/20 blur-md sm:blur-lg opacity-85 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 pointer-events-none" />
+              <div className="absolute -inset-1.5 sm:-inset-2 rounded-full bg-gradient-to-tr from-[#1ca8cb]/50 via-[#189bbd]/35 to-[#113d48]/25 blur-lg sm:blur-xl opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 pointer-events-none" />
 
               {/* Circular glassmorphism container */}
-              <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/90 backdrop-blur-md p-1.5 sm:p-2 shadow-[0_8px_25px_-5px_rgba(28,168,203,0.35)] border-2 border-white group-hover:border-[#1ca8cb]/50 flex items-center justify-center transition-all duration-300 group-hover:scale-105 overflow-hidden">
+              <div className="relative w-14 h-14 sm:w-20 sm:h-20 lg:w-22 lg:h-22 rounded-full bg-white/95 backdrop-blur-md p-1 sm:p-1.5 shadow-[0_10px_30px_-5px_rgba(28,168,203,0.4)] border-2 border-white group-hover:border-[#1ca8cb]/60 flex items-center justify-center transition-all duration-300 group-hover:scale-105 overflow-hidden">
                 <img
                   src="/images/r-journey-logo.png"
                   alt="R Journey Tour & Travel Logo"
@@ -117,11 +117,11 @@ export const Header: React.FC<HeaderProps> = ({
 
             <div className="min-w-0">
               <div className="flex items-baseline gap-1">
-                <span className="text-xl sm:text-2xl lg:text-[26px] font-black tracking-tight text-slate-900 font-heading leading-tight truncate">
+                <span className="text-xl sm:text-2xl lg:text-[28px] font-black tracking-tight text-slate-900 font-heading leading-tight truncate">
                   R <span className="text-[#1ca8cb]">Journey</span>
                 </span>
               </div>
-              <p className="text-[9px] sm:text-[11px] tracking-widest uppercase text-[#113d48] font-bold truncate">
+              <p className="text-[10px] sm:text-xs tracking-widest uppercase text-[#113d48] font-bold truncate">
                 Tour & Travel
               </p>
             </div>
