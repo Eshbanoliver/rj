@@ -197,7 +197,7 @@ export const tourPackages: TourPackage[] = [
           "Jawai Dam sunset & crocodile spotting",
           "Evening campfire buffet dinner under the stars"
         ],
-        mealsIncluded: "Breakfast & Campfire Dinner",
+        mealsIncluded: "Dinner",
         sightseeingNote: "Jawai Gypsy Safari coordination included. Wildlife permits on guest expense."
       },
       {
@@ -212,19 +212,20 @@ export const tourPackages: TourPackage[] = [
           "Aravali Wildlife Sanctuary valley drive",
           "Return journey to Ahmedabad"
         ],
-        mealsIncluded: "Breakfast & Lunch",
-        sightseeingNote: "Fort entry tickets payable by guests."
+        mealsIncluded: "Breakfast",
+        sightseeingNote: "Fort entry tickets payable by guests. Lunch on own expense."
       }
     ],
     inclusions: [
       "Sanitized AC Bus / Tempo (Ex-Ahmedabad)",
       "01 Night Stay in Jawai / Kumbhalgarh Wilderness Resort",
-      "Meals (2 Breakfast + 1 Lunch + 1 Dinner)",
+      "Meals (1 Breakfast + 1 Dinner)",
       "Jawai 4x4 Gypsy Safari Coordination",
       "Complete Kumbhalgarh Fort Sightseeing",
       "All Tolls, Parking & Driver Allowance"
     ],
     exclusions: [
+      "Lunch & Highway Refreshments",
       "Kumbhalgarh Fort Entry Tickets",
       "Any Individual Forest / Safari Entry Fees",
       "Personal Expenses & Mineral Water"
