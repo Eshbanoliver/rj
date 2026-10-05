@@ -9,6 +9,86 @@ export interface GalleryItem {
 
 export const galleryItems: GalleryItem[] = [
   {
+    id: "g-rayta-arms",
+    title: "Arms Wide Open at Rayta Hills",
+    category: "Community",
+    image: "/pictures/IMG_E4609.JPG.jpeg",
+    location: "Rayta Hills, Udaipur",
+    caption: "Feeling on top of the world with the 15 Strangers travel tribe amidst scenic Aravali valleys."
+  },
+  {
+    id: "g-haldighati-cheers",
+    title: "Cheering at Historic Haldighati Pass",
+    category: "Experiences",
+    image: "/pictures/IMG_5960.JPG.jpeg",
+    location: "Haldighati Pass, Rajasthan",
+    caption: "High energy vibes and triumphant cheers against the legendary yellow ochre canyon rocks."
+  },
+  {
+    id: "g-rayta-smiles",
+    title: "Summit Smiles & Scenic Peaks",
+    category: "Community",
+    image: "/pictures/IMG_E4612.JPG.jpeg",
+    location: "Rayta Hills, Udaipur",
+    caption: "Basking in the morning mountain breeze and panoramic vistas with newly made lifelong friends."
+  },
+  {
+    id: "g-haldighati-squad",
+    title: "Haldighati Pass Canyon Tribe",
+    category: "Destinations",
+    image: "/pictures/IMG_5959.JPG.jpeg",
+    location: "Haldighati, Rajasthan",
+    caption: "Walking through centuries of Mewar heritage surrounded by dramatic ochre rock passes."
+  },
+  {
+    id: "g-bus-energy",
+    title: "Traveller Bus Anthems & Smiles",
+    category: "Community",
+    image: "/pictures/IMG_4569.JPG.jpeg",
+    location: "Rajasthan Highways",
+    caption: "Unfiltered road trip joy, antakshari, and non-stop laughter inside our luxury AC Traveller."
+  },
+  {
+    id: "g-roadtrip-peace",
+    title: "Highway Peace & Wanderlust",
+    category: "Experiences",
+    image: "/pictures/IMG_4571.JPG.jpeg",
+    location: "En Route Udaipur",
+    caption: "Every milestone brings 15 strangers closer as the scenic highway unfolds."
+  },
+  {
+    id: "g-luxury-commute",
+    title: "Luxury Traveller Recliner Comfort",
+    category: "Experiences",
+    image: "/pictures/IMG_6012.JPG.jpeg",
+    location: "Luxury AC Traveller",
+    caption: "Spacious pushback seats ensuring every traveller stays relaxed and adventure-ready."
+  },
+  {
+    id: "g-rayta-panorama",
+    title: "Panoramic Rayta Hilltop Gathering",
+    category: "Destinations",
+    image: "/pictures/IMG_4607.JPG.jpeg",
+    location: "Rayta Hills, Udaipur",
+    caption: "Rolling green valleys and winding hill roads creating the ultimate backdrop for memories."
+  },
+  {
+    id: "g-roadtrip-comfort",
+    title: "Cruising Rajasthan in Comfort",
+    category: "Experiences",
+    image: "/pictures/IMG_6013.JPG.jpeg",
+    location: "Luxury AC Traveller",
+    caption: "Chilled AC, smooth suspension, and scenic highway views connecting royal destinations."
+  },
+  {
+    id: "g-rayta-selfie",
+    title: "Aravali Ridge Selfies",
+    category: "Community",
+    image: "/pictures/IMG_4612.JPG.jpeg",
+    location: "Rayta Hills, Udaipur",
+    caption: "Candid smiles framed by panoramic hill country skies."
+  },
+  {
     id: "g1",
     title: "15 Strangers at Gangaur Ghat",
     category: "Community",

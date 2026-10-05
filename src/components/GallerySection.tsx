@@ -17,10 +17,10 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
   // Home page recent items
   const homeImages = [
     {
-      id: 'g-lake',
-      title: 'Lakeside Rooftop Moments',
-      location: 'Udaipur, Rajasthan',
-      image: '/images/palm-valley-dinner.jpg',
+      id: 'g-bus-energy',
+      title: 'Traveller Bus Anthems & Smiles',
+      location: 'Luxury AC Traveller',
+      image: '/pictures/IMG_4569.JPG.jpeg',
     },
     {
       id: 'g-bahubali',
@@ -29,10 +29,10 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
       image: '/images/hero-udaipur.jpg',
     },
     {
-      id: 'g-center-strangers',
-      title: '15 Strangers Sunset Gathering',
-      location: 'Aravali Hills, Udaipur',
-      image: '/images/strangers-sunset-community.jpg',
+      id: 'g-rayta-arms',
+      title: 'Arms Wide Open at Rayta Hills',
+      location: 'Rayta Hills, Udaipur',
+      image: '/pictures/IMG_E4609.JPG.jpeg',
     },
     {
       id: 'g-mehrangarh',
@@ -47,10 +47,10 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
       image: '/images/jaisalmer-journey-arch.jpg',
     },
     {
-      id: 'g-pool',
-      title: 'Palm Valley Night Pool Party',
-      location: 'Udaipur, Rajasthan',
-      image: '/images/dj-pool-party.jpg',
+      id: 'g-haldighati-cheers',
+      title: 'Cheering at Haldighati Pass',
+      location: 'Haldighati, Rajasthan',
+      image: '/pictures/IMG_5960.JPG.jpeg',
     },
   ];
 
